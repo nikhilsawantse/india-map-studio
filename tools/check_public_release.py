@@ -91,6 +91,21 @@ def main() -> int:
                 errors.append(
                     f"{html_path.name} references a missing file: {reference}"
                 )
+                continue
+            if target.is_dir():
+                target = target / "index.html"
+            try:
+                tracked_reference = target.relative_to(ROOT).as_posix()
+            except ValueError:
+                errors.append(
+                    f"{html_path.name} references a file outside the repository: "
+                    f"{reference}"
+                )
+                continue
+            if tracked and tracked_reference not in tracked:
+                errors.append(
+                    f"{html_path.name} references an untracked file: {reference}"
+                )
 
     state_maps = sorted((ROOT / "assets/maps/states").glob("*.svg"))
     if len(state_maps) != 36:
