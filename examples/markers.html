@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Accessible SVG region marker example for India Map Studio." />
+    <title>Marker example &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="examples.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span><strong>India Map Studio</strong><small>Marker recipe</small></span>
+      </a>
+      <nav class="header-actions" aria-label="Example navigation">
+        <a class="back-link" href="../sample-data/india-marker-demo.json">Sample JSON</a>
+        <a class="back-link" href="index.html">All examples</a>
+      </nav>
+    </header>
+
+    <main class="example-page">
+      <div class="example-heading">
+        <div>
+          <p class="eyebrow">Example 03 &middot; SVG overlay</p>
+          <h1>Add accessible region markers</h1>
+          <p class="intro">Markers use region centroids, keyboard interaction, and a synthetic size value.</p>
+        </div>
+        <a class="example-source-link" href="markers.js">View JavaScript source</a>
+      </div>
+
+      <div class="example-workspace">
+        <section class="example-map-panel" aria-label="India map with demonstration markers">
+          <div class="example-map-toolbar">
+            <span id="marker-status" role="status">Loading map and markers&hellip;</span>
+            <span>Marker area represents sample volume</span>
+          </div>
+          <div id="marker-map" class="example-map"></div>
+          <div id="marker-detail" class="example-map-caption" aria-live="polite">
+            Choose a marker to inspect its demonstration value.
+          </div>
+        </section>
+
+        <aside class="example-control-panel">
+          <p class="eyebrow">Marker data</p>
+          <h2>Synthetic regional volume</h2>
+          <p>Markers are anchored to visual region centroids, not real city coordinates.</p>
+          <ul id="marker-list" class="example-marker-list"></ul>
+        </aside>
+      </div>
+    </main>
+
+    <script src="../map-engine.js"></script>
+    <script src="markers.js"></script>
+  </body>
+</html>

@@ -1,0 +1,471 @@
+.examples-page {
+  width: min(1380px, 100%);
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 64px);
+}
+
+.examples-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 430px);
+  gap: clamp(28px, 6vw, 86px);
+  align-items: end;
+}
+
+.examples-hero h1 {
+  max-width: 17ch;
+}
+
+.examples-hero-note {
+  padding: 18px;
+  border-left: 3px solid rgba(17, 93, 77, 0.3);
+  color: var(--muted);
+  background: rgba(255, 253, 247, 0.54);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.examples-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: clamp(32px, 5vw, 58px);
+}
+
+.example-card {
+  display: grid;
+  min-height: 230px;
+  grid-template-rows: auto 1fr auto;
+  gap: 18px;
+  padding: clamp(20px, 3vw, 30px);
+  border: 1px solid rgba(16, 35, 31, 0.11);
+  border-radius: 22px;
+  color: var(--ink);
+  background: rgba(255, 253, 247, 0.78);
+  text-decoration: none;
+  transition: border-color 150ms ease, transform 150ms ease;
+}
+
+.example-card:hover,
+.example-card:focus-visible {
+  border-color: rgba(17, 93, 77, 0.42);
+  transform: translateY(-2px);
+}
+
+.example-card-number {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 14px 14px 14px 4px;
+  color: var(--focus);
+  background: rgba(17, 93, 77, 0.1);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.example-card h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 500;
+}
+
+.example-card p {
+  max-width: 55ch;
+  margin: 9px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.example-card-action {
+  color: var(--accent-dark);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.example-page {
+  width: min(1380px, 100%);
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 64px);
+}
+
+.example-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.example-heading h1 {
+  max-width: 15ch;
+}
+
+.example-source-link {
+  color: var(--accent-dark);
+  font-size: 12px;
+  font-weight: 800;
+  text-underline-offset: 3px;
+}
+
+.example-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 330px);
+  gap: clamp(16px, 3vw, 30px);
+  align-items: stretch;
+  margin-top: 28px;
+}
+
+.example-map-panel {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 650px;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  overflow: hidden;
+  border: 1px solid rgba(16, 35, 31, 0.11);
+  border-radius: 26px;
+  background:
+    linear-gradient(rgba(17, 93, 77, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 93, 77, 0.035) 1px, transparent 1px),
+    var(--panel);
+  background-size: 32px 32px;
+  box-shadow: var(--shadow);
+}
+
+.example-map-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 15px 18px;
+  border-bottom: 1px solid rgba(16, 35, 31, 0.09);
+  color: var(--muted);
+  background: rgba(255, 253, 247, 0.84);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.example-map-toolbar > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.example-map-toolbar button,
+.example-control-panel button {
+  min-height: 36px;
+  padding: 8px 11px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.example-map-toolbar button:hover,
+.example-map-toolbar button:focus-visible,
+.example-control-panel button:hover,
+.example-control-panel button:focus-visible {
+  border-color: var(--focus);
+  color: var(--focus);
+}
+
+.example-map-toolbar button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.example-map {
+  display: grid;
+  min-height: 520px;
+  place-items: center;
+  padding: clamp(18px, 3vw, 36px);
+}
+
+.example-map > svg,
+.example-map > india-svg-map,
+.example-map india-svg-map > svg {
+  width: 100%;
+  height: 100%;
+  max-height: 560px;
+  overflow: visible;
+  filter: drop-shadow(0 14px 12px rgba(31, 54, 45, 0.1));
+}
+
+.example-map-caption {
+  min-height: 46px;
+  padding: 13px 18px;
+  border-top: 1px solid rgba(16, 35, 31, 0.09);
+  color: var(--muted);
+  background: rgba(255, 253, 247, 0.84);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.example-control-panel {
+  align-self: start;
+  padding: 22px;
+  border: 1px solid rgba(16, 35, 31, 0.11);
+  border-radius: 22px;
+  background: rgba(255, 253, 247, 0.8);
+}
+
+.example-control-panel h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.example-control-panel p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.example-control-panel label {
+  display: grid;
+  gap: 7px;
+  margin-top: 16px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.example-control-panel select,
+.example-code {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  color: var(--ink);
+  background: rgba(255, 253, 247, 0.86);
+  font: inherit;
+  font-size: 12px;
+}
+
+.example-legend {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.example-gradient {
+  height: 10px;
+  border: 1px solid rgba(16, 35, 31, 0.12);
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgb(224, 238, 228), rgb(17, 93, 77));
+}
+
+.example-legend-labels {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.example-choropleth .map-region path {
+  fill: var(--example-fill, var(--map-fill));
+}
+
+.example-choropleth .map-region:hover path,
+.example-choropleth .map-region:focus path,
+.example-choropleth .map-region.is-hovered path {
+  fill: var(--hover);
+}
+
+.example-choropleth .map-region.is-selected path {
+  fill: var(--selected);
+}
+
+.example-drill-map .district-region {
+  cursor: pointer;
+  outline: none;
+}
+
+.example-drill-map .district-region path {
+  fill: var(--map-fill);
+  stroke: var(--map-stroke);
+  stroke-width: 1.15;
+  transition: fill 140ms ease;
+}
+
+.example-drill-map .district-region:hover path,
+.example-drill-map .district-region:focus path,
+.example-drill-map .district-region.is-hovered path {
+  fill: var(--hover);
+}
+
+.example-drill-map .district-region.is-selected path {
+  fill: var(--selected);
+}
+
+.example-marker-layer {
+  pointer-events: none;
+}
+
+.example-marker {
+  cursor: pointer;
+  outline: none;
+  pointer-events: auto;
+}
+
+.example-marker circle {
+  fill: var(--selected);
+  stroke: white;
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 2px 3px rgba(16, 35, 31, 0.28));
+}
+
+.example-marker:hover circle,
+.example-marker:focus circle,
+.example-marker.is-active circle {
+  fill: var(--hover);
+  stroke: var(--focus);
+}
+
+.example-marker-list {
+  display: grid;
+  gap: 7px;
+  padding: 0;
+  margin: 18px 0 0;
+  list-style: none;
+}
+
+.example-marker-list button {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.example-marker-list button.is-active {
+  border-color: var(--focus);
+  background: rgba(17, 93, 77, 0.08);
+}
+
+.example-embed-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 390px);
+  gap: clamp(18px, 4vw, 44px);
+  align-items: start;
+  margin-top: 30px;
+}
+
+.example-embed-preview {
+  overflow: hidden;
+  border: 1px solid rgba(16, 35, 31, 0.11);
+  border-radius: 24px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.example-embed-preview iframe {
+  display: block;
+  width: 100%;
+  min-height: 650px;
+  border: 0;
+}
+
+.example-code {
+  min-height: 160px;
+  margin-top: 14px;
+  resize: vertical;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.embed-frame-body {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  background: var(--paper);
+}
+
+.embed-frame {
+  display: grid;
+  width: min(760px, 100%);
+  gap: 8px;
+  padding: clamp(12px, 3vw, 24px);
+}
+
+.embed-frame-status {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.embed-frame india-svg-map {
+  min-height: 520px;
+}
+
+.embed-frame india-svg-map > svg {
+  max-height: 590px;
+}
+
+@media (max-width: 920px) {
+  .examples-hero,
+  .example-workspace,
+  .example-embed-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .example-control-panel {
+    grid-row: 1;
+  }
+
+  .example-embed-preview iframe {
+    min-height: 560px;
+  }
+}
+
+@media (max-width: 650px) {
+  .examples-page,
+  .example-page {
+    padding-inline: 16px;
+  }
+
+  .examples-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .example-card {
+    min-height: 200px;
+  }
+
+  .example-map-panel {
+    min-height: 540px;
+    border-radius: 18px;
+  }
+
+  .example-map {
+    min-height: 420px;
+    padding: 14px;
+  }
+
+  .example-map-toolbar {
+    align-items: flex-start;
+  }
+
+  .example-embed-preview iframe {
+    min-height: 500px;
+  }
+
+  .embed-frame india-svg-map {
+    min-height: 420px;
+  }
+}

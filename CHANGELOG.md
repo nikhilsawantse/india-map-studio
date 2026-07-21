@@ -25,6 +25,9 @@ release.
   stable-identifier checks, provenance collection, and manifest export.
 - Dependency-free contribution schema, command-line wizard, validator, test
   suite, and pull-request validation workflow.
+- Focused, runnable choropleth, drill-down, marker, and iframe-embed examples.
+- Synthetic national sample datasets, five-minute quick start, and minimal
+  starter application for repositories created from the GitHub template.
 
 ### Changed
 

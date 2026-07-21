@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Build an interactive India SVG map in five minutes." />
+    <title>Five-minute quick start &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="India Map Studio home">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span><strong>India Map Studio</strong><small>Five-minute quick start</small></span>
+      </a>
+      <nav class="header-actions" aria-label="Quick-start navigation">
+        <a class="back-link" href="../starter/index.html">Open starter</a>
+        <a class="back-link" href="../examples/index.html">Examples</a>
+        <a class="back-link" href="map-engine.html">Engine API</a>
+      </nav>
+    </header>
+
+    <main class="engine-docs">
+      <p class="eyebrow">No framework or build step</p>
+      <h1>Build a map in five minutes</h1>
+      <p class="intro">
+        Start a local server, add the Web Component, and listen for one selection event.
+      </p>
+
+      <section>
+        <h2>1. Create or clone</h2>
+        <p>Use the repository as a GitHub template, or clone it locally.</p>
+        <pre><code>git clone https://github.com/nikhilsawantse/india-map-studio.git
+cd india-map-studio</code></pre>
+      </section>
+
+      <section>
+        <h2>2. Serve the files</h2>
+        <pre><code>python -m http.server 8000</code></pre>
+        <p>Open <code>http://localhost:8000/starter/</code>.</p>
+      </section>
+
+      <section>
+        <h2>3. Add the map</h2>
+        <pre><code>&lt;india-svg-map
+  id="my-map"
+  src="../assets/maps/india-states.svg"
+  aria-label="Interactive map of India"
+&gt;&lt;/india-svg-map&gt;</code></pre>
+      </section>
+
+      <section>
+        <h2>4. Load the engine</h2>
+        <pre><code>&lt;script src="../map-engine.js"&gt;&lt;/script&gt;
+&lt;script src="../india-svg-map.js"&gt;&lt;/script&gt;</code></pre>
+      </section>
+
+      <section>
+        <h2>5. Respond to selection</h2>
+        <pre><code>const map = document.querySelector("#my-map");
+
+map.addEventListener("india-map:selectionchange", event =&gt; {
+  console.log(event.detail.id);
+});</code></pre>
+        <p>
+          Continue with the <a href="../examples/index.html">focused example library</a>
+          or read the <a href="quick-start.md">complete Markdown guide</a>.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

@@ -94,3 +94,7 @@ The component supports `src`, `selected`, `disabled`, `feature-selector`, and
 `feature-key` attributes, plus `select(id)`, `clearSelection()`, `selected`, and
 `engine` JavaScript APIs. Each component creates an independent engine
 instance. See [the two-map example](../examples/multiple-maps.html).
+
+For complete working recipes, browse the
+[choropleth, drill-down, marker, and embed examples](../examples/index.html) or
+start with the [five-minute setup](quick-start.md).

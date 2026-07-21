@@ -1,0 +1,12 @@
+{
+  "title": "Synthetic regional marker volumes",
+  "description": "Demonstration values anchored to the visual centroid of each referenced region; they are not official statistics or city coordinates.",
+  "markers": [
+    { "slug": "delhi", "label": "Northern sample", "value": 26 },
+    { "slug": "maharashtra", "label": "Western sample", "value": 42 },
+    { "slug": "karnataka", "label": "Southern sample", "value": 34 },
+    { "slug": "west-bengal", "label": "Eastern sample", "value": 30 },
+    { "slug": "assam", "label": "North-eastern sample", "value": 22 },
+    { "slug": "madhya-pradesh", "label": "Central sample", "value": 38 }
+  ]
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="National-to-district SVG drill-down example." />
+    <title>Drill-down example &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="examples.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span><strong>India Map Studio</strong><small>Drill-down recipe</small></span>
+      </a>
+      <nav class="header-actions" aria-label="Example navigation">
+        <a class="back-link" href="../data/boundary-registry.json">Layer registry</a>
+        <a class="back-link" href="index.html">All examples</a>
+      </nav>
+    </header>
+
+    <main class="example-page">
+      <div class="example-heading">
+        <div>
+          <p class="eyebrow">Example 02 &middot; Layer navigation</p>
+          <h1>Drill from India into districts</h1>
+          <p class="intro">Select any region, then replace the engine instance with its district layer.</p>
+        </div>
+        <a class="example-source-link" href="drill-down.js">View JavaScript source</a>
+      </div>
+
+      <div class="example-workspace">
+        <section class="example-map-panel" aria-label="India to district drill-down map">
+          <div class="example-map-toolbar">
+            <div>
+              <button id="drill-back" type="button" hidden>&larr; India</button>
+              <strong id="drill-layer">India</strong>
+            </div>
+            <span id="drill-status" role="status">Loading national layer&hellip;</span>
+          </div>
+          <div id="drill-map" class="example-map example-drill-map"></div>
+          <div id="drill-detail" class="example-map-caption" aria-live="polite">
+            Choose a state or union territory to prepare the next layer.
+          </div>
+        </section>
+
+        <aside class="example-control-panel">
+          <p class="eyebrow">Selected feature</p>
+          <h2 id="drill-selection">Nothing selected</h2>
+          <p id="drill-selection-meta">Double-click a region or use the button to open its districts.</p>
+          <button id="drill-open" type="button" disabled>Open district layer</button>
+        </aside>
+      </div>
+    </main>
+
+    <script src="../data/states.js"></script>
+    <script src="../map-engine.js"></script>
+    <script src="drill-down.js"></script>
+  </body>
+</html>

@@ -5,7 +5,8 @@ workspace for India. It uses plain HTML, CSS, JavaScript, and reusable SVG
 assets, with no application framework or build step required.
 
 [Live demo](https://nikhilsawantse.github.io/india-map-studio/) ·
-[GitHub repository](https://github.com/nikhilsawantse/india-map-studio)
+[GitHub repository](https://github.com/nikhilsawantse/india-map-studio) ·
+[Use this template](https://github.com/nikhilsawantse/india-map-studio/generate)
 
 > **Data notice:** The application code is open source under MIT, while
 > third-party boundary assets keep their own terms. The public release excludes
@@ -34,6 +35,10 @@ assets, with no application framework or build step required.
   review manifest
 - Dependency-free Python contribution wizard and validator with automated
   pull-request checks for geometry, metadata, rights, and feature counts
+- Runnable example library for CSV choropleths, two-level drill-downs,
+  accessible proportional markers, and configurable iframe embeds
+- Synthetic CSV and JSON example datasets, a five-minute quick start, and a
+  minimal editable starter application
 - Hover, keyboard focus, search, selection, and tooltips
 - Navigation to a standalone page for every region
 - 36 separate state and union-territory SVG files with 750 interactive
@@ -181,6 +186,14 @@ map-engine.js                      Reusable SVG loading and interaction engine
 india-svg-map.js                   Framework-free Web Component entry point
 docs/map-engine.md                 Public configuration, methods, and events
 examples/multiple-maps.html        Two independent component instances
+examples/index.html                Focused example library
+examples/choropleth.html           CSV-to-region numeric color join
+examples/drill-down.html           National-to-district layer navigation
+examples/markers.html              Accessible SVG marker overlay
+examples/embedded-map.html         Configurable iframe integration
+sample-data/                       Documented synthetic example datasets
+starter/                           Minimal editable map application
+docs/quick-start.md                Five-minute framework-free setup
 data/boundary-registry.json        Generated public boundary-layer catalog
 data/boundary-registry.schema.json Registry JSON Schema contract
 registry.html                      Searchable boundary registry interface
@@ -361,6 +374,14 @@ Read the [map engine API](docs/map-engine.md) or open the
 [multiple-map example](examples/multiple-maps.html) to use the engine without a
 framework.
 
+## Examples and quick start
+
+Begin with the [five-minute quick start](docs/quick-start.html), edit the
+[minimal starter](starter/index.html), or browse the
+[runnable example library](examples/index.html). The included CSV and JSON
+files are synthetic demonstration data and should be replaced with documented
+real-world sources before publishing a map.
+
 ## Boundary registry
 
 Browse the [boundary registry](registry.html), read the
@@ -374,5 +395,6 @@ python tools/build_boundary_registry.py --check
 
 ## Next milestone
 
-Publish focused examples and templates for choropleths, drill-downs, markers,
-embedded maps, and a five-minute quick start. See [ROADMAP.md](ROADMAP.md).
+Add automated accessibility and browser tests, mobile and large-layer
+performance budgets, localization infrastructure, and offline support. See
+[ROADMAP.md](ROADMAP.md).

@@ -40,10 +40,10 @@ response to user and contributor feedback.
 
 ## Milestone 6: Examples and templates
 
-- [ ] Publish focused examples for choropleths, drill-downs, markers, and
+- [x] Publish focused examples for choropleths, drill-downs, markers, and
   embedded maps.
-- [ ] Provide sample datasets and a five-minute quick start.
-- [ ] Make the repository usable as a GitHub template.
+- [x] Provide sample datasets and a five-minute quick start.
+- [x] Make the repository usable as a GitHub template.
 
 ## Milestone 7: Quality and reach
 

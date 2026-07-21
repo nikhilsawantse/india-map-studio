@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Configure and copy an iframe-embedded India map." />
+    <title>Embedded map example &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="examples.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span><strong>India Map Studio</strong><small>Embed recipe</small></span>
+      </a>
+      <nav class="header-actions" aria-label="Example navigation">
+        <a class="back-link" href="embed-frame.html">Open clean frame</a>
+        <a class="back-link" href="index.html">All examples</a>
+      </nav>
+    </header>
+
+    <main class="example-page">
+      <div class="example-heading">
+        <div>
+          <p class="eyebrow">Example 04 &middot; Iframe integration</p>
+          <h1>Embed a selected map anywhere</h1>
+          <p class="intro">Configure the initial region, preview the real iframe, and copy the markup.</p>
+        </div>
+        <a class="example-source-link" href="embedded-map.js">View JavaScript source</a>
+      </div>
+
+      <div class="example-embed-layout">
+        <section class="example-embed-preview" aria-label="Embedded map preview">
+          <iframe
+            id="embed-preview"
+            src="embed-frame.html?selected=maharashtra"
+            title="Interactive India map preview"
+            loading="lazy"
+          ></iframe>
+        </section>
+
+        <aside class="example-control-panel">
+          <p class="eyebrow">Embed settings</p>
+          <h2>Iframe markup</h2>
+          <label>
+            <span>Initially selected region</span>
+            <select id="embed-region"></select>
+          </label>
+          <textarea id="embed-code" class="example-code" readonly aria-label="Generated iframe HTML"></textarea>
+          <button id="embed-copy" type="button">Copy embed code</button>
+          <p id="embed-status" role="status">Preview ready.</p>
+        </aside>
+      </div>
+    </main>
+
+    <script src="../data/states.js"></script>
+    <script src="embedded-map.js"></script>
+  </body>
+</html>

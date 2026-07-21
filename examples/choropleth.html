@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Framework-free India SVG choropleth example." />
+    <title>Choropleth example &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="examples.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span><strong>India Map Studio</strong><small>Choropleth recipe</small></span>
+      </a>
+      <nav class="header-actions" aria-label="Example navigation">
+        <a class="back-link" href="../sample-data/india-state-demo.csv">Sample CSV</a>
+        <a class="back-link" href="index.html">All examples</a>
+      </nav>
+    </header>
+
+    <main class="example-page example-choropleth">
+      <div class="example-heading">
+        <div>
+          <p class="eyebrow">Example 01 &middot; Numeric data join</p>
+          <h1>Color regions from a CSV</h1>
+          <p class="intro">A synthetic index joins to every region through its stable slug.</p>
+        </div>
+        <a class="example-source-link" href="choropleth.js">View JavaScript source</a>
+      </div>
+
+      <div class="example-workspace">
+        <section class="example-map-panel" aria-label="Synthetic state index choropleth">
+          <div class="example-map-toolbar">
+            <span id="choropleth-status" role="status">Loading map and data&hellip;</span>
+            <button id="choropleth-clear" type="button" disabled>Clear selection</button>
+          </div>
+          <div id="choropleth-map" class="example-map"></div>
+          <div id="choropleth-detail" class="example-map-caption" aria-live="polite">
+            Hover or focus a region to inspect its demonstration value.
+          </div>
+        </section>
+
+        <aside class="example-control-panel">
+          <p class="eyebrow">Legend</p>
+          <h2>Synthetic demo index</h2>
+          <p>Values demonstrate a numeric color scale only; they are not official statistics.</p>
+          <div class="example-legend" aria-label="Index color legend from 35 to 91">
+            <div class="example-gradient"></div>
+            <div class="example-legend-labels"><span>35</span><span>63</span><span>91</span></div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <script src="../map-engine.js"></script>
+    <script src="choropleth.js"></script>
+  </body>
+</html>

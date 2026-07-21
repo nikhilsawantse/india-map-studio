@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Minimal embeddable India SVG map." />
+    <title>Embedded India map</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="examples.css" />
+  </head>
+  <body class="embed-frame-body">
+    <main class="embed-frame">
+      <div class="embed-frame-status">
+        <strong>India</strong>
+        <span id="embed-frame-status" role="status">Loading 36 regions&hellip;</span>
+      </div>
+      <india-svg-map
+        id="embedded-india-map"
+        src="../assets/maps/india-states.svg"
+        aria-label="Interactive map of India"
+      ></india-svg-map>
+    </main>
+
+    <script src="../map-engine.js"></script>
+    <script src="../india-svg-map.js"></script>
+    <script>
+      const map = document.querySelector("#embedded-india-map");
+      const status = document.querySelector("#embed-frame-status");
+      const selected = new URLSearchParams(window.location.search).get("selected");
+      if (selected) map.setAttribute("selected", selected);
+      map.addEventListener("india-map:mapload", (event) => {
+        status.textContent = `${event.detail.featureCount} regions ready`;
+      });
+      map.addEventListener("india-map:selectionchange", (event) => {
+        status.textContent = event.detail.id ? `Selected: ${event.detail.id}` : "No selection";
+      });
+    </script>
+  </body>
+</html>

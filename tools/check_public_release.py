@@ -3,6 +3,8 @@
 
 from __future__ import annotations
 
+import csv
+import json
 import re
 import subprocess
 import sys
@@ -30,6 +32,26 @@ REQUIRED_FILES = (
     "docs/map-engine.md",
     "docs/map-engine.html",
     "examples/multiple-maps.html",
+    "examples/index.html",
+    "examples/choropleth.html",
+    "examples/choropleth.js",
+    "examples/drill-down.html",
+    "examples/drill-down.js",
+    "examples/markers.html",
+    "examples/markers.js",
+    "examples/embedded-map.html",
+    "examples/embedded-map.js",
+    "examples/embed-frame.html",
+    "examples/examples.css",
+    "sample-data/india-state-demo.csv",
+    "sample-data/india-marker-demo.json",
+    "sample-data/README.md",
+    "starter/index.html",
+    "starter/app.js",
+    "starter/styles.css",
+    "starter/README.md",
+    "docs/quick-start.md",
+    "docs/quick-start.html",
     "data/boundary-registry.json",
     "data/boundary-registry.schema.json",
     "data/boundary-contribution.schema.json",
@@ -66,6 +88,7 @@ MAPPED_DISTRICT_BADGE = re.compile(
     r""">\s*36 regions\s*&middot;\s*(\d+) mapped districts\s*<""",
     re.IGNORECASE,
 )
+STATE_SLUG = re.compile(r'"slug"\s*:\s*"([a-z0-9-]+)"')
 
 
 def tracked_files() -> set[str]:
@@ -167,6 +190,43 @@ def main() -> int:
             errors.append(
                 f"The public tehsil registry references local-only data: {relative}"
             )
+
+    state_data_source = (ROOT / "data/states.js").read_text(encoding="utf-8")
+    state_slugs = set(STATE_SLUG.findall(state_data_source))
+    with (ROOT / "sample-data/india-state-demo.csv").open(
+        encoding="utf-8", newline=""
+    ) as source:
+        sample_rows = list(csv.DictReader(source))
+    sample_slugs = {row.get("slug", "") for row in sample_rows}
+    if len(sample_rows) != 36 or sample_slugs != state_slugs:
+        errors.append(
+            "The choropleth sample must contain one unique row for every public region"
+        )
+    for row in sample_rows:
+        try:
+            float(row.get("demo_index", ""))
+        except ValueError:
+            errors.append(
+                f"The choropleth sample has a non-numeric demo_index: {row.get('slug', '')}"
+            )
+
+    marker_sample = json.loads(
+        (ROOT / "sample-data/india-marker-demo.json").read_text(encoding="utf-8")
+    )
+    markers = marker_sample.get("markers", [])
+    marker_slugs = [marker.get("slug", "") for marker in markers]
+    if not markers or len(marker_slugs) != len(set(marker_slugs)):
+        errors.append("The marker sample must contain unique marker region slugs")
+    unknown_markers = sorted(set(marker_slugs) - state_slugs)
+    if unknown_markers:
+        errors.append(
+            "The marker sample references unknown regions: " + ", ".join(unknown_markers)
+        )
+    if any(
+        not isinstance(marker.get("value"), (int, float)) or marker["value"] <= 0
+        for marker in markers
+    ):
+        errors.append("Every marker sample value must be a positive number")
 
     registry_check = subprocess.run(
         [sys.executable, "tools/build_boundary_registry.py", "--check"],

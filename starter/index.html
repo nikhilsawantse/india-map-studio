@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Minimal India Map Studio starter application." />
+    <title>My India map</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <p>India Map Studio starter</p>
+        <h1>Choose a region</h1>
+        <div id="selection" role="status">No region selected</div>
+      </header>
+
+      <india-svg-map
+        id="my-map"
+        src="../assets/maps/india-states.svg"
+        aria-label="Interactive map of India"
+      ></india-svg-map>
+    </main>
+
+    <script src="../map-engine.js"></script>
+    <script src="../india-svg-map.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
