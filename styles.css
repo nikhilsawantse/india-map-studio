@@ -4774,6 +4774,43 @@ a.breadcrumb-item:focus-visible {
   filter: drop-shadow(0 5px 6px rgba(16, 35, 31, 0.2));
 }
 
+@media (min-width: 981px) {
+  .state-workspace,
+  .district-workspace,
+  .custom-map-workspace {
+    align-items: start;
+  }
+
+  .state-map-panel,
+  .district-page-map-panel,
+  .custom-map-preview-panel {
+    position: sticky;
+    top: 18px;
+    align-self: start;
+    height: min(780px, calc(100vh - 36px));
+    min-height: min(560px, calc(100vh - 36px));
+    max-height: calc(100vh - 36px);
+  }
+
+  .state-map,
+  .district-page-map,
+  .custom-map-canvas {
+    min-height: 0;
+  }
+
+  .state-map svg,
+  .district-detail-svg,
+  .custom-map-canvas > svg {
+    min-height: 0;
+    max-height: calc(100vh - 150px);
+  }
+
+  .district-detail-svg,
+  .custom-map-canvas > svg {
+    height: 100%;
+  }
+}
+
 @media (max-width: 980px) {
   .workspace,
   .state-workspace,

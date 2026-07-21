@@ -28,3 +28,5 @@ release.
   district features; held prototype layers remain local and Git-ignored.
 - The national explorer now delegates SVG loading and feature interaction to
   the reusable map engine while keeping page-specific panels and routing local.
+- Map previews now remain visible while scrolling through long desktop control
+  panels in the state, district, and custom-map workspaces.
