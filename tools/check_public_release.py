@@ -23,6 +23,11 @@ REQUIRED_FILES = (
     "DATA_LICENSES.md",
     "THIRD_PARTY_NOTICES.md",
     "assets/maps/india-states.svg",
+    "map-engine.js",
+    "india-svg-map.js",
+    "docs/map-engine.md",
+    "docs/map-engine.html",
+    "examples/multiple-maps.html",
 )
 
 LOCAL_ONLY_FILES = (
@@ -81,19 +86,24 @@ def main() -> int:
         if relative in tracked:
             errors.append(f"Local-only data is tracked by Git: {relative}")
 
-    for html_path in ROOT.glob("*.html"):
+    for html_path in ROOT.rglob("*.html"):
+        html_relative = html_path.relative_to(ROOT).as_posix()
+        if ".git" in html_path.parts:
+            continue
+        if tracked and html_relative not in tracked:
+            continue
         source = html_path.read_text(encoding="utf-8")
         for match in LOCAL_REFERENCE.finditer(source):
             reference = match.group(1)
             if reference.startswith("/"):
                 errors.append(
-                    f"{html_path.name} uses a root-relative URL: {reference}"
+                    f"{html_relative} uses a root-relative URL: {reference}"
                 )
                 continue
             target = (html_path.parent / reference).resolve()
             if not target.exists():
                 errors.append(
-                    f"{html_path.name} references a missing file: {reference}"
+                    f"{html_relative} references a missing file: {reference}"
                 )
                 continue
             if target.is_dir():
@@ -102,13 +112,13 @@ def main() -> int:
                 tracked_reference = target.relative_to(ROOT).as_posix()
             except ValueError:
                 errors.append(
-                    f"{html_path.name} references a file outside the repository: "
+                    f"{html_relative} references a file outside the repository: "
                     f"{reference}"
                 )
                 continue
             if tracked and tracked_reference not in tracked:
                 errors.append(
-                    f"{html_path.name} references an untracked file: {reference}"
+                    f"{html_relative} references an untracked file: {reference}"
                 )
 
     state_maps = sorted((ROOT / "assets/maps/states").glob("*.svg"))

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Two independent India SVG map engine instances." />
+    <title>Reusable map engine demo · India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="India Map Studio home">
+        <span class="brand-mark">IM</span>
+        <span><strong>India Map Studio</strong><small>Reusable engine demo</small></span>
+      </a>
+      <nav class="header-actions" aria-label="Demo navigation">
+        <a class="back-link" href="../index.html">Explorer</a>
+        <a class="back-link" href="../docs/map-engine.html">API documentation</a>
+      </nav>
+    </header>
+
+    <main class="engine-demo">
+      <div class="section-heading">
+        <p class="eyebrow">Framework-free Web Component</p>
+        <h1>Two maps, two independent states</h1>
+        <p class="intro">
+          Each component loads the same SVG but owns its selection, events, and lifecycle.
+        </p>
+      </div>
+
+      <div class="engine-demo-grid">
+        <section class="engine-demo-panel">
+          <div class="engine-demo-toolbar">
+            <strong>Map A</strong>
+            <span id="map-a-status" role="status">Loading…</span>
+            <button type="button" data-select-map="map-a" data-select-id="maharashtra">
+              Select Maharashtra
+            </button>
+          </div>
+          <india-svg-map
+            id="map-a"
+            src="../assets/maps/india-states.svg"
+            selected="maharashtra"
+            aria-label="First interactive India map"
+          ></india-svg-map>
+        </section>
+
+        <section class="engine-demo-panel">
+          <div class="engine-demo-toolbar">
+            <strong>Map B</strong>
+            <span id="map-b-status" role="status">Loading…</span>
+            <button type="button" data-select-map="map-b" data-select-id="karnataka">
+              Select Karnataka
+            </button>
+          </div>
+          <india-svg-map
+            id="map-b"
+            src="../assets/maps/india-states.svg"
+            selected="karnataka"
+            aria-label="Second interactive India map"
+          ></india-svg-map>
+        </section>
+      </div>
+    </main>
+
+    <script src="../map-engine.js"></script>
+    <script src="../india-svg-map.js"></script>
+    <script>
+      document.querySelectorAll("india-svg-map").forEach((map) => {
+        const status = document.querySelector(`#${map.id}-status`);
+        map.addEventListener("india-map:mapload", (event) => {
+          status.textContent = `${event.detail.featureCount} regions ready`;
+        });
+        map.addEventListener("india-map:selectionchange", (event) => {
+          status.textContent = event.detail.id ? `Selected: ${event.detail.id}` : "No selection";
+        });
+      });
+
+      document.querySelectorAll("[data-select-map]").forEach((button) => {
+        button.addEventListener("click", () => {
+          document.querySelector(`#${button.dataset.selectMap}`).select(button.dataset.selectId);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -21,10 +21,10 @@ response to user and contributor feedback.
 
 ## Milestone 3: Reusable map engine
 
-- [ ] Separate rendering, data, workspace, and page-specific behavior.
-- [ ] Add a documented configuration object and public event API.
-- [ ] Support multiple independent map instances.
-- [ ] Provide a framework-free Web Component entry point.
+- [x] Separate rendering, data, workspace, and page-specific behavior.
+- [x] Add a documented configuration object and public event API.
+- [x] Support multiple independent map instances.
+- [x] Provide a framework-free Web Component entry point.
 
 ## Milestone 4: Boundary registry
 

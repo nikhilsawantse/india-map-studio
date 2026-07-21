@@ -21,21 +21,24 @@
   const tooltipType = document.querySelector("#tooltip-type");
 
   let selectedSlug = null;
+  const map = new window.IndiaMapEngine({
+    mount: mapMount,
+    src: "assets/maps/india-states.svg",
+    data: states,
+    featureSelector: ".map-region",
+    featureKey: "slug",
+  });
 
-  function regionElement(slug) {
-    return mapMount.querySelector(`[data-slug="${CSS.escape(slug)}"]`);
+  function listButton(slug) {
+    return stateList.querySelector(`[data-slug="${CSS.escape(slug)}"]`);
   }
 
-  function setRegionHover(slug, active) {
-    const region = regionElement(slug);
-    const listButton = stateList.querySelector(
-      `[data-slug="${CSS.escape(slug)}"]`,
-    );
-    region?.classList.toggle("is-hovered", active);
-    listButton?.classList.toggle("is-hovered", active);
+  function setListHover(slug, active) {
+    listButton(slug)?.classList.toggle("is-hovered", active);
   }
 
   function showTooltip(state, x, y) {
+    if (!state) return;
     tooltipName.textContent = state.name;
     tooltipType.textContent = state.type;
     tooltip.style.left = `${x}px`;
@@ -47,25 +50,20 @@
     tooltip.hidden = true;
   }
 
-  function selectState(slug) {
-    const state = statesBySlug.get(slug);
-    if (!state) return;
-
-    if (selectedSlug) {
-      regionElement(selectedSlug)?.classList.remove("is-selected");
-      stateList
-        .querySelector(`[data-slug="${CSS.escape(selectedSlug)}"]`)
-        ?.classList.remove("is-active");
+  function updateSelection(slug) {
+    if (selectedSlug) listButton(selectedSlug)?.classList.remove("is-active");
+    selectedSlug = slug;
+    if (!slug) {
+      selectionCard.hidden = true;
+      hideTooltip();
+      return;
     }
 
-    selectedSlug = slug;
-    regionElement(slug)?.classList.add("is-selected");
-    const button = stateList.querySelector(
-      `[data-slug="${CSS.escape(slug)}"]`,
-    );
+    const state = statesBySlug.get(slug);
+    if (!state) return;
+    const button = listButton(slug);
     button?.classList.add("is-active");
     button?.scrollIntoView({ block: "nearest", behavior: "smooth" });
-
     selectedName.textContent = state.name;
     selectedMeta.textContent = `${state.type} · ${state.identifier}`;
     selectedCode.textContent = state.code;
@@ -74,55 +72,36 @@
     selectionCard.hidden = false;
   }
 
-  function clearSelection() {
-    if (selectedSlug) {
-      regionElement(selectedSlug)?.classList.remove("is-selected");
-      stateList
-        .querySelector(`[data-slug="${CSS.escape(selectedSlug)}"]`)
-        ?.classList.remove("is-active");
-    }
-    selectedSlug = null;
-    selectionCard.hidden = true;
-    hideTooltip();
-  }
-
   function renderStateList(filter = "") {
     const query = filter.trim().toLocaleLowerCase();
     const visibleStates = states.filter((state) =>
       `${state.name} ${state.type}`.toLocaleLowerCase().includes(query),
     );
-
     stateList.replaceChildren();
     visibleStates.forEach((state) => {
       const button = document.createElement("button");
       button.type = "button";
       button.className = "state-button";
       button.dataset.slug = state.slug;
-      button.innerHTML = `<span></span><small></small>`;
+      button.innerHTML = "<span></span><small></small>";
       button.querySelector("span").textContent = state.name;
-      button.querySelector("small").textContent =
-        state.type === "State" ? "State" : "UT";
-
-      if (state.slug === selectedSlug) {
-        button.classList.add("is-active");
-      }
-
+      button.querySelector("small").textContent = state.type === "State" ? "State" : "UT";
+      button.classList.toggle("is-active", state.slug === selectedSlug);
       button.addEventListener("pointerenter", () =>
-        setRegionHover(state.slug, true),
+        map.hover(state.slug, true, { source: "list" }),
       );
       button.addEventListener("pointerleave", () =>
-        setRegionHover(state.slug, false),
+        map.hover(state.slug, false, { source: "list" }),
       );
-      button.addEventListener("focus", () => setRegionHover(state.slug, true));
-      button.addEventListener("blur", () => setRegionHover(state.slug, false));
-      button.addEventListener("click", () => selectState(state.slug));
+      button.addEventListener("focus", () => map.hover(state.slug, true, { source: "list" }));
+      button.addEventListener("blur", () => map.hover(state.slug, false, { source: "list" }));
+      button.addEventListener("click", () => map.select(state.slug, { source: "list" }));
       stateList.append(button);
     });
 
     resultCount.textContent = `${visibleStates.length} ${
       visibleStates.length === 1 ? "region" : "regions"
     }`;
-
     if (!visibleStates.length) {
       const emptyState = document.createElement("p");
       emptyState.className = "empty-state";
@@ -131,66 +110,47 @@
     }
   }
 
-  function wireMapInteractions() {
-    const regions = mapMount.querySelectorAll(".map-region");
-
-    regions.forEach((region) => {
-      const state = statesBySlug.get(region.dataset.slug);
-      if (!state) return;
-
-      region.addEventListener("pointerenter", (event) => {
-        setRegionHover(state.slug, true);
-        showTooltip(state, event.clientX, event.clientY);
-      });
-      region.addEventListener("pointermove", (event) => {
-        showTooltip(state, event.clientX, event.clientY);
-      });
-      region.addEventListener("pointerleave", () => {
-        setRegionHover(state.slug, false);
-        hideTooltip();
-      });
-      region.addEventListener("focus", () => {
-        setRegionHover(state.slug, true);
-        mapStatus.textContent = `${state.name}, ${state.type}`;
-      });
-      region.addEventListener("blur", () => {
-        setRegionHover(state.slug, false);
-        mapStatus.textContent = "36 interactive regions ready";
-      });
-      region.addEventListener("click", () => selectState(state.slug));
-      region.addEventListener("dblclick", () => {
-        window.location.href = `state.html?state=${encodeURIComponent(state.slug)}`;
-      });
-      region.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          selectState(state.slug);
-        }
-      });
-    });
-  }
-
-  async function loadMap() {
-    try {
-      const response = await fetch("assets/maps/india-states.svg");
-      if (!response.ok) throw new Error(`Map request failed: ${response.status}`);
-      mapMount.innerHTML = await response.text();
-      wireMapInteractions();
-      mapPanel.classList.add("is-ready");
-      mapStatus.textContent = "36 interactive regions ready";
-    } catch (error) {
-      mapMount.innerHTML =
-        '<p class="load-error">The SVG could not load. Run this folder through a local web server instead of opening the HTML file directly.</p>';
-      mapStatus.textContent = "Map could not load";
-      console.error(error);
-    }
-  }
-
-  searchInput.addEventListener("input", (event) => {
-    renderStateList(event.target.value);
+  map.on("mapload", (event) => {
+    mapPanel.classList.add("is-ready");
+    mapStatus.textContent = `${event.detail.featureCount} interactive regions ready`;
   });
-  clearSelectionButton.addEventListener("click", clearSelection);
+  map.on("maperror", (event) => {
+    mapMount.innerHTML =
+      '<p class="load-error">The SVG could not load. Run this folder through a local web server instead of opening the HTML file directly.</p>';
+    mapStatus.textContent = "Map could not load";
+    console.error(event.detail.error);
+  });
+  map.on("featureenter", (event) => {
+    const { id, source, clientX, clientY } = event.detail;
+    setListHover(id, true);
+    if (source === "map") showTooltip(statesBySlug.get(id), clientX, clientY);
+  });
+  map.on("featuremove", (event) => {
+    showTooltip(statesBySlug.get(event.detail.id), event.detail.clientX, event.detail.clientY);
+  });
+  map.on("featureleave", (event) => {
+    setListHover(event.detail.id, false);
+    if (event.detail.source === "map") hideTooltip();
+  });
+  map.on("featurefocus", (event) => {
+    const state = statesBySlug.get(event.detail.id);
+    setListHover(event.detail.id, true);
+    if (state) mapStatus.textContent = `${state.name}, ${state.type}`;
+  });
+  map.on("featureblur", (event) => {
+    setListHover(event.detail.id, false);
+    mapStatus.textContent = `${map.getFeatures().length} interactive regions ready`;
+  });
+  map.on("selectionchange", (event) => updateSelection(event.detail.id));
+  map.on("featureactivate", (event) => {
+    window.location.href = `state.html?state=${encodeURIComponent(event.detail.id)}`;
+  });
+
+  searchInput.addEventListener("input", (event) => renderStateList(event.target.value));
+  clearSelectionButton.addEventListener("click", () =>
+    map.clearSelection({ source: "clear-button" }),
+  );
 
   renderStateList();
-  loadMap();
+  map.load().catch(() => {});
 })();

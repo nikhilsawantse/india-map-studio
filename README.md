@@ -25,6 +25,8 @@ assets, with no application framework or build step required.
 ## What is included
 
 - Interactive India map with state and union territory boundaries
+- Reusable `IndiaMapEngine` with a documented configuration and DOM event API
+- Framework-free `<india-svg-map>` Web Component with independent instances
 - Hover, keyboard focus, search, selection, and tooltips
 - Navigation to a standalone page for every region
 - 36 separate state and union-territory SVG files with 750 interactive
@@ -168,6 +170,10 @@ profile fields, and standalone-map controls.
 ```text
 assets/maps/india-states.svg       Interactive national SVG
 assets/maps/states/*.svg           One standalone SVG per region
+map-engine.js                      Reusable SVG loading and interaction engine
+india-svg-map.js                   Framework-free Web Component entry point
+docs/map-engine.md                 Public configuration, methods, and events
+examples/multiple-maps.html        Two independent component instances
 data/states.js                     Generated region metadata
 tools/generate_maps.py             GeoJSON-to-SVG generator
 tools/generate_state_district_map.py
@@ -319,8 +325,14 @@ Third-party geographic data is not relicensed by this project. Review
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) before redistributing map
 assets.
 
+## Reusable map engine
+
+Read the [map engine API](docs/map-engine.md) or open the
+[multiple-map example](examples/multiple-maps.html) to use the engine without a
+framework.
+
 ## Next milestone
 
-Build the reusable map engine: separate rendering and data concerns, define a
-documented configuration and event API, support multiple map instances, and
-provide a framework-free Web Component. See [ROADMAP.md](ROADMAP.md).
+Build the versioned boundary registry with source, license, vintage,
+identifiers, verification state, automatic discovery, and compatibility
+checks. See [ROADMAP.md](ROADMAP.md).

@@ -16,6 +16,9 @@ release.
 - Structured GitHub issue forms and pull-request checklist.
 - Release-safety validation for public assets and routes.
 - Automated GitHub Pages deployment from the `main` branch.
+- Framework-free `IndiaMapEngine` with documented configuration, methods, and
+  bubbling DOM events.
+- `<india-svg-map>` Web Component and a two-instance independence example.
 
 ### Changed
 
@@ -23,3 +26,5 @@ release.
   independently licensed works.
 - The public release contains 36 state and union-territory maps with 750
   district features; held prototype layers remain local and Git-ignored.
+- The national explorer now delegates SVG loading and feature interaction to
+  the reusable map engine while keeping page-specific panels and routing local.

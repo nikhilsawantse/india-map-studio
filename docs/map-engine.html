@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="India Map Engine public API reference." />
+    <title>Map engine API · India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="India Map Studio home">
+        <span class="brand-mark">IM</span>
+        <span><strong>India Map Studio</strong><small>Map engine API</small></span>
+      </a>
+      <nav class="header-actions" aria-label="Documentation navigation">
+        <a class="back-link" href="../index.html">Explorer</a>
+        <a class="back-link" href="../examples/multiple-maps.html">Two-map demo</a>
+      </nav>
+    </header>
+
+    <main class="engine-docs">
+      <p class="eyebrow">Reusable JavaScript API</p>
+      <h1>IndiaMapEngine</h1>
+      <p class="intro">
+        Load an SVG, discover its features, manage selection and hover state,
+        and connect page-specific behavior through bubbling DOM events.
+      </p>
+
+      <section>
+        <h2>Quick start</h2>
+        <pre><code>&lt;div id="map"&gt;&lt;/div&gt;
+&lt;script src="../map-engine.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  const map = new IndiaMapEngine({
+    mount: "#map",
+    src: "../assets/maps/india-states.svg",
+    featureSelector: ".map-region",
+    featureKey: "slug"
+  });
+
+  map.on("selectionchange", event =&gt; {
+    console.log(event.detail.id);
+  });
+
+  map.load();
+&lt;/script&gt;</code></pre>
+      </section>
+
+      <section>
+        <h2>Configuration</h2>
+        <div class="engine-api-grid">
+          <code>mount</code><span>Required element or selector receiving the SVG.</span>
+          <code>src / svgText</code><span>Fetch a map or render supplied SVG source.</span>
+          <code>featureSelector</code><span>Feature selector; defaults to <code>.map-region</code>.</span>
+          <code>featureKey</code><span>Dataset key or callback returning a stable ID.</span>
+          <code>dataKey</code><span>Metadata key used when the feature key is a callback.</span>
+          <code>data</code><span>Array, object, or Map joined to features by ID.</span>
+          <code>interactive / keyboard</code><span>Pointer and keyboard behavior switches.</span>
+          <code>sanitize</code><span>Removes executable embedded SVG content by default.</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Methods</h2>
+        <p>
+          <code>load</code>, <code>render</code>, <code>refresh</code>,
+          <code>select</code>, <code>clearSelection</code>, <code>hover</code>,
+          <code>setData</code>, <code>getFeatures</code>, <code>on</code>, and
+          <code>destroy</code>.
+        </p>
+      </section>
+
+      <section>
+        <h2>Events</h2>
+        <p>
+          Listen for <code>india-map:mapload</code>, <code>maperror</code>,
+          <code>featureenter</code>, <code>featuremove</code>,
+          <code>featureleave</code>, <code>featurefocus</code>,
+          <code>featureselect</code>, <code>featureactivate</code>,
+          <code>selectionchange</code>, and <code>datachange</code>.
+        </p>
+      </section>
+
+      <section>
+        <h2>Web Component</h2>
+        <pre><code>&lt;india-svg-map
+  src="../assets/maps/india-states.svg"
+  selected="maharashtra"
+&gt;&lt;/india-svg-map&gt;
+
+&lt;script src="../map-engine.js"&gt;&lt;/script&gt;
+&lt;script src="../india-svg-map.js"&gt;&lt;/script&gt;</code></pre>
+        <p>
+          The component supports <code>src</code>, <code>selected</code>,
+          <code>disabled</code>, <code>feature-selector</code>, and
+          <code>feature-key</code>. For the complete reference, read
+          <a href="map-engine.md">the repository API document</a>.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
