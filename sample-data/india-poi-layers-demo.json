@@ -1,0 +1,216 @@
+{
+  "title": "India public-interest POI layer demonstration",
+  "description": "A compact, non-exhaustive demonstration of reservoirs and dams, protected wildlife areas, and major railway stations.",
+  "source": {
+    "name": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Wikidata:Licensing",
+    "license": "CC0 1.0",
+    "retrieved": "2026-07-21"
+  },
+  "projection": {
+    "type": "Web Mercator",
+    "geographicBounds": [68.11, 6.75, 97.42, 37.1],
+    "viewBox": [0, 0, 1000, 1100],
+    "padding": 28
+  },
+  "markers": [
+    {
+      "id": "tehri-dam",
+      "name": "Tehri Dam and reservoir",
+      "category": "reservoir",
+      "categoryLabel": "Reservoir and dam",
+      "state": "Uttarakhand",
+      "longitude": 78.48055556,
+      "latitude": 30.37777778,
+      "description": "Demonstrates a water-resource or infrastructure point layer.",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q69091"
+    },
+    {
+      "id": "hirakud-dam",
+      "name": "Hirakud Dam and reservoir",
+      "category": "reservoir",
+      "categoryLabel": "Reservoir and dam",
+      "state": "Odisha",
+      "longitude": 83.87166667,
+      "latitude": 21.53083333,
+      "description": "Demonstrates a water-resource or infrastructure point layer.",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q1940209"
+    },
+    {
+      "id": "sardar-sarovar-dam",
+      "name": "Sardar Sarovar Dam and reservoir",
+      "category": "reservoir",
+      "categoryLabel": "Reservoir and dam",
+      "state": "Gujarat",
+      "longitude": 73.747222222,
+      "latitude": 21.830277777,
+      "description": "Demonstrates a water-resource or infrastructure point layer.",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q2120392"
+    },
+    {
+      "id": "nagarjuna-sagar-dam",
+      "name": "Nagarjuna Sagar Dam and reservoir",
+      "category": "reservoir",
+      "categoryLabel": "Reservoir and dam",
+      "state": "Telangana / Andhra Pradesh",
+      "longitude": 79.31222222,
+      "latitude": 16.57666667,
+      "description": "Demonstrates a water-resource or infrastructure point layer.",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q1112896"
+    },
+    {
+      "id": "indian-wild-ass-sanctuary",
+      "name": "Indian Wild Ass Sanctuary",
+      "category": "sanctuary",
+      "categoryLabel": "Sanctuary or national park",
+      "state": "Gujarat",
+      "longitude": 71.63333333,
+      "latitude": 23.35,
+      "description": "Demonstrates a conservation, tourism, or environment point layer.",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q1207543"
+    },
+    {
+      "id": "periyar-national-park",
+      "name": "Periyar National Park",
+      "category": "sanctuary",
+      "categoryLabel": "Sanctuary or national park",
+      "state": "Kerala",
+      "longitude": 77.18,
+      "latitude": 9.5775,
+      "description": "Demonstrates a conservation, tourism, or environment point layer.",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q548153"
+    },
+    {
+      "id": "pobitora-wildlife-sanctuary",
+      "name": "Pobitora Wildlife Sanctuary",
+      "category": "sanctuary",
+      "categoryLabel": "Sanctuary or national park",
+      "state": "Assam",
+      "longitude": 92.03138889,
+      "latitude": 26.24111111,
+      "description": "Demonstrates a conservation, tourism, or environment point layer.",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q7206203"
+    },
+    {
+      "id": "kaziranga-national-park",
+      "name": "Kaziranga National Park",
+      "category": "sanctuary",
+      "categoryLabel": "Sanctuary or national park",
+      "state": "Assam",
+      "longitude": 93.35,
+      "latitude": 26.666666666,
+      "description": "Demonstrates a conservation, tourism, or environment point layer.",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q192764"
+    },
+    {
+      "id": "jim-corbett-national-park",
+      "name": "Jim Corbett National Park",
+      "category": "sanctuary",
+      "categoryLabel": "Sanctuary or national park",
+      "state": "Uttarakhand",
+      "longitude": 78.93333333,
+      "latitude": 29.53333333,
+      "description": "Demonstrates a conservation, tourism, or environment point layer.",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q949297"
+    },
+    {
+      "id": "new-delhi-station",
+      "name": "New Delhi railway station",
+      "category": "station",
+      "categoryLabel": "Major railway station",
+      "state": "Delhi",
+      "longitude": 77.220004,
+      "latitude": 28.642314,
+      "description": "Demonstrates a transport hub or public-service point layer.",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q2742296"
+    },
+    {
+      "id": "csmt-station",
+      "name": "Chhatrapati Shivaji Maharaj Terminus",
+      "category": "station",
+      "categoryLabel": "Major railway station",
+      "state": "Maharashtra",
+      "longitude": 72.8355,
+      "latitude": 18.9398,
+      "description": "Demonstrates a transport hub or public-service point layer.",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q235884"
+    },
+    {
+      "id": "howrah-station",
+      "name": "Howrah railway station",
+      "category": "station",
+      "categoryLabel": "Major railway station",
+      "state": "West Bengal",
+      "longitude": 88.3428112,
+      "latitude": 22.5828709,
+      "description": "Demonstrates a transport hub or public-service point layer.",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q986105"
+    },
+    {
+      "id": "chennai-central-station",
+      "name": "Chennai Central railway station",
+      "category": "station",
+      "categoryLabel": "Major railway station",
+      "state": "Tamil Nadu",
+      "longitude": 80.2748563,
+      "latitude": 13.0847613,
+      "description": "Demonstrates a transport hub or public-service point layer.",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q257382"
+    },
+    {
+      "id": "bengaluru-city-station",
+      "name": "Krantivira Sangolli Rayanna railway station",
+      "category": "station",
+      "categoryLabel": "Major railway station",
+      "state": "Karnataka",
+      "longitude": 77.568083,
+      "latitude": 12.977595,
+      "description": "Demonstrates a transport hub or public-service point layer.",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q3633970"
+    },
+    {
+      "id": "secunderabad-station",
+      "name": "Secunderabad Junction railway station",
+      "category": "station",
+      "categoryLabel": "Major railway station",
+      "state": "Telangana",
+      "longitude": 78.501481,
+      "latitude": 17.433147,
+      "description": "Demonstrates a transport hub or public-service point layer.",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q7444810"
+    },
+    {
+      "id": "ahmedabad-station",
+      "name": "Ahmedabad Junction railway station",
+      "category": "station",
+      "categoryLabel": "Major railway station",
+      "state": "Gujarat",
+      "longitude": 72.601716,
+      "latitude": 23.025715,
+      "description": "Demonstrates a transport hub or public-service point layer.",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q4696124"
+    },
+    {
+      "id": "patna-station",
+      "name": "Patna Junction railway station",
+      "category": "station",
+      "categoryLabel": "Major railway station",
+      "state": "Bihar",
+      "longitude": 85.136824,
+      "latitude": 25.60256,
+      "description": "Demonstrates a transport hub or public-service point layer.",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q15265677"
+    },
+    {
+      "id": "guwahati-station",
+      "name": "Guwahati railway station",
+      "category": "station",
+      "categoryLabel": "Major railway station",
+      "state": "Assam",
+      "longitude": 91.751851,
+      "latitude": 26.182635,
+      "description": "Demonstrates a transport hub or public-service point layer.",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q5621999"
+    }
+  ]
+}

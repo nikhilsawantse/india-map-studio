@@ -8,6 +8,9 @@ demonstration data, not official statistics.
 - `india-marker-demo.json` places six synthetic marker volumes at their
   referenced region's visual centroid. The values are not geographic
   coordinates.
+- `india-poi-layers-demo.json` provides a compact, non-exhaustive CC0 Wikidata
+  coordinate sample for reservoirs and dams, protected wildlife areas, and
+  major railway stations. It powers the searchable POI layer example.
 - `maharashtra-district-demo.csv` exercises district-level data import in the
   authoring workspace and the runnable CSV district-data example. It includes
   numeric, categorical, URL, image, and summary fields for all 36 districts.

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Searchable, toggleable India POI marker layers for reservoirs, protected wildlife areas, and major railway stations."
+    />
+    <title>POI layers example &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="examples.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span><strong>India Map Studio</strong><small>POI marker layers</small></span>
+      </a>
+      <nav class="header-actions" aria-label="Example navigation">
+        <a class="back-link" href="../sample-data/india-poi-layers-demo.json" download>Download POI JSON</a>
+        <a class="back-link" href="index.html">All examples</a>
+      </nav>
+    </header>
+
+    <main class="example-page">
+      <div class="example-heading">
+        <div>
+          <p class="eyebrow">Example 06 &middot; Searchable POI layers</p>
+          <h1>Map useful places by category</h1>
+          <p class="intro">
+            Combine sourced coordinates, distinct marker symbols, category layers,
+            search, and accessible selection in one reusable recipe.
+          </p>
+        </div>
+        <a class="example-source-link" href="poi-layers.js">View JavaScript source</a>
+      </div>
+
+      <div class="example-workspace">
+        <section class="example-map-panel" aria-label="India map with public-interest POI layers">
+          <div class="example-map-toolbar">
+            <span id="poi-status" role="status">Loading POI layers&hellip;</span>
+            <button id="poi-reset" type="button">Show all</button>
+          </div>
+          <div id="poi-map" class="example-map example-poi-map"></div>
+          <div id="poi-caption" class="example-map-caption" aria-live="polite">
+            Select a marker or search result to inspect its details.
+          </div>
+        </section>
+
+        <aside class="example-control-panel">
+          <p class="eyebrow">Point layers</p>
+          <h2>Public-interest places</h2>
+          <p>
+            This non-exhaustive demonstration uses Wikidata coordinates under CC0.
+            It is an interaction sample, not an official directory or ranking.
+          </p>
+
+          <fieldset class="example-poi-toggles">
+            <legend>Visible categories</legend>
+            <label>
+              <input type="checkbox" value="reservoir" checked />
+              <span class="example-poi-key is-reservoir" aria-hidden="true"></span>
+              Reservoirs and dams
+            </label>
+            <label>
+              <input type="checkbox" value="sanctuary" checked />
+              <span class="example-poi-key is-sanctuary" aria-hidden="true"></span>
+              Sanctuaries and parks
+            </label>
+            <label>
+              <input type="checkbox" value="station" checked />
+              <span class="example-poi-key is-station" aria-hidden="true"></span>
+              Major railway stations
+            </label>
+          </fieldset>
+
+          <label for="poi-search">Search places or states</label>
+          <input id="poi-search" type="search" placeholder="Try Assam or station" />
+
+          <p id="poi-results-summary" class="example-csv-summary"></p>
+          <ul id="poi-results" class="example-poi-results"></ul>
+
+          <div class="example-poi-detail" aria-live="polite">
+            <p class="eyebrow">Selected place</p>
+            <h2 id="poi-selection">Nothing selected</h2>
+            <p id="poi-selection-meta">Choose a marker to inspect its category and coordinates.</p>
+            <a id="poi-source" href="https://www.wikidata.org/wiki/Wikidata:Licensing" target="_blank" rel="noreferrer">Dataset license</a>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <script src="../map-engine.js"></script>
+    <script src="poi-layers.js"></script>
+  </body>
+</html>

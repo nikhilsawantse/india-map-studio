@@ -61,6 +61,8 @@ is a stable region slug such as `maharashtra`, not a display label.
 - Replace the national SVG with district layers in the
   [drill-down example](../examples/drill-down.html).
 - Add an SVG overlay with the [marker example](../examples/markers.html).
+- Project sourced coordinates with searchable category toggles in the
+  [POI layer example](../examples/poi-layers.html).
 - Publish a clean iframe with the
   [embedded-map example](../examples/embedded-map.html).
 - Read the full [map engine API](map-engine.md).

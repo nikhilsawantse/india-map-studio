@@ -41,6 +41,8 @@ REQUIRED_FILES = (
     "examples/drill-down.js",
     "examples/markers.html",
     "examples/markers.js",
+    "examples/poi-layers.html",
+    "examples/poi-layers.js",
     "examples/embedded-map.html",
     "examples/embedded-map.js",
     "examples/embed-frame.html",
@@ -48,6 +50,7 @@ REQUIRED_FILES = (
     "sample-data/india-state-demo.csv",
     "sample-data/maharashtra-district-demo.csv",
     "sample-data/india-marker-demo.json",
+    "sample-data/india-poi-layers-demo.json",
     "sample-data/README.md",
     "starter/index.html",
     "starter/app.js",
@@ -263,6 +266,41 @@ def main() -> int:
         for marker in markers
     ):
         errors.append("Every marker sample value must be a positive number")
+
+    poi_sample = json.loads(
+        (ROOT / "sample-data/india-poi-layers-demo.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    poi_markers = poi_sample.get("markers", [])
+    poi_ids = [marker.get("id", "") for marker in poi_markers]
+    poi_categories = {marker.get("category", "") for marker in poi_markers}
+    if len(poi_markers) < 12 or len(poi_ids) != len(set(poi_ids)):
+        errors.append(
+            "The POI layer sample must contain at least 12 uniquely identified places"
+        )
+    if poi_categories != {"reservoir", "sanctuary", "station"}:
+        errors.append(
+            "The POI layer sample must cover reservoir, sanctuary, and station categories"
+        )
+    for marker in poi_markers:
+        longitude = marker.get("longitude")
+        latitude = marker.get("latitude")
+        if (
+            not isinstance(longitude, (int, float))
+            or not isinstance(latitude, (int, float))
+            or not 68 <= longitude <= 98
+            or not 6 <= latitude <= 38
+        ):
+            errors.append(
+                f"The POI sample has invalid India coordinates: {marker.get('id', '')}"
+            )
+        if not str(marker.get("sourceUrl", "")).startswith(
+            "https://www.wikidata.org/wiki/Q"
+        ):
+            errors.append(
+                f"The POI sample has an invalid source URL: {marker.get('id', '')}"
+            )
 
     registry_check = subprocess.run(
         [sys.executable, "tools/build_boundary_registry.py", "--check"],

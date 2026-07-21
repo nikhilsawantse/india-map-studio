@@ -31,6 +31,9 @@ release.
 - Runnable Maharashtra district CSV example with file import, automatic
   identifier matching, numeric and categorical coloring, profile fields, and
   a downloadable synthetic dataset.
+- Searchable POI layer example with coordinate projection, distinct accessible
+  symbols, category toggles, selection details, and downloadable CC0 source
+  data for reservoirs, protected wildlife areas, and major railway stations.
 
 ### Changed
 
