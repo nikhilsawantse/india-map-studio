@@ -253,6 +253,24 @@
   font-size: 12px;
 }
 
+.example-district-picker {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.example-district-picker[hidden] {
+  display: none !important;
+}
+
+.example-district-picker label {
+  margin-top: 0;
+}
+
+.example-district-picker p {
+  margin-bottom: 0;
+}
+
 .example-legend {
   display: grid;
   gap: 8px;
@@ -290,23 +308,44 @@
 .example-drill-map .district-region {
   cursor: pointer;
   outline: none;
+  pointer-events: visiblePainted;
 }
 
-.example-drill-map .district-region path {
-  fill: var(--map-fill);
-  stroke: var(--map-stroke);
+.example-drill-map.is-district-layer #state-outline {
+  pointer-events: none;
+}
+
+.example-drill-map.is-district-layer #state-outline :is(path, polygon, polyline) {
+  fill: none;
+  stroke: #115d4d;
+  stroke: var(--focus, #115d4d);
+  stroke-width: 2.4;
+  vector-effect: non-scaling-stroke;
+}
+
+.example-drill-map .district-region :is(path, polygon, polyline) {
+  fill: #dce9df;
+  fill: var(--map-fill, #dce9df);
+  stroke: #47665e;
+  stroke: var(--map-stroke, #47665e);
   stroke-width: 1.15;
   transition: fill 140ms ease;
+  vector-effect: non-scaling-stroke;
 }
 
-.example-drill-map .district-region:hover path,
-.example-drill-map .district-region:focus path,
-.example-drill-map .district-region.is-hovered path {
-  fill: var(--hover);
+.example-drill-map .district-region:hover :is(path, polygon, polyline),
+.example-drill-map .district-region:focus :is(path, polygon, polyline),
+.example-drill-map .district-region.is-hovered :is(path, polygon, polyline) {
+  fill: #f2ab75;
+  fill: var(--hover, #f2ab75);
 }
 
-.example-drill-map .district-region.is-selected path {
-  fill: var(--selected);
+.example-drill-map .district-region.is-selected :is(path, polygon, polyline) {
+  fill: #e6783e;
+  fill: var(--selected, #e6783e);
+  stroke: #115d4d;
+  stroke: var(--focus, #115d4d);
+  stroke-width: 1.8;
 }
 
 .example-marker-layer {

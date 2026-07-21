@@ -39,3 +39,10 @@ release.
   the reusable map engine while keeping page-specific panels and routing local.
 - Map previews now remain visible while scrolling through long desktop control
   panels in the state, district, and custom-map workspaces.
+
+### Fixed
+
+- District maps in the drill-down example now expose clickable district
+  geometry instead of letting the state-outline overlay cover and intercept it.
+- The drill-down control panel now provides a synchronized district picker as
+  an accessible alternative to selecting directly on the map.

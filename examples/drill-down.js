@@ -10,6 +10,8 @@
     detail: document.querySelector("#drill-detail"),
     selection: document.querySelector("#drill-selection"),
     selectionMeta: document.querySelector("#drill-selection-meta"),
+    districtPicker: document.querySelector("#drill-district-picker"),
+    districtSelect: document.querySelector("#drill-district-select"),
   };
   const states = new Map(window.INDIA_STATES.map((state) => [state.slug, state]));
   let engine = null;
@@ -27,6 +29,25 @@
     elements.selection.textContent = "Nothing selected";
     elements.selectionMeta.textContent = copy;
     elements.open.disabled = true;
+    elements.districtSelect.value = "";
+  }
+
+  function setLayerControls(level) {
+    const isDistrictLayer = level === "districts";
+    elements.open.hidden = isDistrictLayer;
+    elements.districtPicker.hidden = !isDistrictLayer;
+    elements.mount.classList.toggle("is-national-layer", !isDistrictLayer);
+    elements.mount.classList.toggle("is-district-layer", isDistrictLayer);
+  }
+
+  function populateDistrictPicker(features) {
+    const options = features
+      .map((feature) => ({ id: feature.id, name: featureName(feature, "districts") }))
+      .sort((left, right) => left.name.localeCompare(right.name));
+    elements.districtSelect.replaceChildren(
+      new Option("Select a district...", ""),
+      ...options.map((option) => new Option(option.name, option.id)),
+    );
   }
 
   function featureName(feature, level) {
@@ -57,7 +78,7 @@
           elements.open.disabled = !selectedState;
         } else {
           elements.selectionMeta.textContent = `District slug: ${event.detail.id}`;
-          elements.open.disabled = true;
+          elements.districtSelect.value = event.detail.id;
         }
         elements.detail.textContent = `${name} selected on the ${level === "india" ? "national" : "district"} layer.`;
       }),
@@ -76,6 +97,7 @@
     disposeEngine();
     currentState = null;
     selectedState = null;
+    setLayerControls("india");
     elements.layer.textContent = "India";
     elements.back.hidden = true;
     elements.status.textContent = "Loading national layer…";
@@ -98,6 +120,7 @@
     disposeEngine();
     currentState = state;
     selectedState = null;
+    setLayerControls("districts");
     elements.layer.textContent = `${state.name} / districts`;
     elements.back.hidden = false;
     elements.status.textContent = `Loading ${state.name} districts…`;
@@ -111,13 +134,23 @@
     });
     wireMap("districts");
     await engine.load();
-    elements.status.textContent = `${engine.getFeatures().length} districts ready`;
+    const districts = engine.getFeatures();
+    populateDistrictPicker(districts);
+    elements.status.textContent = `${districts.length} districts ready`;
   }
 
   elements.open.addEventListener("click", () => {
     if (selectedState) loadState(selectedState).catch(showError);
   });
   elements.back.addEventListener("click", () => loadIndia().catch(showError));
+  elements.districtSelect.addEventListener("change", () => {
+    if (!engine || !elements.districtSelect.value) {
+      engine?.clearSelection({ source: "district-picker" });
+      return;
+    }
+    engine.select(elements.districtSelect.value, { source: "district-picker" });
+    engine.getFeatureElement(elements.districtSelect.value)?.focus({ preventScroll: true });
+  });
 
   function showError(error) {
     elements.status.textContent = "The requested map layer could not load.";
