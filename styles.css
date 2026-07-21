@@ -5538,3 +5538,361 @@ a.breadcrumb-item:focus-visible {
     content: none;
   }
 }
+
+/* Versioned boundary registry */
+
+.registry-workspace {
+  width: min(1480px, 100%);
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 64px);
+}
+
+.registry-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 340px);
+  gap: clamp(28px, 6vw, 90px);
+  align-items: end;
+}
+
+.registry-hero h1 {
+  max-width: 18ch;
+}
+
+.registry-release {
+  padding: 20px;
+  border: 1px solid rgba(16, 35, 31, 0.11);
+  border-radius: 18px;
+  background: rgba(255, 253, 247, 0.72);
+}
+
+.registry-release span,
+.registry-release strong {
+  display: block;
+}
+
+.registry-release span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.registry-release strong {
+  margin-top: 7px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.registry-release p {
+  margin: 8px 0 14px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.registry-release a,
+.registry-row-action a,
+.registry-table td a {
+  color: var(--accent-dark);
+  font-size: 12px;
+  font-weight: 800;
+  text-underline-offset: 3px;
+}
+
+.registry-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: clamp(30px, 5vw, 58px);
+}
+
+.registry-stat {
+  padding: 18px;
+  border-top: 3px solid rgba(17, 93, 77, 0.28);
+  background: rgba(255, 253, 247, 0.56);
+}
+
+.registry-stat span,
+.registry-stat strong,
+.registry-stat small {
+  display: block;
+}
+
+.registry-stat span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.registry-stat strong {
+  margin: 8px 0 4px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 3.5vw, 48px);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.registry-stat small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.registry-register {
+  margin-top: 26px;
+  padding: clamp(18px, 3vw, 32px);
+  border: 1px solid rgba(16, 35, 31, 0.11);
+  border-radius: 24px;
+  background: rgba(255, 253, 247, 0.82);
+  box-shadow: 0 18px 50px rgba(31, 54, 45, 0.07);
+}
+
+.registry-register-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.registry-register-heading h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(25px, 3vw, 36px);
+  font-weight: 500;
+}
+
+.registry-register-heading > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.registry-controls {
+  display: grid;
+  grid-template-columns:
+    minmax(220px, 1fr)
+    minmax(170px, 220px)
+    minmax(190px, 250px);
+  gap: 12px;
+  margin: 24px 0 18px;
+}
+
+.registry-select-field {
+  display: grid;
+  gap: 8px;
+}
+
+.registry-select-field span {
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.registry-select-field select {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 34px 10px 13px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  color: var(--ink);
+  background: rgba(255, 253, 247, 0.8);
+  font: inherit;
+  font-size: 13px;
+}
+
+.registry-table-wrap {
+  overflow-x: auto;
+}
+
+.registry-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.registry-table th,
+.registry-table td {
+  padding: 13px 10px;
+  border-bottom: 1px solid rgba(16, 35, 31, 0.09);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.registry-table thead th {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.registry-table tbody th {
+  min-width: 230px;
+}
+
+.registry-table tbody th strong,
+.registry-table tbody th code,
+.registry-table td small {
+  display: block;
+}
+
+.registry-table tbody th code {
+  margin-top: 5px;
+  color: var(--focus);
+  font-size: 9px;
+  overflow-wrap: anywhere;
+}
+
+.registry-table td small {
+  max-width: 270px;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.registry-row-compatible {
+  background: rgba(209, 161, 38, 0.035);
+}
+
+.registry-row-declared {
+  background: rgba(16, 35, 31, 0.025);
+}
+
+.registry-verification-badge {
+  display: inline-flex;
+  padding: 5px 8px;
+  border-radius: 999px;
+  color: var(--focus);
+  background: rgba(17, 93, 77, 0.1);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.registry-row-compatible .registry-verification-badge {
+  color: #7d5d11;
+  background: rgba(209, 161, 38, 0.15);
+}
+
+.registry-row-declared .registry-verification-badge {
+  color: var(--muted);
+  background: rgba(16, 35, 31, 0.08);
+}
+
+.registry-row-action {
+  white-space: nowrap;
+}
+
+.registry-empty {
+  padding: 36px 14px 18px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 13px;
+}
+
+@media (max-width: 850px) {
+  .registry-hero {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .registry-release {
+    max-width: 420px;
+  }
+
+  .registry-controls {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .registry-controls .search-field {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 650px) {
+  .registry-workspace {
+    padding-inline: 16px;
+  }
+
+  .registry-summary {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .registry-stat {
+    padding: 14px;
+  }
+
+  .registry-register {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .registry-register-heading,
+  .registry-controls {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .registry-controls .search-field {
+    grid-column: auto;
+  }
+
+  .registry-table-wrap {
+    overflow: visible;
+  }
+
+  .registry-table,
+  .registry-table tbody {
+    display: block;
+  }
+
+  .registry-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .registry-table tr {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(16, 35, 31, 0.12);
+  }
+
+  .registry-table th,
+  .registry-table td {
+    display: block;
+    padding: 0;
+    border: 0;
+  }
+
+  .registry-table tbody th,
+  .registry-table td:nth-of-type(4),
+  .registry-table td:nth-of-type(5),
+  .registry-row-action {
+    grid-column: 1 / -1;
+  }
+
+  .registry-table td::before {
+    display: block;
+    margin-bottom: 3px;
+    color: var(--muted);
+    content: attr(data-label);
+    font-size: 9px;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .registry-row-action::before {
+    content: none;
+  }
+}

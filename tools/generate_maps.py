@@ -542,12 +542,18 @@ def division_metadata(group: dict, district_name: str) -> dict | None:
     )
 
 
-def svg_document(body: str, title: str, description: str) -> str:
+def svg_document(
+    body: str,
+    title: str,
+    description: str,
+    root_attributes: str = "",
+) -> str:
+    attributes = f" {root_attributes.strip()}" if root_attributes.strip() else ""
     return (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '
         f'{VIEWBOX_WIDTH} {VIEWBOX_HEIGHT}" role="img" '
-        f'aria-labelledby="map-title map-description">\n'
+        f'aria-labelledby="map-title map-description"{attributes}>\n'
         f"  <title id=\"map-title\">{html.escape(title)}</title>\n"
         f"  <desc id=\"map-description\">{html.escape(description)}</desc>\n"
         f"{body}\n"
@@ -589,6 +595,8 @@ def generate_india_svg(features: list[dict], groups: dict[str, dict]) -> str:
         body,
         "India map with state and union territory boundaries",
         "Interactive vector map containing 28 states and 8 union territories.",
+        'data-layer-id="IN-REGIONS" data-layer-type="regions" '
+        'data-feature-count="36"',
     )
 
 

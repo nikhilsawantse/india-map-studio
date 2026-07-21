@@ -27,6 +27,8 @@ assets, with no application framework or build step required.
 - Interactive India map with state and union territory boundaries
 - Reusable `IndiaMapEngine` with a documented configuration and DOM event API
 - Framework-free `<india-svg-map>` Web Component with independent instances
+- Versioned boundary registry with source, license, vintage, identifiers,
+  verification state, and map-engine compatibility for every public layer
 - Hover, keyboard focus, search, selection, and tooltips
 - Navigation to a standalone page for every region
 - 36 separate state and union-territory SVG files with 750 interactive
@@ -174,7 +176,11 @@ map-engine.js                      Reusable SVG loading and interaction engine
 india-svg-map.js                   Framework-free Web Component entry point
 docs/map-engine.md                 Public configuration, methods, and events
 examples/multiple-maps.html        Two independent component instances
+data/boundary-registry.json        Generated public boundary-layer catalog
+data/boundary-registry.schema.json Registry JSON Schema contract
+registry.html                      Searchable boundary registry interface
 data/states.js                     Generated region metadata
+tools/build_boundary_registry.py   Layer discovery and compatibility validator
 tools/generate_maps.py             GeoJSON-to-SVG generator
 tools/generate_state_district_map.py
                                    One-state district rollout generator
@@ -331,8 +337,18 @@ Read the [map engine API](docs/map-engine.md) or open the
 [multiple-map example](examples/multiple-maps.html) to use the engine without a
 framework.
 
+## Boundary registry
+
+Browse the [boundary registry](registry.html), read the
+[registry format](docs/boundary-registry.md), or consume
+`data/boundary-registry.json` directly. Rebuild and validate it with:
+
+```text
+python tools/build_boundary_registry.py
+python tools/build_boundary_registry.py --check
+```
+
 ## Next milestone
 
-Build the versioned boundary registry with source, license, vintage,
-identifiers, verification state, automatic discovery, and compatibility
-checks. See [ROADMAP.md](ROADMAP.md).
+Build contributor tooling for SVG, GeoJSON, identifiers, metadata, feature
+counts, and guided boundary-layer contributions. See [ROADMAP.md](ROADMAP.md).

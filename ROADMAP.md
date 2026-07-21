@@ -28,9 +28,9 @@ response to user and contributor feedback.
 
 ## Milestone 4: Boundary registry
 
-- [ ] Define a versioned machine-readable layer manifest.
-- [ ] Record source, license, vintage, identifiers, and verification state.
-- [ ] Add automatic layer discovery and compatibility checks.
+- [x] Define a versioned machine-readable layer manifest.
+- [x] Record source, license, vintage, identifiers, and verification state.
+- [x] Add automatic layer discovery and compatibility checks.
 
 ## Milestone 5: Contributor tooling
 

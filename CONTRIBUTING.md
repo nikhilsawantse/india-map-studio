@@ -49,6 +49,11 @@ DATA_LICENSES.md. The pull request must identify:
 Do not submit geometry copied from a visual map, reverse-engineered from a
 restricted service, or published without clear redistribution permission.
 
+After adding or changing a public boundary SVG, rebuild and check the registry:
+
+    python tools/build_boundary_registry.py
+    python tools/build_boundary_registry.py --check
+
 ## Validate your change
 
 At minimum:
@@ -61,8 +66,9 @@ At minimum:
 - verify imported and exported data if those paths changed; and
 - check map attribution and metadata when geometry changed.
 
-Automated validation will be added to this checklist as the project gains its
-continuous-integration workflow.
+Run `python tools/check_public_release.py` before opening a pull request. It
+checks publication safety, public routes, feature totals, and registry
+compatibility.
 
 ## Pull requests
 

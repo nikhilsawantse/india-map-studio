@@ -1,0 +1,1748 @@
+{
+  "$schema": "boundary-registry.schema.json",
+  "schemaVersion": "1.0.0",
+  "registryVersion": "1.0.0",
+  "publishedAt": "2026-07-21",
+  "compatibility": {
+    "engine": "IndiaMapEngine",
+    "minimumVersion": "1.0.0"
+  },
+  "sources": {
+    "datta07-indian-shapefiles": {
+      "name": "INDIAN-SHAPEFILES",
+      "publisher": "datta07",
+      "url": "https://github.com/datta07/INDIAN-SHAPEFILES",
+      "revision": "2c028f5c30fb4191ca1639ff136b152cecdbb69f",
+      "license": {
+        "name": "MIT License",
+        "spdx": "MIT",
+        "url": "https://opensource.org/license/mit"
+      },
+      "attribution": "datta07/INDIAN-SHAPEFILES",
+      "redistribution": "ready"
+    },
+    "india-census-2011-admin-boundaries": {
+      "name": "India Census 2011 administrative boundaries",
+      "publisher": "DataMeet and original government sources",
+      "url": "https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/census-2011",
+      "revision": "census-2011 release",
+      "license": {
+        "name": "CC0 1.0",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "attribution": "DataMeet and the original government source where possible",
+      "redistribution": "ready"
+    }
+  },
+  "layers": [
+    {
+      "id": "IN-REGIONS",
+      "parentId": null,
+      "level": "regions",
+      "label": "India states and union territories",
+      "regionSlug": "india",
+      "path": "assets/maps/india-states.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 36,
+      "declaredFeatureCount": 36,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-region-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "source-vintage"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".map-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-35-DISTRICTS",
+      "parentId": "IN-REGION-35",
+      "level": "districts",
+      "label": "Andaman and Nicobar Islands districts",
+      "regionSlug": "andaman-and-nicobar-islands",
+      "path": "assets/maps/states/andaman-and-nicobar-islands.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 3,
+      "declaredFeatureCount": 3,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-37-DISTRICTS",
+      "parentId": "IN-REGION-37",
+      "level": "districts",
+      "label": "Andhra Pradesh districts",
+      "regionSlug": "andhra-pradesh",
+      "path": "assets/maps/states/andhra-pradesh.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 26,
+      "declaredFeatureCount": 26,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "compatible",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [
+          "26 of 26 features do not declare data-lgd-code",
+          "26 of 26 features do not declare data-boundary-year"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-12-DISTRICTS",
+      "parentId": "IN-REGION-12",
+      "level": "districts",
+      "label": "Arunachal Pradesh districts",
+      "regionSlug": "arunachal-pradesh",
+      "path": "assets/maps/states/arunachal-pradesh.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 25,
+      "declaredFeatureCount": 25,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c",
+        "2012_c",
+        "2014_c",
+        "2015_c",
+        "2018"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-18-DISTRICTS",
+      "parentId": "IN-REGION-18",
+      "level": "districts",
+      "label": "Assam districts",
+      "regionSlug": "assam",
+      "path": "assets/maps/states/assam.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 33,
+      "declaredFeatureCount": 33,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c",
+        "2015_c",
+        "2016_c"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-10-DISTRICTS",
+      "parentId": "IN-REGION-10",
+      "level": "districts",
+      "label": "Bihar districts",
+      "regionSlug": "bihar",
+      "path": "assets/maps/states/bihar.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 38,
+      "declaredFeatureCount": 38,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-04-DISTRICTS",
+      "parentId": "IN-REGION-04",
+      "level": "districts",
+      "label": "Chandigarh districts",
+      "regionSlug": "chandigarh",
+      "path": "assets/maps/states/chandigarh.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 1,
+      "declaredFeatureCount": 1,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-22-DISTRICTS",
+      "parentId": "IN-REGION-22",
+      "level": "districts",
+      "label": "Chhattisgarh districts",
+      "regionSlug": "chhattisgarh",
+      "path": "assets/maps/states/chhattisgarh.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 28,
+      "declaredFeatureCount": 28,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c",
+        "2020",
+        "update2014"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-26-25-DISTRICTS",
+      "parentId": "IN-REGION-26-25",
+      "level": "districts",
+      "label": "Dadra and Nagar Haveli and Daman and Diu districts",
+      "regionSlug": "dadra-and-nagar-haveli-and-daman-and-diu",
+      "path": "assets/maps/states/dadra-and-nagar-haveli-and-daman-and-diu.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 3,
+      "declaredFeatureCount": 3,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-07-DISTRICTS",
+      "parentId": "IN-REGION-07",
+      "level": "districts",
+      "label": "Delhi districts",
+      "regionSlug": "delhi",
+      "path": "assets/maps/states/delhi.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 11,
+      "declaredFeatureCount": 11,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c",
+        "update2014"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-30-DISTRICTS",
+      "parentId": "IN-REGION-30",
+      "level": "districts",
+      "label": "Goa districts",
+      "regionSlug": "goa",
+      "path": "assets/maps/states/goa.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 2,
+      "declaredFeatureCount": 2,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-24-DISTRICTS",
+      "parentId": "IN-REGION-24",
+      "level": "districts",
+      "label": "Gujarat districts",
+      "regionSlug": "gujarat",
+      "path": "assets/maps/states/gujarat.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 33,
+      "declaredFeatureCount": 33,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c",
+        "update2014"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-06-DISTRICTS",
+      "parentId": "IN-REGION-06",
+      "level": "districts",
+      "label": "Haryana districts",
+      "regionSlug": "haryana",
+      "path": "assets/maps/states/haryana.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 22,
+      "declaredFeatureCount": 22,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c",
+        "2016_c"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-02-DISTRICTS",
+      "parentId": "IN-REGION-02",
+      "level": "districts",
+      "label": "Himachal Pradesh districts",
+      "regionSlug": "himachal-pradesh",
+      "path": "assets/maps/states/himachal-pradesh.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 12,
+      "declaredFeatureCount": 12,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-01-DISTRICTS",
+      "parentId": "IN-REGION-01",
+      "level": "districts",
+      "label": "Jammu and Kashmir districts",
+      "regionSlug": "jammu-and-kashmir",
+      "path": "assets/maps/states/jammu-and-kashmir.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 20,
+      "declaredFeatureCount": 20,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-20-DISTRICTS",
+      "parentId": "IN-REGION-20",
+      "level": "districts",
+      "label": "Jharkhand districts",
+      "regionSlug": "jharkhand",
+      "path": "assets/maps/states/jharkhand.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 24,
+      "declaredFeatureCount": 24,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-29-DISTRICTS",
+      "parentId": "IN-REGION-29",
+      "level": "districts",
+      "label": "Karnataka districts",
+      "regionSlug": "karnataka",
+      "path": "assets/maps/states/karnataka.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 30,
+      "declaredFeatureCount": 30,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-32-DISTRICTS",
+      "parentId": "IN-REGION-32",
+      "level": "districts",
+      "label": "Kerala districts",
+      "regionSlug": "kerala",
+      "path": "assets/maps/states/kerala.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 14,
+      "declaredFeatureCount": 14,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-38-DISTRICTS",
+      "parentId": "IN-REGION-38",
+      "level": "districts",
+      "label": "Ladakh districts",
+      "regionSlug": "ladakh",
+      "path": "assets/maps/states/ladakh.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 2,
+      "declaredFeatureCount": 2,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-31-DISTRICTS",
+      "parentId": "IN-REGION-31",
+      "level": "districts",
+      "label": "Lakshadweep districts",
+      "regionSlug": "lakshadweep",
+      "path": "assets/maps/states/lakshadweep.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 1,
+      "declaredFeatureCount": 1,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-23-DISTRICTS",
+      "parentId": "IN-REGION-23",
+      "level": "districts",
+      "label": "Madhya Pradesh districts",
+      "regionSlug": "madhya-pradesh",
+      "path": "assets/maps/states/madhya-pradesh.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 52,
+      "declaredFeatureCount": 52,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c",
+        "2018",
+        "update2014"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-27-DISTRICTS",
+      "parentId": "IN-REGION-27",
+      "level": "districts",
+      "label": "Maharashtra districts",
+      "regionSlug": "maharashtra",
+      "path": "assets/maps/states/maharashtra.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 36,
+      "declaredFeatureCount": 36,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c",
+        "update2014"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-14-DISTRICTS",
+      "parentId": "IN-REGION-14",
+      "level": "districts",
+      "label": "Manipur districts",
+      "regionSlug": "manipur",
+      "path": "assets/maps/states/manipur.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 16,
+      "declaredFeatureCount": 16,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c",
+        "2016_c"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-17-DISTRICTS",
+      "parentId": "IN-REGION-17",
+      "level": "districts",
+      "label": "Meghalaya districts",
+      "regionSlug": "meghalaya",
+      "path": "assets/maps/states/meghalaya.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 11,
+      "declaredFeatureCount": 11,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c",
+        "update2014"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-15-DISTRICTS",
+      "parentId": "IN-REGION-15",
+      "level": "districts",
+      "label": "Mizoram districts",
+      "regionSlug": "mizoram",
+      "path": "assets/maps/states/mizoram.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 11,
+      "declaredFeatureCount": 11,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c",
+        "2019-20"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-13-DISTRICTS",
+      "parentId": "IN-REGION-13",
+      "level": "districts",
+      "label": "Nagaland districts",
+      "regionSlug": "nagaland",
+      "path": "assets/maps/states/nagaland.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 11,
+      "declaredFeatureCount": 11,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-21-DISTRICTS",
+      "parentId": "IN-REGION-21",
+      "level": "districts",
+      "label": "Odisha districts",
+      "regionSlug": "odisha",
+      "path": "assets/maps/states/odisha.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 30,
+      "declaredFeatureCount": 30,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-34-DISTRICTS",
+      "parentId": "IN-REGION-34",
+      "level": "districts",
+      "label": "Puducherry districts",
+      "regionSlug": "puducherry",
+      "path": "assets/maps/states/puducherry.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 4,
+      "declaredFeatureCount": 4,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-03-DISTRICTS",
+      "parentId": "IN-REGION-03",
+      "level": "districts",
+      "label": "Punjab districts",
+      "regionSlug": "punjab",
+      "path": "assets/maps/states/punjab.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 22,
+      "declaredFeatureCount": 22,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c",
+        "update2014"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-08-DISTRICTS",
+      "parentId": "IN-REGION-08",
+      "level": "districts",
+      "label": "Rajasthan districts",
+      "regionSlug": "rajasthan",
+      "path": "assets/maps/states/rajasthan.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 33,
+      "declaredFeatureCount": 33,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-11-DISTRICTS",
+      "parentId": "IN-REGION-11",
+      "level": "districts",
+      "label": "Sikkim districts",
+      "regionSlug": "sikkim",
+      "path": "assets/maps/states/sikkim.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 6,
+      "declaredFeatureCount": 6,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "compatible",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [
+          "6 of 6 features do not declare data-boundary-year"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-33-DISTRICTS",
+      "parentId": "IN-REGION-33",
+      "level": "districts",
+      "label": "Tamil Nadu districts",
+      "regionSlug": "tamil-nadu",
+      "path": "assets/maps/states/tamil-nadu.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 38,
+      "declaredFeatureCount": 38,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c",
+        "2019-20",
+        "2022"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "compatible",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [
+          "38 of 38 features do not declare data-lgd-code"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-36-DISTRICTS",
+      "parentId": "IN-REGION-36",
+      "level": "districts",
+      "label": "Telangana districts",
+      "regionSlug": "telangana",
+      "path": "assets/maps/states/telangana.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 33,
+      "declaredFeatureCount": 33,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2016_c",
+        "2019"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-16-DISTRICTS",
+      "parentId": "IN-REGION-16",
+      "level": "districts",
+      "label": "Tripura districts",
+      "regionSlug": "tripura",
+      "path": "assets/maps/states/tripura.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 8,
+      "declaredFeatureCount": 8,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c",
+        "update2014"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-09-DISTRICTS",
+      "parentId": "IN-REGION-09",
+      "level": "districts",
+      "label": "Uttar Pradesh districts",
+      "regionSlug": "uttar-pradesh",
+      "path": "assets/maps/states/uttar-pradesh.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 75,
+      "declaredFeatureCount": 75,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c",
+        "update2014"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-05-DISTRICTS",
+      "parentId": "IN-REGION-05",
+      "level": "districts",
+      "label": "Uttarakhand districts",
+      "regionSlug": "uttarakhand",
+      "path": "assets/maps/states/uttarakhand.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 13,
+      "declaredFeatureCount": 13,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-19-DISTRICTS",
+      "parentId": "IN-REGION-19",
+      "level": "districts",
+      "label": "West Bengal districts",
+      "regionSlug": "west-bengal",
+      "path": "assets/maps/states/west-bengal.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 23,
+      "declaredFeatureCount": 23,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "datta07-indian-shapefiles",
+      "vintages": [
+        "2011_c",
+        "2014_c",
+        "2017_c"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".district-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-27-DISTRICT-521-TEHSILS",
+      "parentId": "IN-REGION-27-DISTRICT-521",
+      "level": "tehsils",
+      "label": "Pune tehsils",
+      "regionSlug": "maharashtra/pune",
+      "path": "assets/maps/districts/maharashtra/pune.svg",
+      "format": "svg",
+      "status": "ready",
+      "featureCount": 14,
+      "declaredFeatureCount": 14,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "india-census-2011-admin-boundaries",
+      "vintages": [
+        "2011"
+      ],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".child-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-27-DISTRICT-521-SUBDIVISIONS",
+      "parentId": "IN-REGION-27-DISTRICT-521",
+      "level": "subdivisions",
+      "label": "Pune subdivisions",
+      "regionSlug": "maharashtra/pune",
+      "path": "assets/maps/districts/maharashtra/pune.svg",
+      "format": "svg",
+      "status": "placeholder",
+      "featureCount": 0,
+      "declaredFeatureCount": 0,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "india-census-2011-admin-boundaries",
+      "vintages": [],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".child-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "declared",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [
+          "Layer is declared but no public geometry is available"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-27-DISTRICT-521-BLOCKS",
+      "parentId": "IN-REGION-27-DISTRICT-521",
+      "level": "blocks",
+      "label": "Pune blocks",
+      "regionSlug": "maharashtra/pune",
+      "path": "assets/maps/districts/maharashtra/pune.svg",
+      "format": "svg",
+      "status": "placeholder",
+      "featureCount": 0,
+      "declaredFeatureCount": 0,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "india-census-2011-admin-boundaries",
+      "vintages": [],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".child-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "declared",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [
+          "Layer is declared but no public geometry is available"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-27-DISTRICT-521-WARDS",
+      "parentId": "IN-REGION-27-DISTRICT-521",
+      "level": "wards",
+      "label": "Pune wards",
+      "regionSlug": "maharashtra/pune",
+      "path": "assets/maps/districts/maharashtra/pune.svg",
+      "format": "svg",
+      "status": "placeholder",
+      "featureCount": 0,
+      "declaredFeatureCount": 0,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "india-census-2011-admin-boundaries",
+      "vintages": [],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".child-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "declared",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [
+          "Layer is declared but no public geometry is available"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IN-REGION-27-DISTRICT-521-LOCAL-AREAS",
+      "parentId": "IN-REGION-27-DISTRICT-521",
+      "level": "other",
+      "label": "Pune other",
+      "regionSlug": "maharashtra/pune",
+      "path": "assets/maps/districts/maharashtra/pune.svg",
+      "format": "svg",
+      "status": "placeholder",
+      "featureCount": 0,
+      "declaredFeatureCount": 0,
+      "identifiers": {
+        "layer": "data-layer-id",
+        "feature": "data-feature-id",
+        "slug": "data-slug"
+      },
+      "sourceId": "india-census-2011-admin-boundaries",
+      "vintages": [],
+      "engine": {
+        "api": "IndiaMapEngine",
+        "minimumVersion": "1.0.0",
+        "featureSelector": ".child-region",
+        "featureKey": "slug"
+      },
+      "verification": {
+        "status": "declared",
+        "checkedAt": "2026-07-21",
+        "checks": {
+          "declaredCountMatches": true,
+          "featureIdsPresent": true,
+          "featureIdsUnique": true,
+          "featureSlugsPresent": true,
+          "featureSlugsUnique": true
+        },
+        "warnings": [
+          "Layer is declared but no public geometry is available"
+        ],
+        "errors": []
+      }
+    }
+  ]
+}

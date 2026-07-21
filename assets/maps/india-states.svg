@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1100" role="img" aria-labelledby="map-title map-description">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1100" role="img" aria-labelledby="map-title map-description" data-layer-id="IN-REGIONS" data-layer-type="regions" data-feature-count="36">
   <title id="map-title">India map with state and union territory boundaries</title>
   <desc id="map-description">Interactive vector map containing 28 states and 8 union territories.</desc>
   <g id="state-andaman-and-nicobar-islands" class="map-region" data-state="Andaman and Nicobar Islands" data-slug="andaman-and-nicobar-islands" data-type="Union Territory" data-region-id="IN-REGION-35" tabindex="0" role="link" aria-label="Open Andaman and Nicobar Islands map">

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Versioned boundary-layer registry for India Map Studio."
+    />
+    <title>Boundary Registry &middot; India Map Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="registry-page">
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span>
+          <strong>India Map Studio</strong>
+          <small>Boundary registry</small>
+        </span>
+      </a>
+      <nav class="header-actions" aria-label="Registry navigation">
+        <a class="back-link" href="audit.html">Boundary audit</a>
+        <a class="back-link" href="index.html">&larr; India map</a>
+      </nav>
+    </header>
+
+    <main class="registry-workspace">
+      <section class="registry-hero" aria-labelledby="registry-title">
+        <div>
+          <p class="eyebrow">Machine-readable layer catalog</p>
+          <h1 id="registry-title">Know exactly what every boundary contains</h1>
+          <p class="intro">
+            Inspect source, license, vintage, identifiers, feature counts, and
+            engine compatibility before using or contributing a map layer.
+          </p>
+        </div>
+        <div class="registry-release">
+          <span>Registry release</span>
+          <strong id="registry-version">Loading&hellip;</strong>
+          <p id="registry-schema-version">Reading schema version</p>
+          <a href="data/boundary-registry.json">Open registry JSON</a>
+        </div>
+      </section>
+
+      <section class="registry-summary" aria-label="Registry summary">
+        <div class="registry-stat">
+          <span>Discovered layers</span>
+          <strong id="registry-layer-total">&mdash;</strong>
+          <small>Ready and declared</small>
+        </div>
+        <div class="registry-stat">
+          <span>Ready layers</span>
+          <strong id="registry-ready-total">&mdash;</strong>
+          <small>Public geometry available</small>
+        </div>
+        <div class="registry-stat">
+          <span>Mapped features</span>
+          <strong id="registry-feature-total">&mdash;</strong>
+          <small>Across ready layers</small>
+        </div>
+      </section>
+
+      <section class="registry-register" aria-labelledby="registry-register-title">
+        <div class="registry-register-heading">
+          <div>
+            <p class="eyebrow">Layer registry</p>
+            <h2 id="registry-register-title">Public boundary layers</h2>
+          </div>
+          <p id="registry-status" role="status" aria-live="polite">
+            Loading boundary registry&hellip;
+          </p>
+        </div>
+
+        <div class="registry-controls">
+          <label class="search-field">
+            <span>Find a layer</span>
+            <input
+              id="registry-search"
+              type="search"
+              placeholder="Try Pune or districts"
+              autocomplete="off"
+            />
+          </label>
+          <label class="registry-select-field">
+            <span>Administrative level</span>
+            <select id="registry-level-filter">
+              <option value="all">All levels</option>
+            </select>
+          </label>
+          <label class="registry-select-field">
+            <span>Verification</span>
+            <select id="registry-verification-filter">
+              <option value="all">All states</option>
+              <option value="verified">Verified</option>
+              <option value="compatible">Compatible with notes</option>
+              <option value="declared">Declared placeholder</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="registry-table-wrap">
+          <table class="registry-table">
+            <caption class="sr-only">
+              Public boundary layers, provenance, identifiers, and verification
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Layer</th>
+                <th scope="col">Level</th>
+                <th scope="col">Features</th>
+                <th scope="col">Vintage</th>
+                <th scope="col">Source and license</th>
+                <th scope="col">Verification</th>
+                <th scope="col"><span class="sr-only">Open asset</span></th>
+              </tr>
+            </thead>
+            <tbody id="registry-rows"></tbody>
+          </table>
+        </div>
+
+        <div id="registry-empty" class="registry-empty" hidden>
+          No boundary layers match these filters.
+        </div>
+      </section>
+    </main>
+
+    <script src="registry.js"></script>
+  </body>
+</html>

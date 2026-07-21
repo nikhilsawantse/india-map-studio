@@ -19,6 +19,8 @@ release.
 - Framework-free `IndiaMapEngine` with documented configuration, methods, and
   bubbling DOM events.
 - `<india-svg-map>` Web Component and a two-instance independence example.
+- Versioned boundary registry, JSON Schema, searchable registry page, and
+  automatic public-layer discovery with compatibility validation.
 
 ### Changed
 

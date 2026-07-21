@@ -18,6 +18,7 @@ REQUIRED_FILES = (
     "tehsil.html",
     "custom-map.html",
     "audit.html",
+    "registry.html",
     "404.html",
     "LICENSE",
     "DATA_LICENSES.md",
@@ -28,6 +29,10 @@ REQUIRED_FILES = (
     "docs/map-engine.md",
     "docs/map-engine.html",
     "examples/multiple-maps.html",
+    "data/boundary-registry.json",
+    "data/boundary-registry.schema.json",
+    "docs/boundary-registry.md",
+    "tools/build_boundary_registry.py",
 )
 
 LOCAL_ONLY_FILES = (
@@ -156,6 +161,16 @@ def main() -> int:
             errors.append(
                 f"The public tehsil registry references local-only data: {relative}"
             )
+
+    registry_check = subprocess.run(
+        [sys.executable, "tools/build_boundary_registry.py", "--check"],
+        cwd=ROOT,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if registry_check.returncode != 0:
+        errors.append(registry_check.stdout.strip() or registry_check.stderr.strip())
 
     if errors:
         print("Public release validation failed:")

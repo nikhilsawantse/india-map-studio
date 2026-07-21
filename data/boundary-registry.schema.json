@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nikhilsawantse.github.io/india-map-studio/data/boundary-registry.schema.json",
+  "title": "India Map Studio boundary registry",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "registryVersion",
+    "publishedAt",
+    "compatibility",
+    "sources",
+    "layers"
+  ],
+  "properties": {
+    "schemaVersion": { "type": "string", "pattern": "^1\\." },
+    "registryVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "publishedAt": { "type": "string", "format": "date" },
+    "compatibility": {
+      "type": "object",
+      "required": ["engine", "minimumVersion"],
+      "properties": {
+        "engine": { "const": "IndiaMapEngine" },
+        "minimumVersion": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "sources": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/source" }
+    },
+    "layers": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/layer" }
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": ["name", "publisher", "url", "revision", "license", "attribution", "redistribution"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "publisher": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" },
+        "revision": { "type": "string", "minLength": 1 },
+        "license": {
+          "type": "object",
+          "required": ["name", "spdx", "url"],
+          "properties": {
+            "name": { "type": "string" },
+            "spdx": { "type": "string" },
+            "url": { "type": "string", "format": "uri" }
+          },
+          "additionalProperties": false
+        },
+        "attribution": { "type": "string" },
+        "redistribution": { "enum": ["ready", "review", "hold"] }
+      },
+      "additionalProperties": false
+    },
+    "layer": {
+      "type": "object",
+      "required": [
+        "id",
+        "parentId",
+        "level",
+        "label",
+        "regionSlug",
+        "path",
+        "format",
+        "status",
+        "featureCount",
+        "declaredFeatureCount",
+        "identifiers",
+        "sourceId",
+        "vintages",
+        "engine",
+        "verification"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^IN-" },
+        "parentId": { "type": ["string", "null"] },
+        "level": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "regionSlug": { "type": "string", "minLength": 1 },
+        "path": { "type": "string", "pattern": "^assets/maps/.+\\.svg$" },
+        "format": { "const": "svg" },
+        "status": { "enum": ["ready", "placeholder"] },
+        "featureCount": { "type": "integer", "minimum": 0 },
+        "declaredFeatureCount": { "type": "integer", "minimum": 0 },
+        "identifiers": {
+          "type": "object",
+          "required": ["layer", "feature", "slug"],
+          "properties": {
+            "layer": { "type": "string" },
+            "feature": { "type": "string" },
+            "slug": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "sourceId": { "type": "string", "minLength": 1 },
+        "vintages": { "type": "array", "items": { "type": "string" } },
+        "engine": {
+          "type": "object",
+          "required": ["api", "minimumVersion", "featureSelector", "featureKey"],
+          "properties": {
+            "api": { "const": "IndiaMapEngine" },
+            "minimumVersion": { "type": "string" },
+            "featureSelector": { "type": "string" },
+            "featureKey": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "verification": {
+          "type": "object",
+          "required": ["status", "checkedAt", "checks", "warnings", "errors"],
+          "properties": {
+            "status": { "enum": ["verified", "compatible", "declared", "invalid"] },
+            "checkedAt": { "type": "string", "format": "date" },
+            "checks": { "type": "object", "additionalProperties": { "type": "boolean" } },
+            "warnings": { "type": "array", "items": { "type": "string" } },
+            "errors": { "type": "array", "items": { "type": "string" } }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
