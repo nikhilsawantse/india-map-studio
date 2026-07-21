@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Framework-free marker clustering on an interactive India SVG map." />
+    <title>Marker clustering example &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="examples.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span><strong>India Map Studio</strong><small>Marker clustering</small></span></a>
+      <nav class="header-actions" aria-label="Example navigation">
+        <a class="back-link" href="../sample-data/india-poi-layers-demo.json" download>Download POI JSON</a>
+        <a class="back-link" href="index.html">All examples</a>
+      </nav>
+    </header>
+    <main class="example-page">
+      <div class="example-heading">
+        <div><p class="eyebrow">Example 07 &middot; Dense points</p><h1>Group nearby markers automatically</h1><p class="intro">Reduce visual overlap while preserving keyboard-accessible cluster details.</p></div>
+        <a class="example-source-link" href="marker-clustering.js">View JavaScript source</a>
+      </div>
+      <div class="example-workspace">
+        <section class="example-map-panel" aria-label="Clustered public-interest markers on India">
+          <div class="example-map-toolbar"><span id="cluster-status" role="status">Loading markers&hellip;</span><button id="cluster-reset" type="button">Reset density</button></div>
+          <div id="cluster-map" class="example-map example-advanced-map"></div>
+          <div id="cluster-caption" class="example-map-caption" aria-live="polite">Select a marker or numbered cluster.</div>
+        </section>
+        <aside class="example-control-panel">
+          <p class="eyebrow">Clustering control</p><h2>Merge distance</h2>
+          <p>Larger distances combine more nearby places. Numbered symbols contain multiple records.</p>
+          <label for="cluster-radius">Cluster radius</label>
+          <select id="cluster-radius"><option value="38">Compact</option><option value="68" selected>Balanced</option><option value="105">Broad</option></select>
+          <div class="example-poi-detail" aria-live="polite"><p class="eyebrow">Selected group</p><h2 id="cluster-selection">Nothing selected</h2><p id="cluster-selection-meta">Choose a map symbol to inspect its members.</p></div>
+        </aside>
+      </div>
+    </main>
+    <script src="../map-engine.js"></script><script src="advanced-map-utils.js"></script><script src="marker-clustering.js"></script>
+  </body>
+</html>

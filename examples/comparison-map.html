@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Side-by-side election-style regional comparison maps for India." />
+    <title>Comparison map example &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" /><link rel="stylesheet" href="examples.css" />
+  </head>
+  <body>
+    <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span><strong>India Map Studio</strong><small>Comparison maps</small></span></a><nav class="header-actions" aria-label="Example navigation"><a class="back-link" href="../sample-data/india-state-demo.csv" download>Download base CSV</a><a class="back-link" href="index.html">All examples</a></nav></header>
+    <main class="example-page example-comparison-page">
+      <div class="example-heading"><div><p class="eyebrow">Example 11 &middot; Election-style comparison</p><h1>Compare two regional scenarios</h1><p class="intro">Keep matching geographies aligned so changes in leader and margin are immediately visible.</p></div><a class="example-source-link" href="comparison-map.js">View JavaScript source</a></div>
+      <div class="example-comparison-toolbar"><span id="comparison-status" role="status">Loading comparison&hellip;</span><div class="example-comparison-legend"><span><i class="is-a" aria-hidden="true"></i>Group A lead</span><span><i class="is-b" aria-hidden="true"></i>Group B lead</span></div></div>
+      <div class="example-comparison-grid">
+        <section class="example-compare-panel" aria-label="Baseline regional scenario"><h2>Baseline</h2><div id="comparison-map-a" class="example-map example-comparison-map"></div></section>
+        <section class="example-compare-panel" aria-label="Current regional scenario"><h2>Current</h2><div id="comparison-map-b" class="example-map example-comparison-map"></div></section>
+      </div>
+      <div id="comparison-caption" class="example-map-caption" aria-live="polite">Hover or focus either map to compare that region.</div>
+    </main>
+    <script src="../map-engine.js"></script><script src="advanced-map-utils.js"></script><script src="comparison-map.js"></script>
+  </body>
+</html>

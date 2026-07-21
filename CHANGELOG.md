@@ -34,6 +34,9 @@ release.
 - Searchable POI layer example with coordinate projection, distinct accessible
   symbols, category toggles, selection details, and downloadable CC0 source
   data for reservoirs, protected wildlife areas, and major railway stations.
+- Advanced copyable recipes for marker clustering, SVG heatmaps, selectable
+  route networks, regional time-series playback, election-style side-by-side
+  comparisons, and sanitized custom SVG marker uploads.
 
 ### Changed
 

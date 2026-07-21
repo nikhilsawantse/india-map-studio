@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Animated synthetic time-series choropleth for India states and union territories." />
+    <title>Time-series example &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" /><link rel="stylesheet" href="examples.css" />
+  </head>
+  <body>
+    <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span><strong>India Map Studio</strong><small>Time-series maps</small></span></a><nav class="header-actions" aria-label="Example navigation"><a class="back-link" href="../sample-data/india-state-demo.csv" download>Download base CSV</a><a class="back-link" href="index.html">All examples</a></nav></header>
+    <main class="example-page example-time-map">
+      <div class="example-heading"><div><p class="eyebrow">Example 10 &middot; Change over time</p><h1>Scrub through a regional time series</h1><p class="intro">Update one choropleth across periods, with optional playback and accessible values.</p></div><a class="example-source-link" href="time-series.js">View JavaScript source</a></div>
+      <div class="example-workspace">
+        <section class="example-map-panel" aria-label="Synthetic India state time series"><div class="example-map-toolbar"><span id="time-status" role="status">Loading time series&hellip;</span><button id="time-play" type="button" aria-pressed="false">Play</button></div><div id="time-map" class="example-map"></div><div id="time-caption" class="example-map-caption" aria-live="polite">Hover or focus a region to inspect its value.</div></section>
+        <aside class="example-control-panel"><p class="eyebrow">Time control</p><h2 id="time-year-heading">Year 2022</h2><p>Values are deterministic synthetic variations of the downloadable base index, not official statistics.</p><label for="time-year">Year: <span id="time-year-value">2022</span></label><input id="time-year" type="range" min="2022" max="2026" value="2022" step="1" /><div class="example-legend" aria-label="Index scale from 30 to 100"><div class="example-gradient"></div><div class="example-legend-labels"><span>30</span><span>65</span><span>100</span></div></div></aside>
+      </div>
+    </main>
+    <script src="../map-engine.js"></script><script src="advanced-map-utils.js"></script><script src="time-series.js"></script>
+  </body>
+</html>

@@ -63,6 +63,17 @@ is a stable region slug such as `maharashtra`, not a display label.
 - Add an SVG overlay with the [marker example](../examples/markers.html).
 - Project sourced coordinates with searchable category toggles in the
   [POI layer example](../examples/poi-layers.html).
+- Reduce marker overlap with the
+  [clustering example](../examples/marker-clustering.html), or reveal point
+  concentration with the [heatmap example](../examples/heatmap.html).
+- Connect coordinate hubs with the
+  [route-network example](../examples/route-network.html).
+- Explore changing values with the
+  [time-series example](../examples/time-series.html), or compare matching
+  regional scenarios with the
+  [comparison-map example](../examples/comparison-map.html).
+- Let users bring their own symbol with the
+  [custom SVG icon example](../examples/custom-icons.html).
 - Publish a clean iframe with the
   [embedded-map example](../examples/embedded-map.html).
 - Read the full [map engine API](map-engine.md).

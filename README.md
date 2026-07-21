@@ -36,8 +36,9 @@ assets, with no application framework or build step required.
 - Dependency-free Python contribution wizard and validator with automated
   pull-request checks for geometry, metadata, rights, and feature counts
 - Runnable example library for CSV choropleths, district CSV imports,
-  two-level drill-downs, accessible proportional markers, searchable sourced
-  POI layers, and configurable iframe embeds
+  two-level drill-downs, accessible markers, searchable sourced POI layers,
+  clustering, heatmaps, route networks, time-series maps, regional
+  comparisons, custom SVG icons, and configurable iframe embeds
 - Synthetic CSV and JSON example datasets, a five-minute quick start, and a
   minimal editable starter application
 - Hover, keyboard focus, search, selection, and tooltips
@@ -193,6 +194,12 @@ examples/csv-data.html             District CSV import, visualization, and profi
 examples/drill-down.html           National-to-district layer navigation
 examples/markers.html              Accessible SVG marker overlay
 examples/poi-layers.html           Searchable reservoirs, wildlife, and station layers
+examples/marker-clustering.html    Automatic grouping for nearby coordinates
+examples/heatmap.html              Lightweight SVG point-density surface
+examples/route-network.html        Selectable corridors between station hubs
+examples/time-series.html          Scrubbable and playable regional values
+examples/comparison-map.html       Side-by-side election-style scenarios
+examples/custom-icons.html         Sanitized user-supplied SVG marker preview
 examples/embedded-map.html         Configurable iframe integration
 sample-data/                       Documented synthetic example datasets
 starter/                           Minimal editable map application

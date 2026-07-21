@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Framework-free SVG point-density heatmap for India." />
+    <title>Heatmap example &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" /><link rel="stylesheet" href="examples.css" />
+  </head>
+  <body>
+    <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span><strong>India Map Studio</strong><small>Density heatmap</small></span></a><nav class="header-actions" aria-label="Example navigation"><a class="back-link" href="../sample-data/india-poi-layers-demo.json" download>Download POI JSON</a><a class="back-link" href="index.html">All examples</a></nav></header>
+    <main class="example-page">
+      <div class="example-heading"><div><p class="eyebrow">Example 08 &middot; Point density</p><h1>Turn overlapping places into a heat surface</h1><p class="intro">Render a lightweight SVG heat layer without a mapping framework.</p></div><a class="example-source-link" href="heatmap.js">View JavaScript source</a></div>
+      <div class="example-workspace">
+        <section class="example-map-panel" aria-label="India point-density heatmap"><div class="example-map-toolbar"><span id="heat-status" role="status">Loading heat layer&hellip;</span><span>Low density &rarr; high density</span></div><div id="heat-map" class="example-map example-advanced-map"></div><div id="heat-caption" class="example-map-caption" aria-live="polite">Focus a source point to inspect the heat contribution.</div></section>
+        <aside class="example-control-panel"><p class="eyebrow">Heat renderer</p><h2>Explore density</h2><p>Each sourced place contributes a soft weighted radius; overlap increases the apparent intensity.</p><label for="heat-category">Visible source points</label><select id="heat-category"><option value="all">All categories</option><option value="reservoir">Reservoirs and dams</option><option value="sanctuary">Sanctuaries and parks</option><option value="station">Major railway stations</option></select><label for="heat-radius">Influence radius: <span id="heat-radius-value">72</span></label><input id="heat-radius" type="range" min="40" max="120" value="72" step="4" /><div class="example-heat-legend" aria-label="Heat intensity legend"><span>Low</span><i aria-hidden="true"></i><span>High</span></div></aside>
+      </div>
+    </main>
+    <script src="../map-engine.js"></script><script src="advanced-map-utils.js"></script><script src="heatmap.js"></script>
+  </body>
+</html>

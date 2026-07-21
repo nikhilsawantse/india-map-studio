@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Interactive route-network overlays on an India SVG map." />
+    <title>Route network example &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" /><link rel="stylesheet" href="examples.css" />
+  </head>
+  <body>
+    <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span><strong>India Map Studio</strong><small>Route networks</small></span></a><nav class="header-actions" aria-label="Example navigation"><a class="back-link" href="../sample-data/india-poi-layers-demo.json" download>Download station JSON</a><a class="back-link" href="index.html">All examples</a></nav></header>
+    <main class="example-page">
+      <div class="example-heading"><div><p class="eyebrow">Example 09 &middot; Connected places</p><h1>Connect hubs with selectable routes</h1><p class="intro">Layer curved corridors and station nodes over reusable geographic boundaries.</p></div><a class="example-source-link" href="route-network.js">View JavaScript source</a></div>
+      <div class="example-workspace">
+        <section class="example-map-panel" aria-label="Demonstration rail corridors across India"><div class="example-map-toolbar"><span id="route-status" role="status">Loading network&hellip;</span><button id="route-reset" type="button">Show all corridors</button></div><div id="route-map" class="example-map example-advanced-map"></div><div id="route-caption" class="example-map-caption" aria-live="polite">Select a route to inspect its demonstration corridor.</div></section>
+        <aside class="example-control-panel"><p class="eyebrow">Network layers</p><h2>Demonstration corridors</h2><p>Routes connect sourced station coordinates. Connections are illustrative and do not represent exact rail geometry.</p><fieldset class="example-poi-toggles"><legend>Visible corridors</legend><label><input type="checkbox" value="western" checked /><span class="example-route-key is-western" aria-hidden="true"></span>Western corridor</label><label><input type="checkbox" value="eastern" checked /><span class="example-route-key is-eastern" aria-hidden="true"></span>Eastern corridor</label><label><input type="checkbox" value="southern" checked /><span class="example-route-key is-southern" aria-hidden="true"></span>Southern corridor</label></fieldset><div class="example-poi-detail" aria-live="polite"><p class="eyebrow">Selected route</p><h2 id="route-selection">Nothing selected</h2><p id="route-selection-meta">Choose a curved route on the map.</p></div></aside>
+      </div>
+    </main>
+    <script src="../map-engine.js"></script><script src="advanced-map-utils.js"></script><script src="route-network.js"></script>
+  </body>
+</html>

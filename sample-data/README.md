@@ -10,7 +10,10 @@ demonstration data, not official statistics.
   coordinates.
 - `india-poi-layers-demo.json` provides a compact, non-exhaustive CC0 Wikidata
   coordinate sample for reservoirs and dams, protected wildlife areas, and
-  major railway stations. It powers the searchable POI layer example.
+  major railway stations. It powers the POI, clustering, heatmap, route, and
+  custom-icon examples.
+- `sample-map-marker.svg` is a safe, compact upload fixture for the custom SVG
+  marker example.
 - `maharashtra-district-demo.csv` exercises district-level data import in the
   authoring workspace and the runnable CSV district-data example. It includes
   numeric, categorical, URL, image, and summary fields for all 36 districts.

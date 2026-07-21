@@ -714,6 +714,285 @@
   filter: drop-shadow(0 0 5px rgba(239, 112, 65, 0.7));
 }
 
+.example-advanced-map .map-region {
+  pointer-events: none;
+}
+
+.example-advanced-map .map-region path {
+  fill: #e4ece7;
+  stroke: #607b70;
+  stroke-width: 1.05;
+}
+
+.example-cluster-layer,
+.example-heat-layer,
+.example-heat-focus-layer,
+.example-route-layer,
+.example-route-nodes,
+.example-custom-layer {
+  pointer-events: none;
+}
+
+.example-cluster-node,
+.example-heat-source,
+.example-route,
+.example-custom-marker {
+  cursor: pointer;
+  outline: none;
+  pointer-events: auto;
+}
+
+.example-cluster-node circle {
+  fill: #bf6b3d;
+  stroke: white;
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 2px 3px rgba(16, 35, 31, 0.28));
+}
+
+.example-cluster-node.is-cluster circle {
+  fill: #115d4d;
+}
+
+.example-cluster-node:hover circle,
+.example-cluster-node:focus circle {
+  stroke: #10231f;
+  stroke-width: 4;
+}
+
+.example-cluster-node text {
+  fill: white;
+  font-size: 11px;
+  font-weight: 900;
+  pointer-events: none;
+}
+
+.example-heat-layer {
+  mix-blend-mode: multiply;
+}
+
+.example-heat-layer circle,
+.example-heat-source {
+  transition: opacity 150ms ease;
+}
+
+.example-heat-layer .is-hidden,
+.example-heat-focus-layer .is-hidden,
+.example-route.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.example-heat-hit,
+.example-custom-hit {
+  fill: transparent;
+}
+
+.example-heat-dot {
+  fill: #a53a27;
+  stroke: white;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.example-heat-source:hover .example-heat-dot,
+.example-heat-source:focus .example-heat-dot {
+  fill: #10231f;
+  stroke-width: 2.5;
+}
+
+.example-heat-legend {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.example-heat-legend i {
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f3cf58, #f2a13a, #e04f2f);
+}
+
+.example-route-key {
+  display: inline-block;
+  width: 18px;
+  height: 3px;
+  border-radius: 999px;
+}
+
+.example-route-key.is-western,
+.example-route.is-western .example-route-line {
+  stroke: #b14f37;
+  background: #b14f37;
+}
+
+.example-route-key.is-eastern,
+.example-route.is-eastern .example-route-line {
+  stroke: #2f7380;
+  background: #2f7380;
+}
+
+.example-route-key.is-southern,
+.example-route.is-southern .example-route-line {
+  stroke: #6f6a2e;
+  background: #6f6a2e;
+}
+
+.example-route-line,
+.example-route-hit {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.example-route-line {
+  stroke-width: 3;
+  transition: stroke-width 140ms ease, opacity 140ms ease;
+}
+
+.example-route-hit {
+  stroke: transparent;
+  stroke-width: 16;
+}
+
+.example-route:hover .example-route-line,
+.example-route:focus .example-route-line,
+.example-route.is-active .example-route-line {
+  stroke-width: 6;
+}
+
+.example-route-nodes circle {
+  fill: #fffdf7;
+  stroke: #10231f;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.example-time-map .map-region path,
+.example-comparison-map .map-region path {
+  fill: var(--example-fill, #dce9df);
+}
+
+.example-time-map .map-region:hover path,
+.example-time-map .map-region:focus path,
+.example-comparison-map .map-region:hover path,
+.example-comparison-map .map-region:focus path {
+  fill: var(--hover);
+}
+
+.example-time-map .map-region path {
+  transition: fill 280ms ease;
+}
+
+.example-comparison-page {
+  width: min(1540px, 100%);
+}
+
+.example-comparison-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 26px;
+  padding: 14px 18px;
+  border: 1px solid rgba(16, 35, 31, 0.11);
+  border-radius: 16px;
+  color: var(--muted);
+  background: rgba(255, 253, 247, 0.8);
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.example-comparison-legend,
+.example-comparison-legend span {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.example-comparison-legend span {
+  gap: 6px;
+}
+
+.example-comparison-legend i {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+}
+
+.example-comparison-legend .is-a {
+  background: #b74d2b;
+}
+
+.example-comparison-legend .is-b {
+  background: #2a6877;
+}
+
+.example-comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.example-compare-panel {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(16, 35, 31, 0.11);
+  border-radius: 22px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.example-compare-panel h2 {
+  margin: 0;
+  padding: 15px 18px;
+  border-bottom: 1px solid rgba(16, 35, 31, 0.09);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.example-comparison-map {
+  min-height: 480px;
+}
+
+.example-icon-error {
+  min-height: 18px;
+  margin-bottom: 0;
+  color: #a43627 !important;
+  font-weight: 800;
+}
+
+.example-custom-pin {
+  fill: var(--icon-color, #bf6b3d);
+  stroke: white;
+  stroke-width: 2.5;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 2px 2px rgba(16, 35, 31, 0.3));
+}
+
+.example-custom-pin-dot {
+  fill: white;
+  pointer-events: none;
+}
+
+.example-custom-marker image {
+  filter: drop-shadow(0 2px 2px rgba(16, 35, 31, 0.3));
+  pointer-events: none;
+}
+
+.example-custom-marker:hover,
+.example-custom-marker:focus,
+.example-custom-marker.is-active {
+  filter: drop-shadow(0 0 5px rgba(17, 93, 77, 0.75));
+}
+
 .example-embed-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 390px);
@@ -779,7 +1058,8 @@
 @media (max-width: 920px) {
   .examples-hero,
   .example-workspace,
-  .example-embed-layout {
+  .example-embed-layout,
+  .example-comparison-grid {
     grid-template-columns: 1fr;
   }
 
@@ -789,6 +1069,10 @@
 
   .example-embed-preview iframe {
     min-height: 560px;
+  }
+
+  .example-comparison-map {
+    min-height: 420px;
   }
 }
 

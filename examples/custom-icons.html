@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Upload and preview a custom SVG marker icon on an India map." />
+    <title>Custom marker icons example &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" /><link rel="stylesheet" href="examples.css" />
+  </head>
+  <body>
+    <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span><strong>India Map Studio</strong><small>Custom marker icons</small></span></a><nav class="header-actions" aria-label="Example navigation"><a class="back-link" href="../sample-data/sample-map-marker.svg" download>Download sample icon</a><a class="back-link" href="index.html">All examples</a></nav></header>
+    <main class="example-page">
+      <div class="example-heading"><div><p class="eyebrow">Example 12 &middot; Bring your own symbol</p><h1>Preview a custom SVG marker</h1><p class="intro">Sanitize one uploaded SVG and reuse it across real coordinate points.</p></div><a class="example-source-link" href="custom-icons.js">View JavaScript source</a></div>
+      <div class="example-workspace">
+        <section class="example-map-panel" aria-label="India map with customizable station icons"><div class="example-map-toolbar"><span id="icon-status" role="status">Loading markers&hellip;</span><button id="icon-reset" type="button">Reset icon</button></div><div id="icon-map" class="example-map example-advanced-map"></div><div id="icon-caption" class="example-map-caption" aria-live="polite">Upload an SVG or adjust the default pin color.</div></section>
+        <aside class="example-control-panel"><p class="eyebrow">Icon settings</p><h2>Marker appearance</h2><p>Upload a small SVG file. Scripts, embedded objects, event handlers, and external links are removed before preview.</p><label for="icon-upload">Custom SVG icon</label><input id="icon-upload" type="file" accept="image/svg+xml,.svg" /><p id="icon-error" class="example-icon-error" role="alert"></p><label for="icon-color">Default pin color</label><input id="icon-color" type="color" value="#bf6b3d" /><label for="icon-size">Marker size: <span id="icon-size-value">26</span></label><input id="icon-size" type="range" min="18" max="42" value="26" step="2" /><div class="example-poi-detail" aria-live="polite"><p class="eyebrow">Selected station</p><h2 id="icon-selection">Nothing selected</h2><p id="icon-selection-meta">Choose a marker to inspect its source place.</p></div></aside>
+      </div>
+    </main>
+    <script src="../map-engine.js"></script><script src="advanced-map-utils.js"></script><script src="custom-icons.js"></script>
+  </body>
+</html>
