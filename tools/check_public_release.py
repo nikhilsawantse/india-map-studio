@@ -46,6 +46,10 @@ DISTRICT_FEATURE = re.compile(
     r"""class=["'][^"']*\bdistrict-region\b[^"']*["']""",
     re.IGNORECASE,
 )
+MAPPED_DISTRICT_BADGE = re.compile(
+    r""">\s*36 regions\s*&middot;\s*(\d+) mapped districts\s*<""",
+    re.IGNORECASE,
+)
 
 
 def tracked_files() -> set[str]:
@@ -117,6 +121,16 @@ def main() -> int:
     for svg_path in state_maps:
         source = svg_path.read_text(encoding="utf-8")
         district_count += len(DISTRICT_FEATURE.findall(source))
+
+    index_source = (ROOT / "index.html").read_text(encoding="utf-8")
+    badge_match = MAPPED_DISTRICT_BADGE.search(index_source)
+    if not badge_match:
+        errors.append("The homepage mapped-district badge could not be validated")
+    elif int(badge_match.group(1)) != district_count:
+        errors.append(
+            "The homepage mapped-district badge does not match the public SVGs: "
+            f"{badge_match.group(1)} shown, {district_count} found"
+        )
 
     district_registry = (ROOT / "data/district-maps.js").read_text(
         encoding="utf-8"
