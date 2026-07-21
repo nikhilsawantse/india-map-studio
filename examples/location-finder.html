@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Search and navigate India's public state, district, and tehsil SVG boundaries."
+    />
+    <title>India location finder &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="examples.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span><strong>India Map Studio</strong><small>Location finder recipe</small></span>
+      </a>
+      <nav class="header-actions" aria-label="Example navigation">
+        <a class="back-link" href="../data/location-index.json">Search index</a>
+        <a class="back-link" href="index.html">All examples</a>
+      </nav>
+    </header>
+
+    <main class="example-page">
+      <div class="example-heading">
+        <div>
+          <p class="eyebrow">Example 13 &middot; Administrative search</p>
+          <h1>Find a boundary by name or code</h1>
+          <p class="intro">
+            Search 800 published states, districts, and tehsils with typo-tolerant matching,
+            keyboard navigation, and automatic map highlighting.
+          </p>
+        </div>
+        <a class="example-source-link" href="location-finder.js">View JavaScript source</a>
+      </div>
+
+      <div class="example-workspace">
+        <section class="example-map-panel example-finder-map-panel" aria-label="Administrative location finder map">
+          <div class="example-map-toolbar">
+            <div>
+              <button id="finder-back" type="button" hidden>&larr; India</button>
+              <nav id="finder-breadcrumb" class="example-finder-breadcrumb" aria-label="Current map layer">
+                <strong>India</strong>
+              </nav>
+            </div>
+            <span id="finder-map-status" role="status">Loading national layer&hellip;</span>
+          </div>
+          <div id="finder-map" class="example-map example-drill-map example-finder-map"></div>
+          <div id="finder-caption" class="example-map-caption" aria-live="polite">
+            Search for a location or select a state directly on the map.
+          </div>
+        </section>
+
+        <aside class="example-control-panel example-finder-panel">
+          <p class="eyebrow">Location search</p>
+          <h2>Where do you want to go?</h2>
+          <label for="finder-search">Name, slug, code, or identifier</label>
+          <input
+            id="finder-search"
+            type="search"
+            placeholder="Try Pune, Junar, or IN-REGION-27"
+            autocomplete="off"
+            aria-controls="finder-results"
+            aria-describedby="finder-search-help finder-result-summary"
+          />
+          <p id="finder-search-help">Spelling does not need to be exact. Press Down Arrow to enter the results.</p>
+
+          <label for="finder-level">Boundary level</label>
+          <select id="finder-level">
+            <option value="all">All published levels</option>
+            <option value="state">States and union territories</option>
+            <option value="district">Districts</option>
+            <option value="tehsil">Published tehsils</option>
+          </select>
+
+          <p id="finder-result-summary" class="example-finder-summary" role="status">
+            Preparing the location index&hellip;
+          </p>
+          <ul id="finder-results" class="example-finder-results" aria-label="Location results"></ul>
+          <p id="finder-empty" class="example-finder-empty" hidden>
+            No published boundary matches this search.
+          </p>
+
+          <section id="finder-selection" class="example-finder-selection" aria-labelledby="finder-selection-name" hidden>
+            <p class="eyebrow">Selected boundary</p>
+            <h2 id="finder-selection-name"></h2>
+            <p id="finder-selection-path"></p>
+            <dl>
+              <div><dt>Level</dt><dd id="finder-selection-level"></dd></div>
+              <div><dt>Administrative code</dt><dd id="finder-selection-code"></dd></div>
+              <div><dt>LGD code</dt><dd id="finder-selection-lgd"></dd></div>
+              <div><dt>Stable identifier</dt><dd><code id="finder-selection-id"></code></dd></div>
+            </dl>
+            <a id="finder-open-page" class="example-download-link" href="../index.html">Open full explorer</a>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <script src="../map-engine.js"></script>
+    <script src="location-finder.js"></script>
+  </body>
+</html>

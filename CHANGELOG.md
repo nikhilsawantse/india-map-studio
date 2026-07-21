@@ -37,6 +37,9 @@ release.
 - Advanced copyable recipes for marker clustering, SVG heatmaps, selectable
   route networks, regional time-series playback, election-style side-by-side
   comparisons, and sanitized custom SVG marker uploads.
+- Typo-tolerant India location finder covering 36 states and union territories,
+  750 districts, and 14 published Pune tehsils with code and stable-identifier
+  lookup, keyboard result navigation, and automatic layer highlighting.
 
 ### Changed
 

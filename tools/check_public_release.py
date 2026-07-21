@@ -56,6 +56,8 @@ REQUIRED_FILES = (
     "examples/comparison-map.js",
     "examples/custom-icons.html",
     "examples/custom-icons.js",
+    "examples/location-finder.html",
+    "examples/location-finder.js",
     "examples/embedded-map.html",
     "examples/embedded-map.js",
     "examples/embed-frame.html",
@@ -73,11 +75,13 @@ REQUIRED_FILES = (
     "docs/quick-start.md",
     "docs/quick-start.html",
     "data/boundary-registry.json",
+    "data/location-index.json",
     "data/boundary-registry.schema.json",
     "data/boundary-contribution.schema.json",
     "docs/boundary-registry.md",
     "docs/contributing-boundaries.md",
     "tools/build_boundary_registry.py",
+    "tools/build_location_index.py",
     "tools/validate_boundary_contribution.py",
     "tools/check_contributions.py",
     "tools/new_boundary_contribution.py",
@@ -336,6 +340,19 @@ def main() -> int:
     if contribution_check.returncode != 0:
         errors.append(
             contribution_check.stdout.strip() or contribution_check.stderr.strip()
+        )
+
+    location_index_check = subprocess.run(
+        [sys.executable, "tools/build_location_index.py", "--check"],
+        cwd=ROOT,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if location_index_check.returncode != 0:
+        errors.append(
+            location_index_check.stdout.strip()
+            or location_index_check.stderr.strip()
         )
 
     if errors:

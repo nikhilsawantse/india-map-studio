@@ -74,6 +74,9 @@ is a stable region slug such as `maharashtra`, not a display label.
   [comparison-map example](../examples/comparison-map.html).
 - Let users bring their own symbol with the
   [custom SVG icon example](../examples/custom-icons.html).
+- Find a published state, district, or tehsil by name, administrative code,
+  slug, or stable identifier with the
+  [India location finder](../examples/location-finder.html).
 - Publish a clean iframe with the
   [embedded-map example](../examples/embedded-map.html).
 - Read the full [map engine API](map-engine.md).

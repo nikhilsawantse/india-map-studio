@@ -200,6 +200,7 @@ examples/route-network.html        Selectable corridors between station hubs
 examples/time-series.html          Scrubbable and playable regional values
 examples/comparison-map.html       Side-by-side election-style scenarios
 examples/custom-icons.html         Sanitized user-supplied SVG marker preview
+examples/location-finder.html      Fuzzy administrative boundary search
 examples/embedded-map.html         Configurable iframe integration
 sample-data/                       Documented synthetic example datasets
 starter/                           Minimal editable map application
@@ -213,6 +214,7 @@ contribute.html / contribute.js    Local-only guided contribution assistant
 contributions/                     Pull-request boundary staging workspace
 docs/contributing-boundaries.md    Boundary contribution workflow and contract
 data/states.js                     Generated region metadata
+data/location-index.json           Generated state, district, and tehsil search index
 tools/build_boundary_registry.py   Layer discovery and compatibility validator
 tools/validate_boundary_contribution.py
                                    SVG, GeoJSON, metadata, and count validator
