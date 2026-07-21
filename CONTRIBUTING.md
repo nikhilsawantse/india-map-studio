@@ -49,6 +49,15 @@ DATA_LICENSES.md. The pull request must identify:
 Do not submit geometry copied from a visual map, reverse-engineered from a
 restricted service, or published without clear redistribution permission.
 
+Use the local contribution assistant at `contribute.html` or run the guided
+command-line workflow:
+
+    python tools/new_boundary_contribution.py
+
+Both workflows produce the versioned `boundary-contribution.json` required for
+review. Read `docs/contributing-boundaries.md` for the geometry, identifier,
+metadata, and folder contracts.
+
 After adding or changing a public boundary SVG, rebuild and check the registry:
 
     python tools/build_boundary_registry.py
@@ -69,6 +78,13 @@ At minimum:
 Run `python tools/check_public_release.py` before opening a pull request. It
 checks publication safety, public routes, feature totals, and registry
 compatibility.
+
+When adding a staged SVG or GeoJSON contribution, also run:
+
+    python tools/check_contributions.py
+    python -m unittest discover -s tests -v
+
+The same checks run automatically on every pull request.
 
 ## Pull requests
 

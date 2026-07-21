@@ -34,9 +34,9 @@ response to user and contributor feedback.
 
 ## Milestone 5: Contributor tooling
 
-- [ ] Validate SVG, GeoJSON, identifiers, metadata, and feature counts.
-- [ ] Add a guided layer-contribution workflow.
-- [ ] Run automated checks on every pull request.
+- [x] Validate SVG, GeoJSON, identifiers, metadata, and feature counts.
+- [x] Add a guided layer-contribution workflow.
+- [x] Run automated checks on every pull request.
 
 ## Milestone 6: Examples and templates
 

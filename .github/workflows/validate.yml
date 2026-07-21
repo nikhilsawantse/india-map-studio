@@ -1,0 +1,26 @@
+name: Validate pull request
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test contribution validators
+        run: python -m unittest discover -s tests -v
+      - name: Validate staged boundary contributions
+        run: python tools/check_contributions.py
+      - name: Validate public release
+        run: python tools/check_public_release.py

@@ -19,6 +19,8 @@ Complete this section when the change includes geographic data.
 - [ ] Required attribution is included.
 - [ ] Transformations and identifier mappings are reproducible.
 - [ ] Expected and generated feature counts were compared.
+- [ ] I included a validated `boundary-contribution.json` beside new geometry.
+- [ ] `python tools/check_contributions.py` passes locally.
 - [ ] DATA_LICENSES.md and ATTRIBUTION.md were updated.
 
 ## Screenshots

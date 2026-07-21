@@ -37,6 +37,20 @@ body:
       description: Include names, codes, expected feature counts, and known transformations.
     validations:
       required: true
+  - type: textarea
+    id: identifiers
+    attributes:
+      label: Identifier and feature-count plan
+      description: List the proposed layer ID, feature ID key, slug key, and expected feature count.
+    validations:
+      required: true
+  - type: textarea
+    id: processing
+    attributes:
+      label: Reproducible processing
+      description: List transformations and the exact command or process used to create the proposed asset.
+    validations:
+      required: true
   - type: checkboxes
     id: rights
     attributes:

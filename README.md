@@ -29,6 +29,11 @@ assets, with no application framework or build step required.
 - Framework-free `<india-svg-map>` Web Component with independent instances
 - Versioned boundary registry with source, license, vintage, identifiers,
   verification state, and map-engine compatibility for every public layer
+- Local-only boundary contribution assistant for inspecting SVG or GeoJSON,
+  validating stable identifiers, documenting provenance, and exporting a
+  review manifest
+- Dependency-free Python contribution wizard and validator with automated
+  pull-request checks for geometry, metadata, rights, and feature counts
 - Hover, keyboard focus, search, selection, and tooltips
 - Navigation to a standalone page for every region
 - 36 separate state and union-territory SVG files with 750 interactive
@@ -179,8 +184,17 @@ examples/multiple-maps.html        Two independent component instances
 data/boundary-registry.json        Generated public boundary-layer catalog
 data/boundary-registry.schema.json Registry JSON Schema contract
 registry.html                      Searchable boundary registry interface
+data/boundary-contribution.schema.json
+                                   Boundary contribution JSON Schema contract
+contribute.html / contribute.js    Local-only guided contribution assistant
+contributions/                     Pull-request boundary staging workspace
+docs/contributing-boundaries.md    Boundary contribution workflow and contract
 data/states.js                     Generated region metadata
 tools/build_boundary_registry.py   Layer discovery and compatibility validator
+tools/validate_boundary_contribution.py
+                                   SVG, GeoJSON, metadata, and count validator
+tools/new_boundary_contribution.py Guided contribution workspace creator
+tools/check_contributions.py       Repository-wide contribution discovery
 tools/generate_maps.py             GeoJSON-to-SVG generator
 tools/generate_state_district_map.py
                                    One-state district rollout generator
@@ -320,8 +334,18 @@ official boundary determination. See [ATTRIBUTION.md](ATTRIBUTION.md).
 
 Code, documentation, accessibility, translation, and properly licensed data
 contributions are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before
-opening a pull request. Boundary changes require a direct source, an exact
-license, a retrieval date, and a reproducible transformation.
+opening a pull request. For boundary changes, use the
+[guided contribution assistant](contribute.html) and read the
+[boundary contribution workflow](docs/contributing-boundaries.md). Boundary
+changes require a direct source, an exact license, a retrieval date, explicit
+redistribution confirmation, and a reproducible transformation.
+
+Validate a proposed contribution locally with:
+
+```text
+python tools/check_contributions.py
+python -m unittest discover -s tests -v
+```
 
 ## License
 
@@ -350,5 +374,5 @@ python tools/build_boundary_registry.py --check
 
 ## Next milestone
 
-Build contributor tooling for SVG, GeoJSON, identifiers, metadata, feature
-counts, and guided boundary-layer contributions. See [ROADMAP.md](ROADMAP.md).
+Publish focused examples and templates for choropleths, drill-downs, markers,
+embedded maps, and a five-minute quick start. See [ROADMAP.md](ROADMAP.md).

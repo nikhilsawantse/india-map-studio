@@ -21,6 +21,10 @@ release.
 - `<india-svg-map>` Web Component and a two-instance independence example.
 - Versioned boundary registry, JSON Schema, searchable registry page, and
   automatic public-layer discovery with compatibility validation.
+- Guided local boundary contribution assistant with SVG and GeoJSON inspection,
+  stable-identifier checks, provenance collection, and manifest export.
+- Dependency-free contribution schema, command-line wizard, validator, test
+  suite, and pull-request validation workflow.
 
 ### Changed
 

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Prepare and validate an SVG or GeoJSON boundary contribution for India Map Studio."
+    />
+    <title>Contribute a Boundary &middot; India Map Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="contribution-page">
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span>
+          <strong>India Map Studio</strong>
+          <small>Boundary contribution guide</small>
+        </span>
+      </a>
+      <nav class="header-actions" aria-label="Contribution navigation">
+        <a class="back-link" href="registry.html">Boundary registry</a>
+        <a class="back-link" href="CONTRIBUTING.md">Contributor guide</a>
+        <a class="back-link" href="index.html">&larr; India map</a>
+      </nav>
+    </header>
+
+    <main class="contribution-workspace">
+      <section class="contribution-hero" aria-labelledby="contribution-title">
+        <div>
+          <p class="eyebrow">Guided open-data workflow</p>
+          <h1 id="contribution-title">Prepare a boundary layer with confidence</h1>
+          <p class="intro">
+            Inspect geometry, verify stable identifiers, record provenance, and
+            create the manifest required for review. Your file stays in this browser.
+          </p>
+        </div>
+        <ol class="contribution-steps" aria-label="Contribution steps">
+          <li><span>1</span>Inspect</li>
+          <li><span>2</span>Identify</li>
+          <li><span>3</span>Document</li>
+          <li><span>4</span>Submit</li>
+        </ol>
+      </section>
+
+      <div class="contribution-layout">
+        <form id="contribution-form" class="contribution-form" novalidate>
+          <section class="contribution-section" aria-labelledby="asset-title">
+            <div class="contribution-section-heading">
+              <span class="contribution-step-number">01</span>
+              <div>
+                <p class="eyebrow">Boundary file</p>
+                <h2 id="asset-title">Inspect geometry locally</h2>
+              </div>
+            </div>
+            <label class="contribution-file-picker">
+              <span>Select SVG or GeoJSON</span>
+              <small>Maximum 50 MB &middot; nothing is uploaded</small>
+              <input
+                id="contribution-file"
+                type="file"
+                accept=".svg,.geojson,.json,image/svg+xml,application/geo+json,application/json"
+              />
+            </label>
+            <div id="contribution-file-summary" class="contribution-file-summary" hidden>
+              <div>
+                <span>File</span>
+                <strong id="contribution-file-name"></strong>
+              </div>
+              <div>
+                <span>Format</span>
+                <strong id="contribution-file-format"></strong>
+              </div>
+              <div>
+                <span>Features</span>
+                <strong id="contribution-feature-count">0</strong>
+              </div>
+            </div>
+          </section>
+
+          <section class="contribution-section" aria-labelledby="identity-title">
+            <div class="contribution-section-heading">
+              <span class="contribution-step-number">02</span>
+              <div>
+                <p class="eyebrow">Stable identity</p>
+                <h2 id="identity-title">Describe the layer and its features</h2>
+              </div>
+            </div>
+            <div class="contribution-fields contribution-fields-two">
+              <label>
+                <span>Layer ID</span>
+                <input id="contribution-layer-id" required placeholder="IN-REGION-27-DISTRICTS" />
+              </label>
+              <label>
+                <span>Layer label</span>
+                <input id="contribution-layer-label" required placeholder="Maharashtra districts" />
+              </label>
+              <label>
+                <span>Administrative level</span>
+                <select id="contribution-level" required>
+                  <option value="">Choose a level</option>
+                  <option value="regions">States / UTs</option>
+                  <option value="divisions">Divisions</option>
+                  <option value="districts">Districts</option>
+                  <option value="subdivisions">Subdivisions</option>
+                  <option value="tehsils">Tehsils</option>
+                  <option value="blocks">Blocks</option>
+                  <option value="villages">Villages</option>
+                  <option value="gram-panchayats">Gram panchayats</option>
+                  <option value="wards">Wards</option>
+                  <option value="other">Other local boundaries</option>
+                </select>
+              </label>
+              <label>
+                <span>Parent feature ID</span>
+                <input id="contribution-parent-id" placeholder="IN-REGION-27" />
+              </label>
+              <label>
+                <span>Feature selector</span>
+                <input id="contribution-selector" required placeholder=".district-region" />
+                <small>SVG class, ID, or element; GeoJSON uses Feature.</small>
+              </label>
+              <label>
+                <span>Feature ID key</span>
+                <input id="contribution-feature-key" required placeholder="data-feature-id" />
+              </label>
+              <label>
+                <span>Slug key</span>
+                <input id="contribution-slug-key" required placeholder="data-slug" />
+              </label>
+              <label>
+                <span>Declared feature count</span>
+                <input id="contribution-declared-count" inputmode="numeric" readonly />
+              </label>
+            </div>
+          </section>
+
+          <section class="contribution-section" aria-labelledby="source-title">
+            <div class="contribution-section-heading">
+              <span class="contribution-step-number">03</span>
+              <div>
+                <p class="eyebrow">Provenance and rights</p>
+                <h2 id="source-title">Document the direct source</h2>
+              </div>
+            </div>
+            <div class="contribution-fields contribution-fields-two">
+              <label>
+                <span>Source name</span>
+                <input id="contribution-source-name" required />
+              </label>
+              <label>
+                <span>Direct source URL</span>
+                <input id="contribution-source-url" type="url" required placeholder="https://example.org/release" />
+              </label>
+              <label>
+                <span>Source revision</span>
+                <input id="contribution-source-revision" required placeholder="Release, commit, or checksum" />
+              </label>
+              <label>
+                <span>Retrieval date</span>
+                <input id="contribution-retrieved" type="date" required />
+              </label>
+              <label>
+                <span>Boundary vintage</span>
+                <input id="contribution-vintage" required placeholder="2026 or Census 2011" />
+              </label>
+              <label>
+                <span>License name</span>
+                <input id="contribution-license-name" required placeholder="Creative Commons Zero 1.0" />
+              </label>
+              <label>
+                <span>SPDX identifier</span>
+                <input id="contribution-license-spdx" required placeholder="CC0-1.0" />
+              </label>
+              <label>
+                <span>License URL</span>
+                <input id="contribution-license-url" type="url" required />
+              </label>
+              <label class="contribution-field-wide">
+                <span>Required attribution</span>
+                <textarea id="contribution-attribution" rows="3" required></textarea>
+              </label>
+              <label class="contribution-field-wide">
+                <span>Transformations performed</span>
+                <textarea id="contribution-transformations" rows="3" required placeholder="Clipped to state; repaired rings; simplified to six decimal places"></textarea>
+              </label>
+              <label class="contribution-field-wide">
+                <span>Reproducible command or process</span>
+                <textarea id="contribution-command" rows="3" required placeholder="python tools/generator.py --source ..."></textarea>
+              </label>
+            </div>
+            <label class="contribution-rights-check">
+              <input id="contribution-rights" type="checkbox" />
+              <span>
+                I verified that the source license permits public redistribution
+                and derivative boundary files.
+              </span>
+            </label>
+          </section>
+        </form>
+
+        <aside class="contribution-review" aria-labelledby="review-title">
+          <div class="contribution-review-heading">
+            <div>
+              <p class="eyebrow">Live validation</p>
+              <h2 id="review-title">Contribution readiness</h2>
+            </div>
+            <span id="contribution-status-badge" class="contribution-status-badge">Waiting</span>
+          </div>
+          <p id="contribution-status" role="status" aria-live="polite">
+            Select an SVG or GeoJSON file to begin.
+          </p>
+          <ul id="contribution-checks" class="contribution-checks"></ul>
+
+          <div id="contribution-output" class="contribution-output" hidden>
+            <label for="contribution-manifest">Generated manifest</label>
+            <textarea id="contribution-manifest" rows="12" readonly></textarea>
+          </div>
+
+          <div class="contribution-actions">
+            <button id="contribution-generate" class="primary-button" type="button" disabled>
+              Generate manifest
+            </button>
+            <button id="contribution-copy" class="secondary-button" type="button" disabled>
+              Copy JSON
+            </button>
+            <button id="contribution-download" class="secondary-button" type="button" disabled>
+              Download JSON
+            </button>
+          </div>
+          <p class="contribution-next-step">
+            Place the manifest beside the boundary file, run
+            <code>python tools/check_contributions.py</code>, then open a pull request.
+          </p>
+        </aside>
+      </div>
+    </main>
+
+    <script src="contribute.js"></script>
+  </body>
+</html>

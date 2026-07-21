@@ -19,6 +19,7 @@ REQUIRED_FILES = (
     "custom-map.html",
     "audit.html",
     "registry.html",
+    "contribute.html",
     "404.html",
     "LICENSE",
     "DATA_LICENSES.md",
@@ -31,8 +32,13 @@ REQUIRED_FILES = (
     "examples/multiple-maps.html",
     "data/boundary-registry.json",
     "data/boundary-registry.schema.json",
+    "data/boundary-contribution.schema.json",
     "docs/boundary-registry.md",
+    "docs/contributing-boundaries.md",
     "tools/build_boundary_registry.py",
+    "tools/validate_boundary_contribution.py",
+    "tools/check_contributions.py",
+    "tools/new_boundary_contribution.py",
 )
 
 LOCAL_ONLY_FILES = (
@@ -171,6 +177,18 @@ def main() -> int:
     )
     if registry_check.returncode != 0:
         errors.append(registry_check.stdout.strip() or registry_check.stderr.strip())
+
+    contribution_check = subprocess.run(
+        [sys.executable, "tools/check_contributions.py"],
+        cwd=ROOT,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if contribution_check.returncode != 0:
+        errors.append(
+            contribution_check.stdout.strip() or contribution_check.stderr.strip()
+        )
 
     if errors:
         print("Public release validation failed:")
