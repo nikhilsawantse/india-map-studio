@@ -9,7 +9,8 @@ demonstration data, not official statistics.
   referenced region's visual centroid. The values are not geographic
   coordinates.
 - `maharashtra-district-demo.csv` exercises district-level data import in the
-  authoring workspace.
+  authoring workspace and the runnable CSV district-data example. It includes
+  numeric, categorical, URL, image, and summary fields for all 36 districts.
 
 Every example labels synthetic values clearly. Replace them with data from a
 documented source before publishing a real map.

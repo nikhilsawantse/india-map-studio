@@ -35,6 +35,8 @@ REQUIRED_FILES = (
     "examples/index.html",
     "examples/choropleth.html",
     "examples/choropleth.js",
+    "examples/csv-data.html",
+    "examples/csv-data.js",
     "examples/drill-down.html",
     "examples/drill-down.js",
     "examples/markers.html",
@@ -44,6 +46,7 @@ REQUIRED_FILES = (
     "examples/embed-frame.html",
     "examples/examples.css",
     "sample-data/india-state-demo.csv",
+    "sample-data/maharashtra-district-demo.csv",
     "sample-data/india-marker-demo.json",
     "sample-data/README.md",
     "starter/index.html",
@@ -89,6 +92,9 @@ MAPPED_DISTRICT_BADGE = re.compile(
     re.IGNORECASE,
 )
 STATE_SLUG = re.compile(r'"slug"\s*:\s*"([a-z0-9-]+)"')
+MAHARASHTRA_DISTRICT_ID = re.compile(
+    r'data-feature-id="(IN-REGION-27-DISTRICT-[^"]+)"'
+)
 
 
 def tracked_files() -> set[str]:
@@ -209,6 +215,36 @@ def main() -> int:
             errors.append(
                 f"The choropleth sample has a non-numeric demo_index: {row.get('slug', '')}"
             )
+
+    with (ROOT / "sample-data/maharashtra-district-demo.csv").open(
+        encoding="utf-8", newline=""
+    ) as source:
+        district_sample_rows = list(csv.DictReader(source))
+    district_sample_ids = {
+        row.get("district_id", "") for row in district_sample_rows
+    }
+    maharashtra_source = (
+        ROOT / "assets/maps/states/maharashtra.svg"
+    ).read_text(encoding="utf-8")
+    maharashtra_district_ids = set(
+        MAHARASHTRA_DISTRICT_ID.findall(maharashtra_source)
+    )
+    if (
+        len(district_sample_rows) != len(maharashtra_district_ids)
+        or district_sample_ids != maharashtra_district_ids
+    ):
+        errors.append(
+            "The Maharashtra CSV sample must contain one unique row for every district"
+        )
+    for row in district_sample_rows:
+        for field in ("population_index", "literacy_rate", "priority_score"):
+            try:
+                float(row.get(field, ""))
+            except ValueError:
+                errors.append(
+                    "The Maharashtra CSV sample has a non-numeric "
+                    f"{field}: {row.get('district_id', '')}"
+                )
 
     marker_sample = json.loads(
         (ROOT / "sample-data/india-marker-demo.json").read_text(encoding="utf-8")

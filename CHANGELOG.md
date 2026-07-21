@@ -28,6 +28,9 @@ release.
 - Focused, runnable choropleth, drill-down, marker, and iframe-embed examples.
 - Synthetic national sample datasets, five-minute quick start, and minimal
   starter application for repositories created from the GitHub template.
+- Runnable Maharashtra district CSV example with file import, automatic
+  identifier matching, numeric and categorical coloring, profile fields, and
+  a downloadable synthetic dataset.
 
 ### Changed
 

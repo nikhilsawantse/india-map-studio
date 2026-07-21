@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Import synthetic CSV data, join it to Maharashtra districts, and visualize numeric or categorical fields."
+    />
+    <title>CSV data example &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="examples.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span><strong>India Map Studio</strong><small>CSV data recipe</small></span>
+      </a>
+      <nav class="header-actions" aria-label="Example navigation">
+        <a
+          class="back-link"
+          href="../sample-data/maharashtra-district-demo.csv"
+          download
+        >Download sample CSV</a>
+        <a class="back-link" href="index.html">All examples</a>
+      </nav>
+    </header>
+
+    <main class="example-page example-csv-page">
+      <div class="example-heading">
+        <div>
+          <p class="eyebrow">Example 05 &middot; CSV import and data profiles</p>
+          <h1>Join your CSV to districts</h1>
+          <p class="intro">
+            Match rows automatically, switch between numeric and categorical fields,
+            and inspect the imported district profile.
+          </p>
+        </div>
+        <a class="example-source-link" href="csv-data.js">View JavaScript source</a>
+      </div>
+
+      <div class="example-workspace">
+        <section class="example-map-panel" aria-label="Maharashtra district CSV map">
+          <div class="example-map-toolbar">
+            <span id="csv-status" role="status">Loading map and sample CSV&hellip;</span>
+            <button id="csv-clear" type="button" disabled>Clear selection</button>
+          </div>
+          <div id="csv-map" class="example-map example-csv-map"></div>
+          <div id="csv-detail" class="example-map-caption" aria-live="polite">
+            Hover, focus, or select a district to inspect its imported value.
+          </div>
+        </section>
+
+        <aside class="example-control-panel">
+          <p class="eyebrow">CSV controls</p>
+          <h2>District data</h2>
+          <p>
+            The bundled values are synthetic. Import the downloaded file unchanged,
+            or edit its values first and test the automatic join again.
+          </p>
+
+          <label for="csv-file">Import a CSV file</label>
+          <input id="csv-file" type="file" accept=".csv,text/csv" />
+
+          <div class="example-csv-actions">
+            <a
+              class="example-download-link"
+              href="../sample-data/maharashtra-district-demo.csv"
+              download
+            >Download dummy CSV</a>
+            <button id="csv-reset" type="button">Reload sample</button>
+          </div>
+
+          <label for="csv-field">Color districts by</label>
+          <select id="csv-field" disabled>
+            <option value="">Waiting for CSV data&hellip;</option>
+          </select>
+
+          <p id="csv-join-summary" class="example-csv-summary">
+            Preparing the district identifiers&hellip;
+          </p>
+          <div id="csv-legend" class="example-csv-legend" aria-live="polite"></div>
+
+          <div class="example-csv-profile" aria-live="polite">
+            <p class="eyebrow">Selected CSV row</p>
+            <h2 id="csv-selection">Nothing selected</h2>
+            <dl id="csv-profile-fields">
+              <div><dt>Tip</dt><dd>Select a district on the map.</dd></div>
+            </dl>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <script src="../map-engine.js"></script>
+    <script src="csv-data.js"></script>
+  </body>
+</html>

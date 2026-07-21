@@ -56,6 +56,8 @@ is a stable region slug such as `maharashtra`, not a display label.
 ## Next choices
 
 - Join numeric CSV data with the [choropleth example](../examples/choropleth.html).
+- Import district CSV files, switch numeric or categorical fields, and inspect
+  joined profiles with the [CSV data example](../examples/csv-data.html).
 - Replace the national SVG with district layers in the
   [drill-down example](../examples/drill-down.html).
 - Add an SVG overlay with the [marker example](../examples/markers.html).

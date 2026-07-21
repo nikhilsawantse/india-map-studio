@@ -271,6 +271,157 @@
   margin-bottom: 0;
 }
 
+.example-control-panel input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  color: var(--ink);
+  background: rgba(255, 253, 247, 0.86);
+  font: inherit;
+  font-size: 11px;
+}
+
+.example-csv-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.example-download-link {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  padding: 8px 11px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--accent-dark);
+  font-size: 11px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.example-download-link:hover,
+.example-download-link:focus-visible {
+  border-color: var(--focus);
+}
+
+.example-csv-summary {
+  padding: 10px 12px;
+  border-left: 3px solid rgba(17, 93, 77, 0.3);
+  background: rgba(17, 93, 77, 0.05);
+}
+
+.example-csv-legend {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.example-category-legend {
+  display: grid;
+  gap: 7px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.example-category-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.example-category-swatch {
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+  border: 1px solid rgba(16, 35, 31, 0.18);
+  border-radius: 4px;
+  background: var(--swatch-color);
+}
+
+.example-csv-profile {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.example-csv-profile dl {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0 0;
+}
+
+.example-csv-profile dl div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 10px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid rgba(16, 35, 31, 0.08);
+}
+
+.example-csv-profile dt {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.example-csv-profile dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-size: 11px;
+}
+
+.example-csv-map {
+  --csv-category-1: #d7e8df;
+  --csv-category-2: #f2c69b;
+  --csv-category-3: #c8d7eb;
+  --csv-category-4: #e2cfdf;
+  --csv-category-5: #e6dda8;
+  --csv-category-6: #b9ddd8;
+}
+
+.example-csv-map #state-outline {
+  pointer-events: none;
+}
+
+.example-csv-map #state-outline :is(path, polygon, polyline) {
+  fill: none;
+  stroke: var(--focus, #115d4d);
+  stroke-width: 2.4;
+  vector-effect: non-scaling-stroke;
+}
+
+.example-csv-map .district-region {
+  cursor: pointer;
+  pointer-events: visiblePainted;
+}
+
+.example-csv-map .district-region :is(path, polygon, polyline) {
+  fill: var(--example-fill, var(--map-fill, #dce9df));
+  stroke: var(--map-stroke, #47665e);
+  stroke-width: 1.15;
+  transition: fill 140ms ease;
+  vector-effect: non-scaling-stroke;
+}
+
+.example-csv-map .district-region:hover :is(path, polygon, polyline),
+.example-csv-map .district-region:focus :is(path, polygon, polyline),
+.example-csv-map .district-region.is-hovered :is(path, polygon, polyline) {
+  fill: var(--hover, #f2ab75);
+}
+
+.example-csv-map .district-region.is-selected :is(path, polygon, polyline) {
+  fill: var(--selected, #e6783e);
+  stroke: var(--focus, #115d4d);
+  stroke-width: 1.8;
+}
+
 .example-legend {
   display: grid;
   gap: 8px;

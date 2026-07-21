@@ -35,8 +35,9 @@ assets, with no application framework or build step required.
   review manifest
 - Dependency-free Python contribution wizard and validator with automated
   pull-request checks for geometry, metadata, rights, and feature counts
-- Runnable example library for CSV choropleths, two-level drill-downs,
-  accessible proportional markers, and configurable iframe embeds
+- Runnable example library for CSV choropleths, district CSV imports,
+  two-level drill-downs, accessible proportional markers, and configurable
+  iframe embeds
 - Synthetic CSV and JSON example datasets, a five-minute quick start, and a
   minimal editable starter application
 - Hover, keyboard focus, search, selection, and tooltips
@@ -188,6 +189,7 @@ docs/map-engine.md                 Public configuration, methods, and events
 examples/multiple-maps.html        Two independent component instances
 examples/index.html                Focused example library
 examples/choropleth.html           CSV-to-region numeric color join
+examples/csv-data.html             District CSV import, visualization, and profiles
 examples/drill-down.html           National-to-district layer navigation
 examples/markers.html              Accessible SVG marker overlay
 examples/embedded-map.html         Configurable iframe integration
