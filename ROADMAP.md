@@ -15,7 +15,7 @@ response to user and contributor feedback.
 
 - [x] Prepare a release-safe public asset set.
 - [x] Initialize the repository history and default branch.
-- [ ] Create the GitHub repository.
+- [x] Create the GitHub repository.
 - [x] Add automated GitHub Pages deployment.
 - [x] Verify every route and asset from the project-site subdirectory.
 

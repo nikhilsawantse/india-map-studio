@@ -321,5 +321,6 @@ assets.
 
 ## Next milestone
 
-Prepare a release-safe asset set, initialize the repository history, and
-publish the application through GitHub Pages. See [ROADMAP.md](ROADMAP.md).
+Build the reusable map engine: separate rendering and data concerns, define a
+documented configuration and event API, support multiple map instances, and
+provide a framework-free Web Component. See [ROADMAP.md](ROADMAP.md).
