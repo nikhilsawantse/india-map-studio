@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Validate public release
         run: python tools/check_public_release.py
 
@@ -32,7 +32,7 @@ jobs:
     needs: validate
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site
