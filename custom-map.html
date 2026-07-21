@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Import SVG or GeoJSON maps, detect interactive regions, and assign stable identifiers."
+    />
+    <title>Custom Map Importer &middot; India Map Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="custom-map-page">
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span>
+          <strong>India Map Studio</strong>
+          <small>Custom map importer</small>
+        </span>
+      </a>
+      <a class="back-link" href="index.html">&larr; Back to India map</a>
+    </header>
+
+    <main class="custom-map-workspace">
+      <aside class="custom-import-panel" aria-label="Custom map controls">
+        <div>
+          <p class="eyebrow">Custom map workspace</p>
+          <h1>Identify your own regions</h1>
+          <p class="intro">
+            Import an SVG or GeoJSON file. The tool detects region geometry,
+            assigns stable identifiers, and lets you verify and rename every
+            interactive area.
+          </p>
+        </div>
+
+        <label class="custom-map-file-picker">
+          <input
+            id="custom-map-file"
+            type="file"
+            accept=".svg,.json,.geojson,image/svg+xml,application/json,application/geo+json"
+          />
+          <span>Choose SVG or GeoJSON</span>
+          <small>Maximum file size: 10 MB</small>
+        </label>
+
+        <p
+          id="custom-import-status"
+          class="custom-import-status"
+          role="status"
+          aria-live="polite"
+        >
+          No custom map loaded.
+        </p>
+
+        <section id="custom-map-summary" class="custom-map-summary" hidden>
+          <div>
+            <span>Source</span>
+            <strong id="custom-source-name">&mdash;</strong>
+          </div>
+          <div>
+            <span>Format</span>
+            <strong id="custom-source-format">&mdash;</strong>
+          </div>
+          <div>
+            <span>Regions</span>
+            <strong id="custom-region-count">0</strong>
+          </div>
+          <div>
+            <span>Identifier set</span>
+            <strong>CUSTOM-REGION</strong>
+          </div>
+        </section>
+
+        <label
+          id="geojson-name-property-field"
+          class="custom-map-field"
+          hidden
+        >
+          <span>GeoJSON name property</span>
+          <select id="geojson-name-property"></select>
+        </label>
+
+        <section
+          id="custom-region-editor"
+          class="custom-region-editor"
+          hidden
+        >
+          <div>
+            <p class="eyebrow">Selected region</p>
+            <h2 id="custom-selected-name">Region</h2>
+          </div>
+          <label class="custom-map-field">
+            <span>Display name</span>
+            <input id="custom-region-name" type="text" maxlength="80" />
+          </label>
+          <div class="custom-region-identifier">
+            <span>Stable identifier</span>
+            <code id="custom-region-identifier">&mdash;</code>
+          </div>
+          <button
+            id="save-custom-region-name"
+            class="secondary-button"
+            type="button"
+          >
+            Save region name
+          </button>
+        </section>
+
+        <label id="custom-region-search-field" class="search-field" hidden>
+          <span>Find an identified region</span>
+          <input
+            id="custom-region-search"
+            type="search"
+            placeholder="Search names or identifiers"
+            autocomplete="off"
+          />
+        </label>
+
+        <div
+          id="custom-region-list-summary"
+          class="list-summary"
+          hidden
+        >
+          <span id="custom-visible-count">0 regions</span>
+          <button id="clear-custom-selection" class="text-button" type="button">
+            Clear selection
+          </button>
+        </div>
+
+        <div
+          id="custom-region-list"
+          class="custom-region-list"
+          aria-label="Detected custom regions"
+        ></div>
+
+        <button
+          id="download-identified-svg"
+          class="primary-button custom-download-button"
+          type="button"
+          disabled
+        >
+          Download identified SVG
+        </button>
+      </aside>
+
+      <section class="custom-map-preview-panel" aria-label="Custom map preview">
+        <div class="map-toolbar">
+          <div>
+            <span class="status-dot" aria-hidden="true"></span>
+            <span id="custom-preview-status">Waiting for a map file</span>
+          </div>
+          <span class="map-hint">Hover to preview &middot; click to select</span>
+        </div>
+        <div id="custom-map-canvas" class="custom-map-canvas">
+          <div id="custom-map-empty" class="custom-map-empty">
+            <strong>Import a map to begin</strong>
+            <span>SVG regions or GeoJSON polygons will appear here.</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="custom-map-tooltip" class="map-tooltip" role="tooltip" hidden>
+      <strong id="custom-tooltip-name"></strong>
+      <span id="custom-tooltip-id"></span>
+    </div>
+
+    <script src="custom-map.js"></script>
+  </body>
+</html>

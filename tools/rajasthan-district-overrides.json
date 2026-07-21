@@ -1,0 +1,71 @@
+{
+  "AJMER": { "name": "Ajmer", "lgd_code": "86" },
+  "ALWAR": { "name": "Alwar", "lgd_code": "87" },
+  "BALOTRA": { "name": "Balotra", "lgd_code": "775" },
+  "BANSWARA": { "name": "Banswara", "lgd_code": "88" },
+  "BARAN": { "name": "Baran", "lgd_code": "89" },
+  "BARMER": { "name": "Barmer", "lgd_code": "90" },
+  "BEAWAR": { "name": "Beawar", "lgd_code": "774" },
+  "BHARATPUR": { "name": "Bharatpur", "lgd_code": "91" },
+  "BHILWARA": { "name": "Bhilwara", "lgd_code": "92" },
+  "BIKANER": { "name": "Bikaner", "lgd_code": "93" },
+  "BUNDI": { "name": "Bundi", "lgd_code": "94" },
+  "CHITTAURGARH": {
+    "name": "Chittorgarh",
+    "slug": "chittaurgarh",
+    "lgd_code": "95"
+  },
+  "CHURU": { "name": "Churu", "lgd_code": "96" },
+  "DAUSA": { "name": "Dausa", "lgd_code": "97" },
+  "DEEG": { "name": "Deeg", "lgd_code": "767" },
+  "DHAULPUR": {
+    "name": "Dholpur",
+    "slug": "dhaulpur",
+    "lgd_code": "98"
+  },
+  "DIDWANA-KUCHAMAN": {
+    "name": "Didwana-Kuchaman",
+    "lgd_code": "768"
+  },
+  "DUNGARPUR": { "name": "Dungarpur", "lgd_code": "99" },
+  "GANGANAGAR": { "name": "Ganganagar", "lgd_code": "100" },
+  "HANUMANGARH": { "name": "Hanumangarh", "lgd_code": "101" },
+  "JAIPUR": { "name": "Jaipur", "lgd_code": "102" },
+  "JAISALMER": { "name": "Jaisalmer", "lgd_code": "103" },
+  "JALOR": {
+    "name": "Jalore",
+    "slug": "jalor",
+    "lgd_code": "104"
+  },
+  "JHALAWAR": { "name": "Jhalawar", "lgd_code": "105" },
+  "JHUNJHUNUN": {
+    "name": "Jhunjhunu",
+    "slug": "jhunjhunun",
+    "lgd_code": "106"
+  },
+  "JODHPUR": { "name": "Jodhpur", "lgd_code": "107" },
+  "KARAULI": { "name": "Karauli", "lgd_code": "108" },
+  "KHAIRTHAL-TIJARA": {
+    "name": "Khairthal-Tijara",
+    "lgd_code": "770"
+  },
+  "KOTA": { "name": "Kota", "lgd_code": "109" },
+  "KOTPUTLI-BEHROR": {
+    "name": "Kotputli-Behror",
+    "lgd_code": "771"
+  },
+  "NAGAUR": { "name": "Nagaur", "lgd_code": "110" },
+  "PALI": { "name": "Pali", "lgd_code": "111" },
+  "PHALODI": { "name": "Phalodi", "lgd_code": "772" },
+  "PRATAPGARH": { "name": "Pratapgarh", "lgd_code": "629" },
+  "RAJSAMAND": { "name": "Rajsamand", "lgd_code": "112" },
+  "SALUMBAR": { "name": "Salumbar", "lgd_code": "777" },
+  "SAWAI MADHOPUR": {
+    "name": "Sawai Madhopur",
+    "lgd_code": "113"
+  },
+  "SIKAR": { "name": "Sikar", "lgd_code": "114" },
+  "SIROHI": { "name": "Sirohi", "lgd_code": "115" },
+  "TONK": { "name": "Tonk", "lgd_code": "116" },
+  "UDAIPUR": { "name": "Udaipur", "lgd_code": "117" }
+}

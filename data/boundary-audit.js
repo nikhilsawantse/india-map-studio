@@ -1,0 +1,50 @@
+window.INDIA_BOUNDARY_AUDIT = {
+  reference: {
+    name: "Local Government Directory",
+    publisher: "Ministry of Panchayati Raj, Government of India",
+    reportDate: "2026-07-14",
+    url: "https://lgdirectory.gov.in/demo/reportonStatewiseEntityDetails.do",
+    note: "Counts are maintained by state departments and are used here for source-triage only."
+  },
+  regions: [
+    { slug: "andaman-and-nicobar-islands", officialDistricts: 3 },
+    { slug: "andhra-pradesh", officialDistricts: 28 },
+    { slug: "arunachal-pradesh", officialDistricts: 27 },
+    { slug: "assam", officialDistricts: 35 },
+    { slug: "bihar", officialDistricts: 38 },
+    { slug: "chandigarh", officialDistricts: 1 },
+    { slug: "chhattisgarh", officialDistricts: 33 },
+    {
+      slug: "dadra-and-nagar-haveli-and-daman-and-diu",
+      officialDistricts: 3
+    },
+    { slug: "delhi", officialDistricts: 13 },
+    { slug: "goa", officialDistricts: 3 },
+    { slug: "gujarat", officialDistricts: 34 },
+    { slug: "haryana", officialDistricts: 23 },
+    { slug: "himachal-pradesh", officialDistricts: 12 },
+    { slug: "jammu-and-kashmir", officialDistricts: 20 },
+    { slug: "jharkhand", officialDistricts: 24 },
+    { slug: "karnataka", officialDistricts: 31 },
+    { slug: "kerala", officialDistricts: 14 },
+    { slug: "ladakh", officialDistricts: 2 },
+    { slug: "lakshadweep", officialDistricts: 1 },
+    { slug: "madhya-pradesh", officialDistricts: 55 },
+    { slug: "maharashtra", officialDistricts: 36 },
+    { slug: "manipur", officialDistricts: 16 },
+    { slug: "meghalaya", officialDistricts: 12 },
+    { slug: "mizoram", officialDistricts: 11 },
+    { slug: "nagaland", officialDistricts: 17 },
+    { slug: "odisha", officialDistricts: 30 },
+    { slug: "puducherry", officialDistricts: 2 },
+    { slug: "punjab", officialDistricts: 23 },
+    { slug: "rajasthan", officialDistricts: 41 },
+    { slug: "sikkim", officialDistricts: 6 },
+    { slug: "tamil-nadu", officialDistricts: 38 },
+    { slug: "telangana", officialDistricts: 33 },
+    { slug: "tripura", officialDistricts: 8 },
+    { slug: "uttar-pradesh", officialDistricts: 75 },
+    { slug: "uttarakhand", officialDistricts: 13 },
+    { slug: "west-bengal", officialDistricts: 23 }
+  ]
+};

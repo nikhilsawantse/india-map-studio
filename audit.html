@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Nationwide district-boundary source audit for India Map Studio."
+    />
+    <title>Boundary Audit &middot; India Map Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="audit-page">
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span>
+          <strong>India Map Studio</strong>
+          <small>Boundary source audit</small>
+        </span>
+      </a>
+      <div class="header-actions">
+        <a class="back-link" href="custom-map.html">Import custom map</a>
+        <a class="back-link" href="index.html">&larr; Back to India map</a>
+      </div>
+    </header>
+
+    <main class="audit-workspace">
+      <section class="audit-hero" aria-labelledby="audit-title">
+        <div>
+          <p class="eyebrow">Nationwide source audit</p>
+          <h1 id="audit-title">Find the district layers that need attention first</h1>
+          <p class="intro">
+            Compare every mapped district layer with the latest Local Government
+            Directory count. A matching count is a useful checkpoint, not proof
+            that names or geometry are current.
+          </p>
+        </div>
+        <div class="audit-source">
+          <span>Official reference</span>
+          <strong id="audit-source-name">Local Government Directory</strong>
+          <p id="audit-source-date">Loading report date&hellip;</p>
+          <a
+            id="audit-source-link"
+            href="https://lgdirectory.gov.in/demo/reportonStatewiseEntityDetails.do"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open official report
+          </a>
+        </div>
+      </section>
+
+      <section class="audit-summary" aria-label="Audit summary">
+        <div class="audit-stat">
+          <span>Mapped features</span>
+          <strong id="audit-mapped-total">&mdash;</strong>
+          <small>Across 36 SVG layers</small>
+        </div>
+        <div class="audit-stat">
+          <span>LGD districts</span>
+          <strong id="audit-official-total">&mdash;</strong>
+          <small>Reference total</small>
+        </div>
+        <div class="audit-stat audit-stat-attention">
+          <span>Count differs</span>
+          <strong id="audit-review-total">&mdash;</strong>
+          <small>Replacement priority</small>
+        </div>
+        <div class="audit-stat">
+          <span>Count aligned</span>
+          <strong id="audit-aligned-total">&mdash;</strong>
+          <small>Still needs geometry review</small>
+        </div>
+      </section>
+
+      <section class="audit-register" aria-labelledby="audit-register-title">
+        <div class="audit-register-heading">
+          <div>
+            <p class="eyebrow">Audit register</p>
+            <h2 id="audit-register-title">State and union-territory layers</h2>
+          </div>
+          <p id="audit-status" role="status" aria-live="polite">
+            Reading 36 map assets&hellip;
+          </p>
+        </div>
+
+        <div class="audit-controls">
+          <label class="search-field">
+            <span>Find a region</span>
+            <input
+              id="audit-search"
+              type="search"
+              placeholder="Try Rajasthan or Nagaland"
+              autocomplete="off"
+            />
+          </label>
+          <label class="audit-select-field">
+            <span>Audit result</span>
+            <select id="audit-filter">
+              <option value="all">All layers</option>
+              <option value="review">Count differs</option>
+              <option value="aligned">Count aligned</option>
+            </select>
+          </label>
+          <label class="audit-select-field">
+            <span>Sort by</span>
+            <select id="audit-sort">
+              <option value="priority">Replacement priority</option>
+              <option value="name">Region name</option>
+              <option value="mapped">Mapped district count</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="audit-table-wrap">
+          <table class="audit-table">
+            <caption class="sr-only">
+              Comparison of mapped district features and Local Government
+              Directory district counts
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Region</th>
+                <th scope="col">Mapped</th>
+                <th scope="col">LGD</th>
+                <th scope="col">Gap</th>
+                <th scope="col">Source vintage</th>
+                <th scope="col">Audit result</th>
+                <th scope="col"><span class="sr-only">Open map</span></th>
+              </tr>
+            </thead>
+            <tbody id="audit-rows"></tbody>
+          </table>
+        </div>
+
+        <div id="audit-empty" class="audit-empty" hidden>
+          No boundary layers match these filters.
+        </div>
+      </section>
+    </main>
+
+    <script src="data/states.js"></script>
+    <script src="data/boundary-audit.js"></script>
+    <script src="audit.js"></script>
+  </body>
+</html>

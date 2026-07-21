@@ -1,0 +1,1063 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A focused tehsil or taluka map prepared for blocks, villages, gram panchayats, wards, and future boundary layers."
+    />
+    <title>Tehsil map &middot; India Map Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="district-page tehsil-page">
+    <a class="skip-link" href="#tehsil-region-search">Skip to boundary search</a>
+    <a
+      id="skip-to-tehsil-map"
+      class="skip-link skip-link-secondary"
+      href="#tehsil-page-map"
+      >Skip to map</a
+    >
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span>
+          <strong>India Map Studio</strong>
+          <small>Tehsil-level navigation</small>
+        </span>
+      </a>
+      <div class="header-actions">
+        <a id="back-to-district" class="back-link" href="district.html">
+          &larr; Back to district map
+        </a>
+        <a class="back-link" href="index.html">India map</a>
+      </div>
+    </header>
+
+    <main class="district-workspace">
+      <nav
+        id="tehsil-breadcrumb"
+        class="map-breadcrumb"
+        aria-label="Map hierarchy"
+      ></nav>
+
+      <aside class="district-page-copy">
+        <div>
+          <p id="tehsil-page-eyebrow" class="eyebrow">Tehsil map</p>
+          <h1 id="tehsil-page-name">Loading tehsil&hellip;</h1>
+          <p class="intro">
+            This local workspace is prepared for development blocks, villages,
+            gram panchayats, wards, and other future boundary layers.
+          </p>
+        </div>
+
+        <div id="tehsil-page-facts" class="district-page-facts" hidden>
+          <div>
+            <span>State or union territory</span>
+            <strong id="tehsil-page-state">&mdash;</strong>
+          </div>
+          <div>
+            <span>Parent district</span>
+            <strong id="tehsil-page-district">&mdash;</strong>
+          </div>
+          <div>
+            <span>Census subdistrict code</span>
+            <strong id="tehsil-page-census-code">&mdash;</strong>
+          </div>
+          <div>
+            <span>LGD subdistrict code</span>
+            <strong id="tehsil-page-lgd-code">&mdash;</strong>
+          </div>
+        </div>
+
+        <section
+          id="tehsil-identifier-panel"
+          class="district-identifier-panel"
+          hidden
+        >
+          <span>Tehsil feature identifier</span>
+          <code id="tehsil-page-identifier">&mdash;</code>
+        </section>
+
+        <section
+          id="tehsil-boundary-source"
+          class="district-boundary-source"
+          hidden
+        >
+          <span>Boundary source</span>
+          <a
+            id="tehsil-boundary-source-link"
+            href="#"
+            target="_blank"
+            rel="noreferrer"
+          ></a>
+          <small id="tehsil-boundary-source-year"></small>
+        </section>
+
+        <section
+          id="tehsil-region-navigator"
+          class="tehsil-region-navigator"
+          aria-labelledby="tehsil-region-navigator-title"
+          hidden
+        >
+          <div class="district-child-layer-heading">
+            <div>
+              <p class="eyebrow">Boundary navigator</p>
+              <h2 id="tehsil-region-navigator-title">Find a local boundary</h2>
+            </div>
+            <span
+              id="tehsil-region-results-summary"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+              >0 available</span
+            >
+          </div>
+          <label class="tehsil-region-search-label" for="tehsil-region-search">
+            Search by name, source code, or identifier
+          </label>
+          <input
+            id="tehsil-region-search"
+            class="tehsil-region-search"
+            type="search"
+            placeholder="Search local boundaries"
+            autocomplete="off"
+            aria-controls="tehsil-region-list"
+            aria-describedby="tehsil-region-keyboard-help"
+          />
+          <p
+            id="tehsil-region-keyboard-help"
+            class="accessibility-hint"
+          >
+            Press Down Arrow to enter the results. Use arrow keys to move and
+            Enter to open a boundary.
+          </p>
+          <div
+            id="tehsil-region-list"
+            class="tehsil-region-list"
+            role="group"
+            aria-label="Local boundaries"
+          ></div>
+          <p id="tehsil-region-empty" class="tehsil-region-empty" hidden>
+            No local boundaries match this search.
+          </p>
+        </section>
+
+        <details
+          id="tehsil-village-action-builder"
+          class="district-action-builder"
+          hidden
+        >
+          <summary>
+            <span>Boundary click actions</span>
+            <small id="tehsil-village-action-summary">Profile on click</small>
+          </summary>
+          <div class="district-action-body">
+            <p class="district-action-copy">
+              Choose what happens when a boundary is activated from the map or
+              navigator.
+            </p>
+            <div class="district-action-fields">
+              <label>
+                <span>Boundary</span>
+                <select id="tehsil-village-action-region"></select>
+              </label>
+              <label>
+                <span>Click behavior</span>
+                <select id="tehsil-village-action-type">
+                  <option value="profile">Show boundary profile</option>
+                  <option value="url">Open a URL</option>
+                  <option value="map">Navigate to another map</option>
+                  <option value="none">No action</option>
+                </select>
+              </label>
+              <label id="tehsil-village-action-url-field" hidden>
+                <span>URL or template</span>
+                <input
+                  id="tehsil-village-action-url"
+                  type="text"
+                  maxlength="500"
+                  placeholder="https://example.com/boundary/{slug}"
+                />
+              </label>
+              <label id="tehsil-village-action-target-field" hidden>
+                <span>Open in</span>
+                <select id="tehsil-village-action-target">
+                  <option value="new">New tab</option>
+                  <option value="same">Same tab</option>
+                </select>
+              </label>
+              <label id="tehsil-village-action-map-field" hidden>
+                <span>Map destination</span>
+                <select id="tehsil-village-action-map">
+                  <option value="india">India overview</option>
+                  <option value="state">State map</option>
+                  <option value="district">District map</option>
+                </select>
+              </label>
+            </div>
+            <p class="district-action-hint">
+              URL templates support boundary details and imported fields,
+              including <code>{slug}</code>, <code>{source_id}</code>, and
+              custom field names.
+            </p>
+            <div class="district-action-actions">
+              <button
+                id="save-tehsil-village-action"
+                class="secondary-button"
+                type="button"
+              >
+                Save action
+              </button>
+              <button
+                id="reset-tehsil-village-action"
+                class="text-button"
+                type="button"
+                disabled
+              >
+                Use default
+              </button>
+            </div>
+            <p
+              id="tehsil-village-action-status"
+              class="district-action-status"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </div>
+        </details>
+
+        <section
+          id="tehsil-data-import"
+          class="data-import-panel tehsil-data-import"
+          hidden
+        >
+          <div class="data-import-heading">
+            <div>
+              <p class="eyebrow">Local boundary data</p>
+              <h2>Attach CSV or JSON</h2>
+            </div>
+            <span id="tehsil-data-badge" class="data-import-badge">No data</span>
+          </div>
+          <p class="data-import-copy">
+            Match records using a source code, feature identifier, boundary name,
+            or slug. Imported data remains in this browser tab.
+          </p>
+
+          <div class="data-import-actions">
+            <label class="file-picker-button">
+              <input
+                id="tehsil-data-file"
+                type="file"
+                accept=".csv,.json,text/csv,application/json"
+              />
+              <span>Choose CSV or JSON</span>
+            </label>
+            <a
+              class="secondary-button data-import-button tehsil-sample-data-link"
+              href="sample-data/junnar-village-demo.csv"
+              download
+            >
+              Sample CSV
+            </a>
+            <button
+              id="clear-tehsil-data"
+              class="text-button"
+              type="button"
+              hidden
+            >
+              Clear data
+            </button>
+            <button
+              id="export-tehsil-data-csv"
+              class="secondary-button data-import-button"
+              type="button"
+              hidden
+            >
+              Export CSV
+            </button>
+            <button
+              id="export-tehsil-data-json"
+              class="secondary-button data-import-button"
+              type="button"
+              hidden
+            >
+              Export JSON
+            </button>
+          </div>
+
+          <div
+            id="tehsil-data-status"
+            class="data-import-status"
+            role="status"
+            aria-live="polite"
+          >
+            Import is ready.
+          </div>
+
+          <dl id="tehsil-data-summary" class="data-import-summary" hidden>
+            <div>
+              <dt>Rows</dt>
+              <dd id="tehsil-data-row-count">0</dd>
+            </div>
+            <div>
+              <dt>Matched</dt>
+              <dd id="tehsil-data-match-count">0</dd>
+            </div>
+            <div>
+              <dt>Unmatched</dt>
+              <dd id="tehsil-data-unmatched-count">0</dd>
+            </div>
+            <div>
+              <dt>Join field</dt>
+              <dd id="tehsil-data-join-field">&mdash;</dd>
+            </div>
+            <div>
+              <dt>Issues</dt>
+              <dd id="tehsil-data-validation-count">0</dd>
+            </div>
+          </dl>
+          <p
+            id="tehsil-data-unmatched-preview"
+            class="import-unmatched-preview"
+          ></p>
+
+          <details
+            id="tehsil-data-validation"
+            class="data-validation"
+            hidden
+          >
+            <summary>
+              <span>Data quality</span>
+              <small id="tehsil-data-validation-summary">Not checked</small>
+            </summary>
+            <div class="data-validation-body">
+              <p id="tehsil-data-validation-overview"></p>
+              <ul id="tehsil-data-validation-issues"></ul>
+            </div>
+          </details>
+
+          <details id="tehsil-data-editor" class="data-editor" hidden>
+            <summary>
+              <span>Edit boundary data</span>
+              <small id="tehsil-data-editor-summary">0 pending</small>
+            </summary>
+            <div class="data-editor-body">
+              <div class="data-editor-toolbar">
+                <label>
+                  <span>Field</span>
+                  <select id="tehsil-data-editor-field"></select>
+                </label>
+                <label>
+                  <span>Find boundary</span>
+                  <input
+                    id="tehsil-data-editor-search"
+                    type="search"
+                    placeholder="Search boundaries"
+                    autocomplete="off"
+                  />
+                </label>
+              </div>
+
+              <div class="data-editor-field-settings">
+                <label>
+                  <span>Field type</span>
+                  <select id="tehsil-data-editor-field-type">
+                    <option value="auto">Auto detect</option>
+                    <option value="text">Text</option>
+                    <option value="number">Number</option>
+                    <option value="date">Date</option>
+                    <option value="category">Category</option>
+                    <option value="percentage">Percentage</option>
+                    <option value="currency">Currency (INR)</option>
+                  </select>
+                </label>
+                <label class="data-editor-required">
+                  <input
+                    id="tehsil-data-editor-field-required"
+                    type="checkbox"
+                  />
+                  <span>Require a value</span>
+                </label>
+                <button
+                  id="tehsil-data-editor-save-field-settings"
+                  class="secondary-button"
+                  type="button"
+                >
+                  Apply settings
+                </button>
+              </div>
+
+              <div class="data-editor-add-field">
+                <label>
+                  <span>New field</span>
+                  <input
+                    id="tehsil-data-editor-new-field"
+                    type="text"
+                    maxlength="40"
+                    placeholder="Example: project_status"
+                    autocomplete="off"
+                  />
+                </label>
+                <button
+                  id="tehsil-data-editor-add-field"
+                  class="secondary-button"
+                  type="button"
+                >
+                  Add field
+                </button>
+              </div>
+
+              <div class="data-editor-bulk">
+                <label>
+                  <span>Bulk value for visible rows</span>
+                  <input
+                    id="tehsil-data-editor-bulk-value"
+                    type="text"
+                    placeholder="Enter a shared value"
+                    autocomplete="off"
+                  />
+                </label>
+                <button
+                  id="tehsil-data-editor-bulk-set"
+                  class="secondary-button"
+                  type="button"
+                  disabled
+                >
+                  Set visible
+                </button>
+                <button
+                  id="tehsil-data-editor-bulk-clear"
+                  class="text-button"
+                  type="button"
+                  disabled
+                >
+                  Clear visible
+                </button>
+              </div>
+
+              <details
+                id="tehsil-data-editor-advanced-bulk"
+                class="data-editor-advanced-bulk"
+              >
+                <summary>
+                  <span>Advanced bulk operations</span>
+                  <small id="tehsil-data-editor-selection-summary"
+                    >0 selected</small
+                  >
+                </summary>
+                <div class="data-editor-advanced-body">
+                  <div class="data-editor-advanced-controls">
+                    <label>
+                      <span>Scope</span>
+                      <select id="tehsil-data-editor-bulk-scope">
+                        <option value="visible">Visible rows</option>
+                        <option value="selected">Selected rows</option>
+                        <option value="all">All matched boundaries</option>
+                      </select>
+                    </label>
+                    <label>
+                      <span>Operation</span>
+                      <select id="tehsil-data-editor-bulk-operation">
+                        <option value="set">Set value</option>
+                        <option value="clear">Clear value</option>
+                        <option value="replace">Find and replace</option>
+                        <option value="add">Add number</option>
+                        <option value="multiply">Multiply number</option>
+                        <option value="copy">Copy from field</option>
+                      </select>
+                    </label>
+                  </div>
+                  <div class="data-editor-advanced-values">
+                    <label id="tehsil-data-editor-bulk-primary-field">
+                      <span id="tehsil-data-editor-bulk-primary-label"
+                        >Value</span
+                      >
+                      <input
+                        id="tehsil-data-editor-bulk-primary"
+                        type="text"
+                        autocomplete="off"
+                      />
+                    </label>
+                    <label
+                      id="tehsil-data-editor-bulk-secondary-field"
+                      hidden
+                    >
+                      <span>Replace with</span>
+                      <input
+                        id="tehsil-data-editor-bulk-secondary"
+                        type="text"
+                        autocomplete="off"
+                      />
+                    </label>
+                    <label id="tehsil-data-editor-bulk-source-field" hidden>
+                      <span>Source field</span>
+                      <select id="tehsil-data-editor-bulk-source"></select>
+                    </label>
+                    <button
+                      id="tehsil-data-editor-bulk-stage"
+                      class="secondary-button"
+                      type="button"
+                      disabled
+                    >
+                      Stage operation
+                    </button>
+                  </div>
+                  <p
+                    id="tehsil-data-editor-bulk-status"
+                    class="data-editor-advanced-status"
+                    role="status"
+                    aria-live="polite"
+                  >
+                    Choose an operation. Changes remain staged until applied.
+                  </p>
+                </div>
+              </details>
+
+              <div class="data-editor-table-wrap">
+                <table class="data-editor-table">
+                  <thead>
+                    <tr>
+                      <th class="data-editor-select-cell" scope="col">
+                        <input
+                          id="tehsil-data-editor-select-visible"
+                          type="checkbox"
+                          aria-label="Select all visible boundary rows"
+                        />
+                      </th>
+                      <th scope="col">Boundary</th>
+                      <th scope="col">Source code</th>
+                      <th scope="col">Value</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tehsil-data-editor-rows"></tbody>
+                </table>
+              </div>
+
+              <div class="data-editor-actions">
+                <button
+                  id="tehsil-data-editor-apply"
+                  class="secondary-button"
+                  type="button"
+                  disabled
+                >
+                  Apply edits
+                </button>
+                <button
+                  id="tehsil-data-editor-discard"
+                  class="text-button"
+                  type="button"
+                  disabled
+                >
+                  Discard draft
+                </button>
+              </div>
+              <p
+                id="tehsil-data-editor-status"
+                class="data-editor-status"
+                role="status"
+                aria-live="polite"
+              >
+                Choose a field to edit its boundary values.
+              </p>
+            </div>
+          </details>
+
+          <section
+            id="tehsil-data-visualization"
+            class="data-visualization-controls"
+            hidden
+          >
+            <div class="data-visualization-heading">
+              <div>
+                <span>Map colors</span>
+                <strong>Visualize a boundary field</strong>
+              </div>
+              <span id="tehsil-visualization-type-badge">Auto</span>
+            </div>
+            <div class="data-visualization-actions">
+              <label for="tehsil-visualization-field">
+                <span>Imported field</span>
+                <select id="tehsil-visualization-field">
+                  <option value="">No map coloring</option>
+                </select>
+              </label>
+              <button
+                id="clear-tehsil-visualization"
+                class="text-button"
+                type="button"
+              >
+                Clear colors
+              </button>
+            </div>
+            <p
+              id="tehsil-visualization-status"
+              class="visualization-status"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </section>
+
+          <section
+            id="tehsil-data-filter"
+            class="data-filter-controls"
+            hidden
+          >
+            <div class="data-filter-heading">
+              <div>
+                <span>Data rule</span>
+                <strong>Filter local boundaries</strong>
+              </div>
+              <span id="tehsil-data-filter-badge">No filter</span>
+            </div>
+            <div class="data-filter-rule">
+              <label>
+                <span>Field</span>
+                <select id="tehsil-data-filter-field"></select>
+              </label>
+              <label>
+                <span>Condition</span>
+                <select id="tehsil-data-filter-operator"></select>
+              </label>
+              <label>
+                <span id="tehsil-data-filter-value-label">Value</span>
+                <input
+                  id="tehsil-data-filter-value"
+                  type="text"
+                  inputmode="decimal"
+                  list="tehsil-data-filter-suggestions"
+                  autocomplete="off"
+                />
+              </label>
+              <label id="tehsil-data-filter-secondary-field" hidden>
+                <span>Maximum</span>
+                <input
+                  id="tehsil-data-filter-value-secondary"
+                  type="text"
+                  inputmode="decimal"
+                  autocomplete="off"
+                />
+              </label>
+              <datalist id="tehsil-data-filter-suggestions"></datalist>
+            </div>
+            <div class="data-filter-actions">
+              <button
+                id="apply-tehsil-data-filter"
+                class="secondary-button data-filter-apply"
+                type="button"
+              >
+                Apply filter
+              </button>
+              <button
+                id="clear-tehsil-data-filter"
+                class="text-button"
+                type="button"
+                hidden
+              >
+                Clear filter
+              </button>
+            </div>
+            <p
+              id="tehsil-data-filter-status"
+              class="data-filter-status"
+              role="status"
+              aria-live="polite"
+            >
+              Choose a field and condition.
+            </p>
+          </section>
+
+          <div
+            id="tehsil-history-controls"
+            class="history-controls"
+            role="group"
+            aria-label="Tehsil workspace change history"
+          >
+            <button
+              id="undo-tehsil-change"
+              class="secondary-button"
+              type="button"
+              disabled
+            >
+              Undo
+            </button>
+            <button
+              id="redo-tehsil-change"
+              class="secondary-button"
+              type="button"
+              disabled
+            >
+              Redo
+            </button>
+            <span id="tehsil-history-status">No workspace changes yet</span>
+          </div>
+
+          <section class="tehsil-browser-snapshot">
+            <div class="tehsil-snapshot-heading">
+              <div>
+                <span>Browser snapshot</span>
+                <strong>Quick save and restore</strong>
+              </div>
+              <span id="tehsil-snapshot-badge" class="data-import-badge">
+                Not saved
+              </span>
+            </div>
+            <p class="tehsil-snapshot-copy">
+              Keep this complete setup on the current browser and device.
+            </p>
+            <div class="project-storage-actions">
+              <button
+                id="save-tehsil-snapshot"
+                class="secondary-button"
+                type="button"
+              >
+                Save snapshot
+              </button>
+              <button
+                id="restore-tehsil-snapshot"
+                class="secondary-button"
+                type="button"
+                disabled
+              >
+                Restore
+              </button>
+              <button
+                id="delete-tehsil-snapshot"
+                class="text-button"
+                type="button"
+                disabled
+              >
+                Delete saved
+              </button>
+            </div>
+            <p
+              id="tehsil-snapshot-status"
+              class="tehsil-workspace-status"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </section>
+
+          <section class="project-portable-actions tehsil-workspace-portable">
+            <span>Portable tehsil workspace</span>
+            <div>
+              <button
+                id="export-tehsil-workspace"
+                class="secondary-button"
+                type="button"
+              >
+                Export JSON
+              </button>
+              <label class="secondary-button project-import-button">
+                Import JSON
+                <input
+                  id="import-tehsil-workspace"
+                  type="file"
+                  accept=".json,application/json"
+                />
+              </label>
+            </div>
+            <p
+              id="tehsil-workspace-status"
+              class="tehsil-workspace-status"
+              role="status"
+              aria-live="polite"
+            >
+              Export or restore the complete tehsil setup.
+            </p>
+          </section>
+
+          <section class="project-portable-actions tehsil-workspace-portable">
+            <span>Standalone interactive tehsil map</span>
+            <div>
+              <button
+                id="export-standalone-tehsil-map"
+                class="secondary-button"
+                type="button"
+              >
+                Export HTML
+              </button>
+            </div>
+            <p
+              id="tehsil-standalone-export-status"
+              class="tehsil-workspace-status"
+              role="status"
+              aria-live="polite"
+            >
+              Export the current local boundary map as one portable file.
+            </p>
+            <details
+              id="tehsil-embed-code-builder"
+              class="embed-code-builder"
+            >
+              <summary>
+                <span>Embed code generator</span>
+                <small id="tehsil-embed-code-summary">Iframe</small>
+              </summary>
+              <div class="embed-code-body">
+                <p class="embed-code-copy">
+                  Export and upload the standalone map, then enter its public
+                  URL or relative path.
+                </p>
+                <div
+                  class="embed-format-switch"
+                  role="group"
+                  aria-label="Tehsil embed code format"
+                >
+                  <button
+                    class="is-active"
+                    type="button"
+                    data-tehsil-embed-format="iframe"
+                    aria-pressed="true"
+                  >
+                    Iframe
+                  </button>
+                  <button
+                    type="button"
+                    data-tehsil-embed-format="javascript"
+                    aria-pressed="false"
+                  >
+                    JavaScript
+                  </button>
+                </div>
+                <div class="embed-code-fields">
+                  <label>
+                    <span>Map URL or path</span>
+                    <input
+                      id="tehsil-embed-map-url"
+                      type="text"
+                      maxlength="1000"
+                      placeholder="./maharashtra-pune-junnar-interactive-map.html"
+                    />
+                  </label>
+                  <label>
+                    <span>Height in pixels</span>
+                    <input
+                      id="tehsil-embed-map-height"
+                      type="number"
+                      min="320"
+                      max="1200"
+                      step="20"
+                      value="720"
+                    />
+                  </label>
+                </div>
+                <label class="embed-code-output-field">
+                  <span>Copy-ready code</span>
+                  <textarea
+                    id="tehsil-embed-code-output"
+                    rows="8"
+                    readonly
+                    spellcheck="false"
+                  ></textarea>
+                </label>
+                <div class="embed-code-actions">
+                  <button
+                    id="copy-tehsil-embed-code"
+                    class="secondary-button"
+                    type="button"
+                  >
+                    Copy embed code
+                  </button>
+                </div>
+                <p
+                  id="tehsil-embed-code-status"
+                  class="embed-code-status"
+                  role="status"
+                  aria-live="polite"
+                ></p>
+              </div>
+            </details>
+          </section>
+        </section>
+
+        <section class="district-child-layers" aria-labelledby="tehsil-layer-title">
+          <div class="district-child-layer-heading">
+            <div>
+              <p class="eyebrow">Child-layer registry</p>
+              <h2 id="tehsil-layer-title">Future local layers</h2>
+            </div>
+            <span id="ready-tehsil-layer-count">0 ready</span>
+          </div>
+          <p class="district-child-layer-copy">
+            Each layer has a stable identifier and feature naming pattern. Its
+            toggle activates automatically when boundary geometry is registered.
+          </p>
+          <div id="tehsil-child-layer-list" class="district-child-layer-list"></div>
+        </section>
+
+        <section id="tehsil-child-selection" class="child-region-selection" hidden>
+          <p class="eyebrow">Selected local boundary</p>
+          <h2 id="tehsil-child-name"></h2>
+          <span id="tehsil-child-layer"></span>
+
+          <dl class="district-profile-grid tehsil-region-profile-grid">
+            <div>
+              <dt>Source boundary code</dt>
+              <dd id="tehsil-child-source-id">&mdash;</dd>
+            </div>
+            <div>
+              <dt>Geometry</dt>
+              <dd id="tehsil-child-geometry">&mdash;</dd>
+            </div>
+            <div>
+              <dt>Census administrative code</dt>
+              <dd id="tehsil-child-census-code">Not registered</dd>
+            </div>
+            <div>
+              <dt>LGD administrative code</dt>
+              <dd id="tehsil-child-lgd-code">Not registered</dd>
+            </div>
+            <div id="tehsil-child-data-value" hidden>
+              <dt id="tehsil-child-data-field">Imported value</dt>
+              <dd id="tehsil-child-data-content">&mdash;</dd>
+            </div>
+          </dl>
+
+          <div class="identifier-stack tehsil-region-identifier">
+            <div>
+              <span>Local boundary feature identifier</span>
+              <code id="tehsil-child-identifier"></code>
+            </div>
+          </div>
+
+          <div class="profile-actions tehsil-region-profile-actions">
+            <button
+              id="copy-tehsil-child-source"
+              class="secondary-button profile-action-button"
+              type="button"
+            >
+              Copy source code
+            </button>
+            <button
+              id="copy-tehsil-child-id"
+              class="secondary-button profile-action-button"
+              type="button"
+            >
+              Copy feature ID
+            </button>
+            <button
+              id="copy-tehsil-child-link"
+              class="secondary-button profile-action-button"
+              type="button"
+            >
+              Copy direct link
+            </button>
+            <button
+              id="clear-tehsil-child"
+              class="text-button profile-clear-button"
+              type="button"
+            >
+              Clear selection
+            </button>
+          </div>
+          <p
+            id="tehsil-child-copy-status"
+            class="profile-copy-status"
+            role="status"
+            aria-live="polite"
+          ></p>
+        </section>
+
+        <p
+          id="tehsil-page-status"
+          class="district-page-status"
+          role="status"
+          aria-live="polite"
+        >
+          Loading tehsil geometry.
+        </p>
+      </aside>
+
+      <section class="district-page-map-panel" aria-label="Focused tehsil map">
+        <div class="map-toolbar">
+          <div>
+            <span class="status-dot" aria-hidden="true"></span>
+            <span
+              id="tehsil-page-map-status"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+              >Preparing tehsil map</span
+            >
+          </div>
+          <div
+            id="tehsil-label-controls"
+            class="tehsil-label-controls"
+            aria-label="Boundary label controls"
+            hidden
+          >
+            <span>Labels</span>
+            <div role="group" aria-label="Choose boundary label visibility">
+              <button
+                type="button"
+                data-tehsil-label-mode="selected"
+                aria-pressed="true"
+              >
+                Selected
+              </button>
+              <button
+                type="button"
+                data-tehsil-label-mode="all"
+                aria-pressed="false"
+              >
+                All
+              </button>
+              <button
+                type="button"
+                data-tehsil-label-mode="off"
+                aria-pressed="false"
+              >
+                Off
+              </button>
+            </div>
+          </div>
+          <span class="map-hint"
+            >Tab to the map, use arrow keys to move, and press Enter to
+            open</span
+          >
+        </div>
+        <p id="tehsil-map-keyboard-help" class="sr-only">
+          Interactive local boundary map. Use arrow keys to move between available
+          boundaries, Enter or Space to open one, and Escape to return to the
+          boundary search.
+        </p>
+        <div
+          id="tehsil-page-map"
+          class="district-page-map"
+          role="group"
+          aria-label="Interactive local boundary map"
+          aria-describedby="tehsil-map-keyboard-help"
+        >
+          <p class="load-error">Loading tehsil geometry&hellip;</p>
+        </div>
+        <aside
+          id="tehsil-data-legend"
+          class="map-data-legend tehsil-data-legend"
+          aria-label="Local boundary data legend"
+          hidden
+        >
+          <div class="map-data-legend-heading">
+            <strong id="tehsil-data-legend-title"></strong>
+            <span id="tehsil-data-legend-type"></span>
+          </div>
+          <div
+            id="tehsil-data-legend-items"
+            class="map-data-legend-items"
+          ></div>
+        </aside>
+      </section>
+    </main>
+
+    <div id="tehsil-child-tooltip" class="map-tooltip" role="tooltip" hidden>
+      <strong id="tehsil-child-tooltip-name"></strong>
+      <span id="tehsil-child-tooltip-meta"></span>
+    </div>
+
+    <script src="data/states.js"></script>
+    <script src="data/district-maps.js"></script>
+    <script src="data/tehsil-maps.js"></script>
+    <script src="standalone-export.js"></script>
+    <script src="tehsil.js"></script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A framework-free interactive SVG map of India with state and union territory navigation."
+    />
+    <title>India SVG Map Explorer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="India SVG Map Explorer home">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span>
+          <strong>India Map Studio</strong>
+          <small>Interactive SVG foundation</small>
+        </span>
+      </a>
+      <div class="header-actions">
+        <a class="back-link" href="audit.html">Boundary audit</a>
+        <a class="back-link" href="custom-map.html">Import custom map</a>
+        <span class="milestone">36 regions &middot; 764 mapped districts</span>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="control-panel" aria-label="Map controls">
+        <div>
+          <p class="eyebrow">Explore India</p>
+          <h1>Choose a state or union territory</h1>
+          <p class="intro">
+            Hover over the map to identify a region. Select it to open its
+            standalone SVG and explore its interactive district boundaries.
+          </p>
+        </div>
+
+        <label class="search-field">
+          <span>Find a region</span>
+          <input
+            id="state-search"
+            type="search"
+            placeholder="Try Maharashtra or Delhi"
+            autocomplete="off"
+          />
+        </label>
+
+        <div class="list-summary">
+          <span id="result-count">36 regions</span>
+          <button id="clear-selection" class="text-button" type="button">
+            Clear selection
+          </button>
+        </div>
+
+        <div id="state-list" class="state-list" aria-label="India regions"></div>
+
+        <section id="selection-card" class="selection-card" hidden>
+          <p class="eyebrow">Selected region</p>
+          <div class="selection-heading">
+            <div>
+              <h2 id="selected-name"></h2>
+              <p id="selected-meta"></p>
+            </div>
+            <span id="selected-code" class="code-badge"></span>
+          </div>
+          <div class="selection-actions">
+            <a id="open-state" class="primary-button" href="state.html">
+              Open state SVG
+            </a>
+            <a
+              id="raw-state-svg"
+              class="secondary-button"
+              href="#"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View raw SVG
+            </a>
+          </div>
+        </section>
+      </aside>
+
+      <section class="map-panel" aria-label="Interactive India map">
+        <div class="map-toolbar">
+          <div>
+            <span class="status-dot" aria-hidden="true"></span>
+            <span id="map-status" role="status">Loading vector map…</span>
+          </div>
+          <span class="map-hint">Hover to preview · click to select</span>
+        </div>
+
+        <div id="map-shell" class="map-shell">
+          <div id="india-map" class="india-map" aria-live="polite"></div>
+          <div class="map-key" aria-label="Map legend">
+            <span><i class="key-swatch state-swatch"></i>State / UT</span>
+            <span><i class="key-swatch hover-swatch"></i>Hover</span>
+            <span><i class="key-swatch selected-swatch"></i>Selected</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="map-tooltip" class="map-tooltip" role="tooltip" hidden>
+      <strong id="tooltip-name"></strong>
+      <span id="tooltip-type"></span>
+    </div>
+
+    <script src="data/states.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

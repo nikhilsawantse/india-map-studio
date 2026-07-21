@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A focused district map prepared for subdivisions, tehsils, blocks, wards, and future boundary layers."
+    />
+    <title>District map &middot; India Map Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="district-page">
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span>
+          <strong>India Map Studio</strong>
+          <small>Deeper district navigation</small>
+        </span>
+      </a>
+      <div class="header-actions">
+        <a id="back-to-state" class="back-link" href="state.html">
+          &larr; Back to state map
+        </a>
+        <a class="back-link" href="index.html">India map</a>
+      </div>
+    </header>
+
+    <main class="district-workspace">
+      <nav
+        id="district-breadcrumb"
+        class="map-breadcrumb"
+        aria-label="Map hierarchy"
+      ></nav>
+
+      <aside class="district-page-copy">
+        <div>
+          <p id="district-page-eyebrow" class="eyebrow">District map</p>
+          <h1 id="district-page-name">Loading district&hellip;</h1>
+          <p class="intro">
+            This district-level workspace is ready for subdivisions, tehsils,
+            blocks, wards, and other local boundary layers.
+          </p>
+        </div>
+
+        <div id="district-page-facts" class="district-page-facts" hidden>
+          <div>
+            <span>State or union territory</span>
+            <strong id="district-page-state">&mdash;</strong>
+          </div>
+          <div>
+            <span>Administrative division</span>
+            <strong id="district-page-division">&mdash;</strong>
+          </div>
+          <div>
+            <span>District code</span>
+            <strong id="district-page-code">&mdash;</strong>
+          </div>
+          <div>
+            <span>LGD district code</span>
+            <strong id="district-page-lgd">&mdash;</strong>
+          </div>
+        </div>
+
+        <section
+          id="district-identifier-panel"
+          class="district-identifier-panel"
+          hidden
+        >
+          <span>District feature identifier</span>
+          <code id="district-page-identifier">&mdash;</code>
+        </section>
+
+        <section
+          id="district-boundary-source"
+          class="district-boundary-source"
+          hidden
+        >
+          <span>Boundary source</span>
+          <a
+            id="district-boundary-source-link"
+            href="#"
+            target="_blank"
+            rel="noreferrer"
+          ></a>
+          <small id="district-boundary-source-year"></small>
+        </section>
+
+        <section class="district-child-layers" aria-labelledby="child-layer-title">
+          <div class="district-child-layer-heading">
+            <div>
+              <p class="eyebrow">Child-layer registry</p>
+              <h2 id="child-layer-title">Future boundary layers</h2>
+            </div>
+            <span id="ready-child-layer-count">0 ready</span>
+          </div>
+          <p class="district-child-layer-copy">
+            Every layer already has a stable identifier and feature naming
+            pattern. Its toggle activates automatically when geometry is added.
+          </p>
+          <div id="district-child-layer-list" class="district-child-layer-list"></div>
+        </section>
+
+        <section id="child-region-selection" class="child-region-selection" hidden>
+          <p class="eyebrow">Selected local region</p>
+          <h2 id="child-region-name"></h2>
+          <span id="child-region-layer"></span>
+          <code id="child-region-identifier"></code>
+          <div class="child-region-actions">
+            <a id="open-tehsil-page" class="text-button" href="tehsil.html" hidden>
+              Open tehsil workspace &rarr;
+            </a>
+            <button id="clear-child-region" class="text-button" type="button">
+              Clear selection
+            </button>
+          </div>
+        </section>
+
+        <p
+          id="district-page-status"
+          class="district-page-status"
+          role="status"
+          aria-live="polite"
+        >
+          Loading district geometry.
+        </p>
+      </aside>
+
+      <section class="district-page-map-panel" aria-label="Focused district map">
+        <div class="map-toolbar">
+          <div>
+            <span class="status-dot" aria-hidden="true"></span>
+            <span id="district-page-map-status">Preparing district map</span>
+          </div>
+          <span class="map-hint">Select a boundary to create a shareable deep link</span>
+        </div>
+        <div id="district-page-map" class="district-page-map">
+          <p class="load-error">Loading district geometry&hellip;</p>
+        </div>
+      </section>
+    </main>
+
+    <div id="district-child-tooltip" class="map-tooltip" role="tooltip" hidden>
+      <strong id="district-child-tooltip-name"></strong>
+      <span id="district-child-tooltip-meta"></span>
+    </div>
+
+    <script src="data/states.js"></script>
+    <script src="data/district-maps.js"></script>
+    <script src="district.js"></script>
+  </body>
+</html>

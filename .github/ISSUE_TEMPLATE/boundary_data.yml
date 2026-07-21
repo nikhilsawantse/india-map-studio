@@ -1,0 +1,48 @@
+name: Boundary data report
+description: Propose a correction or a properly licensed boundary layer
+title: "[Boundary]: "
+labels: []
+body:
+  - type: input
+    id: region
+    attributes:
+      label: Region and administrative level
+      placeholder: Maharashtra / Pune / tehsil
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Direct authoritative source URL
+    validations:
+      required: true
+  - type: input
+    id: vintage
+    attributes:
+      label: Boundary vintage or effective date
+      placeholder: 2026-01-01 or not declared
+    validations:
+      required: true
+  - type: input
+    id: license
+    attributes:
+      label: License name and URL
+      description: The source must explicitly allow redistribution and derivative works for bundled geometry.
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: Proposed change
+      description: Include names, codes, expected feature counts, and known transformations.
+    validations:
+      required: true
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: Rights confirmation
+      options:
+        - label: I have verified that the proposed data can be redistributed in this public repository.
+          required: true
+        - label: I have listed all required attribution.
+          required: true

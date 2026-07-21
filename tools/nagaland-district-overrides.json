@@ -1,0 +1,19 @@
+{
+  "CHUMOUKEDIMA": { "name": "Chumoukedima", "lgd_code": "711" },
+  "DIMAPUR": { "name": "Dimapur", "lgd_code": "265" },
+  "KIPHIRE": { "name": "Kiphire", "lgd_code": "269" },
+  "KOHIMA": { "name": "Kohima", "lgd_code": "270" },
+  "LONGLENG": { "name": "Longleng", "lgd_code": "268" },
+  "MELURI": { "name": "Meluri", "lgd_code": "788" },
+  "MOKOKCHUNG": { "name": "Mokokchung", "lgd_code": "262" },
+  "MON": { "name": "Mon", "lgd_code": "261" },
+  "NIULAND": { "name": "Niuland", "lgd_code": "709" },
+  "NOKLAK": { "name": "Noklak", "lgd_code": "708" },
+  "PEREN": { "name": "Peren", "lgd_code": "271" },
+  "PHEK": { "name": "Phek", "lgd_code": "266" },
+  "SHAMATOR": { "name": "Shamator", "lgd_code": "712" },
+  "TSEMINYU": { "name": "Tseminyu", "lgd_code": "710" },
+  "TUENSANG": { "name": "Tuensang", "lgd_code": "267" },
+  "WOKHA": { "name": "Wokha", "lgd_code": "264" },
+  "ZUNHEBOTO": { "name": "Zunheboto", "lgd_code": "263" }
+}

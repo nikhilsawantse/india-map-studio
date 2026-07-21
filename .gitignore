@@ -1,0 +1,20 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+.codex-tmp/
+.idea/
+.vscode/
+*.log
+
+# Local-only boundary assets pending confirmed redistribution rights.
+assets/maps/districts/maharashtra/mumbai-city.svg
+assets/maps/districts/maharashtra/mumbai-suburban.svg
+assets/maps/tehsils/maharashtra/pune/junnar.svg
+assets/maps/tehsils/maharashtra/mumbai-city/mumbai.svg
+assets/maps/tehsils/maharashtra/mumbai-suburban/andheri.svg
+assets/maps/tehsils/maharashtra/mumbai-suburban/borivali.svg
+assets/maps/tehsils/maharashtra/mumbai-suburban/kurla.svg
+sample-data/junnar-village-demo.csv
+sample-data/junnar-village-validation-demo.csv
+sample-data/junnar-village-field-types-demo.csv

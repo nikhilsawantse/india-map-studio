@@ -1,0 +1,1247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Standalone state SVG view prepared for future district boundary navigation."
+    />
+    <title>State SVG · India Map Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="state-page">
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span>
+          <strong>India Map Studio</strong>
+          <small>Standalone state SVG</small>
+        </span>
+      </a>
+      <div class="header-actions">
+        <a class="back-link" href="custom-map.html">Import custom map</a>
+        <a class="back-link" href="index.html">← Back to India map</a>
+      </div>
+    </header>
+
+    <main class="state-workspace">
+      <nav
+        id="map-breadcrumb"
+        class="map-breadcrumb"
+        aria-label="Map hierarchy"
+      ></nav>
+
+      <section class="state-copy">
+        <p class="eyebrow" id="state-type">Region</p>
+        <h1 id="state-name">Loading state…</h1>
+        <p class="intro">
+          This page loads a separate SVG file for the selected region. Its
+          <code>district-layer</code> group can contain independently
+          interactive district shapes.
+        </p>
+
+        <div class="state-facts">
+          <div>
+            <span>Map file</span>
+            <strong id="state-file">—</strong>
+          </div>
+          <div>
+            <span>Region identifier</span>
+            <strong id="state-identifier" class="technical-id">—</strong>
+          </div>
+          <div>
+            <span>Administrative code</span>
+            <strong id="state-code">—</strong>
+          </div>
+          <div>
+            <span>Division layer identifier</span>
+            <strong id="division-layer-id" class="technical-id">—</strong>
+          </div>
+          <div>
+            <span>Division coverage</span>
+            <strong id="division-layer-status">Checking map…</strong>
+          </div>
+          <div>
+            <span>District layer identifier</span>
+            <strong id="district-layer-id" class="technical-id">—</strong>
+          </div>
+          <div>
+            <span>District coverage</span>
+            <strong id="district-layer-status">Checking map…</strong>
+          </div>
+        </div>
+
+        <section id="data-import-panel" class="data-import-panel" hidden>
+          <div class="data-import-heading">
+            <div>
+              <p class="eyebrow">Custom district data</p>
+              <h2>Attach CSV or JSON</h2>
+            </div>
+            <span id="data-import-badge" class="data-import-badge">No data</span>
+          </div>
+          <p class="data-import-copy">
+            Match records using a district identifier, district code, LGD code,
+            slug or district name.
+          </p>
+
+          <div class="data-import-actions">
+            <label class="file-picker-button">
+              <input
+                id="district-data-file"
+                type="file"
+                accept=".csv,.json,text/csv,application/json"
+              />
+              <span>Choose CSV or JSON</span>
+            </label>
+            <button
+              id="download-sample-data"
+              class="secondary-button data-import-button"
+              type="button"
+            >
+              Sample CSV
+            </button>
+            <button
+              id="clear-imported-data"
+              class="text-button"
+              type="button"
+              hidden
+            >
+              Clear data
+            </button>
+          </div>
+
+          <div
+            id="data-import-status"
+            class="data-import-status"
+            role="status"
+            aria-live="polite"
+          >
+            Import is ready. Data remains in this browser tab only.
+          </div>
+
+          <dl id="data-import-summary" class="data-import-summary" hidden>
+            <div>
+              <dt>Rows</dt>
+              <dd id="import-row-count">0</dd>
+            </div>
+            <div>
+              <dt>Matched</dt>
+              <dd id="import-match-count">0</dd>
+            </div>
+            <div>
+              <dt>Unmatched</dt>
+              <dd id="import-unmatched-count">0</dd>
+            </div>
+            <div>
+              <dt>Join field</dt>
+              <dd id="import-join-field">—</dd>
+            </div>
+          </dl>
+          <p id="import-unmatched-preview" class="import-unmatched-preview"></p>
+
+          <details id="data-editor" class="data-editor" hidden>
+            <summary>
+              <span>Edit district data</span>
+              <small id="data-editor-summary">0 pending</small>
+            </summary>
+            <div class="data-editor-body">
+              <div class="data-editor-toolbar">
+                <label>
+                  <span>Field</span>
+                  <select id="data-editor-field"></select>
+                </label>
+                <label>
+                  <span>Find district</span>
+                  <input
+                    id="data-editor-search"
+                    type="search"
+                    placeholder="Search districts"
+                    autocomplete="off"
+                  />
+                </label>
+              </div>
+
+              <div class="data-editor-add-field">
+                <label>
+                  <span>New field</span>
+                  <input
+                    id="data-editor-new-field"
+                    type="text"
+                    maxlength="40"
+                    placeholder="Example: project_budget"
+                    autocomplete="off"
+                  />
+                </label>
+                <button
+                  id="data-editor-add-field"
+                  class="secondary-button"
+                  type="button"
+                >
+                  Add field
+                </button>
+              </div>
+
+              <div class="data-editor-table-wrap">
+                <table id="district-data-editor-table" class="data-editor-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">District</th>
+                      <th scope="col">Administrative group</th>
+                      <th scope="col">Value</th>
+                    </tr>
+                  </thead>
+                  <tbody id="data-editor-rows"></tbody>
+                </table>
+              </div>
+
+              <div class="data-editor-actions">
+                <button
+                  id="data-editor-apply"
+                  class="secondary-button"
+                  type="button"
+                  disabled
+                >
+                  Apply edits
+                </button>
+                <button
+                  id="data-editor-discard"
+                  class="text-button"
+                  type="button"
+                  disabled
+                >
+                  Discard draft
+                </button>
+              </div>
+              <p
+                id="data-editor-status"
+                class="data-editor-status"
+                role="status"
+                aria-live="polite"
+              >
+                Choose a field to edit its district values.
+              </p>
+            </div>
+          </details>
+
+          <section
+            id="data-visualization-controls"
+            class="data-visualization-controls"
+            hidden
+          >
+            <div class="data-visualization-heading">
+              <div>
+                <span>Map colors</span>
+                <strong>Visualize a field</strong>
+              </div>
+              <span id="visualization-type-badge">Auto</span>
+            </div>
+            <div class="data-visualization-actions">
+              <label for="visualization-field">
+                <span>Imported field</span>
+                <select id="visualization-field">
+                  <option value="">No map coloring</option>
+                </select>
+              </label>
+              <button
+                id="clear-data-visualization"
+                class="text-button"
+                type="button"
+              >
+                Clear colors
+              </button>
+            </div>
+            <p
+              id="visualization-status"
+              class="visualization-status"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </section>
+
+          <section id="data-filter-controls" class="data-filter-controls" hidden>
+            <div class="data-filter-heading">
+              <div>
+                <span>Data rule</span>
+                <strong>Filter districts</strong>
+              </div>
+              <span id="data-filter-badge">No filter</span>
+            </div>
+            <div class="data-filter-rule">
+              <label>
+                <span>Field</span>
+                <select id="data-filter-field"></select>
+              </label>
+              <label>
+                <span>Condition</span>
+                <select id="data-filter-operator"></select>
+              </label>
+              <label>
+                <span id="data-filter-value-label">Value</span>
+                <input
+                  id="data-filter-value"
+                  type="text"
+                  inputmode="decimal"
+                  list="data-filter-suggestions"
+                  autocomplete="off"
+                />
+              </label>
+              <label id="data-filter-secondary-field" hidden>
+                <span>Maximum</span>
+                <input
+                  id="data-filter-value-secondary"
+                  type="text"
+                  inputmode="decimal"
+                  autocomplete="off"
+                />
+              </label>
+              <datalist id="data-filter-suggestions"></datalist>
+            </div>
+            <div class="data-filter-actions">
+              <button
+                id="apply-data-filter"
+                class="secondary-button data-filter-apply"
+                type="button"
+              >
+                Apply filter
+              </button>
+              <button
+                id="clear-data-filter"
+                class="text-button"
+                type="button"
+                hidden
+              >
+                Clear filter
+              </button>
+            </div>
+            <p
+              id="data-filter-status"
+              class="data-filter-status"
+              role="status"
+              aria-live="polite"
+            >
+              Choose a field and condition.
+            </p>
+          </section>
+        </section>
+
+        <section id="district-controls" class="district-controls" hidden>
+          <div class="district-controls-heading">
+            <div>
+              <p class="eyebrow">District navigation</p>
+              <h2>Explore districts</h2>
+            </div>
+            <div class="district-heading-actions">
+              <button
+                id="comparison-mode-toggle"
+                class="secondary-button comparison-mode-toggle"
+                type="button"
+                aria-pressed="false"
+              >
+                Compare districts
+              </button>
+              <span id="district-count" class="count-badge"></span>
+            </div>
+          </div>
+
+          <div
+            id="history-controls"
+            class="history-controls"
+            role="group"
+            aria-label="Editor change history"
+          >
+            <button
+              id="undo-change"
+              class="secondary-button"
+              type="button"
+              disabled
+            >
+              Undo
+            </button>
+            <button
+              id="redo-change"
+              class="secondary-button"
+              type="button"
+              disabled
+            >
+              Redo
+            </button>
+            <span id="history-status" role="status" aria-live="polite">
+              No editor changes yet
+            </span>
+          </div>
+
+          <details id="project-storage-panel" class="project-storage-panel">
+            <summary>
+              <span>Project snapshot</span>
+              <small id="project-storage-summary">Not saved</small>
+            </summary>
+            <div class="project-storage-body">
+              <p class="project-storage-copy">
+                Save this map setup in your browser and restore it after
+                reloading the page.
+              </p>
+              <label class="project-name-field">
+                <span>Project name</span>
+                <input
+                  id="project-name"
+                  type="text"
+                  maxlength="60"
+                  placeholder="Maharashtra district map"
+                />
+              </label>
+              <div class="project-storage-actions">
+                <button
+                  id="save-project"
+                  class="secondary-button"
+                  type="button"
+                >
+                  Save snapshot
+                </button>
+                <button
+                  id="restore-project"
+                  class="secondary-button"
+                  type="button"
+                  disabled
+                >
+                  Restore
+                </button>
+                <button
+                  id="delete-project"
+                  class="text-button"
+                  type="button"
+                  disabled
+                >
+                  Delete saved
+                </button>
+              </div>
+              <div class="project-portable-actions">
+                <span>Portable project file</span>
+                <div>
+                  <button
+                    id="export-project"
+                    class="secondary-button"
+                    type="button"
+                  >
+                    Export JSON
+                  </button>
+                  <label class="secondary-button project-import-button">
+                    Import JSON
+                    <input
+                      id="import-project-file"
+                      type="file"
+                      accept=".json,application/json"
+                    />
+                  </label>
+                </div>
+              </div>
+              <div class="project-portable-actions">
+                <span>Standalone interactive map</span>
+                <div>
+                  <button
+                    id="export-standalone-map"
+                    class="secondary-button"
+                    type="button"
+                  >
+                    Export HTML
+                  </button>
+                </div>
+              </div>
+              <details id="embed-code-builder" class="embed-code-builder">
+                <summary>
+                  <span>Embed code generator</span>
+                  <small id="embed-code-summary">Iframe</small>
+                </summary>
+                <div class="embed-code-body">
+                  <p class="embed-code-copy">
+                    Export and upload the standalone HTML map, then enter its
+                    public URL or relative path here.
+                  </p>
+                  <div
+                    class="embed-format-switch"
+                    role="group"
+                    aria-label="Embed code format"
+                  >
+                    <button
+                      class="is-active"
+                      type="button"
+                      data-embed-format="iframe"
+                      aria-pressed="true"
+                    >
+                      Iframe
+                    </button>
+                    <button
+                      type="button"
+                      data-embed-format="javascript"
+                      aria-pressed="false"
+                    >
+                      JavaScript
+                    </button>
+                  </div>
+                  <div class="embed-code-fields">
+                    <label>
+                      <span>Map URL or path</span>
+                      <input
+                        id="embed-map-url"
+                        type="text"
+                        maxlength="1000"
+                        placeholder="./maharashtra-interactive-map.html"
+                      />
+                    </label>
+                    <label>
+                      <span>Height in pixels</span>
+                      <input
+                        id="embed-map-height"
+                        type="number"
+                        min="320"
+                        max="1200"
+                        step="20"
+                        value="720"
+                      />
+                    </label>
+                  </div>
+                  <label class="embed-code-output-field">
+                    <span>Copy-ready code</span>
+                    <textarea
+                      id="embed-code-output"
+                      rows="8"
+                      readonly
+                      spellcheck="false"
+                    ></textarea>
+                  </label>
+                  <div class="embed-code-actions">
+                    <button
+                      id="copy-embed-code"
+                      class="secondary-button"
+                      type="button"
+                    >
+                      Copy embed code
+                    </button>
+                  </div>
+                  <p
+                    id="embed-code-status"
+                    class="embed-code-status"
+                    role="status"
+                    aria-live="polite"
+                  ></p>
+                </div>
+              </details>
+              <details
+                id="visual-export-builder"
+                class="visual-export-builder"
+              >
+                <summary>
+                  <span>SVG &amp; PNG export</span>
+                  <small>Visual files</small>
+                </summary>
+                <div class="visual-export-body">
+                  <p class="visual-export-copy">
+                    Download the current map appearance with its active colors,
+                    labels, filters, selection, and comparison marks.
+                  </p>
+                  <div class="visual-export-fields">
+                    <label>
+                      <span>Map framing</span>
+                      <select id="visual-export-scope">
+                        <option value="current">Current view</option>
+                        <option value="full">Full map</option>
+                      </select>
+                    </label>
+                    <label>
+                      <span>Background</span>
+                      <select id="visual-export-background">
+                        <option value="transparent">Transparent</option>
+                        <option value="light">Light panel</option>
+                      </select>
+                    </label>
+                    <label>
+                      <span>PNG resolution</span>
+                      <select id="visual-export-scale">
+                        <option value="1">Standard · 1600px</option>
+                        <option value="2" selected>High · 3200px</option>
+                        <option value="3">Print · 4800px</option>
+                      </select>
+                    </label>
+                  </div>
+                  <div class="visual-export-actions">
+                    <button
+                      id="export-map-svg"
+                      class="secondary-button"
+                      type="button"
+                    >
+                      Download SVG
+                    </button>
+                    <button
+                      id="export-map-png"
+                      class="secondary-button"
+                      type="button"
+                    >
+                      Download PNG
+                    </button>
+                  </div>
+                  <p
+                    id="visual-export-status"
+                    class="visual-export-status"
+                    role="status"
+                    aria-live="polite"
+                  ></p>
+                </div>
+              </details>
+              <p
+                id="project-storage-status"
+                class="project-storage-status"
+                role="status"
+                aria-live="polite"
+              ></p>
+            </div>
+          </details>
+
+          <div id="division-filter-block" class="division-filter-block">
+            <div class="division-filter-heading">
+              <span>Highlight by division</span>
+              <span id="division-filter-summary">Showing all divisions</span>
+            </div>
+            <div
+              id="division-filters"
+              class="division-filters"
+              role="group"
+              aria-label="Filter districts by administrative division"
+            ></div>
+          </div>
+
+          <details id="content-builder" class="content-builder">
+            <summary>
+              <span>Tooltip &amp; popup</span>
+              <small id="content-builder-summary">Default</small>
+            </summary>
+            <div class="content-builder-body">
+              <p class="content-builder-copy">
+                District name is always shown. Choose additional fields for
+                hover and click profiles.
+              </p>
+              <div class="content-field-heading" aria-hidden="true">
+                <span>Field</span>
+                <span>Hover</span>
+                <span>Popup</span>
+              </div>
+              <div id="content-field-list" class="content-field-list"></div>
+
+              <div class="custom-popup-fields">
+                <label>
+                  <span>Custom popup text</span>
+                  <textarea
+                    id="popup-custom-text"
+                    rows="3"
+                    maxlength="400"
+                    placeholder="Example: Learn more about {district}."
+                  ></textarea>
+                </label>
+                <label>
+                  <span>Link label</span>
+                  <input
+                    id="popup-link-label"
+                    type="text"
+                    maxlength="60"
+                    placeholder="View district website"
+                  />
+                </label>
+                <label>
+                  <span>Link URL</span>
+                  <input
+                    id="popup-link-url"
+                    type="url"
+                    maxlength="500"
+                    placeholder="https://example.com/{slug}"
+                  />
+                </label>
+                <label>
+                  <span>Image URL</span>
+                  <input
+                    id="popup-image-url"
+                    type="url"
+                    maxlength="500"
+                    placeholder="https://example.com/{slug}.jpg"
+                  />
+                </label>
+                <label>
+                  <span>Image alt text</span>
+                  <input
+                    id="popup-image-alt"
+                    type="text"
+                    maxlength="120"
+                    placeholder="{district} district"
+                  />
+                </label>
+              </div>
+              <p class="content-placeholder-hint">
+                Placeholders: <code>{district}</code>, <code>{division}</code>,
+                <code>{slug}</code>, <code>{code}</code>,
+                <code>{lgd_code}</code>, or an imported field name.
+              </p>
+              <div class="content-builder-actions">
+                <button
+                  id="apply-content-settings"
+                  class="secondary-button"
+                  type="button"
+                >
+                  Apply content
+                </button>
+                <button
+                  id="reset-content-settings"
+                  class="text-button"
+                  type="button"
+                >
+                  Reset
+                </button>
+              </div>
+              <p
+                id="content-builder-status"
+                class="content-builder-status"
+                role="status"
+                aria-live="polite"
+              ></p>
+            </div>
+          </details>
+
+          <details
+            id="district-action-builder"
+            class="district-action-builder"
+          >
+            <summary>
+              <span>District click actions</span>
+              <small id="district-action-summary">Profile on click</small>
+            </summary>
+            <div class="district-action-body">
+              <p class="district-action-copy">
+                Choose what happens when a district is activated. Comparison
+                mode temporarily overrides custom actions.
+              </p>
+              <div class="district-action-fields">
+                <label>
+                  <span>District</span>
+                  <select id="district-action-district"></select>
+                </label>
+                <label>
+                  <span>Click behavior</span>
+                  <select id="district-action-type">
+                    <option value="profile">Show district profile</option>
+                    <option value="district-page">Open district map</option>
+                    <option value="url">Open a URL</option>
+                    <option value="map">Navigate to another state map</option>
+                    <option value="none">No action</option>
+                  </select>
+                </label>
+                <label id="district-action-url-field" hidden>
+                  <span>URL or template</span>
+                  <input
+                    id="district-action-url"
+                    type="text"
+                    maxlength="500"
+                    placeholder="https://example.com/{slug}"
+                  />
+                </label>
+                <label id="district-action-target-field" hidden>
+                  <span>Open in</span>
+                  <select id="district-action-target">
+                    <option value="new">New tab</option>
+                    <option value="same">Same tab</option>
+                  </select>
+                </label>
+                <label id="district-action-state-field" hidden>
+                  <span>Destination state</span>
+                  <select id="district-action-state"></select>
+                </label>
+              </div>
+              <p class="district-action-hint">
+                URL templates support district placeholders and imported field
+                names, including <code>{slug}</code> and
+                <code>{district_website}</code>.
+              </p>
+              <div class="district-action-actions">
+                <button
+                  id="save-district-action"
+                  class="secondary-button"
+                  type="button"
+                >
+                  Save action
+                </button>
+                <button
+                  id="reset-district-action"
+                  class="text-button"
+                  type="button"
+                >
+                  Use default
+                </button>
+              </div>
+              <p
+                id="district-action-status"
+                class="district-action-status"
+                role="status"
+                aria-live="polite"
+              ></p>
+            </div>
+          </details>
+
+          <label class="search-field">
+            <span>Find a district</span>
+            <input
+              id="district-search"
+              type="search"
+              placeholder="Try Pune, Nagpur or Konkan"
+              autocomplete="off"
+            />
+          </label>
+
+          <div id="district-list" class="district-list"></div>
+
+          <section
+            id="district-comparison"
+            class="selection-card district-comparison"
+            aria-labelledby="comparison-heading"
+            hidden
+          >
+            <div class="comparison-heading">
+              <div>
+                <p class="eyebrow">District comparison</p>
+                <h2 id="comparison-heading">0 of 4 selected</h2>
+              </div>
+              <button
+                id="clear-comparison"
+                class="text-button"
+                type="button"
+                hidden
+              >
+                Clear all
+              </button>
+            </div>
+            <p id="comparison-guidance" class="comparison-guidance">
+              Select up to four districts from the map or district list.
+            </p>
+            <div
+              id="comparison-list"
+              class="comparison-list"
+              aria-live="polite"
+            ></div>
+            <p
+              id="comparison-status"
+              class="comparison-status"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </section>
+
+          <section
+            id="district-selection"
+            class="selection-card district-profile"
+            hidden
+          >
+            <div class="district-profile-header">
+              <div>
+                <p class="eyebrow">District profile</p>
+                <h2 id="selected-district-name"></h2>
+                <p id="selected-district-meta"></p>
+              </div>
+              <span
+                id="selected-district-code"
+                class="code-badge"
+                data-popup-field="census"
+                title="District code"
+              ></span>
+            </div>
+
+            <div class="profile-chip-row">
+              <span
+                id="selected-division-chip"
+                class="profile-chip"
+                data-popup-field="division"
+              ></span>
+              <span
+                id="selected-boundary-chip"
+                class="profile-chip"
+                data-popup-field="boundary"
+              ></span>
+            </div>
+
+            <dl class="district-profile-grid">
+              <div data-popup-field="division">
+                <dt>Division</dt>
+                <dd id="selected-division-name"></dd>
+              </div>
+              <div data-popup-field="census">
+                <dt>District code</dt>
+                <dd id="selected-census-code"></dd>
+              </div>
+              <div data-popup-field="lgd">
+                <dt>LGD code</dt>
+                <dd id="selected-lgd-code"></dd>
+              </div>
+              <div data-popup-field="geometry">
+                <dt>Geometry</dt>
+                <dd id="selected-geometry-type"></dd>
+              </div>
+            </dl>
+
+            <section
+              id="imported-profile-data"
+              class="imported-profile-data"
+              hidden
+            >
+              <div class="imported-profile-heading">
+                <span>Imported data</span>
+                <span id="imported-field-count"></span>
+              </div>
+              <dl
+                id="imported-profile-fields"
+                class="imported-profile-fields"
+              ></dl>
+            </section>
+
+            <section
+              id="custom-popup-content"
+              class="custom-popup-content"
+              hidden
+            >
+              <img id="custom-popup-image" alt="" hidden />
+              <p id="custom-popup-text" hidden></p>
+              <a
+                id="custom-popup-link"
+                class="secondary-button custom-popup-link"
+                href="#"
+                hidden
+              ></a>
+            </section>
+
+            <div class="identifier-stack" data-popup-field="identifiers">
+              <div id="selected-district-division-identifier-row">
+                <span>Division identifier</span>
+                <code id="selected-district-division-id"></code>
+              </div>
+              <div>
+                <span>District feature identifier</span>
+                <code id="selected-district-id"></code>
+              </div>
+            </div>
+
+            <div class="profile-actions">
+              <a
+                id="open-district-map"
+                class="primary-button profile-action-button"
+                href="district.html"
+              >
+                Open district map
+              </a>
+              <button
+                id="copy-district-id"
+                class="secondary-button profile-action-button"
+                type="button"
+              >
+                Copy district ID
+              </button>
+              <button
+                id="copy-district-link"
+                class="secondary-button profile-action-button"
+                type="button"
+              >
+                Copy direct link
+              </button>
+              <button
+                id="clear-district"
+                class="text-button profile-clear-button"
+                type="button"
+              >
+                Clear selection
+              </button>
+            </div>
+            <p
+              id="profile-copy-status"
+              class="profile-copy-status"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </section>
+        </section>
+
+        <div id="district-unavailable" class="district-unavailable" hidden>
+          District boundaries have not been generated for this region yet.
+          District layers are rolling out state by state.
+        </div>
+
+        <div class="selection-actions">
+          <a id="open-raw-svg" class="primary-button" href="#" target="_blank">
+            Open raw SVG
+          </a>
+          <a class="secondary-button" href="index.html">Choose another region</a>
+        </div>
+      </section>
+
+      <section class="state-map-panel" aria-label="Standalone state outline">
+        <div id="district-map-status" class="district-ready">
+          <span aria-hidden="true">＋</span>
+          Loading district layer…
+        </div>
+        <details id="map-layer-manager" class="map-layer-manager" hidden>
+          <summary>
+            <span>Layers</span>
+            <small id="layer-visibility-summary">6 on</small>
+          </summary>
+          <div class="layer-manager-menu">
+            <label>
+              <input
+                type="checkbox"
+                data-layer-toggle="districts"
+                aria-controls="state-map"
+                checked
+              />
+              <span>
+                <strong>District regions</strong>
+                <small>Shapes and interaction</small>
+              </span>
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                data-layer-toggle="stateOutline"
+                aria-controls="state-map"
+                checked
+              />
+              <span>
+                <strong>State outline</strong>
+                <small>Outer state boundary</small>
+              </span>
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                data-layer-toggle="divisionFocus"
+                aria-controls="state-map"
+                checked
+              />
+              <span>
+                <strong>Division focus</strong>
+                <small>Highlight and dimming</small>
+              </span>
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                data-layer-toggle="labels"
+                aria-controls="state-map"
+                checked
+              />
+              <span>
+                <strong>Map labels</strong>
+                <small>Current label selection</small>
+              </span>
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                data-layer-toggle="dataColors"
+                aria-controls="state-map"
+                checked
+              />
+              <span>
+                <strong>Imported colors</strong>
+                <small>Data layer and legend</small>
+              </span>
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                data-layer-toggle="comparisonMarks"
+                aria-controls="state-map"
+                checked
+              />
+              <span>
+                <strong>Comparison marks</strong>
+                <small>Compared district outlines</small>
+              </span>
+            </label>
+            <button id="reset-layer-visibility" type="button">
+              Reset layer visibility
+            </button>
+          </div>
+        </details>
+        <details id="map-style-editor" class="map-style-editor" hidden>
+          <summary>
+            <span>Style</span>
+            <small id="map-style-summary">Default</small>
+          </summary>
+          <div class="style-editor-menu">
+            <div class="style-editor-heading">
+              <strong>Map appearance</strong>
+              <span>Changes update instantly</span>
+            </div>
+            <label class="style-color-row">
+              <input
+                type="color"
+                value="#dce9df"
+                data-style-property="--map-fill"
+                data-style-name="Region fill"
+                aria-label="Region fill color"
+              />
+              <span>Region fill</span>
+              <output>#DCE9DF</output>
+            </label>
+            <label class="style-color-row">
+              <input
+                type="color"
+                value="#607b70"
+                data-style-property="--map-stroke"
+                data-style-name="District borders"
+                aria-label="District border color"
+              />
+              <span>District borders</span>
+              <output>#607B70</output>
+            </label>
+            <label class="style-color-row">
+              <input
+                type="color"
+                value="#f8c56b"
+                data-style-property="--hover"
+                data-style-name="Hover fill"
+                aria-label="District hover color"
+              />
+              <span>Hover fill</span>
+              <output>#F8C56B</output>
+            </label>
+            <label class="style-color-row">
+              <input
+                type="color"
+                value="#e06b46"
+                data-style-property="--selected-fill"
+                data-style-name="Selected fill"
+                data-style-optional="true"
+                aria-label="Selected district override color"
+              />
+              <span>Selected fill</span>
+              <output>Automatic</output>
+            </label>
+            <label class="style-color-row">
+              <input
+                type="color"
+                value="#115d4d"
+                data-style-property="--outline-color"
+                data-style-name="Outer outline"
+                aria-label="State outline color"
+              />
+              <span>Outer outline</span>
+              <output>#115D4D</output>
+            </label>
+            <label class="style-color-row">
+              <input
+                type="color"
+                value="#10231f"
+                data-style-property="--label-color"
+                data-style-name="Label text"
+                aria-label="Map label color"
+              />
+              <span>Label text</span>
+              <output>#10231F</output>
+            </label>
+            <button id="reset-map-styles" type="button">
+              Reset map styles
+            </button>
+            <p
+              id="map-style-status"
+              class="map-style-status"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </div>
+        </details>
+        <div
+          id="map-label-controls"
+          class="map-label-controls"
+          aria-label="Map label controls"
+          hidden
+        >
+          <span>Labels</span>
+          <div role="group" aria-label="Choose map label type">
+            <button
+              type="button"
+              data-label-mode="divisions"
+              aria-pressed="true"
+            >
+              Divisions
+            </button>
+            <button
+              type="button"
+              data-label-mode="districts"
+              aria-pressed="false"
+            >
+              Districts
+            </button>
+            <button
+              type="button"
+              data-label-mode="codes"
+              aria-pressed="false"
+            >
+              Codes
+            </button>
+            <button
+              type="button"
+              data-label-mode="off"
+              aria-pressed="false"
+            >
+              Off
+            </button>
+          </div>
+        </div>
+        <aside
+          id="map-data-legend"
+          class="map-data-legend"
+          aria-label="District data legend"
+          hidden
+        >
+          <div class="map-data-legend-heading">
+            <strong id="map-data-legend-title"></strong>
+            <span id="map-data-legend-type"></span>
+          </div>
+          <div id="map-data-legend-items" class="map-data-legend-items"></div>
+        </aside>
+        <div class="map-navigation" aria-label="Map navigation controls">
+          <button
+            id="map-zoom-in"
+            type="button"
+            aria-label="Zoom in"
+            aria-controls="state-map"
+            title="Zoom in"
+          >
+            +
+          </button>
+          <button
+            id="map-zoom-out"
+            type="button"
+            aria-label="Zoom out"
+            aria-controls="state-map"
+            title="Zoom out"
+          >
+            −
+          </button>
+          <button
+            id="map-reset-view"
+            class="map-reset-button"
+            type="button"
+            aria-label="Reset map view"
+            aria-controls="state-map"
+            title="Reset map view"
+          >
+            Fit
+          </button>
+        </div>
+        <p class="map-gesture-hint">Drag to pan · scroll to zoom</p>
+        <div id="state-map" class="state-map" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <div id="district-tooltip" class="map-tooltip" role="tooltip" hidden>
+      <strong id="district-tooltip-name"></strong>
+      <span id="district-tooltip-meta">District</span>
+    </div>
+
+    <script src="data/states.js"></script>
+    <script src="standalone-export.js"></script>
+    <script src="state.js"></script>
+  </body>
+</html>
