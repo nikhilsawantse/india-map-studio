@@ -58,6 +58,8 @@ REQUIRED_FILES = (
     "examples/custom-icons.js",
     "examples/location-finder.html",
     "examples/location-finder.js",
+    "examples/nearby-places.html",
+    "examples/nearby-places.js",
     "examples/embedded-map.html",
     "examples/embedded-map.js",
     "examples/embed-frame.html",

@@ -201,6 +201,7 @@ examples/time-series.html          Scrubbable and playable regional values
 examples/comparison-map.html       Side-by-side election-style scenarios
 examples/custom-icons.html         Sanitized user-supplied SVG marker preview
 examples/location-finder.html      Fuzzy administrative boundary search
+examples/nearby-places.html        Drop-point radius and proximity search
 examples/embedded-map.html         Configurable iframe integration
 sample-data/                       Documented synthetic example datasets
 starter/                           Minimal editable map application

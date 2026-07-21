@@ -77,6 +77,9 @@ is a stable region slug such as `maharashtra`, not a display label.
 - Find a published state, district, or tehsil by name, administrative code,
   slug, or stable identifier with the
   [India location finder](../examples/location-finder.html).
+- Discover sourced public-interest points around a selected place, entered
+  coordinate, or dropped map origin with the
+  [nearby-places example](../examples/nearby-places.html).
 - Publish a clean iframe with the
   [embedded-map example](../examples/embedded-map.html).
 - Read the full [map engine API](map-engine.md).

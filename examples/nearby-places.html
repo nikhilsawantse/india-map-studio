@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Find nearby reservoirs, protected wildlife areas, and major stations within an adjustable radius on an India SVG map."
+    />
+    <title>Nearby places and radius search &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="examples.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span><strong>India Map Studio</strong><small>Nearby places recipe</small></span>
+      </a>
+      <nav class="header-actions" aria-label="Example navigation">
+        <a class="back-link" href="../sample-data/india-poi-layers-demo.json" download>Download POI JSON</a>
+        <a class="back-link" href="index.html">All examples</a>
+      </nav>
+    </header>
+
+    <main class="example-page">
+      <div class="example-heading">
+        <div>
+          <p class="eyebrow">Example 14 &middot; Proximity search</p>
+          <h1>Find useful places within a radius</h1>
+          <p class="intro">
+            Choose a known place, enter coordinates, or click the map, then calculate
+            geodesic distance to sourced public-interest points.
+          </p>
+        </div>
+        <a class="example-source-link" href="nearby-places.js">View JavaScript source</a>
+      </div>
+
+      <div class="example-workspace">
+        <section class="example-map-panel example-nearby-map-panel" aria-label="India nearby-places radius map">
+          <div class="example-map-toolbar">
+            <span id="nearby-status" role="status">Loading nearby-place data&hellip;</span>
+            <span>Click the map to move the search origin</span>
+          </div>
+          <div id="nearby-map" class="example-map example-poi-map example-nearby-map"></div>
+          <div id="nearby-caption" class="example-map-caption" aria-live="polite">
+            Preparing the distance search.
+          </div>
+        </section>
+
+        <aside class="example-control-panel">
+          <p class="eyebrow">Search origin</p>
+          <h2>Nearby places</h2>
+          <p>
+            Uses the existing non-exhaustive Wikidata demonstration dataset. Distances
+            are great-circle estimates, not road or rail travel distances.
+          </p>
+
+          <label for="nearby-origin">Start from a sample place</label>
+          <select id="nearby-origin">
+            <option value="custom">Custom map point</option>
+          </select>
+
+          <div class="example-nearby-coordinates">
+            <label for="nearby-latitude">Latitude
+              <input id="nearby-latitude" type="number" min="6" max="38" step="0.0001" required />
+            </label>
+            <label for="nearby-longitude">Longitude
+              <input id="nearby-longitude" type="number" min="68" max="98" step="0.0001" required />
+            </label>
+          </div>
+          <button id="nearby-use-coordinates" type="button">Use coordinates</button>
+
+          <label for="nearby-radius">Search radius</label>
+          <select id="nearby-radius">
+            <option value="10">10 km</option>
+            <option value="25">25 km</option>
+            <option value="50">50 km</option>
+            <option value="100">100 km</option>
+            <option value="250" selected>250 km</option>
+            <option value="500">500 km</option>
+            <option value="1000">1,000 km</option>
+          </select>
+
+          <label for="nearby-category">Place category</label>
+          <select id="nearby-category">
+            <option value="all">All categories</option>
+            <option value="reservoir">Reservoirs and dams</option>
+            <option value="sanctuary">Sanctuaries and parks</option>
+            <option value="station">Major railway stations</option>
+          </select>
+
+          <p id="nearby-summary" class="example-csv-summary" role="status"></p>
+          <ul id="nearby-results" class="example-poi-results" aria-label="Nearby place results"></ul>
+          <p id="nearby-empty" class="example-finder-empty" hidden>
+            No demonstration places fall inside this radius. Try a larger distance.
+          </p>
+
+          <div id="nearby-detail" class="example-poi-detail" aria-live="polite" hidden>
+            <p class="eyebrow">Selected result</p>
+            <h2 id="nearby-selection"></h2>
+            <p id="nearby-selection-meta"></p>
+            <a id="nearby-source" href="https://www.wikidata.org/wiki/Wikidata:Licensing" target="_blank" rel="noreferrer">Open coordinate source</a>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script src="../map-engine.js"></script>
+    <script src="advanced-map-utils.js"></script>
+    <script src="nearby-places.js"></script>
+  </body>
+</html>

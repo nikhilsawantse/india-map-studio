@@ -40,6 +40,9 @@ release.
 - Typo-tolerant India location finder covering 36 states and union territories,
   750 districts, and 14 published Pune tehsils with code and stable-identifier
   lookup, keyboard result navigation, and automatic layer highlighting.
+- Nearby-place and radius-search example with preset or custom origins,
+  click-to-drop positioning, adjustable distance and category filters, geodesic
+  ranking, accessible results, and sourced POI details.
 
 ### Changed
 
