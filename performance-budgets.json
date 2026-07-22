@@ -6,6 +6,7 @@
     { "path": "state.js", "maxBytes": 185000 },
     { "path": "map-engine.js", "maxBytes": 15000 },
     { "path": "india-svg-map.js", "maxBytes": 5000 },
+    { "path": "mobile-workspace.js", "maxBytes": 5000 },
     { "path": "examples/examples.css", "maxBytes": 65000 },
     { "path": "data/location-index.json", "maxBytes": 350000 },
     { "path": "assets/maps/india-states.svg", "maxBytes": 825000 }

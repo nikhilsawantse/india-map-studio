@@ -34,10 +34,13 @@ REQUIRED_FILES = (
     "assets/maps/india-states.svg",
     "map-engine.js",
     "india-svg-map.js",
+    "mobile-workspace.js",
     "docs/map-engine.md",
     "docs/map-engine.html",
     "docs/performance.md",
     "docs/performance.html",
+    "docs/mobile-ux.md",
+    "docs/mobile-ux.html",
     "examples/multiple-maps.html",
     "examples/index.html",
     "examples/examples-index.js",
@@ -120,6 +123,8 @@ REQUIRED_FILES = (
     "tools/check-performance-budgets.mjs",
     "tests/browser/smoke.spec.js",
     "tests/browser/accessibility.spec.js",
+    "tests/browser/mobile.spec.js",
+    "tests/browser/mobile-accessibility.spec.js",
     "tests/performance/performance.spec.js",
     ".github/workflows/browser-quality.yml",
 )
@@ -152,6 +157,11 @@ MAPPED_DISTRICT_BADGE = re.compile(
 STATE_SLUG = re.compile(r'"slug"\s*:\s*"([a-z0-9-]+)"')
 MAHARASHTRA_DISTRICT_ID = re.compile(
     r'data-feature-id="(IN-REGION-27-DISTRICT-[^"]+)"'
+)
+MOBILE_WORKSPACE_LAYOUT = re.compile(
+    r'class="(?:[^"]*\s)?(?:workspace|state-workspace|district-workspace|'
+    r'custom-map-workspace|example-workspace|example-print-layout|'
+    r'example-embed-layout|example-story-layout)(?:\s[^"]*)?"'
 )
 
 
@@ -218,6 +228,10 @@ def main() -> int:
                 errors.append(
                     f"{html_relative} references an untracked file: {reference}"
                 )
+        if MOBILE_WORKSPACE_LAYOUT.search(source) and "mobile-workspace.js" not in source:
+            errors.append(
+                f"{html_relative} uses a supported mobile workspace without the shared helper"
+            )
 
     state_maps = sorted((ROOT / "assets/maps/states").glob("*.svg"))
     if len(state_maps) != 36:

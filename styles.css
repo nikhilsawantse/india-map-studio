@@ -163,6 +163,50 @@ a {
   gap: 14px;
 }
 
+.mobile-workspace-nav {
+  display: none;
+  grid-column: 1 / -1;
+  align-items: center;
+  gap: 7px;
+  padding: 7px;
+  border: 1px solid rgba(16, 35, 31, 0.12);
+  border-radius: 14px;
+  background: rgba(255, 253, 247, 0.94);
+  box-shadow: 0 10px 28px rgba(31, 54, 45, 0.1);
+  backdrop-filter: blur(12px);
+}
+
+.mobile-workspace-nav span {
+  margin: 0 4px 0 6px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.mobile-workspace-nav button {
+  min-width: 88px;
+  min-height: 42px;
+  padding: 9px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  background: var(--panel);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.mobile-workspace-nav button:last-child {
+  color: white;
+  background: var(--focus);
+  border-color: var(--focus);
+}
+
+.mobile-workspace-nav button:focus-visible {
+  outline: 3px solid rgba(17, 93, 77, 0.24);
+  outline-offset: 2px;
+}
+
 .workspace {
   display: grid;
   grid-template-columns: minmax(290px, 390px) minmax(0, 1fr);
@@ -4844,6 +4888,22 @@ a.breadcrumb-item:focus-visible {
   .division-filters {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
+  :is(.workspace, .state-workspace, .district-workspace, .custom-map-workspace)
+    > .mobile-workspace-nav {
+    position: sticky;
+    z-index: 20;
+    top: 8px;
+    display: flex;
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  :is(.control-panel, .state-copy, .district-page-copy, .custom-import-panel,
+      .map-panel, .state-map-panel, .district-page-map-panel,
+      .custom-map-preview-panel) {
+    scroll-margin-top: 76px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -4877,6 +4937,10 @@ a.breadcrumb-item:focus-visible {
     display: inline-flex;
     min-height: 38px;
     align-items: center;
+  }
+
+  body :is(input:not([type="range"]), select, textarea) {
+    font-size: 16px;
   }
 
   .state-workspace {
@@ -5139,6 +5203,22 @@ a.breadcrumb-item:focus-visible {
 }
 
 @media (pointer: coarse) {
+  body :is(button, .back-link, summary, select, input:not([type="range"])) {
+    min-height: 44px;
+  }
+
+  :is(.map-region, .district-region, .child-region, .custom-region) {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .map-navigation button,
+  .map-label-controls button,
+  .map-layer-manager button,
+  .map-style-editor button {
+    min-width: 44px;
+  }
+
   .tehsil-page
     :is(button, .back-link, .file-picker-button, .tehsil-region-list-item) {
     min-height: 44px;

@@ -53,7 +53,7 @@ response to user and contributor feedback.
 
 - [x] Add automated accessibility and browser tests.
 - [x] Establish mobile and large-layer performance budgets.
-- [ ] Harden touch, narrow-screen, and mobile workflows across major examples.
+- [x] Harden touch, narrow-screen, and mobile workflows across major examples.
 - [ ] Localization infrastructure and offline support are intentionally deferred.
 
 ## Milestone 8: Version 1.0

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Touch and narrow-screen workspace behavior for India Map Studio." />
+    <title>Mobile workspace UX &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="India Map Studio home">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span><strong>India Map Studio</strong><small>Mobile workspace UX</small></span>
+      </a>
+      <nav class="header-actions" aria-label="Documentation navigation">
+        <a class="back-link" href="quick-start.html">Five-minute start</a>
+        <a class="back-link" href="performance.html">Performance</a>
+        <a class="back-link" href="../examples/index.html">Examples</a>
+      </nav>
+    </header>
+
+    <main class="engine-docs">
+      <p class="eyebrow">Touch and narrow screens</p>
+      <h1>Keep controls and maps one tap apart</h1>
+      <p class="intro">Long configuration panels remain usable on phones through persistent workspace jumps, touch-safe controls, and tested responsive ordering.</p>
+
+      <section>
+        <h2>Mobile behavior</h2>
+        <div class="engine-api-grid">
+          <code>Controls / Map</code><span>A sticky jump bar moves directly between long controls and the current map.</span>
+          <code>44 pixel targets</code><span>Primary controls meet a practical coarse-pointer touch size.</span>
+          <code>16 pixel fields</code><span>Inputs avoid unwanted mobile-browser zoom.</span>
+          <code>Report order</code><span>Printable-map controls appear before the mobile preview.</span>
+          <code>No overflow</code><span>Representative explorers and examples are checked at 390 by 844 pixels.</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Copyable setup</h2>
+        <p>Load the helper after the page-specific scripts. It inserts native buttons only when a supported controls-and-map layout is present and remains hidden on desktop screens.</p>
+        <pre><code>&lt;link rel="stylesheet" href="../styles.css"&gt;
+
+&lt;!-- Your map and page scripts --&gt;
+&lt;script src="../mobile-workspace.js"&gt;&lt;/script&gt;</code></pre>
+      </section>
+
+      <section>
+        <h2>Run the mobile regression suite</h2>
+        <pre><code>pnpm test:browser -- tests/browser/mobile.spec.js tests/browser/mobile-accessibility.spec.js --workers=1</code></pre>
+        <p>The suite covers jump navigation, touch-target height, form sizing, mobile report ordering, horizontal overflow, and serious accessibility issues.</p>
+      </section>
+    </main>
+  </body>
+</html>

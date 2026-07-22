@@ -640,6 +640,9 @@
     elements.map.replaceChildren(districtSvg);
     const readyCount = renderLayerRegistry();
     wireChildRegions();
+    if (districtSvg.querySelector('[tabindex], [role="link"], [role="button"]')) {
+      districtSvg.setAttribute("role", "group");
+    }
     applyRequestedChildSelection();
     fitDerivedOutline();
     setBoundarySource(config);

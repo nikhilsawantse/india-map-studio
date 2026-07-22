@@ -75,6 +75,10 @@ release.
   budgets with automated GitHub Actions enforcement and timing reports.
 - Performance documentation with current baselines, budget-change guidance,
   and a copyable map-load measurement snippet.
+- Persistent Controls/Map navigation for long mobile workspaces, touch-safe
+  target sizing, mobile form sizing, and controls-first printable reports.
+- Mobile layout, overflow, touch-target, and accessibility regression coverage
+  plus a copyable shared-helper setup guide.
 
 ### Changed
 
@@ -91,6 +95,8 @@ release.
 
 ### Fixed
 
+- Interactive state, district, and tehsil SVG roots now use group semantics so
+  their child boundary controls are not exposed as nested interactive content.
 - Printable SVG and PNG reports now preserve selected-district colors and keep
   the state outline transparent instead of covering the exported map in black.
 - District chapters in the Story Map now render the state outline as a border,

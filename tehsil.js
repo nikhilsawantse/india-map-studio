@@ -5045,6 +5045,9 @@
     elements.dataImport.hidden = childRegions.length === 0;
     renderRegionNavigator();
     wireChildRegions();
+    if (tehsilSvg.querySelector('[tabindex], [role="link"], [role="button"]')) {
+      tehsilSvg.setAttribute("role", "group");
+    }
     createRegionLabels();
     setRegionLabelMode(currentLabelMode);
     fitDerivedOutline();

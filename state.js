@@ -4873,6 +4873,10 @@
     })
     .then((svg) => {
       stateMap.innerHTML = svg;
+      const svgRoot = stateMap.querySelector("svg");
+      if (svgRoot?.querySelector('[tabindex], [role="link"], [role="button"]')) {
+        svgRoot.setAttribute("role", "group");
+      }
       initializeMapNavigation();
       wireDistricts();
     })
