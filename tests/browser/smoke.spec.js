@@ -95,6 +95,8 @@ test("story map advances into a district chapter", async ({ page }) => {
   await expect(page.locator("#story-map .district-region")).toHaveCount(36);
   await expect(page.locator("#story-progress")).toHaveText("Step 2 of 4");
   await expect(page.locator("#story-map .is-story-focus")).toHaveCount(1);
+  await expect(page.locator("#story-map #state-outline path")).toHaveCSS("fill", "none");
+  await expect(page.locator("#story-map .is-story-focus path")).toHaveCSS("fill", "rgb(199, 101, 63)");
   expect(errors).toEqual([]);
 });
 
@@ -107,6 +109,15 @@ test("printable report keeps map, list, and title synchronized", async ({ page }
   await expect(page.locator("#print-preview-title")).toHaveText("Monsoon readiness");
   await expect(page.locator("#print-map .is-print-selected")).toHaveCount(1);
   await expect(page.locator("#print-preview-subtitle")).toContainText("1 of 36");
+  const downloadPromise = page.waitForEvent("download");
+  await page.locator("#print-svg").click();
+  const download = await downloadPromise;
+  const stream = await download.createReadStream();
+  let exportedSvg = "";
+  for await (const chunk of stream) exportedSvg += chunk.toString();
+  expect(exportedSvg).toContain('class="district-region is-print-selected"');
+  expect(exportedSvg).toContain('fill="#bf6540"');
+  expect(exportedSvg).toMatch(/id="state-outline"[\s\S]*?fill="none"/);
   expect(errors).toEqual([]);
 });
 

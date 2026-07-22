@@ -85,6 +85,10 @@ release.
 
 ### Fixed
 
+- Printable SVG and PNG reports now preserve selected-district colors and keep
+  the state outline transparent instead of covering the exported map in black.
+- District chapters in the Story Map now render the state outline as a border,
+  keeping Pune and the surrounding district boundaries visible.
 - District maps in the drill-down example now expose clickable district
   geometry instead of letting the state-outline overlay cover and intercept it.
 - The drill-down control panel now provides a synchronized district picker as

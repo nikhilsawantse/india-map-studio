@@ -1705,6 +1705,17 @@
   transition: fill 180ms ease, opacity 180ms ease;
 }
 
+.example-story-map #state-outline {
+  pointer-events: none;
+}
+
+.example-story-map #state-outline :is(path, polygon, polyline) {
+  fill: none;
+  stroke: #61736d;
+  stroke-width: 1.4;
+  vector-effect: non-scaling-stroke;
+}
+
 .example-story-map :is(.map-region, .district-region).is-story-muted {
   opacity: 0.28;
 }

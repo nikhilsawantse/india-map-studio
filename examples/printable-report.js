@@ -78,7 +78,23 @@
     const title = document.createElementNS(SVG_NAMESPACE, "text"); title.setAttribute("x", "90"); title.setAttribute("y", "105"); title.setAttribute("font-family", "Georgia, serif"); title.setAttribute("font-size", "52"); title.setAttribute("fill", "#10231f"); title.textContent = elements.previewTitle.textContent; output.append(title);
     const subtitle = document.createElementNS(SVG_NAMESPACE, "text"); subtitle.setAttribute("x", "92"); subtitle.setAttribute("y", "150"); subtitle.setAttribute("font-family", "Arial, sans-serif"); subtitle.setAttribute("font-size", "22"); subtitle.setAttribute("fill", "#536660"); subtitle.textContent = elements.previewSubtitle.textContent; output.append(subtitle);
     const nested = engine.svg.cloneNode(true); nested.setAttribute("x", "90"); nested.setAttribute("y", "195"); nested.setAttribute("width", "1020"); nested.setAttribute("height", "970"); nested.querySelectorAll("[tabindex]").forEach((node) => node.removeAttribute("tabindex"));
-    const style = document.createElementNS(SVG_NAMESPACE, "style"); style.textContent = ".district-region path,.district-region polygon,.district-region polyline{fill:#e4ece6;stroke:#61736d;stroke-width:1.2;vector-effect:non-scaling-stroke}.district-region.is-print-selected path,.district-region.is-print-selected polygon,.district-region.is-print-selected polyline{fill:#bf6540;stroke:#164f45;stroke-width:2.2}"; nested.prepend(style); output.append(nested);
+    nested.querySelectorAll(".district-region").forEach((region) => {
+      const isSelected = selected.has(region.dataset.slug);
+      region.classList.toggle("is-print-selected", isSelected);
+      region.querySelectorAll("path, polygon, polyline").forEach((shape) => {
+        shape.setAttribute("fill", isSelected ? "#bf6540" : "#e4ece6");
+        shape.setAttribute("stroke", isSelected ? "#164f45" : "#61736d");
+        shape.setAttribute("stroke-width", isSelected ? "2.2" : "1.2");
+        shape.setAttribute("vector-effect", "non-scaling-stroke");
+      });
+    });
+    nested.querySelectorAll("#state-outline path, #state-outline polygon, #state-outline polyline").forEach((shape) => {
+      shape.setAttribute("fill", "none");
+      shape.setAttribute("stroke", "#61736d");
+      shape.setAttribute("stroke-width", "1.4");
+      shape.setAttribute("vector-effect", "non-scaling-stroke");
+    });
+    output.append(nested);
     const swatch = document.createElementNS(SVG_NAMESPACE, "rect"); swatch.setAttribute("x", "92"); swatch.setAttribute("y", "1210"); swatch.setAttribute("width", "28"); swatch.setAttribute("height", "28"); swatch.setAttribute("rx", "5"); swatch.setAttribute("fill", "#bf6540"); output.append(swatch);
     const legend = document.createElementNS(SVG_NAMESPACE, "text"); legend.setAttribute("x", "138"); legend.setAttribute("y", "1233"); legend.setAttribute("font-family", "Arial, sans-serif"); legend.setAttribute("font-size", "23"); legend.setAttribute("fill", "#10231f"); legend.textContent = elements.previewLegend.textContent; output.append(legend);
     textLines(elements.previewNotes.textContent).forEach((line, index) => { const text = document.createElementNS(SVG_NAMESPACE, "text"); text.setAttribute("x", "92"); text.setAttribute("y", String(1300 + index * 32)); text.setAttribute("font-family", "Arial, sans-serif"); text.setAttribute("font-size", "21"); text.setAttribute("fill", "#536660"); text.textContent = line; output.append(text); });
