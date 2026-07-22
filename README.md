@@ -1,476 +1,217 @@
+<div align="center">
+
 # India Map Studio
 
-A framework-free interactive administrative map explorer and map-authoring
-workspace for India. It uses plain HTML, CSS, JavaScript, and reusable SVG
-assets, with no application framework or build step required.
+### Build interactive maps of India with plain HTML, CSS, JavaScript, and SVG.
 
-[Live demo](https://nikhilsawantse.github.io/india-map-studio/) ·
-[GitHub repository](https://github.com/nikhilsawantse/india-map-studio) ·
-[Use this template](https://github.com/nikhilsawantse/india-map-studio/generate)
+[![Browser quality](https://github.com/nikhilsawantse/india-map-studio/actions/workflows/browser-quality.yml/badge.svg)](https://github.com/nikhilsawantse/india-map-studio/actions/workflows/browser-quality.yml)
+[![License: MIT](https://img.shields.io/badge/Code%20license-MIT-0f4c43.svg)](LICENSE)
+[![Version 1](https://img.shields.io/badge/API-Version%201-c84b2f.svg)](docs/api-stability.md)
+[![No framework](https://img.shields.io/badge/framework-none-e8eee9.svg)](#five-minute-start)
 
-> **Data notice:** The application code is open source under MIT, while
-> third-party boundary assets keep their own terms. The public release excludes
-> local Survey of India-derived assets that do not have confirmed redistribution
-> rights. See [DATA_LICENSES.md](DATA_LICENSES.md).
+**[Open the live map](https://nikhilsawantse.github.io/india-map-studio/)** | **[Browse examples](https://nikhilsawantse.github.io/india-map-studio/examples/)** | **[Start in five minutes](https://nikhilsawantse.github.io/india-map-studio/docs/quick-start.html)** | **[Use this template](https://github.com/nikhilsawantse/india-map-studio/generate)**
 
-## Project links
+</div>
 
-- [Detailed map provenance](ATTRIBUTION.md)
-- [Boundary-data license inventory](DATA_LICENSES.md)
-- [Third-party notices](THIRD_PARTY_NOTICES.md)
-- [Contribution guide](CONTRIBUTING.md)
-- [Roadmap](ROADMAP.md)
-- [Security policy](SECURITY.md)
-- [Citation metadata](CITATION.cff)
-- [Version 1 migration guide](MIGRATION.md)
-- [Version 1 release notes](RELEASE_NOTES.md)
+<a href="https://nikhilsawantse.github.io/india-map-studio/">
+  <img src="docs/images/readme-hero.jpg" alt="India Map Studio showing the interactive national map, state search, and region list" width="100%" />
+</a>
 
-## What is included
+<p align="center"><sub>Search, hover, select, drill down, join data, annotate, tell stories, and export — directly in the browser.</sub></p>
 
-- Interactive India map with state and union territory boundaries
-- Reusable `IndiaMapEngine` with a documented configuration and DOM event API
-- Frozen Version 1 runtime, Web Component, boundary-registry, and contribution
-  manifest contracts with automated compatibility tests
-- Framework-free `<india-svg-map>` Web Component with independent instances
-- Versioned boundary registry with source, license, vintage, identifiers,
-  verification state, and map-engine compatibility for every public layer
-- Local-only boundary contribution assistant for inspecting SVG or GeoJSON,
-  validating stable identifiers, documenting provenance, and exporting a
-  review manifest
-- Dependency-free Python contribution wizard and validator with automated
-  pull-request checks for geometry, metadata, rights, and feature counts
-- Runnable example library for CSV choropleths, district CSV imports,
-  two-level drill-downs, accessible markers, searchable sourced POI layers,
-  clustering, heatmaps, route networks, time-series maps, regional
-  comparisons, custom SVG icons, and configurable iframe embeds
-- Synthetic CSV and JSON example datasets, a five-minute quick start, and a
-  minimal editable starter application
-- Collapsed, copy-ready starter recipes on all 22 gallery demos plus the
-  reusable multiple-map example
-- Hover, keyboard focus, search, selection, and tooltips
-- Navigation to a standalone page for every region
-- 36 separate state and union-territory SVG files with 750 interactive
-  district features across current and source-vintage layers
-- Nationwide boundary audit comparing every mapped layer with the current
-  Local Government Directory district count, including search, priority
-  sorting, source-vintage summaries, and direct links to each map
-- Ready district layers for every state and union territory, including the
-  combined Dadra and Nagar Haveli and Daman and Diu map
-- Source-vintage Rajasthan and Nagaland district layers regenerated from the
-  MIT-licensed upstream dataset, with 33 and 11 interactive features
-- Maharashtra and Karnataka division filters, with district-first controls for
-  every map that has no configured intermediate administrative grouping
-- Optional administrative grouping for states that do not organize districts
-  into a comparable higher-level division; division-only controls, labels, and
-  profile fields hide automatically
-- Stable application identifiers for regions, layers, and district features
-- Color-coded division toggles that isolate and highlight matching districts
-- Zoom, mouse-wheel navigation, drag-to-pan, reset view, and automatic focus
-- Live clickable breadcrumbs for India, state, division, and district hierarchy
-- Toggleable division names, district names, administrative codes, or no labels
-- Structured district profiles with codes, geometry metadata, identifiers, and copy actions
-- Session-based CSV/JSON import with automatic district matching and profile fields
-- Automatic numeric or categorical district coloring with a live map legend
-- Four-district comparison mode with map/list selection and shareable URLs
-- Collapsible layer manager for boundaries, labels, data colors, and comparison marks
-- Live map styling editor with color controls and default-style restoration
-- Numeric and categorical district data rules with match counts and map/list filtering
-- Configurable tooltip and popup fields with templated text, links, and images
-- Browser-based project snapshots that restore data, styling, filters, and map state
-- Portable JSON project export and import for moving complete map setups
-- Thirty-step undo and redo history with keyboard shortcuts
-- In-browser district data editing with draft changes and custom fields
-- Per-district click actions for profiles, templated URLs, map navigation, or no action
-- Single-file standalone HTML export with map interactions, data, profiles, and actions
-- Copy-ready iframe and JavaScript embed-code generation for standalone maps
-- Styled SVG and high-resolution PNG export for the current view or full map
-- Custom SVG/GeoJSON importer with sanitization, region detection, stable IDs,
-  renaming, search, interaction previews, and identified-SVG download
-- Dedicated district pages with focused outlines, hierarchical breadcrumbs,
-  reserved child-layer identifiers, and future-ready layer toggles
-- Pune district pilot with 14 interactive tehsil/taluka boundaries, Census and
-  LGD codes, source metadata, and shareable tehsil deep links
-- Release-safe outline fallbacks for districts whose deeper local boundary
-  assets are not included in the public repository
-- Dedicated tehsil workspaces with focused outlines, hierarchy breadcrumbs,
-  reserved local-layer identifiers, and a generic engine for compatible
-  block, village, gram-panchayat, ward, or local-area geometry
-- Local-layer search, labels, CSV/JSON joins, validation, editing, filters,
-  workspace persistence, click actions, and standalone exports whenever a
-  compatible redistribution-safe layer is registered
-- Mobile and keyboard accessibility polish with skip links, live result and map
-  announcements, roving map focus, arrow-key navigation, larger touch targets,
-  responsive legends, and reduced-motion/high-contrast support
-- Automated Chromium smoke tests for core map interactions and narrow layouts,
-  plus axe checks for serious WCAG accessibility violations on representative
-  public pages
-- A populated Maharashtra demo dataset in `sample-data/maharashtra-district-demo.csv`
-- A dependency-free Python generator for rebuilding the SVG files
+| **36** regions | **750** district features | **22** focused demos | **0** framework dependencies |
+|:--:|:--:|:--:|:--:|
+| States and union territories | Across public SVG layers | Each with copy-ready code | No build step required |
 
-## Run locally
+## See what you can build
 
-SVG files are loaded with `fetch`, so use a local server from this folder:
+Every demo is runnable, searchable, and includes a collapsed recipe that can be copied into another project.
+
+<a href="https://nikhilsawantse.github.io/india-map-studio/examples/">
+  <img src="docs/images/readme-gallery.jpg" alt="The searchable India Map Studio example gallery with copyable map recipes" width="100%" />
+</a>
+
+| Goal | Try it | What it demonstrates |
+| --- | --- | --- |
+| Visualize regional data | [Choropleth](https://nikhilsawantse.github.io/india-map-studio/examples/choropleth.html) | CSV joins, color scales, legends, and selection |
+| Navigate into districts | [Drill down](https://nikhilsawantse.github.io/india-map-studio/examples/drill-down.html) | National-to-district navigation with stable slugs |
+| Show useful places | [POI layers](https://nikhilsawantse.github.io/india-map-studio/examples/poi-layers.html) | Reservoirs, sanctuaries, stations, search, and sourced markers |
+| Compare performance | [Ranking dashboard](https://nikhilsawantse.github.io/india-map-studio/examples/ranking-dashboard.html) | Synchronized map, ranking list, filters, and statistics |
+| Let users add information | [Editable annotations](https://nikhilsawantse.github.io/india-map-studio/examples/editable-annotations.html) | Markers, notes, categories, local saving, JSON import/export |
+| Present a geographic story | [Story map](https://nikhilsawantse.github.io/india-map-studio/examples/story-map.html) | Guided chapters, highlights, descriptions, and images |
+| Produce a report | [Printable map](https://nikhilsawantse.github.io/india-map-studio/examples/printable-report.html) | Print layout, title, legend, notes, SVG, and PNG export |
+| Publish an interactive map | [Embeddable map](https://nikhilsawantse.github.io/india-map-studio/examples/embedded-map.html) | Reusable iframe and JavaScript integration |
+
+**[Explore all 22 examples →](https://nikhilsawantse.github.io/india-map-studio/examples/)**
+
+## Why India Map Studio?
+
+| Start quickly | Build real workflows | Keep control |
+| --- | --- | --- |
+| Plain browser technologies and an editable starter | CSV/JSON data, filters, markers, comparisons, stories, reports, and export | No framework lock-in, no required build pipeline, and stable Version 1 contracts |
+| Copy-ready recipes in every demo | 36 state/UT layers and 750 district features | Reusable SVG assets, documented identifiers, and source metadata |
+| Keyboard, touch, narrow-screen, and accessibility coverage | Custom SVG/GeoJSON import and standalone HTML export | MIT application code with explicit third-party data notices |
+
+## Five-minute start
+
+SVG files are fetched by the browser, so serve the folder over HTTP:
 
 ```powershell
+git clone https://github.com/nikhilsawantse/india-map-studio.git
+cd india-map-studio
 python -m http.server 8000
 ```
 
-Then open `http://localhost:8000/`.
+Open `http://localhost:8000/starter/`, then edit:
 
-## Regenerate the SVG files
+- `starter/index.html` for structure
+- `starter/styles.css` for appearance
+- `starter/app.js` for behavior and data
+
+Or embed the reusable Web Component:
+
+```html
+<india-svg-map
+  src="assets/maps/india-states.svg"
+  selected="maharashtra"
+></india-svg-map>
+
+<script src="map-engine.js"></script>
+<script src="india-svg-map.js"></script>
+```
+
+For full control, use the documented [`IndiaMapEngine`](docs/map-engine.md) JavaScript API.
+
+## Feature highlights
+
+- Interactive national, state/UT, district, and registered deeper-boundary workspaces
+- Search, hover, keyboard focus, selection, tooltips, profiles, and breadcrumbs
+- Zoom, wheel navigation, drag-to-pan, automatic focus, and reset controls
+- Division/group filters, labels, stable identifiers, Census codes, and LGD codes
+- CSV/JSON imports with automatic matching, numeric/categorical styling, and legends
+- Data rules, list/map filters, comparisons, editable fields, and click actions
+- Markers, clustering, heatmaps, POI layers, nearby search, routes, and time series
+- User annotations, story maps, rankings, printable reports, and PIN-code exploration
+- Project snapshots, undo/redo, JSON portability, iframe snippets, and standalone export
+- SVG, PNG, identified-SVG, and high-resolution map exports
+- Custom SVG/GeoJSON import with sanitization, identifiers, and contribution validation
+- Responsive mobile workspaces, keyboard navigation, announcements, and reduced motion
+
+<details>
+<summary><strong>Administrative coverage and deeper navigation</strong></summary>
+
+- Separate SVG files for all 36 states and union territories
+- 750 interactive district features across current and source-vintage layers
+- Maharashtra and Karnataka administrative-division filters
+- District-first controls for layers without configured intermediate groupings
+- Dedicated district pages and stable child-layer identifiers
+- Pune pilot with 14 tehsil/taluka boundaries and administrative codes
+- Reusable tehsil workspace for compatible block, village, panchayat, ward, or local-area layers
+- Release-safe outline fallbacks when deeper redistribution-safe geometry is unavailable
+- Nationwide audit against current Local Government Directory district counts
+
+</details>
+
+<details>
+<summary><strong>Data, authoring, and publishing tools</strong></summary>
+
+- Session CSV/JSON imports and in-browser district data editing
+- Numeric and categorical choropleths with legends and filtering
+- Configurable tooltip and popup fields with text, links, and images
+- Four-region comparison mode with shareable URLs
+- Layer manager and live style editor
+- Thirty-step undo/redo history
+- Browser snapshots plus portable project JSON
+- Single-file interactive HTML, iframe, SVG, and PNG export
+- Boundary contribution wizard for SVG/GeoJSON geometry, provenance, rights, and identifiers
+
+</details>
+
+## Stable API and identifiers
+
+Version 1 freezes the public runtime, Web Component, event, boundary-registry, and contribution-manifest contracts. Use documented slugs and feature IDs for application joins; administrative codes remain separate metadata.
+
+```text
+Region:   IN-REGION-27
+District: IN-REGION-27-DISTRICT-521
+Tehsil:   IN-REGION-27-DISTRICT-521-TEHSIL-04187
+```
+
+- [Version 1 stability contract](docs/api-stability.md)
+- [Migration guide](MIGRATION.md)
+- [Map engine API](docs/map-engine.md)
+- [Boundary registry](data/boundary-registry.json)
+
+## Documentation
+
+| Get started | Build and publish | Project governance |
+| --- | --- | --- |
+| [Five-minute quick start](docs/quick-start.md) | [Map engine API](docs/map-engine.md) | [Contributing](CONTRIBUTING.md) |
+| [Minimal starter](starter/) | [Performance guide](docs/performance.md) | [Roadmap](ROADMAP.md) |
+| [Example library](examples/) | [Mobile UX contract](docs/mobile-ux.md) | [Security policy](SECURITY.md) |
+| [Version 1 migration](MIGRATION.md) | [Release notes](RELEASE_NOTES.md) | [Citation metadata](CITATION.cff) |
+| [Boundary registry](data/boundary-registry.json) | [Release process](RELEASE_PROCESS.md) | [Data licences](DATA_LICENSES.md) |
+
+## Project layout
+
+```text
+index.html                    National explorer
+state.html / district.html    Administrative drill-down workspaces
+map-engine.js                 Reusable framework-free runtime
+india-svg-map.js              Reusable Web Component
+assets/maps/                  National, state, district, and deeper SVG layers
+data/                         Registries, profiles, indexes, and schemas
+examples/                     Runnable recipes with copy-ready snippets
+sample-data/                  Synthetic CSV and JSON examples
+starter/                      Minimal editable application
+docs/                         User and API documentation
+tests/                        Browser, accessibility, contract, and performance tests
+tools/                        Validation, generation, and release utilities
+```
+
+## Quality checks
 
 ```powershell
-python tools/generate_maps.py `
-  --source "C:\path\to\INDIA_STATES.geojson" `
-  --district-source "C:\path\to\MAHARASHTRA_DISTRICTS.geojson" `
-  --district-state-slug "maharashtra" `
-  --output .
-```
-
-Generate or update one state's district layer without touching the other state
-assets:
-
-```powershell
-python tools/generate_state_district_map.py `
-  --state-source "C:\path\to\INDIA_STATES.geojson" `
-  --district-source "C:\path\to\KARNATAKA_DISTRICTS.geojson" `
-  --state-slug karnataka `
-  --output "assets\maps\states\karnataka.svg"
-```
-
-Regenerate all 36 state and union-territory district maps:
-
-```powershell
-python tools/generate_all_state_district_maps.py `
-  --state-source "C:\path\to\INDIA_STATES.geojson" `
-  --district-source-root "C:\path\to\STATES" `
-  --output-directory "assets\maps\states"
-```
-
-### Local-only research workflows
-
-The following Survey of India transformation tools remain available for
-private research and source evaluation. Their generated geometry must not be
-committed or included in a public release unless written redistribution
-permission has been obtained. The public Rajasthan and Nagaland SVGs use the
-MIT-licensed upstream source-vintage files instead.
-
-The Rajasthan replacement GeoJSON can be recreated from the free Survey of
-India `State_District_Subdistrict_PAN INDIA` archive:
-
-```powershell
-python tools/extract_soi_state_districts.py `
-  --shp "C:\path\to\District Boundary.shp" `
-  --dbf "C:\path\to\District Boundary.dbf" `
-  --state RAJASTHAN `
-  --overrides tools\rajasthan-district-overrides.json `
-  --retrieved 2026-07-20 `
-  --output "C:\path\to\rajasthan-soi-41.geojson"
-```
-
-The current Nagaland GeoJSON uses the same archive's district and sub-district
-layers. The builder reconstructs Phek and Meluri from the source Phek
-sub-districts:
-
-```powershell
-python tools/build_nagaland_current_geojson.py `
-  --district-shp "C:\path\to\District Boundary.shp" `
-  --district-dbf "C:\path\to\District Boundary.dbf" `
-  --subdistrict-shp "C:\path\to\Sub_district Boundary.shp" `
-  --subdistrict-dbf "C:\path\to\Sub_district Boundary.dbf" `
-  --overrides tools\nagaland-district-overrides.json `
-  --retrieved 2026-07-20 `
-  --output "C:\path\to\nagaland-soi-17.geojson"
-```
-
-If a state has no entry in `DISTRICT_DIVISIONS_BY_STATE`, the generator still
-creates its interactive district layer but omits division attributes. The state
-page then defaults to district labels and removes division-only filters,
-profile fields, and standalone-map controls.
-
-## Project structure
-
-```text
-assets/maps/india-states.svg       Interactive national SVG
-assets/maps/states/*.svg           One standalone SVG per region
-map-engine.js                      Reusable SVG loading and interaction engine
-india-svg-map.js                   Framework-free Web Component entry point
-mobile-workspace.js                Touch-friendly controls/map jump navigation
-docs/map-engine.md                 Public configuration, methods, and events
-docs/performance.md                Versioned performance limits and guidance
-docs/mobile-ux.md                  Mobile layout and touch behavior contract
-docs/migration.html                Published Version 1 migration guide
-docs/release-notes.html            Published Version 1 release notes
-performance-budgets.json          Static, desktop, mobile, and interaction budgets
-examples/multiple-maps.html        Two independent component instances
-examples/index.html                Focused example library
-examples/choropleth.html           CSV-to-region numeric color join
-examples/csv-data.html             District CSV import, visualization, and profiles
-examples/drill-down.html           National-to-district layer navigation
-examples/markers.html              Accessible SVG marker overlay
-examples/poi-layers.html           Searchable reservoirs, wildlife, and station layers
-examples/marker-clustering.html    Automatic grouping for nearby coordinates
-examples/heatmap.html              Lightweight SVG point-density surface
-examples/route-network.html        Selectable corridors between station hubs
-examples/time-series.html          Scrubbable and playable regional values
-examples/comparison-map.html       Side-by-side election-style scenarios
-examples/custom-icons.html         Sanitized user-supplied SVG marker preview
-examples/location-finder.html      Fuzzy administrative boundary search
-examples/nearby-places.html        Drop-point radius and proximity search
-examples/draw-select.html          Click, rectangle, and lasso district selection
-examples/service-coverage.html     Service-centre overlap and coverage planning
-examples/incident-alerts.html      Filterable district incident-response dashboard
-examples/ranking-dashboard.html   Synchronized state and district rankings
-examples/editable-annotations.html Locally saved, exchangeable map notes
-examples/story-map.html            Guided state and district narrative
-examples/printable-report.html     Print, SVG, and PNG report builder
-examples/pin-code-explorer.html    Official India Post directory adapter
-examples/embedded-map.html         Configurable iframe integration
-sample-data/                       Documented synthetic example datasets
-starter/                           Minimal editable map application
-docs/quick-start.md                Five-minute framework-free setup
-data/boundary-registry.json        Generated public boundary-layer catalog
-data/boundary-registry.schema.json Registry JSON Schema contract
-registry.html                      Searchable boundary registry interface
-data/boundary-contribution.schema.json
-                                   Boundary contribution JSON Schema contract
-contribute.html / contribute.js    Local-only guided contribution assistant
-contributions/                     Pull-request boundary staging workspace
-docs/contributing-boundaries.md    Boundary contribution workflow and contract
-data/states.js                     Generated region metadata
-data/location-index.json           Generated state, district, and tehsil search index
-tools/build_boundary_registry.py   Layer discovery and compatibility validator
-tools/validate_boundary_contribution.py
-                                   SVG, GeoJSON, metadata, and count validator
-tools/new_boundary_contribution.py Guided contribution workspace creator
-tools/check_contributions.py       Repository-wide contribution discovery
-tools/check-performance-budgets.mjs
-                                   Raw asset-size budget enforcement
-tools/generate_maps.py             GeoJSON-to-SVG generator
-tools/generate_state_district_map.py
-                                   One-state district rollout generator
-tools/generate_all_state_district_maps.py
-                                   Nationwide district rollout generator
-tools/extract_soi_state_districts.py
-                                   Survey of India shapefile-to-GeoJSON extractor
-tools/extract_soi_subdistricts.py  Survey of India sub-district extractor
-tools/prepare_mumbai_wards.py      Mumbai ward normalization and tehsil assignment
-tools/rajasthan-district-overrides.json
-                                   Rajasthan display-name and LGD-code registry
-tools/build_nagaland_current_geojson.py
-                                   Current Nagaland district-layer builder
-tools/nagaland-district-overrides.json
-                                   Nagaland display-name and LGD-code registry
-tools/generate_district_svg.mjs    Child-boundary GeoJSON-to-SVG generator
-tools/extract_osm_villages.py      OSM village-to-subdistrict extractor
-tools/generate_tehsil_svg.mjs      Local-boundary GeoJSON-to-tehsil-SVG generator
-index.html / app.js                National map explorer
-audit.html / audit.js              Nationwide district source audit
-state.html / state.js              Standalone state viewer
-district.html / district.js        District map and child-layer workspace
-tehsil.html / tehsil.js            Tehsil map and deeper local-layer workspace
-custom-map.html / custom-map.js    Custom SVG and GeoJSON map importer
-data/district-maps.js              Dedicated district SVG asset registry
-data/tehsil-maps.js                Dedicated tehsil SVG asset registry
-standalone-export.js               Single-file interactive map exporter
-styles.css                         Shared responsive styling
-tools/build_release.py             Deterministic source/starter archive builder
-```
-
-## Identifier convention
-
-Identifiers are intentionally separate from government administrative codes:
-
-```text
-Region:           IN-REGION-27
-Division layer:   IN-REGION-27-DIVISIONS
-Division:         IN-REGION-27-DIVISION-PUNE
-District layer:   IN-REGION-27-DISTRICTS
-District feature: IN-REGION-27-DISTRICT-522
-Subdivision layer: IN-REGION-27-DISTRICT-522-SUBDIVISIONS
-Subdivision:       IN-REGION-27-DISTRICT-522-SUBDIVISION-{CODE}
-Tehsil layer:      IN-REGION-27-DISTRICT-522-TEHSILS
-Tehsil:            IN-REGION-27-DISTRICT-522-TEHSIL-{CODE}
-```
-
-The numeric administrative code remains available separately in the metadata.
-For the Maharashtra and Karnataka rollouts, every district feature also carries
-`data-division` and `data-division-id` attributes covering the six revenue
-divisions in Maharashtra or four revenue divisions in Karnataka. The state
-page exposes these as shareable `division` URL filters,
-for example `state.html?state=maharashtra&division=pune`.
-
-## District child-layer assets
-
-District pages work immediately by focusing the matching district geometry
-inside its state SVG. A future dedicated district SVG can be registered in
-`data/district-maps.js`:
-
-```js
-window.INDIA_DISTRICT_MAPS = {
-  "maharashtra/pune": {
-    svg: "assets/maps/districts/maharashtra/pune.svg"
-  }
-};
-```
-
-Dedicated SVGs can provide groups with `data-layer-type` values of
-`subdivisions`, `tehsils`, `blocks`, `wards`, or `other`. A layer becomes
-toggleable when it has `data-status="ready"` and contains geometry. Interactive
-features should use the `child-region` class and a stable `data-feature-id`.
-
-The Pune pilot is registered at
-`assets/maps/districts/maharashtra/pune.svg`. Its populated layer uses:
-
-```text
-Layer:   IN-REGION-27-DISTRICT-521-TEHSILS
-Feature: IN-REGION-27-DISTRICT-521-TEHSIL-{CENSUS_CODE}
-```
-
-The public registry currently includes Pune. Mumbai City and Mumbai Suburban
-continue to open as focused district outlines, but their previously prepared
-Survey of India-derived tehsil assets are local-only and excluded from Git
-until redistribution rights are confirmed.
-
-Selecting a tehsil updates the breadcrumb and URL, for example:
-
-```text
-district.html?state=maharashtra&district=pune&layer=tehsils&region=junnar
-```
-
-The selected-tehsil panel opens a focused tehsil workspace:
-
-```text
-tehsil.html?state=maharashtra&district=pune&tehsil=junnar
-```
-
-That page reserves the next identifier level automatically:
-
-```text
-Block layer:       IN-REGION-27-DISTRICT-521-TEHSIL-04187-BLOCKS
-Block feature:     IN-REGION-27-DISTRICT-521-TEHSIL-04187-BLOCK-{CODE}
-Village layer:     IN-REGION-27-DISTRICT-521-TEHSIL-04187-VILLAGES
-Village feature:   IN-REGION-27-DISTRICT-521-TEHSIL-04187-VILLAGE-{CODE}
-```
-
-Dedicated tehsil SVGs can be registered in `data/tehsil-maps.js`. Populated
-groups become interactive when they use a supported `data-layer-type`, declare
-`data-status="ready"`, and contain child geometry.
-
-The public `data/tehsil-maps.js` registry starts empty. Contributors can
-register a compatible open-data layer to activate the generic local-boundary
-search, selection, labels, data joins, profiles, filters, and export workflow.
-
-To regenerate a dedicated district asset from GeoJSON or GeoJSONL:
-
-```powershell
-node tools/generate_district_svg.mjs `
-  --source "C:\path\to\SubDistricts_2011.geojsonl" `
-  --output "assets\maps\districts\maharashtra\pune.svg" `
-  --state-code 27 `
-  --district-code 521 `
-  --state-slug maharashtra `
-  --district-slug pune `
-  --district-name Pune `
-  --district-feature-id IN-REGION-27-DISTRICT-521
-```
-
-Run `python tools/check_public_release.py` before committing. It verifies
-the public page assets, the 36 state/UT maps, district feature totals, relative
-URLs, and the exclusion of local-only boundary files.
-
-Boundary data is suitable for visualization and prototyping, not legal or
-official boundary determination. See [ATTRIBUTION.md](ATTRIBUTION.md).
-
-## Contributing
-
-Code, documentation, accessibility, translation, and properly licensed data
-contributions are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before
-opening a pull request. For boundary changes, use the
-[guided contribution assistant](contribute.html) and read the
-[boundary contribution workflow](docs/contributing-boundaries.md). Boundary
-changes require a direct source, an exact license, a retrieval date, explicit
-redistribution confirmation, and a reproducible transformation.
-
-Validate a proposed contribution locally with:
-
-```text
-python tools/check_contributions.py
 python -m unittest discover -s tests -v
-```
-
-## License
-
-Original application code is available under the [MIT License](LICENSE).
-Third-party geographic data is not relicensed by this project. Review
-[DATA_LICENSES.md](DATA_LICENSES.md) and
-[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) before redistributing map
-assets.
-
-## Reusable map engine
-
-Read the [map engine API](docs/map-engine.md) or open the
-[multiple-map example](examples/multiple-maps.html) to use the engine without a
-framework. The [Version 1 stability contract](docs/api-stability.md) defines
-the supported surface, Semantic Versioning rules, and contributor gate.
-
-## Examples and quick start
-
-Begin with the [five-minute quick start](docs/quick-start.html), edit the
-[minimal starter](starter/index.html), or browse the
-[runnable example library](examples/index.html). Most included CSV and JSON
-files are synthetic demonstration data. Open **Copy this recipe** near the
-bottom of any runnable example for its focused starter snippet. The compact
-PIN directory sample is derived from the official India Post repository and is
-separately attributed;
-replace or extend every sample with documented sources before production use.
-
-## Boundary registry
-
-Browse the [boundary registry](registry.html), read the
-[registry format](docs/boundary-registry.md), or consume
-`data/boundary-registry.json` directly. Rebuild and validate it with:
-
-```text
-python tools/build_boundary_registry.py
-python tools/build_boundary_registry.py --check
-```
-
-## Performance budgets
-
-Run the versioned static-asset, desktop, mobile, and largest-layer checks with:
-
-```text
+python tools/check_public_release.py
+pnpm test:browser
 pnpm test:performance
 ```
 
-See the [performance guide](docs/performance.md) for current limits, benchmark
-scenarios, and a copyable map-load measurement snippet.
+The automated suite covers core navigation, public APIs, example recipes, mobile layouts, serious accessibility violations, schema compatibility, public data safety, and performance budgets.
 
-## Mobile workspaces
+## Contributing
 
-At narrow widths, major explorers and runnable examples provide persistent
-Controls/Map jumps, 44-pixel coarse-pointer targets, mobile-safe form sizing,
-and overflow-tested layouts. See the [mobile UX guide](docs/mobile-ux.md) for
-the behavior contract and copyable helper setup.
+Contributions are welcome — especially documented boundary sources, accessibility improvements, examples, tests, and clear issue reports.
 
-## Version 1 release packages
+1. Read [`CONTRIBUTING.md`](CONTRIBUTING.md).
+2. For boundary data, follow the [boundary contribution guide](docs/contributing-boundaries.md).
+3. Run the relevant checks before opening a pull request.
 
-Read the [migration guide](docs/migration.html), the
-[release notes](docs/release-notes.html), and the
-[Version 1 stability contract](docs/api-stability.html). Build the same
-deterministic archives used by the tag workflow with:
+The repository includes issue templates, a pull-request template, contribution validation, and a code of conduct.
 
-```text
-python tools/build_release.py
-```
+## Data and licensing
 
-The command writes the complete source archive, minimal starter archive, and
-`SHA256SUMS.txt` to the ignored `dist/` directory. Review
-[RELEASE_PROCESS.md](RELEASE_PROCESS.md) before creating a release tag.
+Application code is available under the [MIT License](LICENSE). Third-party geographic data keeps its original terms. Public releases exclude local Survey of India-derived prototypes without confirmed redistribution rights.
 
-## Next milestone
+Before redistributing boundary assets, review:
 
-Create and verify the stable Version 1.0 Git tag and GitHub release.
-Localization and offline support are intentionally deferred. See
-[ROADMAP.md](ROADMAP.md).
+- [Data licence inventory](DATA_LICENSES.md)
+- [Detailed attribution](ATTRIBUTION.md)
+- [Third-party notices](THIRD_PARTY_NOTICES.md)
+
+Boundary data is provided for visualization and prototyping, not legal boundary determination.
+
+## Citation
+
+Research and published projects can use the repository's [`CITATION.cff`](CITATION.cff) metadata.
+
+---
+
+<div align="center">
+
+Built as an open, framework-free foundation for useful India-focused map experiences.
+
+**[Try India Map Studio](https://nikhilsawantse.github.io/india-map-studio/)**
+
+</div>
