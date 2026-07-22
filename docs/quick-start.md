@@ -86,6 +86,9 @@ is a stable region slug such as `maharashtra`, not a display label.
 - Explore service-centre placement, coverage gaps, and overlapping assignments
   across any public district layer with the
   [service-area example](../examples/service-coverage.html).
+- Demonstrate an operational alert queue with severity, category, time-window,
+  and response-status controls in the
+  [incident-alert example](../examples/incident-alerts.html).
 - Publish a clean iframe with the
   [embedded-map example](../examples/embedded-map.html).
 - Read the full [map engine API](map-engine.md).

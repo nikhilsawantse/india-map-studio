@@ -50,6 +50,10 @@ release.
   office, warehouse, and field-team centres, adjustable illustrative reach,
   coverage-gap and overlap highlighting, accessible district details, and CSV
   assignment export.
+- Synthetic incident-response example for every public district layer with
+  severity, type, time-window, and resolved-status filters, accessible alert
+  markers and district inspection, local acknowledge/resolve actions, and CSV
+  export of the visible queue.
 
 ### Changed
 

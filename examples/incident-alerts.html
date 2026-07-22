@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Explore a synthetic district incident dashboard with severity, category, time-window, and status filters across India state SVG maps."
+    />
+    <title>Alerts and incident map &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="examples.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span><strong>India Map Studio</strong><small>Incident response recipe</small></span>
+      </a>
+      <nav class="header-actions" aria-label="Example navigation">
+        <a class="back-link" href="service-coverage.html">Service coverage</a>
+        <a class="back-link" href="index.html">All examples</a>
+      </nav>
+    </header>
+
+    <main class="example-page">
+      <div class="example-heading">
+        <div>
+          <p class="eyebrow">Example 17 &middot; Operational awareness</p>
+          <h1>Monitor alerts without losing geographic context</h1>
+          <p class="intro">
+            Filter a synthetic incident feed, identify affected districts, inspect
+            severity and status, and demonstrate a lightweight response workflow.
+          </p>
+        </div>
+        <a class="example-source-link" href="incident-alerts.js">View JavaScript source</a>
+      </div>
+
+      <div class="example-workspace">
+        <section class="example-map-panel example-incident-map-panel" aria-label="District alert map">
+          <div class="example-map-toolbar">
+            <span id="incident-status" role="status">Loading incident workspace&hellip;</span>
+            <div class="example-incident-legend" aria-label="Alert severity legend">
+              <span><i class="is-critical" aria-hidden="true"></i>Critical</span>
+              <span><i class="is-high" aria-hidden="true"></i>High</span>
+              <span><i class="is-moderate" aria-hidden="true"></i>Moderate</span>
+              <span><i class="is-advisory" aria-hidden="true"></i>Advisory</span>
+            </div>
+          </div>
+          <div id="incident-map" class="example-map example-incident-map"></div>
+          <div id="incident-caption" class="example-map-caption" aria-live="polite">
+            Select an incident marker, district, or queue item to inspect it.
+          </div>
+        </section>
+
+        <aside class="example-control-panel">
+          <p class="eyebrow">Synthetic incident feed</p>
+          <h2>Response filters</h2>
+          <p>
+            The incidents and timestamps are generated demonstration data. They are
+            not live warnings and must not be used for safety decisions.
+          </p>
+
+          <label for="incident-state">State or union territory</label>
+          <select id="incident-state"></select>
+
+          <div class="example-incident-filter-row">
+            <label for="incident-window">Time window
+              <select id="incident-window">
+                <option value="24">Last 24 hours</option>
+                <option value="72" selected>Last 72 hours</option>
+                <option value="all">All demo alerts</option>
+              </select>
+            </label>
+            <label for="incident-type">Incident type
+              <select id="incident-type">
+                <option value="all">All types</option>
+                <option value="flood">Flood</option>
+                <option value="wildfire">Wildfire</option>
+                <option value="weather">Severe weather</option>
+                <option value="rail">Rail disruption</option>
+                <option value="power">Power outage</option>
+                <option value="health">Health advisory</option>
+              </select>
+            </label>
+          </div>
+
+          <fieldset class="example-incident-severity">
+            <legend>Visible severity</legend>
+            <label><input type="checkbox" value="critical" checked /><i class="is-critical" aria-hidden="true"></i>Critical</label>
+            <label><input type="checkbox" value="high" checked /><i class="is-high" aria-hidden="true"></i>High</label>
+            <label><input type="checkbox" value="moderate" checked /><i class="is-moderate" aria-hidden="true"></i>Moderate</label>
+            <label><input type="checkbox" value="advisory" checked /><i class="is-advisory" aria-hidden="true"></i>Advisory</label>
+          </fieldset>
+
+          <label class="example-incident-resolved">
+            <input id="incident-include-resolved" type="checkbox" />
+            Include resolved incidents
+          </label>
+
+          <p id="incident-summary" class="example-csv-summary" role="status"></p>
+          <dl class="example-incident-counts">
+            <div><dt>Visible alerts</dt><dd id="incident-visible-count">0</dd></div>
+            <div><dt>Critical</dt><dd id="incident-critical-count">0</dd></div>
+            <div><dt>Districts</dt><dd id="incident-district-count">0</dd></div>
+          </dl>
+
+          <div class="example-draw-actions">
+            <button id="incident-reset" type="button">Reset demo</button>
+            <button id="incident-export" type="button">Export visible CSV</button>
+          </div>
+
+          <section class="example-incident-queue" aria-labelledby="incident-queue-title">
+            <p class="eyebrow">Priority queue</p>
+            <h2 id="incident-queue-title">Visible incidents</h2>
+            <ul id="incident-list" aria-label="Filtered incident list"></ul>
+          </section>
+
+          <section id="incident-detail" class="example-poi-detail" aria-labelledby="incident-detail-title" hidden>
+            <p class="eyebrow">Selected incident</p>
+            <h2 id="incident-detail-title"></h2>
+            <p id="incident-detail-meta"></p>
+            <p id="incident-detail-copy"></p>
+            <code id="incident-detail-id"></code>
+            <div class="example-incident-response-actions">
+              <button id="incident-acknowledge" type="button">Acknowledge</button>
+              <button id="incident-resolve" type="button">Resolve</button>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <script src="../data/states.js"></script>
+    <script src="../map-engine.js"></script>
+    <script src="incident-alerts.js"></script>
+  </body>
+</html>

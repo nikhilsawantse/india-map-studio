@@ -64,6 +64,8 @@ REQUIRED_FILES = (
     "examples/draw-select.js",
     "examples/service-coverage.html",
     "examples/service-coverage.js",
+    "examples/incident-alerts.html",
+    "examples/incident-alerts.js",
     "examples/embedded-map.html",
     "examples/embedded-map.js",
     "examples/embed-frame.html",
