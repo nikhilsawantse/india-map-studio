@@ -11,6 +11,12 @@ Semantic Versioning.
   district-subdivision layers; seven use-case presets; live styling and data
   previews; CSV import; and copyable or downloadable standalone HTML output.
 
+### Fixed
+
+- Generator boundary controls now show only the selector relevant to the chosen
+  level, state outlines no longer cover district fills or intercept pointer
+  input, and selected districts consistently use the configured highlight.
+
 ## [1.0.0] - 2026-07-22
 
 ### Added

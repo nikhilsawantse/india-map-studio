@@ -46,6 +46,8 @@
   const copyStatus = document.querySelector("#generator-copy-status");
   const previewTitle = document.querySelector("#generator-preview-title");
   const featureCount = document.querySelector("#generator-feature-count");
+  const layerSummary = document.querySelector("#generator-layer-summary strong");
+  const previewLayer = document.querySelector("#generator-preview-layer");
   const legendPreview = document.querySelector("#generator-legend-preview");
   const selectionPreview = document.querySelector("#generator-selection-preview");
   const ranking = document.querySelector("#generator-ranking");
@@ -199,6 +201,14 @@
   async function loadLayer() {
     const sequence = ++loadSequence;
     currentLayer = layerConfiguration();
+    const layerText =
+      currentLayer.level === "india"
+        ? "India · states and union territories"
+        : currentLayer.level === "state"
+          ? `${currentLayer.state.name} · district boundaries`
+          : "Pune, Maharashtra · tehsil boundaries";
+    layerSummary.textContent = layerText;
+    previewLayer.textContent = layerText;
     featureCount.textContent = "Loading map…";
     selectionPreview.innerHTML = "<strong>Choose a region</strong><span>Select a boundary to inspect its stable slug.</span>";
     engine?.destroy();
@@ -335,9 +345,11 @@
     .layout { display: grid; grid-template-columns: minmax(0, 1fr) 260px; border: 1px solid #d8d9d0; border-radius: 18px; background: #fffdf8; overflow: hidden; }
     #map { display: grid; min-height: 600px; place-items: center; padding: 28px; background: #eeece3; }
     #map svg { display: block; width: 100%; max-height: 660px; height: auto; }
-    #map ${layer.selector} { fill: var(--fill, ${config.low}); stroke: #fff; stroke-width: 1; cursor: pointer; transition: filter 150ms ease, fill 150ms ease; }
+    #map ${layer.selector}, #map ${layer.selector} :is(path, polygon, polyline) { fill: var(--fill, ${config.low}) !important; stroke: #fff; stroke-width: 1; cursor: pointer; transition: filter 150ms ease, fill 150ms ease; }
     #map ${layer.selector}:is(:hover, :focus-visible, .is-hovered) { filter: brightness(.92); outline: none; }
-    #map ${layer.selector}.is-selected { fill: ${config.selected}; filter: none; }
+    #map ${layer.selector}.is-selected, #map ${layer.selector}.is-selected :is(path, polygon, polyline) { fill: ${config.selected} !important; filter: none; }
+    #map #state-outline { pointer-events: none; }
+    #map #state-outline :is(path, polygon, polyline) { fill: none !important; stroke: ${config.high} !important; stroke-width: 2.2; }
     .marker { fill: ${config.high}; fill-opacity: .8; stroke: #fff; stroke-width: 1.5; pointer-events: none; }
     aside { display: grid; align-content: start; gap: 16px; padding: 20px; border-left: 1px solid #dedfd6; }
     .legend { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 7px; font-size: .7rem; text-transform: uppercase; }

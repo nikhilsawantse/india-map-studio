@@ -106,6 +106,7 @@
 .generator-choice small { color: #56635c; font-size: 0.73rem; }
 
 .generator-field { display: grid; gap: 7px; margin-top: 14px; }
+.generator-field[hidden] { display: none !important; }
 .generator-field > span,
 .generator-colors label span { color: #34463e; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
 .generator-field input,
@@ -122,6 +123,18 @@
 .generator-field small, .generator-hint { color: #68766d; font-size: 0.75rem; line-height: 1.5; }
 .generator-hint { margin: -5px 0 0; }
 .generator-hint code { padding: 2px 5px; border-radius: 4px; background: #eef0e9; color: #174d41; }
+
+.generator-layer-summary {
+  display: grid;
+  gap: 3px;
+  margin: 14px 0 0;
+  padding: 11px 13px;
+  border-left: 3px solid #0b6c5b;
+  border-radius: 0 9px 9px 0;
+  background: #edf2ed;
+}
+.generator-layer-summary span { color: #617068; font-size: 0.65rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
+.generator-layer-summary strong { color: #17382e; font-size: 0.8rem; }
 
 .generator-colors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; margin-top: 14px; }
 .generator-colors label { display: grid; gap: 7px; }
@@ -141,15 +154,24 @@
 .generator-preview-card { overflow: hidden; }
 .generator-preview-head { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 22px; border-bottom: 1px solid #e0e1d8; }
 .generator-preview-head h2 { margin: 3px 0 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.35rem, 3vw, 2rem); font-weight: 500; }
+.generator-preview-layer { margin: 4px 0 0; color: #68766d; font-size: 0.72rem; }
 .generator-count { padding: 6px 9px; border-radius: 999px; background: #e7ede7; color: #355146; font-size: 0.68rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
 .generator-demo { display: grid; grid-template-columns: minmax(0, 1fr) 230px; min-height: 500px; }
 .generator-map { position: relative; display: grid; min-height: 500px; place-items: center; padding: 24px; background: #f2f0e7; overflow: hidden; }
 .generator-map svg { display: block; width: 100%; max-height: 520px; height: auto; }
 .generator-map .map-region,
 .generator-map .district-region,
-.generator-map .child-region { fill: var(--generator-fill, #dce9df); stroke: #fffdf8; stroke-width: 1; transition: fill 150ms ease, filter 150ms ease; cursor: pointer; }
+.generator-map .child-region,
+.generator-map :is(.map-region, .district-region, .child-region) :is(path, polygon, polyline) { fill: var(--generator-fill, #dce9df) !important; stroke: #fffdf8; stroke-width: 1; transition: fill 150ms ease, filter 150ms ease; cursor: pointer; }
 .generator-map :is(.map-region, .district-region, .child-region):is(:hover, :focus-visible, .is-hovered) { filter: brightness(0.92); outline: none; }
-.generator-map :is(.map-region, .district-region, .child-region).is-selected { fill: var(--generator-selected, #e66b43); filter: none; }
+.generator-map :is(.map-region, .district-region, .child-region).is-selected,
+.generator-map :is(.map-region, .district-region, .child-region).is-selected :is(path, polygon, polyline) { fill: var(--generator-selected, #e66b43) !important; filter: none; }
+.generator-map #state-outline { pointer-events: none; }
+.generator-map #state-outline :is(path, polygon, polyline) {
+  fill: none !important;
+  stroke: var(--generator-high, #115d4d) !important;
+  stroke-width: 2.2;
+}
 .generator-map .generator-marker { fill: var(--generator-high, #115d4d); fill-opacity: 0.78; stroke: #fff; stroke-width: 1.5; pointer-events: none; }
 .generator-preview-data { display: flex; flex-direction: column; gap: 16px; padding: 20px; border-left: 1px solid #e0e1d8; background: #fffdf8; }
 .generator-legend { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 7px; color: #68766d; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; }

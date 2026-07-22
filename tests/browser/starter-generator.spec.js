@@ -15,14 +15,31 @@ test("generator previews every supported boundary depth", async ({ page }) => {
 
   await expect(page.locator("#generator-map .map-region")).toHaveCount(36);
   await expect(page.locator("#generator-feature-count")).toHaveText("36 regions");
+  await expect(page.locator("#state-field")).toBeHidden();
+  await expect(page.locator("#district-field")).toBeHidden();
 
   await page.locator('input[name="map-level"][value="state"]').check();
   await expect(page.locator("#generator-map .district-region")).toHaveCount(36);
   await expect(page.locator("#generator-feature-count")).toHaveText("36 districts");
+  await expect(page.locator("#state-field")).toBeVisible();
+  await expect(page.locator("#district-field")).toBeHidden();
+  await expect(page.locator("#generator-preview-layer")).toHaveText("Maharashtra · district boundaries");
+
+  await page.locator("#generator-state").selectOption("madhya-pradesh");
+  await expect(page.locator("#generator-map .district-region")).toHaveCount(52);
+  await expect(page.locator("#generator-preview-layer")).toHaveText("Madhya Pradesh · district boundaries");
+  const firstDistrict = page.locator("#generator-map .district-region").first();
+  await expect(firstDistrict.locator("path").first()).not.toHaveCSS("fill", "rgb(0, 0, 0)");
+  await firstDistrict.click();
+  await expect(firstDistrict).toHaveClass(/is-selected/);
+  await expect(firstDistrict.locator("path").first()).toHaveCSS("fill", "rgb(230, 107, 67)");
+  await expect(page.locator("#generator-selection-preview strong")).not.toHaveText("Choose a region");
 
   await page.locator('input[name="map-level"][value="district"]').check();
   await expect(page.locator("#generator-map .child-region")).toHaveCount(14);
   await expect(page.locator("#generator-feature-count")).toHaveText("14 tehsils");
+  await expect(page.locator("#state-field")).toBeHidden();
+  await expect(page.locator("#district-field")).toBeVisible();
   expect(errors).toEqual([]);
 });
 
