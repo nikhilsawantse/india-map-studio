@@ -43,6 +43,9 @@ release.
 - Nearby-place and radius-search example with preset or custom origins,
   click-to-drop positioning, adjustable distance and category filters, geodesic
   ranking, accessible results, and sourced POI details.
+- Multi-district drawing example for every public state layer with click,
+  rectangle, and freehand-lasso selection, keyboard toggles, removable result
+  lists, and CSV or JSON identifier exports.
 
 ### Changed
 

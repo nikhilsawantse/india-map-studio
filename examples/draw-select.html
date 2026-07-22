@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Select multiple India district SVG boundaries by click, rectangle, or lasso and export stable identifiers."
+    />
+    <title>Draw and select regions &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="examples.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span><strong>India Map Studio</strong><small>Region selection recipe</small></span>
+      </a>
+      <nav class="header-actions" aria-label="Example navigation">
+        <a class="back-link" href="../data/location-index.json">Location index</a>
+        <a class="back-link" href="index.html">All examples</a>
+      </nav>
+    </header>
+
+    <main class="example-page">
+      <div class="example-heading">
+        <div>
+          <p class="eyebrow">Example 15 &middot; Multi-region selection</p>
+          <h1>Draw across districts and export them</h1>
+          <p class="intro">
+            Load any state, toggle districts individually, or drag a rectangle or
+            freehand lasso to build an exportable region set.
+          </p>
+        </div>
+        <a class="example-source-link" href="draw-select.js">View JavaScript source</a>
+      </div>
+
+      <div class="example-workspace">
+        <section class="example-map-panel example-draw-map-panel" aria-label="District drawing and multi-selection map">
+          <div class="example-map-toolbar">
+            <div id="draw-mode-group" aria-label="Selection method">
+              <button type="button" data-draw-mode="click" aria-pressed="true">Click</button>
+              <button type="button" data-draw-mode="box" aria-pressed="false">Rectangle</button>
+              <button type="button" data-draw-mode="lasso" aria-pressed="false">Lasso</button>
+            </div>
+            <span id="draw-status" role="status">Loading district layer&hellip;</span>
+          </div>
+          <div id="draw-map" class="example-map example-draw-map"></div>
+          <div id="draw-caption" class="example-map-caption" aria-live="polite">
+            Click a district to add or remove it from the selection.
+          </div>
+        </section>
+
+        <aside class="example-control-panel">
+          <p class="eyebrow">Selection workspace</p>
+          <h2>Choose districts</h2>
+
+          <label for="draw-state">State or union territory</label>
+          <select id="draw-state"></select>
+
+          <p id="draw-help">
+            Click mode toggles one district. Rectangle and lasso modes add every
+            district whose visual centre falls inside the drawn area.
+          </p>
+
+          <p id="draw-summary" class="example-csv-summary" role="status">
+            No districts selected.
+          </p>
+
+          <div class="example-draw-actions">
+            <button id="draw-clear" type="button" disabled>Clear selection</button>
+            <button id="draw-export-csv" type="button" disabled>Export CSV</button>
+            <button id="draw-export-json" type="button" disabled>Export JSON</button>
+          </div>
+
+          <section class="example-draw-selection" aria-labelledby="draw-selection-title">
+            <p class="eyebrow">Selected districts</p>
+            <h2 id="draw-selection-title">Nothing selected</h2>
+            <ul id="draw-selection-list" aria-label="Selected district list"></ul>
+            <p id="draw-selection-more" hidden></p>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <script src="../data/states.js"></script>
+    <script src="../map-engine.js"></script>
+    <script src="draw-select.js"></script>
+  </body>
+</html>

@@ -80,6 +80,9 @@ is a stable region slug such as `maharashtra`, not a display label.
 - Discover sourced public-interest points around a selected place, entered
   coordinate, or dropped map origin with the
   [nearby-places example](../examples/nearby-places.html).
+- Build a reusable district set with click, rectangle, or lasso selection and
+  export its identifiers with the
+  [draw-and-select example](../examples/draw-select.html).
 - Publish a clean iframe with the
   [embedded-map example](../examples/embedded-map.html).
 - Read the full [map engine API](map-engine.md).
