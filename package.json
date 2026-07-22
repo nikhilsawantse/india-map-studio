@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "test:browser": "node tools/run-browser-tests.mjs",
-    "test:browser:headed": "node tools/run-browser-tests.mjs --headed"
+    "test:browser:headed": "node tools/run-browser-tests.mjs --headed",
+    "test:performance": "node tools/check-performance-budgets.mjs && node tools/run-browser-tests.mjs --config playwright.performance.config.js"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.12.1",

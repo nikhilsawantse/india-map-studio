@@ -190,6 +190,8 @@ assets/maps/states/*.svg           One standalone SVG per region
 map-engine.js                      Reusable SVG loading and interaction engine
 india-svg-map.js                   Framework-free Web Component entry point
 docs/map-engine.md                 Public configuration, methods, and events
+docs/performance.md                Versioned performance limits and guidance
+performance-budgets.json          Static, desktop, mobile, and interaction budgets
 examples/multiple-maps.html        Two independent component instances
 examples/index.html                Focused example library
 examples/choropleth.html           CSV-to-region numeric color join
@@ -232,6 +234,8 @@ tools/validate_boundary_contribution.py
                                    SVG, GeoJSON, metadata, and count validator
 tools/new_boundary_contribution.py Guided contribution workspace creator
 tools/check_contributions.py       Repository-wide contribution discovery
+tools/check-performance-budgets.mjs
+                                   Raw asset-size budget enforcement
 tools/generate_maps.py             GeoJSON-to-SVG generator
 tools/generate_state_district_map.py
                                    One-state district rollout generator
@@ -418,7 +422,20 @@ python tools/build_boundary_registry.py
 python tools/build_boundary_registry.py --check
 ```
 
+## Performance budgets
+
+Run the versioned static-asset, desktop, mobile, and largest-layer checks with:
+
+```text
+pnpm test:performance
+```
+
+See the [performance guide](docs/performance.md) for current limits, benchmark
+scenarios, and a copyable map-load measurement snippet.
+
 ## Next milestone
 
-Establish mobile and large-layer performance budgets, then add localization
-infrastructure and offline support. See [ROADMAP.md](ROADMAP.md).
+Harden touch and narrow-screen workflows, then freeze the public API and add
+copy-paste starter snippets to every example before the Version 1.0 release.
+Localization and offline support are intentionally deferred. See
+[ROADMAP.md](ROADMAP.md).

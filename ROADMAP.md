@@ -52,11 +52,13 @@ response to user and contributor feedback.
 ## Milestone 7: Quality and reach
 
 - [x] Add automated accessibility and browser tests.
-- [ ] Establish mobile and large-layer performance budgets.
-- [ ] Add localization infrastructure and offline support.
+- [x] Establish mobile and large-layer performance budgets.
+- [ ] Harden touch, narrow-screen, and mobile workflows across major examples.
+- [ ] Localization infrastructure and offline support are intentionally deferred.
 
 ## Milestone 8: Version 1.0
 
 - [ ] Freeze the public API and data-manifest schema.
+- [ ] Add copy-paste starter snippets to every runnable example.
 - [ ] Publish migration notes, release assets, and citation metadata.
 - [ ] Create a stable tagged GitHub release.

@@ -4,6 +4,7 @@ import { expect, test } from "@playwright/test";
 const pages = [
   { name: "national explorer", path: "/", ready: "#india-map svg" },
   { name: "example gallery", path: "/examples/", ready: ".examples-grid" },
+  { name: "performance guide", path: "/docs/performance.html", ready: ".engine-docs" },
   { name: "starter", path: "/starter/", ready: "india-svg-map svg" },
   { name: "service coverage", path: "/examples/service-coverage.html", ready: "#coverage-map svg" },
   { name: "incident alerts", path: "/examples/incident-alerts.html", ready: "#incident-map svg" },

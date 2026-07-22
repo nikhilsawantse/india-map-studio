@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "description": "Versioned raw-file and browser timing budgets for India Map Studio.",
+  "assetBudgets": [
+    { "path": "styles.css", "maxBytes": 130000 },
+    { "path": "state.js", "maxBytes": 185000 },
+    { "path": "map-engine.js", "maxBytes": 15000 },
+    { "path": "india-svg-map.js", "maxBytes": 5000 },
+    { "path": "examples/examples.css", "maxBytes": 65000 },
+    { "path": "data/location-index.json", "maxBytes": 350000 },
+    { "path": "assets/maps/india-states.svg", "maxBytes": 825000 }
+  ],
+  "collectionBudgets": [
+    {
+      "id": "public-state-boundaries",
+      "directory": "assets/maps/states",
+      "extension": ".svg",
+      "expectedFiles": 36,
+      "maxFileBytes": 1300000,
+      "maxTotalBytes": 17000000
+    },
+    {
+      "id": "example-scripts",
+      "directory": "examples",
+      "extension": ".js",
+      "maxFileBytes": 25000,
+      "maxTotalBytes": 240000
+    }
+  ],
+  "browserBudgets": {
+    "desktop": {
+      "nationalMapReadyMs": 2500,
+      "largestStateReadyMs": 3500
+    },
+    "mobile": {
+      "nationalMapReadyMs": 4000,
+      "largestStateReadyMs": 5500
+    },
+    "interaction": {
+      "exampleGalleryFilterMs": 250
+    }
+  }
+}

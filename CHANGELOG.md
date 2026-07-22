@@ -71,6 +71,10 @@ release.
   highlights plus a link to the official PIN boundary GeoJSON catalog.
 - Search, goal filters, live result counts, an accessible empty state, and a
   denser responsive layout for the runnable example gallery.
+- Versioned raw-asset, desktop, mobile, large-layer, and interaction performance
+  budgets with automated GitHub Actions enforcement and timing reports.
+- Performance documentation with current baselines, budget-change guidance,
+  and a copyable map-load measurement snippet.
 
 ### Changed
 

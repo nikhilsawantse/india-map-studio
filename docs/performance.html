@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Versioned mobile, browser, SVG, and JavaScript performance budgets for India Map Studio." />
+    <title>Performance budgets &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="India Map Studio home">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span><strong>India Map Studio</strong><small>Performance budgets</small></span>
+      </a>
+      <nav class="header-actions" aria-label="Documentation navigation">
+        <a class="back-link" href="quick-start.html">Five-minute start</a>
+        <a class="back-link" href="map-engine.html">Engine API</a>
+        <a class="back-link" href="../examples/index.html">Examples</a>
+      </nav>
+    </header>
+
+    <main class="engine-docs">
+      <p class="eyebrow">Measurable quality limits</p>
+      <h1>Performance budgets</h1>
+      <p class="intro">Keep map layers and application code from becoming slower unnoticed with versioned asset and browser checks.</p>
+
+      <section>
+        <h2>Run the complete check</h2>
+        <pre><code>pnpm test:performance</code></pre>
+        <p>The canonical limits live in <code>performance-budgets.json</code> and run automatically in GitHub Actions.</p>
+      </section>
+
+      <section>
+        <h2>Browser scenarios</h2>
+        <div class="engine-api-grid">
+          <code>India map</code><span>36 state/UT features &middot; 2,500 ms desktop &middot; 4,000 ms mobile.</span>
+          <code>Largest state layer</code><span>Uttar Pradesh with 75 districts &middot; 3,500 ms desktop &middot; 5,500 ms mobile.</span>
+          <code>Gallery filtering</code><span>Search-category update and visible-card synchronization &middot; 250 ms.</span>
+          <code>Mobile viewport</code><span>390 by 844 pixels with touch behavior enabled.</span>
+        </div>
+        <p>Timings include navigation, SVG fetching, parsing, feature discovery, and first visible geometry from a local HTTP server. They are regression limits rather than guarantees for every device or network.</p>
+      </section>
+
+      <section>
+        <h2>Copyable map measurement</h2>
+        <pre><code>const startedAt = performance.now();
+
+map.on("mapload", event =&gt; {
+  const duration = Math.round(performance.now() - startedAt);
+  console.log(`${event.detail.featureCount} features ready in ${duration} ms`);
+}, { once: true });
+
+map.load();</code></pre>
+      </section>
+
+      <section>
+        <h2>Static asset limits</h2>
+        <p>Raw-file checks cover core CSS and JavaScript, the location index, the national layer, every public state layer, and all example scripts. Uttar Pradesh is currently the largest public state SVG at approximately 1.25 MB; all 36 public state layers total approximately 16.2 MB.</p>
+      </section>
+
+      <section>
+        <h2>When a budget fails</h2>
+        <ol>
+          <li>Confirm that the change intentionally added data or behavior.</li>
+          <li>Prefer simpler SVG paths, on-demand data, or split page code before raising a limit.</li>
+          <li>Repeat the suite on the same machine to rule out an isolated slow run.</li>
+          <li>If the larger budget is justified, update the JSON budget with an explanation in the same pull request.</li>
+        </ol>
+      </section>
+    </main>
+  </body>
+</html>
