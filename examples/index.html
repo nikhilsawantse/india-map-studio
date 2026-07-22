@@ -30,8 +30,8 @@
           <p class="eyebrow">Copyable map recipes</p>
           <h1 id="examples-title">Start with one working interaction</h1>
           <p class="intro">
-            Each example uses plain HTML, CSS, and JavaScript with the public
-            map engine and reusable SVG assets.
+            Find a working recipe by goal, then open it to inspect the plain
+            HTML, CSS, and JavaScript behind it.
           </p>
         </div>
         <p class="examples-hero-note">
@@ -40,8 +40,24 @@
         </p>
       </section>
 
-      <section class="examples-grid" aria-label="Runnable map examples">
-        <a class="example-card" href="choropleth.html">
+      <section class="examples-browser" aria-label="Find an example">
+        <div class="examples-search-field">
+          <label for="examples-search">Search examples</label>
+          <input id="examples-search" type="search" placeholder="Try CSV, markers, export, districts…" autocomplete="off" />
+        </div>
+        <div class="examples-filter-row" role="group" aria-label="Filter examples by goal">
+          <button type="button" class="is-active" data-example-filter="all" aria-pressed="true">All <span>22</span></button>
+          <button type="button" data-example-filter="start" aria-pressed="false">Start <span>4</span></button>
+          <button type="button" data-example-filter="data" aria-pressed="false">Data &amp; analysis <span>5</span></button>
+          <button type="button" data-example-filter="places" aria-pressed="false">Markers &amp; places <span>5</span></button>
+          <button type="button" data-example-filter="explore" aria-pressed="false">Search &amp; select <span>3</span></button>
+          <button type="button" data-example-filter="apps" aria-pressed="false">Apps &amp; publishing <span>5</span></button>
+        </div>
+        <p id="examples-result-count" class="examples-result-count" role="status" aria-live="polite">Showing all 22 examples</p>
+      </section>
+
+      <section id="examples-grid" class="examples-grid" aria-label="Runnable map examples">
+        <a class="example-card" href="choropleth.html" data-category="start">
           <span class="example-card-number">01</span>
           <div>
             <h2>Choropleth</h2>
@@ -49,7 +65,7 @@
           </div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
-        <a class="example-card" href="drill-down.html">
+        <a class="example-card" href="drill-down.html" data-category="start">
           <span class="example-card-number">02</span>
           <div>
             <h2>Drill down</h2>
@@ -57,7 +73,7 @@
           </div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
-        <a class="example-card" href="markers.html">
+        <a class="example-card" href="markers.html" data-category="start">
           <span class="example-card-number">03</span>
           <div>
             <h2>Markers</h2>
@@ -65,7 +81,7 @@
           </div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
-        <a class="example-card" href="embedded-map.html">
+        <a class="example-card" href="embedded-map.html" data-category="start">
           <span class="example-card-number">04</span>
           <div>
             <h2>Embedded map</h2>
@@ -73,7 +89,7 @@
           </div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
-        <a class="example-card" href="csv-data.html">
+        <a class="example-card" href="csv-data.html" data-category="data">
           <span class="example-card-number">05</span>
           <div>
             <h2>CSV district data</h2>
@@ -81,7 +97,7 @@
           </div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
-        <a class="example-card" href="poi-layers.html">
+        <a class="example-card" href="poi-layers.html" data-category="places">
           <span class="example-card-number">06</span>
           <div>
             <h2>POI layers</h2>
@@ -89,87 +105,94 @@
           </div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
-        <a class="example-card" href="marker-clustering.html">
+        <a class="example-card" href="marker-clustering.html" data-category="places">
           <span class="example-card-number">07</span>
           <div><h2>Marker clustering</h2><p>Merge nearby coordinate points into readable, keyboard-accessible clusters with an adjustable distance.</p></div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
-        <a class="example-card" href="heatmap.html">
+        <a class="example-card" href="heatmap.html" data-category="data">
           <span class="example-card-number">08</span>
           <div><h2>Heatmap</h2><p>Turn overlapping point data into a lightweight SVG density surface with category and radius controls.</p></div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
-        <a class="example-card" href="route-network.html">
+        <a class="example-card" href="route-network.html" data-category="places">
           <span class="example-card-number">09</span>
           <div><h2>Route network</h2><p>Connect sourced station coordinates with selectable curved corridors and independent network layers.</p></div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
-        <a class="example-card" href="time-series.html">
+        <a class="example-card" href="time-series.html" data-category="data">
           <span class="example-card-number">10</span>
           <div><h2>Time-series map</h2><p>Scrub or play through synthetic yearly values while keeping hover, focus, and color transitions in sync.</p></div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
-        <a class="example-card" href="comparison-map.html">
+        <a class="example-card" href="comparison-map.html" data-category="data">
           <span class="example-card-number">11</span>
           <div><h2>Comparison maps</h2><p>Place matching regional scenarios side by side for election-style leader and margin comparisons.</p></div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
-        <a class="example-card" href="custom-icons.html">
+        <a class="example-card" href="custom-icons.html" data-category="places">
           <span class="example-card-number">12</span>
           <div><h2>Custom marker icons</h2><p>Upload, sanitize, resize, and preview a reusable SVG icon across real coordinate markers.</p></div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
-        <a class="example-card" href="location-finder.html">
+        <a class="example-card" href="location-finder.html" data-category="explore">
           <span class="example-card-number">13</span>
           <div><h2>India location finder</h2><p>Search published states, districts, and tehsils by name, code, slug, or stable identifier with typo-tolerant matching.</p></div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
-        <a class="example-card" href="nearby-places.html">
+        <a class="example-card" href="nearby-places.html" data-category="places">
           <span class="example-card-number">14</span>
           <div><h2>Nearby places</h2><p>Drop a search origin, change its radius, filter useful-place categories, and rank sourced points by geodesic distance.</p></div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
-        <a class="example-card" href="draw-select.html">
+        <a class="example-card" href="draw-select.html" data-category="explore">
           <span class="example-card-number">15</span>
           <div><h2>Draw and select regions</h2><p>Select districts by click, rectangle, or freehand lasso, then export their codes and stable identifiers.</p></div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
-        <a class="example-card" href="service-coverage.html">
+        <a class="example-card" href="service-coverage.html" data-category="apps">
           <span class="example-card-number">16</span>
           <div><h2>Service area and coverage</h2><p>Place service centres, adjust illustrative reach, inspect overlaps and uncovered districts, and export assignments.</p></div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
-        <a class="example-card" href="incident-alerts.html">
+        <a class="example-card" href="incident-alerts.html" data-category="apps">
           <span class="example-card-number">17</span>
           <div><h2>Alerts and incidents</h2><p>Filter a synthetic incident feed, inspect district severity, acknowledge or resolve alerts, and export the visible queue.</p></div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
-        <a class="example-card" href="ranking-dashboard.html">
+        <a class="example-card" href="ranking-dashboard.html" data-category="data">
           <span class="example-card-number">18</span>
           <div><h2>State and district rankings</h2><p>Switch indicators and geography levels while the ranked list, map colors, filters, and summary statistics update together.</p></div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
-        <a class="example-card" href="editable-annotations.html">
+        <a class="example-card" href="editable-annotations.html" data-category="apps">
           <span class="example-card-number">19</span>
           <div><h2>Editable annotations</h2><p>Add, drag, edit, remove, locally save, export, and import categorized notes on any public district layer.</p></div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
-        <a class="example-card" href="story-map.html">
+        <a class="example-card" href="story-map.html" data-category="apps">
           <span class="example-card-number">20</span>
           <div><h2>Story map</h2><p>Guide readers through state and district chapters with synchronized narrative images, descriptions, and highlighted locations.</p></div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
-        <a class="example-card" href="printable-report.html">
+        <a class="example-card" href="printable-report.html" data-category="apps">
           <span class="example-card-number">21</span>
           <div><h2>Printable map report</h2><p>Select districts, customize report text, print a clean layout, or export the same map report as SVG and PNG.</p></div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
-        <a class="example-card" href="pin-code-explorer.html">
+        <a class="example-card" href="pin-code-explorer.html" data-category="explore">
           <span class="example-card-number">22</span>
           <div><h2>Postal PIN explorer</h2><p>Search an official India Post directory sample, inspect office details, and highlight the containing administrative district.</p></div>
           <span class="example-card-action">Run example &rarr;</span>
         </a>
       </section>
+      <section id="examples-empty" class="examples-empty" hidden aria-labelledby="examples-empty-title">
+        <p class="eyebrow">No matching recipe</p>
+        <h2 id="examples-empty-title">Try a broader search</h2>
+        <p>Clear the search or choose another goal to see more examples.</p>
+        <button id="examples-reset" type="button">Show all examples</button>
+      </section>
     </main>
+    <script src="examples-index.js"></script>
   </body>
 </html>

@@ -55,9 +55,30 @@ test("example gallery fits a narrow viewport", async ({ page }) => {
 
   await expect(page.locator(".example-card")).toHaveCount(22);
   await expect(page.locator('a[href="pin-code-explorer.html"]')).toBeVisible();
+  await page.locator('[data-example-filter="data"]').click();
+  await expect(page.locator(".example-card:visible")).toHaveCount(5);
+  await page.locator("#examples-search").fill("ranking");
+  await expect(page.locator(".example-card:visible")).toHaveCount(1);
+  await expect(page.locator("#examples-result-count")).toHaveText("Showing 1 of 22 examples");
+  await page.locator("#examples-search").fill("no-such-example");
+  await expect(page.locator("#examples-empty")).toBeVisible();
+  await page.locator("#examples-reset").click();
+  await expect(page.locator(".example-card:visible")).toHaveCount(22);
   const overflows = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1);
   expect(overflows).toBe(false);
   expect(errors).toEqual([]);
+});
+
+test("example gallery uses a compact three-column desktop layout", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/examples/");
+
+  const cards = page.locator(".example-card");
+  const boxes = await Promise.all([0, 1, 2, 3].map((index) => cards.nth(index).boundingBox()));
+  expect(boxes.every(Boolean)).toBe(true);
+  expect(Math.abs(boxes[0].y - boxes[2].y)).toBeLessThan(2);
+  expect(boxes[3].y).toBeGreaterThan(boxes[0].y + 100);
+  expect(boxes[0].height).toBeLessThan(220);
 });
 
 test("ranking dashboard synchronizes district filters and statistics", async ({ page }) => {

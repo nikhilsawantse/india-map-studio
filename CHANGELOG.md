@@ -69,6 +69,8 @@ release.
 - India Post PIN directory adapter with an attributed downloadable sample,
   text search, official record links, and clearly labeled containing-district
   highlights plus a link to the official PIN boundary GeoJSON catalog.
+- Search, goal filters, live result counts, an accessible empty state, and a
+  denser responsive layout for the runnable example gallery.
 
 ### Changed
 

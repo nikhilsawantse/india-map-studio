@@ -36,6 +36,7 @@ REQUIRED_FILES = (
     "docs/map-engine.html",
     "examples/multiple-maps.html",
     "examples/index.html",
+    "examples/examples-index.js",
     "examples/choropleth.html",
     "examples/choropleth.js",
     "examples/csv-data.html",
