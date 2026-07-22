@@ -3,8 +3,11 @@ import { expect, test } from "@playwright/test";
 test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
 
 async function expectNoHorizontalOverflow(page) {
-  const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1);
-  expect(overflow).toBe(false);
+  const viewport = await page.evaluate(() => ({
+    clientWidth: document.documentElement.clientWidth,
+    scrollWidth: document.documentElement.scrollWidth
+  }));
+  expect(viewport.scrollWidth, `${page.url()} rendered ${viewport.scrollWidth}px wide in a ${viewport.clientWidth}px viewport`).toBeLessThanOrEqual(viewport.clientWidth + 1);
 }
 
 async function expectTargetNearTop(page, selector) {

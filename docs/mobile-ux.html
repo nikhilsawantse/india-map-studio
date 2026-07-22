@@ -39,7 +39,7 @@
       <section>
         <h2>Copyable setup</h2>
         <p>Load the helper after the page-specific scripts. It inserts native buttons only when a supported controls-and-map layout is present and remains hidden on desktop screens.</p>
-        <pre><code>&lt;link rel="stylesheet" href="../styles.css"&gt;
+        <pre tabindex="0" aria-label="Mobile workspace setup snippet"><code>&lt;link rel="stylesheet" href="../styles.css"&gt;
 
 &lt;!-- Your map and page scripts --&gt;
 &lt;script src="../mobile-workspace.js"&gt;&lt;/script&gt;</code></pre>
@@ -47,7 +47,7 @@
 
       <section>
         <h2>Run the mobile regression suite</h2>
-        <pre><code>pnpm test:browser -- tests/browser/mobile.spec.js tests/browser/mobile-accessibility.spec.js --workers=1</code></pre>
+        <pre tabindex="0" aria-label="Mobile regression test command"><code>pnpm test:browser -- tests/browser/mobile.spec.js tests/browser/mobile-accessibility.spec.js --workers=1</code></pre>
         <p>The suite covers jump navigation, touch-target height, form sizing, mobile report ordering, horizontal overflow, and serious accessibility issues.</p>
       </section>
     </main>

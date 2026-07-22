@@ -4860,7 +4860,12 @@ a.breadcrumb-item:focus-visible {
   .state-workspace,
   .district-workspace,
   .custom-map-workspace {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  :is(.workspace, .state-workspace, .district-workspace, .custom-map-workspace)
+    > * {
+    min-width: 0;
   }
 
   .district-page-map-panel,
