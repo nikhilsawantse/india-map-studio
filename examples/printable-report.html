@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Build, print, and export a clean district selection report from India Map Studio." />
+    <title>Printable map report &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="examples.css" />
+  </head>
+  <body class="example-print-page">
+    <header class="site-header">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span><strong>India Map Studio</strong><small>Printable report recipe</small></span></a>
+      <nav class="header-actions" aria-label="Example navigation"><a class="back-link" href="story-map.html">Story map</a><a class="back-link" href="index.html">All examples</a></nav>
+    </header>
+    <main class="example-page">
+      <div class="example-heading example-print-builder-heading">
+        <div><p class="eyebrow">Example 21 &middot; Print and export</p><h1>Turn a district selection into a clean report</h1><p class="intro">Choose regions, edit the title and notes, then print the layout or export a self-contained SVG or PNG.</p></div>
+        <a class="example-source-link" href="printable-report.js">View JavaScript source</a>
+      </div>
+      <div class="example-print-layout">
+        <article id="print-report" class="example-print-report" aria-labelledby="print-preview-title">
+          <header class="example-print-report-header"><p class="eyebrow">India Map Studio report</p><h2 id="print-preview-title">Priority districts</h2><p id="print-preview-subtitle">Maharashtra &middot; 0 of 36 districts selected</p></header>
+          <div id="print-map" class="example-map example-print-map" aria-label="Printable district selection map"></div>
+          <div class="example-print-legend"><span><i class="is-selected"></i><b id="print-legend-title">Selected districts</b></span><span><i></i>Other districts</span></div>
+          <section class="example-print-selection" aria-labelledby="print-selection-title"><h3 id="print-selection-title">Selected regions</h3><p id="print-selected-names">No districts selected.</p></section>
+          <section class="example-print-notes" aria-labelledby="print-notes-title"><h3 id="print-notes-title">Notes</h3><p id="print-preview-notes">Add report context, methodology, or follow-up actions here.</p></section>
+          <footer>Generated with India Map Studio &middot; Boundary attribution remains in the repository data notices.</footer>
+        </article>
+        <aside class="example-control-panel example-print-controls">
+          <p class="eyebrow">Report builder</p><h2>Content and regions</h2>
+          <label for="print-state">State or union territory</label><select id="print-state"></select>
+          <label for="print-title">Report title</label><input id="print-title" type="text" maxlength="80" value="Priority districts" />
+          <label for="print-legend">Legend label</label><input id="print-legend" type="text" maxlength="50" value="Selected districts" />
+          <label for="print-notes">Notes</label><textarea id="print-notes" rows="4" maxlength="320">Add report context, methodology, or follow-up actions here.</textarea>
+          <div class="example-print-actions"><button id="print-all" type="button">Select all</button><button id="print-clear" type="button" disabled>Clear</button></div>
+          <fieldset class="example-print-districts"><legend>Districts</legend><div id="print-district-list"></div></fieldset>
+          <div class="example-print-actions"><button id="print-browser" type="button">Print report</button><button id="print-svg" type="button">Export SVG</button><button id="print-png" type="button">Export PNG</button></div>
+          <p id="print-status" class="example-csv-summary" role="status">Loading report builder&hellip;</p>
+        </aside>
+      </div>
+    </main>
+    <script src="../data/states.js"></script><script src="../map-engine.js"></script><script src="printable-report.js"></script>
+  </body>
+</html>

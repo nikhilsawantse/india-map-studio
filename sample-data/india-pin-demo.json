@@ -1,0 +1,23 @@
+{
+  "title": "India Post PIN directory sample for Maharashtra",
+  "retrieved": "2026-07-22",
+  "publisher": "Department of Posts, Ministry of Communications, Government of India",
+  "license": "Government Open Data License - India",
+  "catalogUrl": "https://www.data.gov.in/catalog/all-india-pincode-directory-through-webservice",
+  "repositoryUrl": "https://github.com/IndiaPost/pin",
+  "scopeNote": "This compact sample links official directory records to India Map Studio district slugs. It highlights the containing administrative district; it does not substitute a district polygon for an official PIN-code boundary.",
+  "records": [
+    { "pincode": "400001", "office": "Mumbai G.P.O.", "officeType": "H.O", "officeCount": 7, "district": "Mumbai City", "districtSlug": "mumbai-city", "state": "Maharashtra", "stateSlug": "maharashtra", "division": "Mumbai South", "sourceUrl": "https://github.com/IndiaPost/pin/blob/master/api/v01/json/400001.json" },
+    { "pincode": "400071", "office": "Chembur H.O", "officeType": "H.O", "officeCount": 2, "district": "Mumbai Suburban", "districtSlug": "mumbai-suburban", "state": "Maharashtra", "stateSlug": "maharashtra", "division": "Mumbai North East", "sourceUrl": "https://github.com/IndiaPost/pin/blob/master/api/v01/json/400071.json" },
+    { "pincode": "411001", "office": "Pune H.O", "officeType": "H.O", "officeCount": 8, "district": "Pune", "districtSlug": "pune", "state": "Maharashtra", "stateSlug": "maharashtra", "division": "Pune City East", "sourceUrl": "https://github.com/IndiaPost/pin/blob/master/api/v01/json/411001.json" },
+    { "pincode": "440001", "office": "Nagpur GPO", "officeType": "H.O", "officeCount": 7, "district": "Nagpur", "districtSlug": "nagpur", "state": "Maharashtra", "stateSlug": "maharashtra", "division": "Nagpur City", "sourceUrl": "https://github.com/IndiaPost/pin/blob/master/api/v01/json/440001.json" },
+    { "pincode": "415001", "office": "Satara H.O", "officeType": "H.O", "officeCount": 1, "district": "Satara", "districtSlug": "satara", "state": "Maharashtra", "stateSlug": "maharashtra", "division": "Satara", "sourceUrl": "https://github.com/IndiaPost/pin/blob/master/api/v01/json/415001.json" },
+    { "pincode": "413001", "office": "Solapur H.O", "officeType": "H.O", "officeCount": 4, "district": "Solapur", "districtSlug": "solapur", "state": "Maharashtra", "stateSlug": "maharashtra", "division": "Solapur", "sourceUrl": "https://github.com/IndiaPost/pin/blob/master/api/v01/json/413001.json" },
+    { "pincode": "422001", "office": "Nashik H.O", "officeType": "H.O", "officeCount": 4, "district": "Nashik", "districtSlug": "nashik", "state": "Maharashtra", "stateSlug": "maharashtra", "division": "Nasik", "sourceUrl": "https://github.com/IndiaPost/pin/blob/master/api/v01/json/422001.json" },
+    { "pincode": "445001", "office": "Yavatmal H.O", "officeType": "H.O", "officeCount": 13, "district": "Yavatmal", "districtSlug": "yavatmal", "state": "Maharashtra", "stateSlug": "maharashtra", "division": "Yeotmal", "sourceUrl": "https://github.com/IndiaPost/pin/blob/master/api/v01/json/445001.json" },
+    { "pincode": "442001", "office": "Wardha H.O", "officeType": "H.O", "officeCount": 30, "district": "Wardha", "districtSlug": "wardha", "state": "Maharashtra", "stateSlug": "maharashtra", "division": "Wardha", "sourceUrl": "https://github.com/IndiaPost/pin/blob/master/api/v01/json/442001.json" },
+    { "pincode": "444001", "office": "Akola H.O", "officeType": "H.O", "officeCount": 4, "district": "Akola", "districtSlug": "akola", "state": "Maharashtra", "stateSlug": "maharashtra", "division": "Akola", "sourceUrl": "https://github.com/IndiaPost/pin/blob/master/api/v01/json/444001.json" },
+    { "pincode": "442401", "office": "Chandrapur H.O", "officeType": "H.O", "officeCount": 2, "district": "Chandrapur", "districtSlug": "chandrapur", "state": "Maharashtra", "stateSlug": "maharashtra", "division": "Chandrapur", "sourceUrl": "https://github.com/IndiaPost/pin/blob/master/api/v01/json/442401.json" },
+    { "pincode": "416812", "office": "Anav B.O", "officeType": "B.O", "officeCount": 7, "district": "Sindhudurg", "districtSlug": "sindhudurg", "state": "Maharashtra", "stateSlug": "maharashtra", "division": "Sindhudurg", "sourceUrl": "https://github.com/IndiaPost/pin/blob/master/api/v01/json/416812.json" }
+  ]
+}

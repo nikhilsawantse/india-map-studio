@@ -1343,6 +1343,772 @@
   opacity: 0.45;
 }
 
+.example-ranking-legend {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.example-ranking-legend i {
+  width: 82px;
+  height: 9px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #deeadf, #22705b);
+}
+
+.example-ranking-map #state-outline {
+  pointer-events: none;
+}
+
+.example-ranking-map #state-outline :is(path, polygon, polyline) {
+  fill: none;
+  stroke: var(--focus, #115d4d);
+  stroke-width: 2.4;
+  vector-effect: non-scaling-stroke;
+}
+
+.example-ranking-map :is(.map-region, .district-region) {
+  cursor: pointer;
+  outline: none;
+  transition: opacity 150ms ease;
+}
+
+.example-ranking-map :is(.map-region, .district-region) :is(path, polygon, polyline) {
+  fill: var(--ranking-fill, #deeadf);
+  stroke: var(--map-stroke, #47665e);
+  stroke-width: 1.1;
+  vector-effect: non-scaling-stroke;
+}
+
+.example-ranking-map :is(.map-region, .district-region).is-filtered-out {
+  opacity: 0.2;
+}
+
+.example-ranking-map :is(.map-region, .district-region):is(:hover, :focus, .is-selected) :is(path, polygon, polyline) {
+  stroke: var(--focus, #115d4d);
+  stroke-width: 2.5;
+}
+
+.example-ranking-control-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.example-ranking-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 18px 0 0;
+}
+
+.example-ranking-stats div {
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+}
+
+.example-ranking-stats dt {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.example-ranking-stats dd {
+  margin: 4px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+}
+
+.example-ranking-results {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.example-ranking-results h2 {
+  margin-top: 0;
+}
+
+.example-ranking-results ol {
+  display: grid;
+  gap: 6px;
+  padding: 0;
+  margin: 12px 0 0;
+  list-style: none;
+}
+
+.example-ranking-results button {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 24px minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  text-align: left;
+}
+
+.example-ranking-results button.is-active {
+  border-color: var(--focus);
+  background: rgba(17, 93, 77, 0.08);
+}
+
+.example-ranking-results button > strong {
+  color: var(--muted);
+  text-align: center;
+}
+
+.example-ranking-results button > span {
+  display: grid;
+  min-width: 0;
+  gap: 5px;
+}
+
+.example-ranking-results button b {
+  overflow: hidden;
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.example-ranking-results button i {
+  display: block;
+  width: var(--ranking-width);
+  height: 4px;
+  border-radius: 999px;
+  background: #3c826d;
+}
+
+.example-ranking-results button em {
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.example-annotation-legend,
+.example-annotation-legend span {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.example-annotation-legend span {
+  gap: 4px;
+}
+
+.example-annotation-legend i,
+.example-annotation-results button > i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+}
+
+.example-annotation-legend .is-note,
+.example-annotation-results .is-note,
+.example-annotation-marker.is-note .example-annotation-pin {
+  fill: #4e8795;
+  background: #4e8795;
+}
+
+.example-annotation-legend .is-project,
+.example-annotation-results .is-project,
+.example-annotation-marker.is-project .example-annotation-pin {
+  fill: #3c826d;
+  background: #3c826d;
+}
+
+.example-annotation-legend .is-risk,
+.example-annotation-results .is-risk,
+.example-annotation-marker.is-risk .example-annotation-pin {
+  fill: #b84c3f;
+  background: #b84c3f;
+}
+
+.example-annotation-legend .is-visit,
+.example-annotation-results .is-visit,
+.example-annotation-marker.is-visit .example-annotation-pin {
+  fill: #8a6d2f;
+  background: #8a6d2f;
+}
+
+.example-annotation-map #state-outline {
+  pointer-events: none;
+}
+
+.example-annotation-map #state-outline :is(path, polygon, polyline) {
+  fill: none;
+  stroke: var(--focus, #115d4d);
+  stroke-width: 2.4;
+  vector-effect: non-scaling-stroke;
+}
+
+.example-annotation-map .district-region {
+  pointer-events: visiblePainted;
+}
+
+.example-annotation-map .district-region :is(path, polygon, polyline) {
+  fill: #e2ebe5;
+  stroke: var(--map-stroke, #47665e);
+  stroke-width: 1.1;
+  vector-effect: non-scaling-stroke;
+}
+
+.example-annotation-map.is-placing,
+.example-annotation-map.is-placing .district-region {
+  cursor: crosshair;
+}
+
+.example-annotation-layer {
+  pointer-events: none;
+}
+
+.example-annotation-marker {
+  cursor: grab;
+  outline: none;
+  pointer-events: auto;
+}
+
+.example-annotation-marker:active {
+  cursor: grabbing;
+}
+
+.example-annotation-hit {
+  fill: transparent;
+}
+
+.example-annotation-pin {
+  stroke: #fffdf7;
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 2px 3px rgba(16, 35, 31, 0.32));
+}
+
+.example-annotation-dot {
+  fill: #fffdf7;
+}
+
+.example-annotation-marker:is(:focus, .is-selected) .example-annotation-pin {
+  stroke: var(--focus, #115d4d);
+  stroke-width: 5;
+}
+
+.example-annotation-control-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.8fr) minmax(0, 1.2fr);
+  gap: 10px;
+}
+
+.example-control-panel .example-annotation-control-row input {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  color: var(--ink);
+  background: rgba(255, 253, 247, 0.86);
+  font: inherit;
+  font-size: 12px;
+}
+
+.example-annotation-file-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.example-annotation-file-actions .example-download-link {
+  cursor: pointer;
+  margin: 0;
+}
+
+.example-annotation-file-actions input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.example-annotation-results {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.example-annotation-results h2 {
+  margin-top: 0;
+}
+
+.example-annotation-results ul {
+  display: grid;
+  gap: 7px;
+  padding: 0;
+  margin: 12px 0 0;
+  list-style: none;
+}
+
+.example-annotation-results button {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 9px;
+  align-items: center;
+  text-align: left;
+}
+
+.example-annotation-results button.is-active {
+  border-color: var(--focus);
+  background: rgba(17, 93, 77, 0.08);
+}
+
+.example-annotation-results button > i {
+  width: 14px;
+  height: 14px;
+}
+
+.example-annotation-results button > span {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.example-annotation-results small,
+.example-annotation-empty {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.example-story-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+  gap: clamp(18px, 4vw, 44px);
+  align-items: start;
+  margin-top: 30px;
+}
+
+.example-story-map-panel {
+  overflow: hidden;
+  border: 1px solid rgba(16, 35, 31, 0.11);
+  border-radius: 24px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.example-story-map :is(.map-region, .district-region) :is(path, polygon, polyline) {
+  fill: #dfe8e1;
+  stroke: #61736d;
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+  transition: fill 180ms ease, opacity 180ms ease;
+}
+
+.example-story-map :is(.map-region, .district-region).is-story-muted {
+  opacity: 0.28;
+}
+
+.example-story-map :is(.map-region, .district-region).is-story-focus :is(path, polygon, polyline) {
+  fill: #c7653f;
+  stroke: #164f45;
+  stroke-width: 2.1;
+}
+
+.example-story-marker circle:first-child {
+  fill: rgba(255, 253, 247, 0.62);
+  stroke: #0f5d4d;
+  stroke-width: 3;
+}
+
+.example-story-marker circle:last-child {
+  fill: #0f5d4d;
+}
+
+.example-story-panel {
+  display: grid;
+  gap: 16px;
+}
+
+.example-story-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.example-story-copy h2 {
+  margin: 4px 0 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(25px, 3vw, 36px);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.example-story-copy p {
+  color: var(--muted);
+}
+
+.example-story-copy code {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.example-story-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.example-story-actions button {
+  flex: 1;
+}
+
+.example-story-steps {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.example-story-steps button {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid rgba(16, 35, 31, 0.13);
+  border-radius: 12px;
+  color: var(--ink);
+  background: rgba(255, 253, 247, 0.72);
+  text-align: left;
+}
+
+.example-story-steps button[aria-current="step"] {
+  border-color: rgba(17, 93, 77, 0.46);
+  background: rgba(17, 93, 77, 0.1);
+  color: #0f5d4d;
+  font-weight: 800;
+}
+
+@media (max-width: 920px) {
+  .example-story-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.example-print-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(310px, 0.8fr);
+  gap: clamp(18px, 4vw, 44px);
+  align-items: start;
+  margin-top: 30px;
+}
+
+.example-print-report {
+  overflow: hidden;
+  padding: clamp(22px, 4vw, 48px);
+  border: 1px solid rgba(16, 35, 31, 0.11);
+  border-radius: 24px;
+  background: #fffdf7;
+  box-shadow: var(--shadow);
+}
+
+.example-print-report-header h2 {
+  margin: 5px 0 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 5vw, 50px);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.example-print-report-header p:last-child,
+.example-print-report footer {
+  color: var(--muted);
+}
+
+.example-print-map {
+  min-height: 560px;
+  padding: 12px;
+}
+
+.example-print-map #state-outline {
+  pointer-events: none;
+}
+
+.example-print-map #state-outline :is(path, polygon, polyline) {
+  fill: none;
+  stroke: #61736d;
+  stroke-width: 1.4;
+  vector-effect: non-scaling-stroke;
+}
+
+.example-print-map .district-region :is(path, polygon, polyline) {
+  fill: #e4ece6;
+  stroke: #61736d;
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+}
+
+.example-print-map .district-region:is(:hover, :focus) :is(path, polygon, polyline),
+.example-print-map .district-region.is-print-selected :is(path, polygon, polyline) {
+  fill: #bf6540;
+  stroke: #164f45;
+  stroke-width: 2.2;
+}
+
+.example-print-legend,
+.example-print-legend span {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  align-items: center;
+}
+
+.example-print-legend {
+  padding: 14px 0;
+  border-top: 1px solid rgba(16, 35, 31, 0.11);
+  border-bottom: 1px solid rgba(16, 35, 31, 0.11);
+  font-size: 12px;
+}
+
+.example-print-legend i {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #61736d;
+  border-radius: 4px;
+  background: #e4ece6;
+}
+
+.example-print-legend i.is-selected {
+  background: #bf6540;
+}
+
+.example-print-selection,
+.example-print-notes {
+  margin-top: 22px;
+}
+
+.example-print-selection h3,
+.example-print-notes h3 {
+  margin: 0 0 6px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.example-print-selection p,
+.example-print-notes p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.example-print-report footer {
+  margin-top: 28px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(16, 35, 31, 0.11);
+  font-size: 10px;
+}
+
+.example-print-controls textarea {
+  resize: vertical;
+}
+
+.example-print-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.example-print-districts {
+  margin-top: 18px;
+  padding: 0;
+  border: 0;
+}
+
+.example-print-districts legend {
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.example-print-districts > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px 12px;
+  max-height: 330px;
+  overflow-y: auto;
+  padding: 12px;
+  border: 1px solid rgba(16, 35, 31, 0.11);
+  border-radius: 14px;
+  background: rgba(255, 253, 247, 0.65);
+}
+
+.example-print-districts label {
+  display: flex;
+  gap: 7px;
+  align-items: flex-start;
+  margin: 0;
+  font-size: 11px;
+}
+
+@media (min-width: 921px) {
+  .example-print-report {
+    position: sticky;
+    top: 18px;
+  }
+}
+
+@media (max-width: 920px) {
+  .example-print-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  @page { size: A4 portrait; margin: 12mm; }
+  .example-print-page { background: white; }
+  .example-print-page .site-header,
+  .example-print-page .example-print-builder-heading,
+  .example-print-page .example-print-controls { display: none !important; }
+  .example-print-page .example-page { width: auto; padding: 0; }
+  .example-print-page .example-print-layout { display: block; margin: 0; }
+  .example-print-page .example-print-report { position: static; padding: 0; border: 0; border-radius: 0; box-shadow: none; }
+  .example-print-page .example-print-map { min-height: 155mm; }
+}
+
+.example-pin-badge {
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(17, 93, 77, 0.1);
+  color: #0f5d4d;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.example-pin-map #state-outline {
+  pointer-events: none;
+}
+
+.example-pin-map #state-outline :is(path, polygon, polyline) {
+  fill: none;
+  stroke: #61736d;
+  stroke-width: 1.4;
+  vector-effect: non-scaling-stroke;
+}
+
+.example-pin-map .district-region :is(path, polygon, polyline) {
+  fill: #dfe8e1;
+  stroke: #61736d;
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+}
+
+.example-pin-map .district-region.is-pin-muted {
+  opacity: 0.35;
+}
+
+.example-pin-map .district-region.is-pin-focus :is(path, polygon, polyline) {
+  fill: #c7653f;
+  stroke: #164f45;
+  stroke-width: 2.4;
+}
+
+.example-pin-source-note {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border-left: 3px solid #0f5d4d;
+  background: rgba(17, 93, 77, 0.07);
+}
+
+.example-pin-source-note strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.example-pin-source-note p {
+  margin: 0;
+  font-size: 11px;
+}
+
+.example-pin-results {
+  margin-top: 22px;
+}
+
+.example-pin-results h2 {
+  margin: 3px 0 10px;
+  font-size: 21px;
+}
+
+.example-pin-results ol {
+  display: grid;
+  gap: 7px;
+  max-height: 440px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.example-pin-results button {
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr);
+  gap: 2px 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(16, 35, 31, 0.12);
+  border-radius: 12px;
+  color: var(--ink);
+  background: rgba(255, 253, 247, 0.68);
+  text-align: left;
+}
+
+.example-pin-results button.is-active {
+  border-color: rgba(17, 93, 77, 0.52);
+  background: rgba(17, 93, 77, 0.09);
+}
+
+.example-pin-results button strong {
+  grid-row: 1 / 3;
+  align-self: center;
+  color: #0f5d4d;
+}
+
+.example-pin-results button span,
+.example-pin-results button small {
+  min-width: 0;
+}
+
+.example-pin-results button small,
+.example-pin-empty {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.example-pin-empty {
+  padding: 12px;
+}
+
+.example-pin-links {
+  display: grid;
+  gap: 7px;
+  margin-top: 18px;
+  font-size: 11px;
+}
+
+@media (min-width: 921px) {
+  .example-pin-map-panel {
+    position: sticky;
+    top: 18px;
+  }
+}
+
 .example-poi-toggles {
   display: grid;
   gap: 9px;
@@ -1868,7 +2634,9 @@
   .example-nearby-map-panel,
   .example-draw-map-panel,
   .example-coverage-map-panel,
-  .example-incident-map-panel {
+  .example-incident-map-panel,
+  .example-ranking-map-panel,
+  .example-annotation-map-panel {
     position: sticky;
     top: 18px;
   }
@@ -1876,7 +2644,9 @@
 
 @media (max-width: 520px) {
   .example-incident-filter-row,
-  .example-incident-severity {
+  .example-incident-severity,
+  .example-ranking-control-row,
+  .example-annotation-control-row {
     grid-template-columns: 1fr;
   }
 }

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Add, move, edit, save, export, and import user annotations on India district SVG maps." />
+    <title>Editable map annotations &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" /><link rel="stylesheet" href="examples.css" />
+  </head>
+  <body>
+    <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span><strong>India Map Studio</strong><small>Editable annotation recipe</small></span></a><nav class="header-actions" aria-label="Example navigation"><a class="back-link" href="ranking-dashboard.html">Ranking dashboard</a><a class="back-link" href="index.html">All examples</a></nav></header>
+    <main class="example-page">
+      <div class="example-heading"><div><p class="eyebrow">Example 19 &middot; User-authored map</p><h1>Add notes directly to a district map</h1><p class="intro">Place categorized annotations, drag or nudge them, keep them in local storage, and exchange the complete configuration as JSON.</p></div><a class="example-source-link" href="editable-annotations.js">View JavaScript source</a></div>
+      <div class="example-workspace">
+        <section class="example-map-panel example-annotation-map-panel" aria-label="Editable annotation map">
+          <div class="example-map-toolbar"><span id="annotation-status" role="status">Loading annotation workspace&hellip;</span><div class="example-annotation-legend" aria-label="Annotation category legend"><span><i class="is-note"></i>Note</span><span><i class="is-project"></i>Project</span><span><i class="is-risk"></i>Risk</span><span><i class="is-visit"></i>Visit</span></div></div>
+          <div id="annotation-map" class="example-map example-annotation-map"></div>
+          <div id="annotation-caption" class="example-map-caption" aria-live="polite">Choose a district or enable map placement to add an annotation.</div>
+        </section>
+        <aside class="example-control-panel">
+          <p class="eyebrow">Saved automatically in this browser</p><h2>Annotation editor</h2><p>Demo annotations stay on this device until cleared. Export JSON before moving them to another browser.</p>
+          <label for="annotation-state">State or union territory</label><select id="annotation-state"></select>
+          <label for="annotation-district">Place at district centre</label><select id="annotation-district"></select>
+          <div class="example-annotation-control-row"><label for="annotation-category">Category<select id="annotation-category"><option value="note">General note</option><option value="project">Project</option><option value="risk">Risk</option><option value="visit">Field visit</option></select></label><label for="annotation-note">Note<input id="annotation-note" type="text" maxlength="120" placeholder="Short annotation" /></label></div>
+          <div class="example-draw-actions"><button id="annotation-place-district" type="button">Add at district</button><button id="annotation-map-mode" type="button" aria-pressed="false">Place on map</button></div>
+          <p id="annotation-help" class="example-csv-summary">Drag a marker, or focus it and use the arrow keys to move it.</p>
+          <div class="example-draw-actions"><button id="annotation-update" type="button" disabled>Update selected</button><button id="annotation-remove" type="button" disabled>Remove selected</button><button id="annotation-clear" type="button">Clear this state</button></div>
+          <div class="example-annotation-file-actions"><button id="annotation-export" type="button">Export JSON</button><label class="example-download-link" for="annotation-import">Import JSON<input id="annotation-import" type="file" accept="application/json,.json" /></label></div>
+          <section class="example-annotation-results" aria-labelledby="annotation-list-title"><p class="eyebrow">Current state</p><h2 id="annotation-list-title">Annotations</h2><ul id="annotation-list"></ul></section>
+          <section id="annotation-detail" class="example-poi-detail" aria-labelledby="annotation-detail-title" hidden><p class="eyebrow">Selected annotation</p><h2 id="annotation-detail-title"></h2><p id="annotation-detail-copy"></p><code id="annotation-detail-id"></code></section>
+        </aside>
+      </div>
+    </main>
+    <script src="../data/states.js"></script><script src="../map-engine.js"></script><script src="editable-annotations.js"></script>
+  </body>
+</html>

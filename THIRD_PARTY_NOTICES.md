@@ -88,3 +88,19 @@ INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
 LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
+
+## India Post PIN directory
+
+Catalog: https://www.data.gov.in/catalog/all-india-pincode-directory-through-webservice
+
+Repository: https://github.com/IndiaPost/pin
+
+Publisher: Department of Posts, Ministry of Communications, Government of
+India. The compact sample in `sample-data/india-pin-demo.json` was retrieved on
+2026-07-22 and is released under the Government Open Data License - India.
+
+License: https://www.data.gov.in/Godl
+
+The PIN explorer highlights the administrative district linked to a directory
+record. It does not present district geometry as an official postal boundary.
+The official georeferenced boundary catalog is linked from the example.

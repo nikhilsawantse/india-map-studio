@@ -44,6 +44,10 @@ response to user and contributor feedback.
   embedded maps.
 - [x] Provide sample datasets and a five-minute quick start.
 - [x] Make the repository usable as a GitHub template.
+- [x] Add synchronized rankings, editable annotations, guided stories, and
+  printable report exports.
+- [x] Add an India-specific PIN directory adapter with official source and
+  boundary-dataset links.
 
 ## Milestone 7: Quality and reach
 

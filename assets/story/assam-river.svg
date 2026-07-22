@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">River winding through tea hills</title><desc id="desc">An original abstract illustration used by the synthetic guided-tour example.</desc>
+  <rect width="640" height="360" fill="#e5ead5"/><path d="M0 220c110-95 190-80 290 0 105-86 205-86 350 0v140H0Z" fill="#6e9a72"/><path d="M0 265c125-60 228-48 320 16 102-63 208-67 320-16v95H0Z" fill="#36705d"/><path d="M250 0c-50 82 58 113 14 182-36 57-132 62-154 178h215c-7-93 60-132 92-191 39-72-36-117 12-169Z" fill="#75b7c8" opacity=".9"/><g fill="#fffdf7"><circle cx="78" cy="118" r="18"/><circle cx="112" cy="101" r="24"/><circle cx="148" cy="120" r="17"/></g>
+</svg>

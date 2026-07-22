@@ -53,9 +53,71 @@ test("example gallery fits a narrow viewport", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/examples/");
 
-  await expect(page.locator(".example-card")).toHaveCount(17);
-  await expect(page.locator('a[href="incident-alerts.html"]')).toBeVisible();
+  await expect(page.locator(".example-card")).toHaveCount(22);
+  await expect(page.locator('a[href="pin-code-explorer.html"]')).toBeVisible();
   const overflows = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1);
   expect(overflows).toBe(false);
+  expect(errors).toEqual([]);
+});
+
+test("ranking dashboard synchronizes district filters and statistics", async ({ page }) => {
+  const errors = collectRuntimeErrors(page);
+  await page.goto("/examples/ranking-dashboard.html");
+  await expect(page.locator("#ranking-map .map-region")).toHaveCount(36);
+  await page.locator("#ranking-level").selectOption("districts");
+  await expect(page.locator("#ranking-map .district-region")).toHaveCount(36);
+  await page.locator("#ranking-state").selectOption("assam");
+  await expect(page.locator("#ranking-map .district-region")).toHaveCount(33);
+  await page.locator("#ranking-filter").selectOption("top-5");
+  await expect(page.locator("#ranking-list li")).toHaveCount(5);
+  await expect(page.locator("#ranking-average")).not.toHaveText("—");
+  expect(errors).toEqual([]);
+});
+
+test("editable annotations persist locally", async ({ page }) => {
+  const errors = collectRuntimeErrors(page);
+  await page.goto("/examples/editable-annotations.html");
+  await expect(page.locator("#annotation-map .district-region")).toHaveCount(36);
+  await page.locator("#annotation-note").fill("Browser test note");
+  await page.locator("#annotation-place-district").click();
+  await expect(page.locator(".example-annotation-marker")).toHaveCount(1);
+  await page.reload();
+  await expect(page.locator(".example-annotation-marker")).toHaveCount(1);
+  await expect(page.locator("#annotation-list")).toContainText("Browser test note");
+  expect(errors).toEqual([]);
+});
+
+test("story map advances into a district chapter", async ({ page }) => {
+  const errors = collectRuntimeErrors(page);
+  await page.goto("/examples/story-map.html");
+  await expect(page.locator("#story-map .map-region")).toHaveCount(36);
+  await page.locator("#story-next").click();
+  await expect(page.locator("#story-map .district-region")).toHaveCount(36);
+  await expect(page.locator("#story-progress")).toHaveText("Step 2 of 4");
+  await expect(page.locator("#story-map .is-story-focus")).toHaveCount(1);
+  expect(errors).toEqual([]);
+});
+
+test("printable report keeps map, list, and title synchronized", async ({ page }) => {
+  const errors = collectRuntimeErrors(page);
+  await page.goto("/examples/printable-report.html");
+  await expect(page.locator("#print-map .district-region")).toHaveCount(36);
+  await page.locator("#print-title").fill("Monsoon readiness");
+  await page.locator("#print-district-list input").first().check();
+  await expect(page.locator("#print-preview-title")).toHaveText("Monsoon readiness");
+  await expect(page.locator("#print-map .is-print-selected")).toHaveCount(1);
+  await expect(page.locator("#print-preview-subtitle")).toContainText("1 of 36");
+  expect(errors).toEqual([]);
+});
+
+test("PIN explorer searches official sample records and highlights a district", async ({ page }) => {
+  const errors = collectRuntimeErrors(page);
+  await page.goto("/examples/pin-code-explorer.html");
+  await expect(page.locator("#pin-map .district-region")).toHaveCount(36);
+  await page.locator("#pin-search").fill("411001");
+  await expect(page.locator("#pin-results li")).toHaveCount(1);
+  await page.locator("#pin-results button").click();
+  await expect(page.locator("#pin-detail-title")).toContainText("411001");
+  await expect(page.locator("#pin-map .is-pin-focus")).toHaveCount(1);
   expect(errors).toEqual([]);
 });

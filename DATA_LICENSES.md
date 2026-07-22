@@ -20,6 +20,7 @@ confirmed or its geometry is replaced with a compatible source.
 | Junnar village SVG | Survey of India village archive republished by ramSeraph/opendata | The release page identifies Survey of India as the source but does not declare a redistribution license | HOLD |
 | Andheri, Borivali, Kurla, and Mumbai tehsil SVGs | OpenCity ward geometry clipped to Survey of India sub-district outlines | Mixed ODbL and Survey of India-derived geometry | HOLD |
 | LGD, Census, IGOD, and state-government names, counts, and identifiers | Government directories and publications listed in ATTRIBUTION.md | Used as factual reference metadata; source terms continue to apply | REVIEW on each data refresh |
+| Compact India Post PIN directory sample | Department of Posts `IndiaPost/pin` repository and OGD catalog, retrieved 2026-07-22 | Government Open Data License - India | READY with publisher, catalog, and record links; district highlights are explicitly distinguished from postal boundaries |
 
 ## Files excluded from the public repository
 

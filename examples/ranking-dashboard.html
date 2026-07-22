@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Rank Indian states or districts across multiple synthetic indicators with synchronized map, list, and summary statistics." />
+    <title>State and district ranking dashboard &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="examples.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span><strong>India Map Studio</strong><small>Ranking dashboard recipe</small></span></a>
+      <nav class="header-actions" aria-label="Example navigation"><a class="back-link" href="incident-alerts.html">Incident alerts</a><a class="back-link" href="index.html">All examples</a></nav>
+    </header>
+    <main class="example-page">
+      <div class="example-heading">
+        <div><p class="eyebrow">Example 18 &middot; Synchronized ranking</p><h1>See the same ranking in the map and list</h1><p class="intro">Switch indicators, compare nationwide states or one state&rsquo;s districts, and isolate top or bottom performers.</p></div>
+        <a class="example-source-link" href="ranking-dashboard.js">View JavaScript source</a>
+      </div>
+      <div class="example-workspace">
+        <section class="example-map-panel example-ranking-map-panel" aria-label="Regional ranking map">
+          <div class="example-map-toolbar"><span id="ranking-status" role="status">Loading ranking dashboard&hellip;</span><div class="example-ranking-legend" aria-label="Value color scale"><span>Lower</span><i aria-hidden="true"></i><span>Higher</span></div></div>
+          <div id="ranking-map" class="example-map example-ranking-map"></div>
+          <div id="ranking-caption" class="example-map-caption" aria-live="polite">Select a region or ranking row to inspect its value and rank.</div>
+        </section>
+        <aside class="example-control-panel">
+          <p class="eyebrow">Synthetic demonstration values</p><h2>Ranking controls</h2><p>Population, literacy, and project-progress values are deterministic sample data for interaction testing, not published statistics.</p>
+          <div class="example-ranking-control-row">
+            <label for="ranking-level">Geography<select id="ranking-level"><option value="states">States and UTs</option><option value="districts">Districts in one state</option></select></label>
+            <label for="ranking-indicator">Indicator<select id="ranking-indicator"><option value="population">Population estimate</option><option value="literacy">Literacy rate</option><option value="progress">Project progress</option></select></label>
+          </div>
+          <label for="ranking-state">District state or union territory</label><select id="ranking-state" disabled></select>
+          <label for="ranking-filter">Ranking range</label><select id="ranking-filter"><option value="all">Show all</option><option value="top-5">Top 5</option><option value="bottom-5">Bottom 5</option><option value="top-10">Top 10</option><option value="bottom-10">Bottom 10</option></select>
+          <dl class="example-ranking-stats"><div><dt>Average</dt><dd id="ranking-average">&mdash;</dd></div><div><dt>Median</dt><dd id="ranking-median">&mdash;</dd></div><div><dt>Range</dt><dd id="ranking-range">&mdash;</dd></div></dl>
+          <section class="example-ranking-results" aria-labelledby="ranking-list-title"><p class="eyebrow">Current order</p><h2 id="ranking-list-title">Ranked regions</h2><ol id="ranking-list"></ol></section>
+          <section id="ranking-detail" class="example-poi-detail" aria-labelledby="ranking-detail-title" hidden><p class="eyebrow">Selected region</p><h2 id="ranking-detail-title"></h2><p id="ranking-detail-copy"></p><code id="ranking-detail-id"></code></section>
+        </aside>
+      </div>
+    </main>
+    <script src="../data/states.js"></script><script src="../map-engine.js"></script><script src="ranking-dashboard.js"></script>
+  </body>
+</html>

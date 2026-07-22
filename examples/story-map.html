@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content="A step-by-step India story map that navigates between state and district highlights with narrative images." /><title>Story map guided tour &middot; India Map Studio</title><link rel="stylesheet" href="../styles.css" /><link rel="stylesheet" href="examples.css" /></head>
+  <body>
+    <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span><strong>India Map Studio</strong><small>Guided story recipe</small></span></a><nav class="header-actions" aria-label="Example navigation"><a class="back-link" href="editable-annotations.html">Annotations</a><a class="back-link" href="index.html">All examples</a></nav></header>
+    <main class="example-page">
+      <div class="example-heading"><div><p class="eyebrow">Example 20 &middot; Geographic storytelling</p><h1>Guide readers through places one step at a time</h1><p class="intro">Each chapter changes the boundary layer, highlighted location, narrative, and supporting image while preserving keyboard navigation.</p></div><a class="example-source-link" href="story-map.js">View JavaScript source</a></div>
+      <div class="example-story-layout">
+        <section class="example-map-panel example-story-map-panel" aria-label="Guided story map"><div class="example-map-toolbar"><span id="story-status" role="status">Loading guided tour&hellip;</span><span id="story-progress">Step 1 of 4</span></div><div id="story-map" class="example-map example-story-map"></div><div id="story-caption" class="example-map-caption" aria-live="polite">Loading the first story location.</div></section>
+        <aside class="example-story-panel">
+          <img id="story-image" class="example-story-image" src="../assets/story/western-ghats.svg" alt="" />
+          <div class="example-story-copy"><p id="story-kicker" class="eyebrow"></p><h2 id="story-title"></h2><p id="story-description"></p><code id="story-identifier"></code></div>
+          <div class="example-story-actions"><button id="story-previous" type="button">&larr; Previous</button><button id="story-next" type="button">Next &rarr;</button></div>
+          <ol id="story-steps" class="example-story-steps" aria-label="Tour chapters"></ol>
+        </aside>
+      </div>
+    </main>
+    <script src="../data/states.js"></script><script src="../map-engine.js"></script><script src="story-map.js"></script>
+  </body>
+</html>

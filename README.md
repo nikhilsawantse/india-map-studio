@@ -208,6 +208,11 @@ examples/nearby-places.html        Drop-point radius and proximity search
 examples/draw-select.html          Click, rectangle, and lasso district selection
 examples/service-coverage.html     Service-centre overlap and coverage planning
 examples/incident-alerts.html      Filterable district incident-response dashboard
+examples/ranking-dashboard.html   Synchronized state and district rankings
+examples/editable-annotations.html Locally saved, exchangeable map notes
+examples/story-map.html            Guided state and district narrative
+examples/printable-report.html     Print, SVG, and PNG report builder
+examples/pin-code-explorer.html    Official India Post directory adapter
 examples/embedded-map.html         Configurable iframe integration
 sample-data/                       Documented synthetic example datasets
 starter/                           Minimal editable map application
@@ -397,9 +402,10 @@ framework.
 
 Begin with the [five-minute quick start](docs/quick-start.html), edit the
 [minimal starter](starter/index.html), or browse the
-[runnable example library](examples/index.html). The included CSV and JSON
-files are synthetic demonstration data and should be replaced with documented
-real-world sources before publishing a map.
+[runnable example library](examples/index.html). Most included CSV and JSON
+files are synthetic demonstration data. The compact PIN directory sample is
+derived from the official India Post repository and is separately attributed;
+replace or extend every sample with documented sources before production use.
 
 ## Boundary registry
 

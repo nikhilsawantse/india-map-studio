@@ -58,6 +58,17 @@ release.
   switching, incident filters, and narrow layouts, plus axe checks for serious
   WCAG violations on representative public pages and a dedicated pull-request
   workflow with failure artifacts.
+- State and district ranking dashboard with multiple deterministic indicators,
+  top/bottom filters, synchronized statistics, list selection, and map colors.
+- Editable district-map annotations with categories, drag and keyboard
+  movement, local persistence, and validated JSON export/import.
+- Four-step guided story map with state/district layer changes, narrative
+  images, highlighted targets, and hash-addressable chapters.
+- Printable district report builder with editable title, legend, notes,
+  accessible multi-selection, print layout, and SVG or PNG export.
+- India Post PIN directory adapter with an attributed downloadable sample,
+  text search, official record links, and clearly labeled containing-district
+  highlights plus a link to the official PIN boundary GeoJSON catalog.
 
 ### Changed
 

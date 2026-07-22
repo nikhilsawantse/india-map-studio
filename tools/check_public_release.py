@@ -69,6 +69,20 @@ REQUIRED_FILES = (
     "examples/service-coverage.js",
     "examples/incident-alerts.html",
     "examples/incident-alerts.js",
+    "examples/ranking-dashboard.html",
+    "examples/ranking-dashboard.js",
+    "examples/editable-annotations.html",
+    "examples/editable-annotations.js",
+    "examples/story-map.html",
+    "examples/story-map.js",
+    "assets/story/western-ghats.svg",
+    "assets/story/pune-learning.svg",
+    "assets/story/assam-river.svg",
+    "assets/story/ladakh-himalaya.svg",
+    "examples/printable-report.html",
+    "examples/printable-report.js",
+    "examples/pin-code-explorer.html",
+    "examples/pin-code-explorer.js",
     "examples/embedded-map.html",
     "examples/embedded-map.js",
     "examples/embed-frame.html",
@@ -77,6 +91,7 @@ REQUIRED_FILES = (
     "sample-data/maharashtra-district-demo.csv",
     "sample-data/india-marker-demo.json",
     "sample-data/india-poi-layers-demo.json",
+    "sample-data/india-pin-demo.json",
     "sample-data/sample-map-marker.svg",
     "sample-data/README.md",
     "starter/index.html",
@@ -334,6 +349,33 @@ def main() -> int:
             errors.append(
                 f"The POI sample has an invalid source URL: {marker.get('id', '')}"
             )
+
+    pin_sample = json.loads(
+        (ROOT / "sample-data/india-pin-demo.json").read_text(encoding="utf-8")
+    )
+    pin_records = pin_sample.get("records", [])
+    pin_codes = [record.get("pincode", "") for record in pin_records]
+    maharashtra_district_slugs = set(
+        re.findall(r'data-slug="([a-z0-9-]+)"', maharashtra_source)
+    )
+    if len(pin_records) < 10 or len(pin_codes) != len(set(pin_codes)):
+        errors.append(
+            "The PIN sample must contain at least 10 uniquely identified PIN codes"
+        )
+    for record in pin_records:
+        pin_code = str(record.get("pincode", ""))
+        if not re.fullmatch(r"\d{6}", pin_code):
+            errors.append(f"The PIN sample has an invalid PIN code: {pin_code}")
+        if record.get("stateSlug") != "maharashtra":
+            errors.append(f"The PIN sample has an unsupported state: {pin_code}")
+        if record.get("districtSlug") not in maharashtra_district_slugs:
+            errors.append(
+                f"The PIN sample references an unknown district: {pin_code}"
+            )
+        if not str(record.get("sourceUrl", "")).startswith(
+            "https://github.com/IndiaPost/pin/blob/"
+        ):
+            errors.append(f"The PIN sample has an invalid source URL: {pin_code}")
 
     registry_check = subprocess.run(
         [sys.executable, "tools/build_boundary_registry.py", "--check"],

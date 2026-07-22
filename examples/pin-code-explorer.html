@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Search official India Post PIN directory samples and highlight their containing districts." />
+    <title>Postal PIN code explorer &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="examples.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span><strong>India Map Studio</strong><small>India-specific data recipe</small></span></a>
+      <nav class="header-actions" aria-label="Example navigation"><a class="back-link" href="printable-report.html">Printable report</a><a class="back-link" href="index.html">All examples</a></nav>
+    </header>
+    <main class="example-page">
+      <div class="example-heading"><div><p class="eyebrow">Example 22 &middot; Official directory adapter</p><h1>Find a PIN code and its containing district</h1><p class="intro">Search a compact official India Post sample, inspect post-office details, and keep the directory result synchronized with the administrative map.</p></div><a class="example-source-link" href="../sample-data/india-pin-demo.json" download>Download sample JSON</a></div>
+      <div class="example-workspace">
+        <section class="example-map-panel example-pin-map-panel" aria-label="PIN code district map">
+          <div class="example-map-toolbar"><span id="pin-status" role="status">Loading official directory sample&hellip;</span><span class="example-pin-badge">Directory match &rarr; district</span></div>
+          <div id="pin-map" class="example-map example-pin-map"></div>
+          <div id="pin-caption" class="example-map-caption" aria-live="polite">Choose a result to highlight its containing administrative district.</div>
+        </section>
+        <aside class="example-control-panel">
+          <p class="eyebrow">India Post sample</p><h2>PIN search</h2><p>Try <code>411001</code>, <code>Nagpur</code>, <code>Wardha</code>, or <code>H.O</code>. The bundled sample is deliberately small and downloadable.</p>
+          <label for="pin-search">PIN, office, district, or division</label><input id="pin-search" type="search" inputmode="search" autocomplete="off" placeholder="Search 411001 or Pune" />
+          <div class="example-pin-source-note"><strong>Boundary meaning</strong><p>This recipe highlights the containing district. For exact postal polygons, use the official 2025 PIN boundary GeoJSON linked below rather than treating district geometry as a PIN boundary.</p></div>
+          <section class="example-pin-results" aria-labelledby="pin-results-title"><p class="eyebrow">Matches</p><h2 id="pin-results-title">Official sample records</h2><ol id="pin-results"></ol></section>
+          <section id="pin-detail" class="example-poi-detail" aria-labelledby="pin-detail-title" hidden><p class="eyebrow">Selected PIN</p><h2 id="pin-detail-title"></h2><p id="pin-detail-copy"></p><code id="pin-detail-id"></code><p><a id="pin-record-source" href="#" target="_blank" rel="noopener">View official directory record</a></p></section>
+          <div class="example-pin-links"><a href="https://www.data.gov.in/catalog/all-india-pincode-boundary-geo-json" target="_blank" rel="noopener">Official PIN boundary GeoJSON</a><a href="https://github.com/IndiaPost/pin" target="_blank" rel="noopener">India Post directory repository</a></div>
+        </aside>
+      </div>
+    </main>
+    <script src="../data/states.js"></script><script src="../map-engine.js"></script><script src="pin-code-explorer.js"></script>
+  </body>
+</html>

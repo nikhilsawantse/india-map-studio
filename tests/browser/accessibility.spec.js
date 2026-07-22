@@ -7,6 +7,10 @@ const pages = [
   { name: "starter", path: "/starter/", ready: "india-svg-map svg" },
   { name: "service coverage", path: "/examples/service-coverage.html", ready: "#coverage-map svg" },
   { name: "incident alerts", path: "/examples/incident-alerts.html", ready: "#incident-map svg" },
+  { name: "ranking dashboard", path: "/examples/ranking-dashboard.html", ready: "#ranking-map svg" },
+  { name: "editable annotations", path: "/examples/editable-annotations.html", ready: "#annotation-map svg" },
+  { name: "printable report", path: "/examples/printable-report.html", ready: "#print-map svg" },
+  { name: "PIN explorer", path: "/examples/pin-code-explorer.html", ready: "#pin-map svg" },
 ];
 
 for (const entry of pages) {

@@ -17,6 +17,11 @@ demonstration data, not official statistics.
 - `maharashtra-district-demo.csv` exercises district-level data import in the
   authoring workspace and the runnable CSV district-data example. It includes
   numeric, categorical, URL, image, and summary fields for all 36 districts.
+- `india-pin-demo.json` is a compact, attributed subset of official India Post
+  directory records. It links twelve Maharashtra PIN codes to the repository's
+  district slugs for the PIN explorer and does not claim that district polygons
+  are postal boundaries.
 
-Every example labels synthetic values clearly. Replace them with data from a
-documented source before publishing a real map.
+Every synthetic example labels its values clearly. Replace demonstration data
+with a documented source before publishing a real map, and retain the source
+and license metadata when extending the official PIN sample.
