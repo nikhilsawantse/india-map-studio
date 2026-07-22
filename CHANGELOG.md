@@ -46,6 +46,10 @@ release.
 - Multi-district drawing example for every public state layer with click,
   rectangle, and freehand-lasso selection, keyboard toggles, removable result
   lists, and CSV or JSON identifier exports.
+- Service-area planning example for every public district layer with editable
+  office, warehouse, and field-team centres, adjustable illustrative reach,
+  coverage-gap and overlap highlighting, accessible district details, and CSV
+  assignment export.
 
 ### Changed
 

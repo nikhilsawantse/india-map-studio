@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Plan illustrative district service areas, overlaps, and uncovered regions with editable centres on India state SVG maps."
+    />
+    <title>Service area and coverage map &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="examples.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span><strong>India Map Studio</strong><small>Service coverage recipe</small></span>
+      </a>
+      <nav class="header-actions" aria-label="Example navigation">
+        <a class="back-link" href="draw-select.html">Draw districts</a>
+        <a class="back-link" href="index.html">All examples</a>
+      </nav>
+    </header>
+
+    <main class="example-page">
+      <div class="example-heading">
+        <div>
+          <p class="eyebrow">Example 16 &middot; Coverage planning</p>
+          <h1>Find gaps and overlapping service areas</h1>
+          <p class="intro">
+            Place up to five offices, warehouses, or field teams and compare their
+            illustrative district reach across any public state layer.
+          </p>
+        </div>
+        <a class="example-source-link" href="service-coverage.js">View JavaScript source</a>
+      </div>
+
+      <div class="example-workspace">
+        <section class="example-map-panel example-coverage-map-panel" aria-label="District service coverage map">
+          <div class="example-map-toolbar">
+            <span id="coverage-status" role="status">Loading coverage workspace&hellip;</span>
+            <div class="example-coverage-legend" aria-label="Coverage legend">
+              <span><i class="is-covered" aria-hidden="true"></i>Covered</span>
+              <span><i class="is-overlap" aria-hidden="true"></i>Overlap</span>
+              <span><i class="is-uncovered" aria-hidden="true"></i>Uncovered</span>
+            </div>
+          </div>
+          <div id="coverage-map" class="example-map example-coverage-map"></div>
+          <div id="coverage-caption" class="example-map-caption" aria-live="polite">
+            Select a district to inspect its current assignment.
+          </div>
+        </section>
+
+        <aside class="example-control-panel">
+          <p class="eyebrow">Coverage model</p>
+          <h2>Service centres</h2>
+          <p>
+            This example uses visual map distance to demonstrate coverage logic. It
+            does not represent travel time, road distance, or an official service area.
+          </p>
+
+          <label for="coverage-state">State or union territory</label>
+          <select id="coverage-state"></select>
+
+          <label for="coverage-centre-type">Type for the next centre</label>
+          <select id="coverage-centre-type">
+            <option value="office">Service office</option>
+            <option value="warehouse">Warehouse</option>
+            <option value="field-team">Field team</option>
+          </select>
+
+          <label for="coverage-reach">
+            Illustrative reach <output id="coverage-reach-value" for="coverage-reach">16%</output>
+          </label>
+          <input id="coverage-reach" type="range" min="8" max="30" step="1" value="16" />
+
+          <p id="coverage-summary" class="example-csv-summary" role="status"></p>
+          <dl class="example-coverage-counts">
+            <div><dt>Covered once</dt><dd id="coverage-covered">0</dd></div>
+            <div><dt>Overlap</dt><dd id="coverage-overlap">0</dd></div>
+            <div><dt>Uncovered</dt><dd id="coverage-uncovered">0</dd></div>
+          </dl>
+
+          <div class="example-draw-actions">
+            <button id="coverage-reset" type="button">Reset demo</button>
+            <button id="coverage-export" type="button">Export assignments</button>
+          </div>
+
+          <section class="example-coverage-centres" aria-labelledby="coverage-centres-title">
+            <p class="eyebrow">Active centres</p>
+            <h2 id="coverage-centres-title">0 centres</h2>
+            <p>Click or use the keyboard on a district to add or remove a centre.</p>
+            <ul id="coverage-centre-list" aria-label="Active service centres"></ul>
+          </section>
+
+          <section id="coverage-detail" class="example-poi-detail" aria-labelledby="coverage-detail-title" hidden>
+            <p class="eyebrow">District assignment</p>
+            <h2 id="coverage-detail-title"></h2>
+            <p id="coverage-detail-copy"></p>
+            <code id="coverage-detail-id"></code>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <script src="../data/states.js"></script>
+    <script src="../map-engine.js"></script>
+    <script src="service-coverage.js"></script>
+  </body>
+</html>

@@ -83,6 +83,9 @@ is a stable region slug such as `maharashtra`, not a display label.
 - Build a reusable district set with click, rectangle, or lasso selection and
   export its identifiers with the
   [draw-and-select example](../examples/draw-select.html).
+- Explore service-centre placement, coverage gaps, and overlapping assignments
+  across any public district layer with the
+  [service-area example](../examples/service-coverage.html).
 - Publish a clean iframe with the
   [embedded-map example](../examples/embedded-map.html).
 - Read the full [map engine API](map-engine.md).

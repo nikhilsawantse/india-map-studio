@@ -203,6 +203,7 @@ examples/custom-icons.html         Sanitized user-supplied SVG marker preview
 examples/location-finder.html      Fuzzy administrative boundary search
 examples/nearby-places.html        Drop-point radius and proximity search
 examples/draw-select.html          Click, rectangle, and lasso district selection
+examples/service-coverage.html     Service-centre overlap and coverage planning
 examples/embedded-map.html         Configurable iframe integration
 sample-data/                       Documented synthetic example datasets
 starter/                           Minimal editable map application
