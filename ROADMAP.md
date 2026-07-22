@@ -47,7 +47,7 @@ response to user and contributor feedback.
 
 ## Milestone 7: Quality and reach
 
-- [ ] Add automated accessibility and browser tests.
+- [x] Add automated accessibility and browser tests.
 - [ ] Establish mobile and large-layer performance budgets.
 - [ ] Add localization infrastructure and offline support.
 

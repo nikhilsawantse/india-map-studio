@@ -112,6 +112,9 @@
       else this.mount.innerHTML = svgText;
       this.svg = this.mount.querySelector("svg");
       if (!this.svg) throw new Error("The map source did not contain an SVG element.");
+      if (this.svg.querySelector('[tabindex], [role="link"], [role="button"]')) {
+        this.svg.setAttribute("role", "group");
+      }
       this.refresh();
       this.mount.classList.add("is-map-ready");
       this.emit("mapload", { featureCount: this.features.length, svg: this.svg });

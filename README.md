@@ -95,6 +95,9 @@ assets, with no application framework or build step required.
 - Mobile and keyboard accessibility polish with skip links, live result and map
   announcements, roving map focus, arrow-key navigation, larger touch targets,
   responsive legends, and reduced-motion/high-contrast support
+- Automated Chromium smoke tests for core map interactions and narrow layouts,
+  plus axe checks for serious WCAG accessibility violations on representative
+  public pages
 - A populated Maharashtra demo dataset in `sample-data/maharashtra-district-demo.csv`
 - A dependency-free Python generator for rebuilding the SVG files
 
@@ -411,6 +414,5 @@ python tools/build_boundary_registry.py --check
 
 ## Next milestone
 
-Add automated accessibility and browser tests, mobile and large-layer
-performance budgets, localization infrastructure, and offline support. See
-[ROADMAP.md](ROADMAP.md).
+Establish mobile and large-layer performance budgets, then add localization
+infrastructure and offline support. See [ROADMAP.md](ROADMAP.md).

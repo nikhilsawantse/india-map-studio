@@ -1,0 +1,31 @@
+import AxeBuilder from "@axe-core/playwright";
+import { expect, test } from "@playwright/test";
+
+const pages = [
+  { name: "national explorer", path: "/", ready: "#india-map svg" },
+  { name: "example gallery", path: "/examples/", ready: ".examples-grid" },
+  { name: "starter", path: "/starter/", ready: "india-svg-map svg" },
+  { name: "service coverage", path: "/examples/service-coverage.html", ready: "#coverage-map svg" },
+  { name: "incident alerts", path: "/examples/incident-alerts.html", ready: "#incident-map svg" },
+];
+
+for (const entry of pages) {
+  test(`${entry.name} has no serious automated accessibility violations`, async ({ page }) => {
+    await page.goto(entry.path);
+    await expect(page.locator(entry.ready)).toBeVisible();
+
+    const results = await new AxeBuilder({ page })
+      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .analyze();
+    const blocking = results.violations
+      .filter((violation) => violation.impact === "critical" || violation.impact === "serious")
+      .map((violation) => ({
+        id: violation.id,
+        impact: violation.impact,
+        help: violation.help,
+        targets: violation.nodes.map((node) => node.target.join(" ")),
+      }));
+
+    expect(blocking, JSON.stringify(blocking, null, 2)).toEqual([]);
+  });
+}

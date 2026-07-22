@@ -1,0 +1,18 @@
+{
+  "name": "india-map-studio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:browser": "node tools/run-browser-tests.mjs",
+    "test:browser:headed": "node tools/run-browser-tests.mjs --headed"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.12.1",
+    "@playwright/test": "1.61.1"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@11.9.0"
+}

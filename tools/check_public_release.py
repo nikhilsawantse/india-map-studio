@@ -26,6 +26,9 @@ REQUIRED_FILES = (
     "LICENSE",
     "DATA_LICENSES.md",
     "THIRD_PARTY_NOTICES.md",
+    "package.json",
+    "pnpm-lock.yaml",
+    "playwright.config.js",
     "assets/maps/india-states.svg",
     "map-engine.js",
     "india-svg-map.js",
@@ -93,6 +96,10 @@ REQUIRED_FILES = (
     "tools/validate_boundary_contribution.py",
     "tools/check_contributions.py",
     "tools/new_boundary_contribution.py",
+    "tools/run-browser-tests.mjs",
+    "tests/browser/smoke.spec.js",
+    "tests/browser/accessibility.spec.js",
+    ".github/workflows/browser-quality.yml",
 )
 
 LOCAL_ONLY_FILES = (

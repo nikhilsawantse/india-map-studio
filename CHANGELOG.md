@@ -54,6 +54,10 @@ release.
   severity, type, time-window, and resolved-status filters, accessible alert
   markers and district inspection, local acknowledge/resolve actions, and CSV
   export of the visible queue.
+- Automated Playwright smoke coverage for national selection, district-layer
+  switching, incident filters, and narrow layouts, plus axe checks for serious
+  WCAG violations on representative public pages and a dedicated pull-request
+  workflow with failure artifacts.
 
 ### Changed
 
@@ -65,6 +69,8 @@ release.
   the reusable map engine while keeping page-specific panels and routing local.
 - Map previews now remain visible while scrolling through long desktop control
   panels in the state, district, and custom-map workspaces.
+- Map SVG roots containing keyboard controls now use group semantics so their
+  interactive regions are exposed without nested-control accessibility errors.
 
 ### Fixed
 

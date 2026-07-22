@@ -79,12 +79,20 @@ Run `python tools/check_public_release.py` before opening a pull request. It
 checks publication safety, public routes, feature totals, and registry
 compatibility.
 
+Install the browser-test dependencies once, then run the Chromium smoke and
+accessibility suite:
+
+    pnpm install
+    pnpm exec playwright install chromium
+    pnpm test:browser
+
 When adding a staged SVG or GeoJSON contribution, also run:
 
     python tools/check_contributions.py
     python -m unittest discover -s tests -v
 
-The same checks run automatically on every pull request.
+The validation and browser-quality checks run automatically on every pull
+request.
 
 ## Pull requests
 
