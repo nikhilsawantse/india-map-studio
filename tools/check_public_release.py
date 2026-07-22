@@ -46,6 +46,7 @@ REQUIRED_FILES = (
     "examples/multiple-maps.html",
     "examples/index.html",
     "examples/examples-index.js",
+    "examples/copy-snippets.js",
     "examples/choropleth.html",
     "examples/choropleth.js",
     "examples/csv-data.html",
@@ -128,6 +129,7 @@ REQUIRED_FILES = (
     "tests/browser/mobile.spec.js",
     "tests/browser/mobile-accessibility.spec.js",
     "tests/browser/public-api.spec.js",
+    "tests/browser/copy-snippets.spec.js",
     "tests/test_public_contract.py",
     "tests/performance/performance.spec.js",
     ".github/workflows/browser-quality.yml",
@@ -166,6 +168,9 @@ MOBILE_WORKSPACE_LAYOUT = re.compile(
     r'class="(?:[^"]*\s)?(?:workspace|state-workspace|district-workspace|'
     r'custom-map-workspace|example-workspace|example-print-layout|'
     r'example-embed-layout|example-story-layout)(?:\s[^"]*)?"'
+)
+EXAMPLE_CARD_HREF = re.compile(
+    r'class="example-card"\s+href="([a-z0-9-]+\.html)"'
 )
 
 
@@ -241,6 +246,25 @@ def main() -> int:
     if len(state_maps) != 36:
         errors.append(
             f"Expected 36 public state/UT SVG files, found {len(state_maps)}"
+        )
+
+    example_index_source = (ROOT / "examples/index.html").read_text(
+        encoding="utf-8"
+    )
+    runnable_examples = EXAMPLE_CARD_HREF.findall(example_index_source)
+    runnable_examples.append("multiple-maps.html")
+    snippet_source = (ROOT / "examples/copy-snippets.js").read_text(
+        encoding="utf-8"
+    )
+    for filename in runnable_examples:
+        example_source = (ROOT / "examples" / filename).read_text(encoding="utf-8")
+        if 'src="copy-snippets.js"' not in example_source:
+            errors.append(f"Runnable example is missing copy snippets: {filename}")
+        if f'"{filename}"' not in snippet_source:
+            errors.append(f"Copy snippet registry is missing: {filename}")
+    if len(runnable_examples) != 23:
+        errors.append(
+            f"Expected 23 copy-enabled runnable demos, found {len(runnable_examples)}"
         )
 
     district_count = 0

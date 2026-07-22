@@ -82,6 +82,9 @@ release.
 - Frozen Version 1 contracts for `IndiaMapEngine`, `<india-svg-map>`, the
   boundary registry, and contribution manifests, with runtime version markers,
   strict schemas, compatibility documentation, and automated contract tests.
+- Collapsed, copy-ready starter recipes for all 22 gallery demos and the
+  reusable multiple-map example, with clipboard fallback, mobile-safe code
+  presentation, and automated coverage checks.
 
 ### Changed
 

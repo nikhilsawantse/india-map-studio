@@ -43,6 +43,8 @@ assets, with no application framework or build step required.
   comparisons, custom SVG icons, and configurable iframe embeds
 - Synthetic CSV and JSON example datasets, a five-minute quick start, and a
   minimal editable starter application
+- Collapsed, copy-ready starter recipes on all 22 gallery demos plus the
+  reusable multiple-map example
 - Hover, keyboard focus, search, selection, and tooltips
 - Navigation to a standalone page for every region
 - 36 separate state and union-territory SVG files with 750 interactive
@@ -412,8 +414,10 @@ the supported surface, Semantic Versioning rules, and contributor gate.
 Begin with the [five-minute quick start](docs/quick-start.html), edit the
 [minimal starter](starter/index.html), or browse the
 [runnable example library](examples/index.html). Most included CSV and JSON
-files are synthetic demonstration data. The compact PIN directory sample is
-derived from the official India Post repository and is separately attributed;
+files are synthetic demonstration data. Open **Copy this recipe** near the
+bottom of any runnable example for its focused starter snippet. The compact
+PIN directory sample is derived from the official India Post repository and is
+separately attributed;
 replace or extend every sample with documented sources before production use.
 
 ## Boundary registry
@@ -447,7 +451,6 @@ the behavior contract and copyable helper setup.
 
 ## Next milestone
 
-Add copy-paste starter snippets to every runnable example, then publish
-migration notes, release assets, and citation metadata before the Version 1.0
-release. Localization and offline support are intentionally deferred. See
-[ROADMAP.md](ROADMAP.md).
+Publish migration notes, release assets, and citation metadata, then create the
+stable Version 1.0 tag. Localization and offline support are intentionally
+deferred. See [ROADMAP.md](ROADMAP.md).
