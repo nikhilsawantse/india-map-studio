@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Build a copy-ready India SVG map starter with guided choices, sample data, and a live preview."
+    />
+    <title>Project starter generator &middot; India Map Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="starter-generator.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="India Map Studio home">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span><strong>India Map Studio</strong><small>Project starter generator</small></span>
+      </a>
+      <nav class="header-actions" aria-label="Generator navigation">
+        <a class="back-link" href="examples/index.html">Examples</a>
+        <a class="back-link" href="docs/quick-start.html">Quick start</a>
+        <a class="back-link" href="index.html">&larr; India map</a>
+      </nav>
+    </header>
+
+    <main class="generator-page">
+      <section class="generator-hero" aria-labelledby="generator-title">
+        <div>
+          <p class="eyebrow">No build tools required</p>
+          <h1 id="generator-title">Create your map starter</h1>
+          <p class="intro">
+            Choose a boundary layer and interaction. The live preview and a complete,
+            standalone HTML file update together.
+          </p>
+        </div>
+        <ol class="generator-steps" aria-label="Generator workflow">
+          <li><span>1</span> Choose</li>
+          <li><span>2</span> Preview</li>
+          <li><span>3</span> Copy</li>
+        </ol>
+      </section>
+
+      <div class="generator-workspace">
+        <form id="generator-form" class="generator-controls" autocomplete="off">
+          <fieldset>
+            <legend><span>01</span> Boundary layer</legend>
+            <div class="generator-choice-grid">
+              <label class="generator-choice">
+                <input type="radio" name="map-level" value="india" checked />
+                <span><strong>India</strong><small>States and union territories</small></span>
+              </label>
+              <label class="generator-choice">
+                <input type="radio" name="map-level" value="state" />
+                <span><strong>State</strong><small>District boundaries</small></span>
+              </label>
+              <label class="generator-choice">
+                <input type="radio" name="map-level" value="district" />
+                <span><strong>District</strong><small>Published subdivisions</small></span>
+              </label>
+            </div>
+
+            <label id="state-field" class="generator-field" hidden>
+              <span>State or union territory</span>
+              <select id="generator-state"></select>
+            </label>
+            <label id="district-field" class="generator-field" hidden>
+              <span>Published district layer</span>
+              <select id="generator-district">
+                <option value="maharashtra/pune">Pune, Maharashtra &middot; 14 tehsils</option>
+              </select>
+              <small>More subdivision layers can be added through the boundary contribution workflow.</small>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend><span>02</span> Map purpose</legend>
+            <label class="generator-field">
+              <span>Use-case preset</span>
+              <select id="generator-preset">
+                <option value="explorer">Interactive explorer</option>
+                <option value="choropleth">Data choropleth</option>
+                <option value="markers">Proportional markers</option>
+                <option value="drill-down">Drill-down navigation</option>
+                <option value="ranking">Ranking dashboard</option>
+                <option value="annotations">Editable annotations</option>
+                <option value="printable">Printable report</option>
+              </select>
+            </label>
+            <p id="preset-description" class="generator-hint"></p>
+          </fieldset>
+
+          <fieldset>
+            <legend><span>03</span> Appearance</legend>
+            <label class="generator-field">
+              <span>Project title</span>
+              <input id="generator-project-title" type="text" value="My India map" maxlength="80" />
+            </label>
+            <div class="generator-colors">
+              <label><span>Low value</span><input id="generator-low" type="color" value="#dce9df" /></label>
+              <label><span>High value</span><input id="generator-high" type="color" value="#115d4d" /></label>
+              <label><span>Selected</span><input id="generator-selected" type="color" value="#e66b43" /></label>
+            </div>
+            <div class="generator-checks">
+              <label><input id="generator-selection" type="checkbox" checked /> Allow selection</label>
+              <label><input id="generator-legend" type="checkbox" checked /> Show legend</label>
+              <label><input id="generator-list" type="checkbox" checked /> Show data list</label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><span>04</span> Sample data</legend>
+            <p class="generator-hint">
+              Import <code>slug,label,value</code>, or keep the generated synthetic values.
+            </p>
+            <div class="generator-file-actions">
+              <label class="secondary-button generator-file-button">
+                Import CSV
+                <input id="generator-csv" type="file" accept=".csv,text/csv" />
+              </label>
+              <button id="download-generator-csv" class="secondary-button" type="button">Download sample CSV</button>
+              <button id="reset-generator-data" class="text-button" type="button">Reset sample</button>
+            </div>
+            <p id="generator-data-status" class="generator-status" role="status" aria-live="polite"></p>
+          </fieldset>
+        </form>
+
+        <section class="generator-output" aria-label="Generated project preview">
+          <div class="generator-preview-card">
+            <div class="generator-preview-head">
+              <div>
+                <p class="eyebrow">Live preview</p>
+                <h2 id="generator-preview-title">My India map</h2>
+              </div>
+              <span id="generator-feature-count" class="generator-count">Loading map&hellip;</span>
+            </div>
+            <div class="generator-demo">
+              <div id="generator-map" class="generator-map" aria-label="Generated map preview"></div>
+              <aside class="generator-preview-data" aria-label="Preview details">
+                <div id="generator-legend-preview" class="generator-legend">
+                  <span>Lower</span><i aria-hidden="true"></i><span>Higher</span>
+                </div>
+                <div id="generator-selection-preview" class="generator-selection-preview">
+                  <strong>Choose a region</strong>
+                  <span>Select a boundary to inspect its stable slug.</span>
+                </div>
+                <ol id="generator-ranking" class="generator-ranking" aria-label="Ranked map data"></ol>
+              </aside>
+            </div>
+          </div>
+
+          <div class="generator-delivery">
+            <div>
+              <p class="eyebrow">Your starter</p>
+              <h2>One file, ready to use</h2>
+              <p id="generator-output-summary">Hosted map assets keep the generated file small.</p>
+            </div>
+            <div class="generator-delivery-actions">
+              <button id="copy-generator-html" class="primary-button" type="button">Copy HTML</button>
+              <button id="download-generator-html" class="secondary-button" type="button">Download HTML</button>
+            </div>
+            <p id="generator-copy-status" class="generator-status" role="status" aria-live="polite"></p>
+            <details class="generator-code-details">
+              <summary>Inspect generated HTML</summary>
+              <pre><code id="generator-code"></code></pre>
+            </details>
+            <div class="generator-github-actions">
+              <a href="https://github.com/nikhilsawantse/india-map-studio/generate" target="_blank" rel="noreferrer">Use GitHub template &rarr;</a>
+              <a href="https://github.com/nikhilsawantse/india-map-studio/fork" target="_blank" rel="noreferrer">Fork the full library &rarr;</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="map-engine.js"></script>
+    <script src="data/states.js"></script>
+    <script src="data/district-maps.js"></script>
+    <script src="starter-generator.js"></script>
+    <script src="mobile-workspace.js"></script>
+  </body>
+</html>

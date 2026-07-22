@@ -4979,7 +4979,7 @@ a.breadcrumb-item:focus-visible {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  :is(.workspace, .state-workspace, .district-workspace, .custom-map-workspace)
+  :is(.workspace, .state-workspace, .district-workspace, .custom-map-workspace, .generator-workspace)
     > * {
     min-width: 0;
   }
@@ -5010,7 +5010,7 @@ a.breadcrumb-item:focus-visible {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  :is(.workspace, .state-workspace, .district-workspace, .custom-map-workspace)
+  :is(.workspace, .state-workspace, .district-workspace, .custom-map-workspace, .generator-workspace)
     > .mobile-workspace-nav {
     position: sticky;
     z-index: 20;

@@ -9,7 +9,8 @@
     { root: ".example-workspace", controls: ".example-control-panel", map: ".example-map-panel" },
     { root: ".example-print-layout", controls: ".example-print-controls", map: ".example-print-report" },
     { root: ".example-embed-layout", controls: ".example-control-panel", map: ".example-embed-preview", controlsLabel: "Settings", mapLabel: "Preview" },
-    { root: ".example-story-layout", controls: ".example-story-panel", map: ".example-map-panel", controlsLabel: "Story", mapLabel: "Map" }
+    { root: ".example-story-layout", controls: ".example-story-panel", map: ".example-map-panel", controlsLabel: "Story", mapLabel: "Map" },
+    { root: ".generator-workspace", controls: ".generator-controls", map: ".generator-output", controlsLabel: "Customize", mapLabel: "Preview" }
   ];
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 

@@ -67,6 +67,7 @@ test("primary mobile workspaces remain within the viewport", async ({ page }) =>
     "/",
     "/district.html?state=maharashtra&district=pune",
     "/custom-map.html",
+    "/starter-generator.html",
     "/examples/drill-down.html",
     "/examples/incident-alerts.html",
     "/examples/pin-code-explorer.html",

@@ -5,7 +5,11 @@ Semantic Versioning.
 
 ## Unreleased
 
-No changes yet.
+### Added
+
+- Guided project starter generator with India, state-district, and published
+  district-subdivision layers; seven use-case presets; live styling and data
+  previews; CSV import; and copyable or downloadable standalone HTML output.
 
 ## [1.0.0] - 2026-07-22
 

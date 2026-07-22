@@ -9,7 +9,7 @@
 [![Version 1](https://img.shields.io/badge/API-Version%201-c84b2f.svg)](docs/api-stability.md)
 [![No framework](https://img.shields.io/badge/framework-none-e8eee9.svg)](#five-minute-start)
 
-**[Open the live map](https://nikhilsawantse.github.io/india-map-studio/)** | **[Browse examples](https://nikhilsawantse.github.io/india-map-studio/examples/)** | **[Start in five minutes](https://nikhilsawantse.github.io/india-map-studio/docs/quick-start.html)** | **[Use this template](https://github.com/nikhilsawantse/india-map-studio/generate)**
+**[Open the live map](https://nikhilsawantse.github.io/india-map-studio/)** | **[Generate a starter](https://nikhilsawantse.github.io/india-map-studio/starter-generator.html)** | **[Browse examples](https://nikhilsawantse.github.io/india-map-studio/examples/)** | **[Start in five minutes](https://nikhilsawantse.github.io/india-map-studio/docs/quick-start.html)** | **[Use this template](https://github.com/nikhilsawantse/india-map-studio/generate)**
 
 </div>
 
@@ -53,6 +53,10 @@ Every demo is runnable, searchable, and includes a collapsed recipe that can be 
 | Keyboard, touch, narrow-screen, and accessibility coverage | Custom SVG/GeoJSON import and standalone HTML export | MIT application code with explicit third-party data notices |
 
 ## Five-minute start
+
+Prefer a guided setup? The [project starter generator](https://nikhilsawantse.github.io/india-map-studio/starter-generator.html)
+lets you choose a layer, use-case preset, colors, and CSV data while previewing
+the result, then copies or downloads a complete standalone HTML file.
 
 SVG files are fetched by the browser, so serve the folder over HTTP:
 
@@ -146,11 +150,12 @@ Tehsil:   IN-REGION-27-DISTRICT-521-TEHSIL-04187
 
 | Get started | Build and publish | Project governance |
 | --- | --- | --- |
-| [Five-minute quick start](docs/quick-start.md) | [Map engine API](docs/map-engine.md) | [Contributing](CONTRIBUTING.md) |
-| [Minimal starter](starter/) | [Performance guide](docs/performance.md) | [Roadmap](ROADMAP.md) |
-| [Example library](examples/) | [Mobile UX contract](docs/mobile-ux.md) | [Security policy](SECURITY.md) |
-| [Version 1 migration](MIGRATION.md) | [Release notes](RELEASE_NOTES.md) | [Citation metadata](CITATION.cff) |
-| [Boundary registry](data/boundary-registry.json) | [Release process](RELEASE_PROCESS.md) | [Data licences](DATA_LICENSES.md) |
+| [Guided starter generator](starter-generator.html) | [Map engine API](docs/map-engine.md) | [Contributing](CONTRIBUTING.md) |
+| [Five-minute quick start](docs/quick-start.md) | [Performance guide](docs/performance.md) | [Roadmap](ROADMAP.md) |
+| [Minimal starter](starter/) | [Mobile UX contract](docs/mobile-ux.md) | [Security policy](SECURITY.md) |
+| [Example library](examples/) | [Release notes](RELEASE_NOTES.md) | [Citation metadata](CITATION.cff) |
+| [Version 1 migration](MIGRATION.md) | [Release process](RELEASE_PROCESS.md) | [Data licences](DATA_LICENSES.md) |
+| [Boundary registry](data/boundary-registry.json) | [API stability](docs/api-stability.md) | [Code of conduct](CODE_OF_CONDUCT.md) |
 
 ## Project layout
 

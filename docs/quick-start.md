@@ -3,6 +3,10 @@
 Build a keyboard-accessible interactive India map with plain HTML and
 JavaScript. No package installation or build step is required.
 
+Want the complete file generated for you? Open the
+[guided project starter](../starter-generator.html), choose a boundary layer
+and interaction, preview the result, then copy or download the standalone HTML.
+
 ## 1. Create or clone the project
 
 Use this repository as a GitHub template, or clone it:

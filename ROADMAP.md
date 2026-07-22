@@ -62,3 +62,11 @@ response to user and contributor feedback.
 - [x] Add copy-paste starter snippets to every runnable example.
 - [x] Publish migration notes, release assets, and citation metadata.
 - [x] Create a stable tagged GitHub release.
+
+## Milestone 9: Guided project starter
+
+- [x] Generate standalone HTML for national, state, and published district layers.
+- [x] Provide explorer, choropleth, marker, drill-down, ranking, annotation, and print presets.
+- [x] Preview styling and interactions before export.
+- [x] Import or download sample CSV data using stable slugs.
+- [x] Link generated projects to the GitHub template and full library.

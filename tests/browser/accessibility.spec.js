@@ -10,6 +10,7 @@ const pages = [
   { name: "migration guide", path: "/docs/migration.html", ready: ".engine-docs" },
   { name: "release notes", path: "/docs/release-notes.html", ready: ".engine-docs" },
   { name: "starter", path: "/starter/", ready: "india-svg-map svg" },
+  { name: "project starter generator", path: "/starter-generator.html", ready: "#generator-map svg" },
   { name: "service coverage", path: "/examples/service-coverage.html", ready: "#coverage-map svg" },
   { name: "incident alerts", path: "/examples/incident-alerts.html", ready: "#incident-map svg" },
   { name: "ranking dashboard", path: "/examples/ranking-dashboard.html", ready: "#ranking-map svg" },
