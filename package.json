@@ -1,12 +1,13 @@
 {
   "name": "india-map-studio",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "test:browser": "node tools/run-browser-tests.mjs",
     "test:browser:headed": "node tools/run-browser-tests.mjs --headed",
-    "test:performance": "node tools/check-performance-budgets.mjs && node tools/run-browser-tests.mjs --config playwright.performance.config.js"
+    "test:performance": "node tools/check-performance-budgets.mjs && node tools/run-browser-tests.mjs --config playwright.performance.config.js",
+    "build:release": "python tools/build_release.py"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.12.1",

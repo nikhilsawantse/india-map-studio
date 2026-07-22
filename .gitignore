@@ -9,6 +9,7 @@ Thumbs.db
 node_modules/
 playwright-report/
 test-results/
+dist/
 
 # Local-only boundary assets pending confirmed redistribution rights.
 assets/maps/districts/maharashtra/mumbai-city.svg

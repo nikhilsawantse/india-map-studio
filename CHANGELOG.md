@@ -1,11 +1,13 @@
 # Changelog
 
-All notable user-facing changes will be documented here.
-
-The project intends to follow Semantic Versioning after its first public
-release.
+All notable user-facing changes will be documented here. Stable releases follow
+Semantic Versioning.
 
 ## Unreleased
+
+No changes yet.
+
+## [1.0.0] - 2026-07-22
 
 ### Added
 
@@ -85,6 +87,9 @@ release.
 - Collapsed, copy-ready starter recipes for all 22 gallery demos and the
   reusable multiple-map example, with clipboard fallback, mobile-safe code
   presentation, and automated coverage checks.
+- Version 1 migration guidance, release notes, citation metadata, deterministic
+  source and starter archives, checksum generation, and a tag-driven GitHub
+  release workflow.
 
 ### Changed
 

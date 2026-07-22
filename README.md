@@ -22,6 +22,8 @@ assets, with no application framework or build step required.
 - [Roadmap](ROADMAP.md)
 - [Security policy](SECURITY.md)
 - [Citation metadata](CITATION.cff)
+- [Version 1 migration guide](MIGRATION.md)
+- [Version 1 release notes](RELEASE_NOTES.md)
 
 ## What is included
 
@@ -197,6 +199,8 @@ mobile-workspace.js                Touch-friendly controls/map jump navigation
 docs/map-engine.md                 Public configuration, methods, and events
 docs/performance.md                Versioned performance limits and guidance
 docs/mobile-ux.md                  Mobile layout and touch behavior contract
+docs/migration.html                Published Version 1 migration guide
+docs/release-notes.html            Published Version 1 release notes
 performance-budgets.json          Static, desktop, mobile, and interaction budgets
 examples/multiple-maps.html        Two independent component instances
 examples/index.html                Focused example library
@@ -270,6 +274,7 @@ data/district-maps.js              Dedicated district SVG asset registry
 data/tehsil-maps.js                Dedicated tehsil SVG asset registry
 standalone-export.js               Single-file interactive map exporter
 styles.css                         Shared responsive styling
+tools/build_release.py             Deterministic source/starter archive builder
 ```
 
 ## Identifier convention
@@ -449,8 +454,23 @@ Controls/Map jumps, 44-pixel coarse-pointer targets, mobile-safe form sizing,
 and overflow-tested layouts. See the [mobile UX guide](docs/mobile-ux.md) for
 the behavior contract and copyable helper setup.
 
+## Version 1 release packages
+
+Read the [migration guide](docs/migration.html), the
+[release notes](docs/release-notes.html), and the
+[Version 1 stability contract](docs/api-stability.html). Build the same
+deterministic archives used by the tag workflow with:
+
+```text
+python tools/build_release.py
+```
+
+The command writes the complete source archive, minimal starter archive, and
+`SHA256SUMS.txt` to the ignored `dist/` directory. Review
+[RELEASE_PROCESS.md](RELEASE_PROCESS.md) before creating a release tag.
+
 ## Next milestone
 
-Publish migration notes, release assets, and citation metadata, then create the
-stable Version 1.0 tag. Localization and offline support are intentionally
-deferred. See [ROADMAP.md](ROADMAP.md).
+Create and verify the stable Version 1.0 Git tag and GitHub release.
+Localization and offline support are intentionally deferred. See
+[ROADMAP.md](ROADMAP.md).

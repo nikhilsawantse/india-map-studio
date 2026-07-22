@@ -2,9 +2,13 @@
 
 ## Supported version
 
-Until the first stable release, security fixes apply to the latest revision on
-the default branch. After version 1.0, this file will list supported release
-lines.
+| Release line | Supported |
+| --- | --- |
+| 1.x | Yes |
+| Earlier development revisions | No |
+
+Security fixes apply to the latest Version 1 minor or patch release and the
+corresponding revision on the default branch.
 
 ## Report a vulnerability
 

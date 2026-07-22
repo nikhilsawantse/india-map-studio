@@ -10,6 +10,9 @@ India Map Studio follows Semantic Versioning for its public runtime and data
 contracts. Code that uses only the surface listed below can upgrade between
 compatible `1.x` releases without application changes.
 
+Projects created before this contract should follow the
+[Version 1 migration guide](../MIGRATION.md).
+
 ## Stable JavaScript surface
 
 The stable runtime export is `window.IndiaMapEngine`. Its version is available

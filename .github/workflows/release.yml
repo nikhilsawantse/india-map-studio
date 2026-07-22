@@ -1,0 +1,51 @@
+name: Publish tagged release
+
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out tagged source
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate tests and public release
+        run: |
+          python -m unittest discover -s tests -v
+          python tools/check_public_release.py
+          node tools/check-performance-budgets.mjs
+      - name: Build deterministic release assets
+        run: python tools/build_release.py
+      - name: Upload workflow artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: india-map-studio-${{ github.ref_name }}
+          path: dist/
+          if-no-files-found: error
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          gh release create "$GITHUB_REF_NAME" \
+            "dist/india-map-studio-${VERSION}.zip" \
+            "dist/india-map-studio-starter-${VERSION}.zip" \
+            "dist/SHA256SUMS.txt" \
+            --verify-tag \
+            --title "India Map Studio ${VERSION}" \
+            --notes-file RELEASE_NOTES.md

@@ -26,6 +26,10 @@ REQUIRED_FILES = (
     "LICENSE",
     "DATA_LICENSES.md",
     "THIRD_PARTY_NOTICES.md",
+    "MIGRATION.md",
+    "RELEASE_NOTES.md",
+    "RELEASE_PROCESS.md",
+    "CITATION.cff",
     "package.json",
     "pnpm-lock.yaml",
     "playwright.config.js",
@@ -39,6 +43,8 @@ REQUIRED_FILES = (
     "docs/map-engine.html",
     "docs/api-stability.md",
     "docs/api-stability.html",
+    "docs/migration.html",
+    "docs/release-notes.html",
     "docs/performance.md",
     "docs/performance.html",
     "docs/mobile-ux.md",
@@ -124,6 +130,7 @@ REQUIRED_FILES = (
     "tools/new_boundary_contribution.py",
     "tools/run-browser-tests.mjs",
     "tools/check-performance-budgets.mjs",
+    "tools/build_release.py",
     "tests/browser/smoke.spec.js",
     "tests/browser/accessibility.spec.js",
     "tests/browser/mobile.spec.js",
@@ -131,8 +138,10 @@ REQUIRED_FILES = (
     "tests/browser/public-api.spec.js",
     "tests/browser/copy-snippets.spec.js",
     "tests/test_public_contract.py",
+    "tests/test_release_builder.py",
     "tests/performance/performance.spec.js",
     ".github/workflows/browser-quality.yml",
+    ".github/workflows/release.yml",
 )
 
 LOCAL_ONLY_FILES = (
@@ -459,6 +468,19 @@ def main() -> int:
         errors.append(
             location_index_check.stdout.strip()
             or location_index_check.stderr.strip()
+        )
+
+    release_package_check = subprocess.run(
+        [sys.executable, "tools/build_release.py", "--check"],
+        cwd=ROOT,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if release_package_check.returncode != 0:
+        errors.append(
+            release_package_check.stdout.strip()
+            or release_package_check.stderr.strip()
         )
 
     if errors:
