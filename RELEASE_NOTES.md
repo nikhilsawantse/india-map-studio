@@ -17,6 +17,8 @@ administrative map explorer and authoring toolkit.
   coverage.
 - Contributor validation for SVG, GeoJSON, identifiers, provenance, licensing,
   and feature counts.
+- Landing-page links to the maintainer profile plus live repository star and
+  fork counts with direct GitHub actions.
 
 ## Release assets
 

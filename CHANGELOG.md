@@ -90,6 +90,8 @@ No changes yet.
 - Version 1 migration guidance, release notes, citation metadata, deterministic
   source and starter archives, checksum generation, and a tag-driven GitHub
   release workflow.
+- A prominent landing-page community strip with the maintainer's GitHub
+  profile, live repository star and fork counts, and direct Star/Fork actions.
 
 ### Changed
 

@@ -61,4 +61,4 @@ response to user and contributor feedback.
 - [x] Freeze the public API and data-manifest schema.
 - [x] Add copy-paste starter snippets to every runnable example.
 - [x] Publish migration notes, release assets, and citation metadata.
-- [ ] Create a stable tagged GitHub release.
+- [x] Create a stable tagged GitHub release.

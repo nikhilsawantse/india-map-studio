@@ -19,6 +19,8 @@
   const tooltip = document.querySelector("#map-tooltip");
   const tooltipName = document.querySelector("#tooltip-name");
   const tooltipType = document.querySelector("#tooltip-type");
+  const githubStars = document.querySelector("#github-stars");
+  const githubForks = document.querySelector("#github-forks");
 
   let selectedSlug = null;
   const map = new window.IndiaMapEngine({
@@ -48,6 +50,30 @@
 
   function hideTooltip() {
     tooltip.hidden = true;
+  }
+
+  async function loadGitHubRepositoryStats() {
+    if (!githubStars || !githubForks) return;
+    if (window.location.hostname !== "nikhilsawantse.github.io") return;
+
+    try {
+      const response = await fetch(
+        "https://api.github.com/repos/nikhilsawantse/india-map-studio",
+        { headers: { Accept: "application/vnd.github+json" } },
+      );
+      if (!response.ok) throw new Error(`GitHub returned ${response.status}`);
+
+      const repository = await response.json();
+      const numberFormat = new Intl.NumberFormat(undefined, { notation: "compact" });
+      githubStars.textContent = numberFormat.format(repository.stargazers_count || 0);
+      githubForks.textContent = numberFormat.format(repository.forks_count || 0);
+      githubStars.title = `${repository.stargazers_count || 0} GitHub stars`;
+      githubForks.title = `${repository.forks_count || 0} GitHub forks`;
+    } catch (error) {
+      githubStars.textContent = "View";
+      githubForks.textContent = "View";
+      console.info("Live GitHub statistics are unavailable.", error);
+    }
   }
 
   function updateSelection(slug) {
@@ -152,5 +178,6 @@
   );
 
   renderStateList();
+  loadGitHubRepositoryStats();
   map.load().catch(() => {});
 })();
