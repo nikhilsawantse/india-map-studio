@@ -14,6 +14,7 @@
         <span><strong>India Map Studio</strong><small>Map engine API</small></span>
       </a>
       <nav class="header-actions" aria-label="Documentation navigation">
+        <a class="back-link" href="api-stability.html">Version 1 contract</a>
         <a class="back-link" href="quick-start.html">Five-minute start</a>
         <a class="back-link" href="performance.html">Performance</a>
         <a class="back-link" href="../index.html">Explorer</a>
@@ -28,6 +29,8 @@
         Load an SVG, discover its features, manage selection and hover state,
         and connect page-specific behavior through bubbling DOM events.
       </p>
+
+      <p><strong>Public API version 1.0.0.</strong> Read the <a href="api-stability.html">stability contract</a> for compatibility and deprecation rules.</p>
 
       <section>
         <h2>Quick start</h2>
@@ -68,8 +71,9 @@
         <p>
           <code>load</code>, <code>render</code>, <code>refresh</code>,
           <code>select</code>, <code>clearSelection</code>, <code>hover</code>,
-          <code>setData</code>, <code>getFeatures</code>, <code>on</code>, and
-          <code>destroy</code>.
+          <code>setData</code>, <code>getSelectedId</code>,
+          <code>getFeatureElement</code>, <code>getFeatures</code>,
+          <code>on</code>, and <code>destroy</code>.
         </p>
       </section>
 
@@ -79,6 +83,7 @@
           Listen for <code>india-map:mapload</code>, <code>maperror</code>,
           <code>featureenter</code>, <code>featuremove</code>,
           <code>featureleave</code>, <code>featurefocus</code>,
+          <code>featureblur</code>,
           <code>featureselect</code>, <code>featureactivate</code>,
           <code>selectionchange</code>, and <code>datachange</code>.
         </p>

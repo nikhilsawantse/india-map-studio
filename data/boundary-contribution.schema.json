@@ -6,7 +6,7 @@
   "type": "object",
   "required": ["schemaVersion", "layer", "source", "processing"],
   "properties": {
-    "schemaVersion": { "type": "string", "pattern": "^1\\." },
+    "schemaVersion": { "const": "1.0.0" },
     "layer": {
       "type": "object",
       "required": [

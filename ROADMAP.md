@@ -58,7 +58,7 @@ response to user and contributor feedback.
 
 ## Milestone 8: Version 1.0
 
-- [ ] Freeze the public API and data-manifest schema.
+- [x] Freeze the public API and data-manifest schema.
 - [ ] Add copy-paste starter snippets to every runnable example.
 - [ ] Publish migration notes, release assets, and citation metadata.
 - [ ] Create a stable tagged GitHub release.

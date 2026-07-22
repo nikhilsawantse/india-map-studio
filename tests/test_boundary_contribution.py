@@ -134,6 +134,13 @@ class BoundaryContributionValidationTests(unittest.TestCase):
         self.assertTrue(any("redistributionConfirmed" in item for item in result.errors))
         self.assertTrue(any("cannot leave" in item for item in result.errors))
 
+    def test_manifest_rejects_an_unpublished_schema_version(self) -> None:
+        document = self.manifest(asset="districts.svg", asset_format="svg")
+        document["schemaVersion"] = "1.1.0"
+        result = validate_manifest(self.write_manifest(document))
+        self.assertFalse(result.valid)
+        self.assertTrue(any("frozen 1.0.0 contract" in item for item in result.errors))
+
 
 if __name__ == "__main__":
     unittest.main()

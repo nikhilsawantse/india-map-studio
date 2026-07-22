@@ -37,6 +37,8 @@ REQUIRED_FILES = (
     "mobile-workspace.js",
     "docs/map-engine.md",
     "docs/map-engine.html",
+    "docs/api-stability.md",
+    "docs/api-stability.html",
     "docs/performance.md",
     "docs/performance.html",
     "docs/mobile-ux.md",
@@ -125,6 +127,8 @@ REQUIRED_FILES = (
     "tests/browser/accessibility.spec.js",
     "tests/browser/mobile.spec.js",
     "tests/browser/mobile-accessibility.spec.js",
+    "tests/browser/public-api.spec.js",
+    "tests/test_public_contract.py",
     "tests/performance/performance.spec.js",
     ".github/workflows/browser-quality.yml",
 )

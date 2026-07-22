@@ -79,6 +79,9 @@ release.
   target sizing, mobile form sizing, and controls-first printable reports.
 - Mobile layout, overflow, touch-target, and accessibility regression coverage
   plus a copyable shared-helper setup guide.
+- Frozen Version 1 contracts for `IndiaMapEngine`, `<india-svg-map>`, the
+  boundary registry, and contribution manifests, with runtime version markers,
+  strict schemas, compatibility documentation, and automated contract tests.
 
 ### Changed
 

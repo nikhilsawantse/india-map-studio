@@ -331,8 +331,8 @@ def validate_manifest(path: Path) -> ValidationResult:
         return result
 
     schema_version = required_string(document, "schemaVersion", "manifest", result)
-    if schema_version and not schema_version.startswith("1."):
-        result.error("schemaVersion must use the supported 1.x contract")
+    if schema_version and schema_version != "1.0.0":
+        result.error("schemaVersion must use the frozen 1.0.0 contract")
 
     layer = required_object(document, "layer", "manifest", result)
     source = required_object(document, "source", "manifest", result)

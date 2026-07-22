@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Version 1 API and data-schema stability contract for India Map Studio." />
+    <title>Version 1 stability contract &middot; India Map Studio</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="India Map Studio home">
+        <span class="brand-mark" aria-hidden="true">IM</span>
+        <span><strong>India Map Studio</strong><small>Version 1 contract</small></span>
+      </a>
+      <nav class="header-actions" aria-label="Documentation navigation">
+        <a class="back-link" href="map-engine.html">Engine API</a>
+        <a class="back-link" href="../registry.html">Boundary registry</a>
+        <a class="back-link" href="quick-start.html">Five-minute start</a>
+        <a class="back-link" href="../examples/index.html">Examples</a>
+      </nav>
+    </header>
+
+    <main class="engine-docs">
+      <p class="eyebrow">Stable public surface</p>
+      <h1>Version 1 contract</h1>
+      <p class="intro">Applications can upgrade across compatible 1.x releases when they use the documented runtime, Web Component, and boundary-manifest contracts.</p>
+
+      <section>
+        <h2>Frozen versions</h2>
+        <div class="engine-api-grid">
+          <code>IndiaMapEngine 1.0.0</code><span>Configuration, methods, state classes, and bubbling DOM events.</span>
+          <code>india-svg-map 1.0.0</code><span>Five attributes plus the selection and engine JavaScript APIs.</span>
+          <code>Registry schema 1.0.0</code><span>Strict public boundary-layer catalog structure.</span>
+          <code>Contribution schema 1.0.0</code><span>Strict boundary contribution manifest structure.</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Compatibility rule</h2>
+        <p>Patch releases fix behavior. Minor releases may add optional capabilities without removing version 1 behavior. Removing, renaming, retyping, or reinterpreting a public member requires a major release and migration notes.</p>
+      </section>
+
+      <section>
+        <h2>Public versus internal</h2>
+        <p>The documented constructor options, methods, events, component members, schema fields, and stable identifiers are public. Underscore-prefixed methods, injected DOM structure, page-specific globals, tooling scripts, and undocumented CSS are internal implementation details.</p>
+      </section>
+
+      <section>
+        <h2>Contributor gate</h2>
+        <pre tabindex="0" aria-label="Public contract test commands"><code>pnpm test:browser -- tests/browser/public-api.spec.js --workers=1
+python -m unittest tests.test_public_contract -v</code></pre>
+        <p>A proposed breaking change must update its version, migration notes, changelog, documentation, and contract tests together.</p>
+      </section>
+
+      <section>
+        <h2>Complete reference</h2>
+        <p>Read the <a href="map-engine.html">map engine API</a>, the <a href="boundary-registry.md">boundary registry format</a>, or the <a href="api-stability.md">repository stability policy</a>.</p>
+      </section>
+    </main>
+  </body>
+</html>

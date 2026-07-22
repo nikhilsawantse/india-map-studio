@@ -1,7 +1,21 @@
 (function (global) {
   "use strict";
 
+  const API_VERSION = "1.0.0";
   const EVENT_PREFIX = "india-map:";
+  const PUBLIC_EVENTS = Object.freeze([
+    "mapload",
+    "maperror",
+    "featureenter",
+    "featuremove",
+    "featureleave",
+    "featurefocus",
+    "featureblur",
+    "featureselect",
+    "featureactivate",
+    "selectionchange",
+    "datachange",
+  ]);
   const DEFAULTS = Object.freeze({
     mount: null,
     src: "",
@@ -9,13 +23,13 @@
     featureSelector: ".map-region",
     featureKey: "slug",
     dataKey: "",
-    data: [],
+    data: Object.freeze([]),
     selectedClass: "is-selected",
     hoveredClass: "is-hovered",
     interactive: true,
     keyboard: true,
     sanitize: true,
-    fetchOptions: {},
+    fetchOptions: Object.freeze({}),
   });
 
   function resolveElement(value) {
@@ -58,8 +72,10 @@
   }
 
   class IndiaMapEngine {
+    static version = API_VERSION;
     static defaults = DEFAULTS;
     static eventPrefix = EVENT_PREFIX;
+    static events = PUBLIC_EVENTS;
 
     constructor(configuration = {}) {
       this.config = { ...DEFAULTS, ...configuration };

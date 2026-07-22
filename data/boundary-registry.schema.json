@@ -4,6 +4,7 @@
   "title": "India Map Studio boundary registry",
   "type": "object",
   "required": [
+    "$schema",
     "schemaVersion",
     "registryVersion",
     "publishedAt",
@@ -12,7 +13,8 @@
     "layers"
   ],
   "properties": {
-    "schemaVersion": { "type": "string", "pattern": "^1\\." },
+    "$schema": { "const": "boundary-registry.schema.json" },
+    "schemaVersion": { "const": "1.0.0" },
     "registryVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
     "publishedAt": { "type": "string", "format": "date" },
     "compatibility": {
@@ -33,7 +35,7 @@
       "items": { "$ref": "#/$defs/layer" }
     }
   },
-  "additionalProperties": true,
+  "additionalProperties": false,
   "$defs": {
     "source": {
       "type": "object",

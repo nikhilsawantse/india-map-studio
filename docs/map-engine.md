@@ -5,6 +5,10 @@ loads an SVG into a supplied element, discovers features, manages hover and
 selection state, and publishes DOM events. Page-specific panels, routing,
 tooltips, and data presentation remain outside the engine.
 
+The frozen public API version is available as `IndiaMapEngine.version` and is
+currently `1.0.0`. See the [Version 1 stability contract](api-stability.md) for
+compatibility guarantees and the boundary between public and internal APIs.
+
 ## Quick start
 
 ```html
@@ -60,6 +64,9 @@ tooltips, and data presentation remain outside the engine.
 
 Events bubble from the mount element and use the `india-map:` prefix. Event
 details always contain the originating `engine`.
+
+`IndiaMapEngine.events` exposes the frozen list of public event names and
+`IndiaMapEngine.eventPrefix` exposes the prefix.
 
 | Event | Important detail fields |
 | --- | --- |

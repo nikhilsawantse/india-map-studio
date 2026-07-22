@@ -2,6 +2,8 @@
   "use strict";
 
   class IndiaSvgMapElement extends HTMLElement {
+    static version = "1.0.0";
+
     static get observedAttributes() {
       return ["src", "selected", "disabled"];
     }

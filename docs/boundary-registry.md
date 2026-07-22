@@ -6,15 +6,18 @@ tracked SVG assets rather than maintained as a separate handwritten inventory.
 
 ## Versioning
 
-- `schemaVersion` identifies the structure of registry records.
+- `schemaVersion` identifies the structure of registry records and is frozen at
+  `1.0.0` for the Version 1 contract.
 - `registryVersion` identifies the published catalog release.
 - `compatibility.minimumVersion` declares the oldest compatible
   `IndiaMapEngine` API.
 - `data/boundary-registry.schema.json` provides the JSON Schema contract.
 
-A schema major-version change may remove or reinterpret fields. Registry minor
-and patch releases may add layers, metadata, verification notes, or compatible
-fields.
+The schema rejects unknown top-level and layer fields. A schema-version change
+is required before adding an object field or removing, renaming, retyping, or
+reinterpreting an existing field. Registry minor and patch releases may add
+records and use values already permitted by the schema. See the
+[Version 1 stability contract](api-stability.md).
 
 ## Layer records
 

@@ -27,6 +27,8 @@ assets, with no application framework or build step required.
 
 - Interactive India map with state and union territory boundaries
 - Reusable `IndiaMapEngine` with a documented configuration and DOM event API
+- Frozen Version 1 runtime, Web Component, boundary-registry, and contribution
+  manifest contracts with automated compatibility tests
 - Framework-free `<india-svg-map>` Web Component with independent instances
 - Versioned boundary registry with source, license, vintage, identifiers,
   verification state, and map-engine compatibility for every public layer
@@ -402,7 +404,8 @@ assets.
 
 Read the [map engine API](docs/map-engine.md) or open the
 [multiple-map example](examples/multiple-maps.html) to use the engine without a
-framework.
+framework. The [Version 1 stability contract](docs/api-stability.md) defines
+the supported surface, Semantic Versioning rules, and contributor gate.
 
 ## Examples and quick start
 
@@ -444,6 +447,7 @@ the behavior contract and copyable helper setup.
 
 ## Next milestone
 
-Freeze the public API and boundary-manifest schema, then add copy-paste starter
-snippets to every example before the Version 1.0 release. Localization and
-offline support are intentionally deferred. See [ROADMAP.md](ROADMAP.md).
+Add copy-paste starter snippets to every runnable example, then publish
+migration notes, release assets, and citation metadata before the Version 1.0
+release. Localization and offline support are intentionally deferred. See
+[ROADMAP.md](ROADMAP.md).

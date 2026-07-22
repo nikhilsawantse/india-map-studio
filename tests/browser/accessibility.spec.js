@@ -6,6 +6,7 @@ const pages = [
   { name: "example gallery", path: "/examples/", ready: ".examples-grid" },
   { name: "performance guide", path: "/docs/performance.html", ready: ".engine-docs" },
   { name: "mobile UX guide", path: "/docs/mobile-ux.html", ready: ".engine-docs" },
+  { name: "API stability guide", path: "/docs/api-stability.html", ready: ".engine-docs" },
   { name: "starter", path: "/starter/", ready: "india-svg-map svg" },
   { name: "service coverage", path: "/examples/service-coverage.html", ready: "#coverage-map svg" },
   { name: "incident alerts", path: "/examples/incident-alerts.html", ready: "#incident-map svg" },
